@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "9AEHDrJNfCqpqk648O7ZPNIUDZHHuTskD8P+V+JIhMSB9shZIKt+Tq/cHtuBwfkD56RsvJzRsDQ2zthXgUPwhw==",
+  "dgSpecHash": "eBVRhl/FkGLeCP8ENdBVZfJctS4s6Q3VcDt6J4g/OpNF781AZ0odV1obKSzHYT0Rj9L0jbLmoVGOaltNMtz2rQ==",
   "success": true,
   "projectFilePath": "A:\\Course work\\MAUI project\\ElectronicsShop\\ElectronicsShop\\ElectronicsShop.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kirik\\.nuget\\packages\\communitytoolkit.maui\\1.3.0\\communitytoolkit.maui.1.3.0.nupkg.sha512",
+    "C:\\Users\\kirik\\.nuget\\packages\\communitytoolkit.maui.core\\1.3.0\\communitytoolkit.maui.core.1.3.0.nupkg.sha512",
     "C:\\Users\\kirik\\.nuget\\packages\\googlegson\\2.9.0.1\\googlegson.2.9.0.1.nupkg.sha512",
     "C:\\Users\\kirik\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",
     "C:\\Users\\kirik\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
