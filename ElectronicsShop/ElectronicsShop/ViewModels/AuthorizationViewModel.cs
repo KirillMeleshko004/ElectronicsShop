@@ -1,4 +1,5 @@
 ﻿using ElectronicsShop.Services;
+using ElectronicsShop.Views;
 
 namespace ElectronicsShop.ViewModels
 {
@@ -22,30 +23,37 @@ namespace ElectronicsShop.ViewModels
         [ObservableProperty]
         string errorMessage;
 
-        public Command SignInCommand { get; }
         public AuthorizationViewModel(AuthorizationService authorizationService, Account account)
         {
             this.authorizationService = authorizationService;
             this.account = account;
             Title = "Authorization";
-            SignInCommand = new Command(async () => await DoSingInAsync());
         }
-        async Task DoSingInAsync()
+
+        [RelayCommand]
+        public async Task SignIn()
         {
             IsBusy = true;
-            isSuccessful = await authorizationService.DoAuthorizationAsync(Login, Password);
+            AccountInfo accountInfo = await authorizationService.DoAuthorizationAsync(Login, Password);
+            if (accountInfo.Error == AccountInfo.Errors.NoErrors) isSuccessful = true;
+            else isSuccessful = false;
             if (isSuccessful)
             {
-                account.Login = Login;
+                account.Login = accountInfo.Login;
                 IsLoginOrPasswordWrong = false;
             }
             else
             {
-                ErrorMessage = "Incorrect login or password!";
+                ErrorMessage = accountInfo.ErrorMessage;
                 IsLoginOrPasswordWrong = true;
                 Password = string.Empty;
             }
             IsBusy = false;
+        }
+        [RelayCommand]
+        async Task SignUp()
+        {
+            await Shell.Current.GoToAsync(nameof(RegistrationViewLoginPage), true);
         }
     }
 }

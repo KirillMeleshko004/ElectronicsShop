@@ -2,10 +2,9 @@
 {
     public class AccountCreationService
     {
-        public async Task<bool> CreateAccount(string login, string password, string repeatPassword)
+        public async Task<AccountInfo> CreateAccountAsync(string login, string password, string repeatPassword)
         {
-            if (password != repeatPassword) return false;
-            return await TempServer.CreateAccount(login, password);
+            return await TempServer.CreateAccountAsync(login, password, repeatPassword);
         }
     }
 }

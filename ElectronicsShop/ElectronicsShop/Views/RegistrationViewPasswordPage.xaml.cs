@@ -2,7 +2,7 @@ namespace ElectronicsShop.Views;
 
 public partial class RegistrationViewPasswordPage : ContentPage
 {
-	public RegistrationViewPasswordPage(RegistrationViewModel viewModel)
+	public RegistrationViewPasswordPage(RegistrationLoginViewModel viewModel)
 	{
 		InitializeComponent();
 

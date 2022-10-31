@@ -2,9 +2,9 @@
 {
     public class LoginCheckService
     {
-        public async Task<bool> CheckLogin(string login)
+        public async Task<AccountInfo> CheckLoginAsync(string login)
         {
-            return await TempServer.CheckLogin(login);
+            return await TempServer.CheckLoginAsync(login);
         }
     }
 }

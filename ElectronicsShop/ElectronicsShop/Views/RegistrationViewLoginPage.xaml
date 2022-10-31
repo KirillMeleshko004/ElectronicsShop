@@ -4,7 +4,7 @@
              x:Class="ElectronicsShop.Views.RegistrationViewLoginPage"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
-             x:DataType="viewmodel:RegistrationViewModel"
+             x:DataType="viewmodel:RegistrationLoginViewModel"
              Title="{Binding Title}"
              Shell.NavBarIsVisible="False"
              Shell.BackgroundColor="{StaticResource Primary}"
@@ -42,7 +42,7 @@
                IsEnabled="{Binding IsNotBusy}"
                Padding="-5">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding ConfirmLoginCommand}"/>
+                <TapGestureRecognizer Command="{Binding LoginConfirmationCommand}"/>
             </Frame.GestureRecognizers>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -68,9 +68,5 @@
                        Grid.Column="1"/>
             </Grid>
         </Frame>
-        <Label x:Name="loginConfirmationHelper"
-               Text="{Binding IsLoginWrong}"
-               IsVisible="false"
-               PropertyChanged="LoginConfirmationPropertyChanged"/>
     </VerticalStackLayout>
 </ContentPage>

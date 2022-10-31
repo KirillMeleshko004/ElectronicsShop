@@ -4,15 +4,10 @@ namespace ElectronicsShop.Views;
 
 public partial class RegistrationViewLoginPage : ContentPage
 {
-	public RegistrationViewLoginPage(RegistrationViewModel viewModel)
+	public RegistrationViewLoginPage(RegistrationLoginViewModel viewModel)
 	{
 		InitializeComponent();
 
         BindingContext = viewModel;
-    }
-    private async void LoginConfirmationPropertyChanged(object sender, EventArgs e)
-    {
-        if (((Label)sender).Text == "false") return;
-        await Shell.Current.GoToAsync(nameof(RegistrationViewLoginPage));
     }
 }

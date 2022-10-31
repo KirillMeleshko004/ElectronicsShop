@@ -10,9 +10,4 @@ public partial class AuthorizationView : ContentPage
 
         BindingContext = viewModel;
     }
-
-    private async void SignUpGestureRecognizerTapped(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(RegistrationViewLoginPage));
-    }
 }

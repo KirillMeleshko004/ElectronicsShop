@@ -57,7 +57,7 @@
                    FontSize="Small"
                    Margin="10,-5,0,0">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="SignUpGestureRecognizerTapped"/>
+                    <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
                 </Label.GestureRecognizers>
             </Label>
         </HorizontalStackLayout>
@@ -69,8 +69,7 @@
                IsEnabled="{Binding IsNotBusy}"
                Padding="-5">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer x:Name="signUpGestureRecognizer"
-                                      Command="{Binding SignInCommand}"/>
+                <TapGestureRecognizer Command="{Binding SignInCommand}"/>
             </Frame.GestureRecognizers>
             <Grid>
                 <Grid.ColumnDefinitions>

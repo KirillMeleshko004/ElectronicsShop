@@ -37,26 +37,27 @@ namespace ElectronicsShop.Models
         {
             accounts = ReadAccounts();
         }
-        public async static Task<bool> AuthorizationAsync(string login, string password)
+        public async static Task<AccountInfo> AuthorizationAsync(string login, string password)
         {
             await Task.Delay(3000);
-            if (login == null || password == null) return false;
-            if (!accounts.ContainsKey(login)) return false;
-            if (accounts[login]!=password) return false;
-            return true;
+            if (login == null || password == null || login == "" || password == "") return new AccountInfo(login, AccountInfo.Errors.EmptyField);
+            if (!accounts.ContainsKey(login) || accounts[login] != password) return new AccountInfo(login, AccountInfo.Errors.IncorrectLoginOrPassword);
+            return new AccountInfo(login, AccountInfo.Errors.NoErrors);
         }
-        public async static Task<bool> CheckLogin(string login)
+        public async static Task<AccountInfo> CheckLoginAsync(string login)
         {
             await Task.Delay(3000);
-            if (login == null) return false;
-            return accounts.ContainsKey(login) ? false : true;
+            if (login == null) return new AccountInfo(login, AccountInfo.Errors.EmptyField);
+            return accounts.ContainsKey(login) ? new AccountInfo(login, AccountInfo.Errors.SameLoginExist) 
+                : new AccountInfo(login, AccountInfo.Errors.NoErrors);
         }
-        public async static Task<bool> CreateAccount(string login, string password)
+        public async static Task<AccountInfo> CreateAccountAsync(string login, string password, string repeatPassword)
         {
             await Task.Delay(3000);
+            if (password != repeatPassword) return new AccountInfo(login, AccountInfo.Errors.PasswordsNotSame);
             accounts.Add(login, password);
             WriteAccounts(accounts);
-            return true;
+            return new AccountInfo(login, AccountInfo.Errors.NoErrors);
         }
     }
 }
