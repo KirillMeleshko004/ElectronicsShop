@@ -10,6 +10,7 @@
     <Color x:Key="Quaternary">#FFAEBC</Color>
     <Color x:Key="LightGreyTextColor">#6E6E6E</Color>
     <Color x:Key="MediumGreyTextColor">#404040</Color>
+    <Color x:Key="ErrorMessageTextColor">#ff1493</Color>
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ElectronicsShop.Views.RegistrationViewLoginPage"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
+             x:DataType="viewmodel:RegistrationViewModel"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="False"
+             Shell.BackgroundColor="{StaticResource Primary}"
+             BackgroundColor="{StaticResource Secondary}">
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
+                               StatusBarStyle="DarkContent"/>
+    </Page.Behaviors>
+
+    <VerticalStackLayout Padding="10,0" Spacing="10"
+          BackgroundColor="{StaticResource Secondary}">
+        <Image Source="logo.svg"
+               WidthRequest="403"
+               Margin="0,-68"/>
+        <Label Text="{Binding ErrorMessage}"
+               TextColor="{StaticResource ErrorMessageTextColor}"
+               HorizontalTextAlignment="Start"
+               Margin="10,0,0,-5"
+               IsVisible="{Binding IsLoginWrong}"/>
+        <Frame BorderColor="{StaticResource LightGreyTextColor}"
+               BackgroundColor="{StaticResource Tertiary}"
+               CornerRadius="0"
+               HeightRequest="90">
+            <Entry Placeholder="New login"
+                   FontSize="Medium"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Center"
+                   Text="{Binding Login, Mode=OneWayToSource}"/>
+        </Frame>
+        <Frame HeightRequest="50"
+               WidthRequest="250"
+               CornerRadius="10"
+               BackgroundColor="{StaticResource Primary}"
+               BorderColor="{StaticResource MediumGreyTextColor}"
+               IsEnabled="{Binding IsNotBusy}"
+               Padding="-5">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ConfirmLoginCommand}"/>
+            </Frame.GestureRecognizers>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <ActivityIndicator IsVisible="{Binding IsBusy}"
+                                   IsRunning="{Binding IsBusy}"
+                                   Color="{StaticResource Quaternary}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Grid.Column="0"
+                                   HeightRequest="35"/>
+                <Label Text="Continue"
+                       FontSize="Medium"
+                       TextColor="{StaticResource MediumGreyTextColor}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Grid.Column="1"/>
+            </Grid>
+        </Frame>
+        <Label x:Name="loginConfirmationHelper"
+               Text="{Binding IsLoginWrong}"
+               IsVisible="false"
+               PropertyChanged="LoginConfirmationPropertyChanged"/>
+    </VerticalStackLayout>
+</ContentPage>

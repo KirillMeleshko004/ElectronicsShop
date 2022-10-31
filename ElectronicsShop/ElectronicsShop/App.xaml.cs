@@ -1,4 +1,6 @@
-﻿namespace ElectronicsShop;
+﻿using ElectronicsShop.Views;
+
+namespace ElectronicsShop;
 
 public partial class App : Application
 {

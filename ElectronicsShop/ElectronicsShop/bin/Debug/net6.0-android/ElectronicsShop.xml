@@ -4,6 +4,42 @@
         <name>ElectronicsShop</name>
     </assembly>
     <members>
+        <member name="P:ElectronicsShop.ViewModels.AuthorizationViewModel.Login">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthorizationViewModel.login"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthorizationViewModel.Password">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthorizationViewModel.password"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthorizationViewModel.IsSuccessful">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthorizationViewModel.isSuccessful"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthorizationViewModel.IsLoginOrPasswordWrong">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthorizationViewModel.isLoginOrPasswordWrong"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthorizationViewModel.ErrorMessage">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthorizationViewModel.errorMessage"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.BaseViewModel.Title">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.BaseViewModel._title"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.BaseViewModel._isBusy"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.Login">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.login"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.Password">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.password"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.IsSuccessful">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.isSuccessful"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.IsLoginWrong">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.isLoginWrong"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.ErrorMessage">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.errorMessage"/>
+        </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
             <summary>
             Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color

@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ElectronicsShop.Views.AuthorizationView"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
-             Title="AuthorizationView"
+             xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
+             x:DataType="viewmodel:AuthorizationViewModel"
+             Title="{Binding Title}"
              Shell.NavBarIsVisible="False"
              Shell.BackgroundColor="{StaticResource Primary}"
              BackgroundColor="{StaticResource Secondary}">
@@ -11,106 +13,88 @@
         <mct:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
                                StatusBarStyle="DarkContent"/>
     </Page.Behaviors>
-    <Grid ColumnSpacing="5" RowSpacing="5" Margin="5"
-          BackgroundColor="{StaticResource Secondary}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="0.75*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
 
-        <Frame Grid.Row="1" Grid.RowSpan="3"
+    <VerticalStackLayout Padding="10,0" Spacing="10"
+          BackgroundColor="{StaticResource Secondary}">
+        <Image Source="logo.svg"
+               WidthRequest="403"
+               Margin="0,-68"/>
+        <Label Text="{Binding ErrorMessage}"
+               TextColor="{StaticResource ErrorMessageTextColor}"
+               HorizontalTextAlignment="Start"
+               Margin="10,0,0,-5"
+               IsVisible="{Binding IsLoginOrPasswordWrong}"
+               FontSize="Small"/>
+        <Frame BorderColor="{StaticResource LightGreyTextColor}"
+               BackgroundColor="{StaticResource Tertiary}"
+               CornerRadius="0"
+               HeightRequest="90">
+            <Entry Placeholder="Login"
+                   FontSize="Medium"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Center"
+                   Text="{Binding Login, Mode=OneWayToSource}"
+                   TextColor="{StaticResource MediumGreyTextColor}"/>
+        </Frame>
+        <Frame BorderColor="{StaticResource LightGreyTextColor}"
+               BackgroundColor="{StaticResource Tertiary}"
+               Padding="20,10"
+               CornerRadius="0"
+               HeightRequest="90"
+               VerticalOptions="Start">
+            <Entry Placeholder="Password"
+                   FontSize="Medium"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Center"
+                   IsPassword="True"
+                   Text="{Binding Password, Mode=TwoWay}"
+                   TextColor="{StaticResource MediumGreyTextColor}"/>
+        </Frame>
+        <HorizontalStackLayout HorizontalOptions="Start" Spacing="45">
+            <Label Text="New user? Sign Up"
+                   TextDecorations="Underline"
+                   TextColor="{StaticResource MediumGreyTextColor}"
+                   FontSize="Small"
+                   Margin="10,-5,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="SignUpGestureRecognizerTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </HorizontalStackLayout>
+        <Frame HeightRequest="50"
+               WidthRequest="250"
+               CornerRadius="10"
                BackgroundColor="{StaticResource Primary}"
-               BorderColor="{StaticResource LightGreyTextColor}"
-               Margin="10,0,10,0"
-               CornerRadius="20">
-            <Grid RowSpacing="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="1.5*"/>
-                    <RowDefinition Height="1.5*"/>
-                </Grid.RowDefinitions>
+               BorderColor="{StaticResource MediumGreyTextColor}"
+               IsEnabled="{Binding IsNotBusy}"
+               Padding="-5">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer x:Name="signUpGestureRecognizer"
+                                      Command="{Binding SignInCommand}"/>
+            </Frame.GestureRecognizers>
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                
-                <Label HorizontalOptions="Center"
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <ActivityIndicator IsVisible="{Binding IsBusy}"
+                                   IsRunning="{Binding IsBusy}"
+                                   Color="{StaticResource Quaternary}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Grid.Column="0"
+                                   HeightRequest="35"/>
+                <Label Text="Sign In"
+                       FontSize="Medium"
+                       TextColor="{StaticResource MediumGreyTextColor}"
                        VerticalOptions="Center"
-                       Text="Sign In"
-                       FontSize="Title"
-                       Grid.Row="0"/>
-                <Label HorizontalOptions="Center"
-                       VerticalOptions="Start"
-                       Text="Enter your login and password"
-                       FontSize="Subtitle"
-                       Grid.Row="1"/>
-
-                <Frame Grid.Row="2"
-                       BorderColor="{StaticResource LightGreyTextColor}"
-                       BackgroundColor="{StaticResource Tertiary}"
-                       Padding="20,10"
-                       CornerRadius="30">
-                    <Entry x:Name="loginEntry"
-                           Placeholder="Login"
-                           FontSize="Medium"
-                           HorizontalOptions="Fill"
-                           VerticalOptions="Center"/>
-                </Frame>
-
-                <Frame Grid.Row="3"
-                       BorderColor="{StaticResource LightGreyTextColor}"
-                       BackgroundColor="{StaticResource Tertiary}"
-                       Padding="20,10"
-                       CornerRadius="30">
-                    <Entry x:Name="passwordEntry"
-                           Placeholder="Password"
-                           FontSize="Medium"
-                           HorizontalOptions="Fill"
-                           VerticalOptions="Center"
-                           IsPassword="True"/>
-                </Frame>
+                       HorizontalOptions="Center"
+                       Grid.Column="1"/>
             </Grid>
         </Frame>
-        <Grid Grid.Row="4" Padding="10" RowSpacing="10">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Padding="-10"
-                    Grid.Column="1"
-                    Grid.ColumnSpan="3"
-                    HorizontalOptions="Fill"
-                    Text="Sign In"
-                    TextColor="{StaticResource MediumGreyTextColor}"
-                    CornerRadius="20"
-                    BackgroundColor="{StaticResource Tertiary}"
-                    BorderWidth="1"
-                    BorderColor="{StaticResource MediumGreyTextColor}"/>
-            <Button Padding="-10"
-                    Grid.Column="1"
-                    Grid.ColumnSpan="3"
-                    Grid.Row="1"
-                    HorizontalOptions="Fill"
-                    Text="New user? Sign Up"
-                    TextColor="{StaticResource MediumGreyTextColor}"
-                    CornerRadius="20"
-                    BackgroundColor="{StaticResource Tertiary}"
-                    BorderWidth="1"
-                    BorderColor="{StaticResource MediumGreyTextColor}"/>
-        </Grid>
-    </Grid>
+    </VerticalStackLayout>
 </ContentPage>
