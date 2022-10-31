@@ -11,10 +11,7 @@
     <MauiXaml Update="Views\AuthorizationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\RegistrationViewLoginPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="Views\RegistrationViewPasswordPage.xaml">
+    <MauiXaml Update="Views\RegistrationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

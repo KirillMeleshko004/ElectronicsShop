@@ -37,41 +37,29 @@
         <member name="P:ElectronicsShop.ViewModels.BaseViewModel.IsBusy">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.BaseViewModel._isBusy"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationLoginViewModel.Login">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationLoginViewModel.login"/>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.Login">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.login"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationLoginViewModel.IsSuccessful">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationLoginViewModel.isSuccessful"/>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.Password">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.password"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationLoginViewModel.IsLoginWrong">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationLoginViewModel.isLoginWrong"/>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.RepeatPassword">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.repeatPassword"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationLoginViewModel.ErrorMessage">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationLoginViewModel.errorMessage"/>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.IsSuccessful">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.isSuccessful"/>
         </member>
-        <member name="F:ElectronicsShop.ViewModels.RegistrationLoginViewModel.loginConfirmationCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.RegistrationLoginViewModel.LoginConfirmationCommand"/>.</summary>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.IsLoginWrong">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.isLoginWrong"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationLoginViewModel.LoginConfirmationCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.RegistrationLoginViewModel.LoginConfirmation"/>.</summary>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.ErrorMessage">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.errorMessage"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.Login">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.login"/>
+        <member name="F:ElectronicsShop.ViewModels.RegistrationViewModel.createAccountCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.RegistrationViewModel.CreateAccountCommand"/>.</summary>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.IsSuccessful">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.isSuccessful"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.IsLoginWrong">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.isLoginWrong"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.ErrorMessage">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.errorMessage"/>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.accountCreationCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.AccountCreationCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.AccountCreationCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.RegistrationPasswordViewModel.AccountCreation"/>.</summary>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.CreateAccountCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.RegistrationViewModel.CreateAccount"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
             <summary>

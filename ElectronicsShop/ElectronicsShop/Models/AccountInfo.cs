@@ -7,7 +7,7 @@
             "Incorrect login or password!",
             "Same login already exist!",
             "Connection error!",
-            "Some fiels are empty!",
+            "Some fields are empty!",
             "Passords are not the same!",
             "Success!"
         };

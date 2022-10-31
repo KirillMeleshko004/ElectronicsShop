@@ -51,9 +51,13 @@ namespace ElectronicsShop.ViewModels
             IsBusy = false;
         }
         [RelayCommand]
-        async Task SignUp()
-        {
-            await Shell.Current.GoToAsync(nameof(RegistrationViewLoginPage), true);
+        Task SignUp()
+        {       
+            Login = string.Empty;
+            Password = string.Empty;
+            IsLoginOrPasswordWrong = false;
+            IsSuccessful = false;
+            return Shell.Current.GoToAsync(nameof(RegistrationView), true);
         }
     }
 }

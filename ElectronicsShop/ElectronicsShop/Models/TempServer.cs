@@ -35,6 +35,7 @@ namespace ElectronicsShop.Models
         }
         static TempServer()
         {
+            WriteAccounts(accounts);
             accounts = ReadAccounts();
         }
         public async static Task<AccountInfo> AuthorizationAsync(string login, string password)
@@ -44,16 +45,12 @@ namespace ElectronicsShop.Models
             if (!accounts.ContainsKey(login) || accounts[login] != password) return new AccountInfo(login, AccountInfo.Errors.IncorrectLoginOrPassword);
             return new AccountInfo(login, AccountInfo.Errors.NoErrors);
         }
-        public async static Task<AccountInfo> CheckLoginAsync(string login)
-        {
-            await Task.Delay(3000);
-            if (login == null) return new AccountInfo(login, AccountInfo.Errors.EmptyField);
-            return accounts.ContainsKey(login) ? new AccountInfo(login, AccountInfo.Errors.SameLoginExist) 
-                : new AccountInfo(login, AccountInfo.Errors.NoErrors);
-        }
         public async static Task<AccountInfo> CreateAccountAsync(string login, string password, string repeatPassword)
         {
             await Task.Delay(3000);
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(repeatPassword)) 
+                return new AccountInfo(login, AccountInfo.Errors.EmptyField);
+            if (accounts.ContainsKey(login)) new AccountInfo(login, AccountInfo.Errors.SameLoginExist);
             if (password != repeatPassword) return new AccountInfo(login, AccountInfo.Errors.PasswordsNotSame);
             accounts.Add(login, password);
             WriteAccounts(accounts);

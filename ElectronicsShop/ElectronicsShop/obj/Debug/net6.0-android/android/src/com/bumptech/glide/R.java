@@ -31,10 +31,10 @@ public final class R {
 		public static final int ttcIndex = 0x7f03045a;
 	}
 	public static final class color {
-		public static final int notification_action_color_filter = 0x7f050240;
-		public static final int notification_icon_bg_color = 0x7f050241;
-		public static final int ripple_material_light = 0x7f05024d;
-		public static final int secondary_text_default_material_light = 0x7f05024f;
+		public static final int notification_action_color_filter = 0x7f050241;
+		public static final int notification_icon_bg_color = 0x7f050242;
+		public static final int ripple_material_light = 0x7f05024e;
+		public static final int secondary_text_default_material_light = 0x7f050250;
 	}
 	public static final class dimen {
 		public static final int compat_button_inset_horizontal_material = 0x7f060059;

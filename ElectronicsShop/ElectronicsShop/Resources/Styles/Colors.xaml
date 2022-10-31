@@ -4,13 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Color x:Key="Primary">#FBE7C6</Color>
-    <Color x:Key="Secondary">#A0E7E5</Color>
-    <Color x:Key="Tertiary">#B4F8C8</Color>
-    <Color x:Key="Quaternary">#FFAEBC</Color>
-    <Color x:Key="LightGreyTextColor">#6E6E6E</Color>
-    <Color x:Key="MediumGreyTextColor">#404040</Color>
-    <Color x:Key="ErrorMessageTextColor">#ff1493</Color>
+    <Color x:Key="Primary">#038f57</Color>
+    <Color x:Key="Secondary">White</Color>
+    <Color x:Key="PrimaryTextColor">White</Color>
+    <Color x:Key="SecondaryTextColor">Black</Color>
+    <Color x:Key="ErrorMessageTextColor">#ff1060</Color>
+    <Color x:Key="SuccessTextColor">#72fc9a</Color>
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>
@@ -23,7 +22,7 @@
     <Color x:Key="Gray950">#141414</Color>
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
-    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
     <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
     <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>

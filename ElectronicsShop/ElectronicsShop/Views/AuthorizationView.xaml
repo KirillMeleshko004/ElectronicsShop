@@ -6,7 +6,6 @@
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
              x:DataType="viewmodel:AuthorizationViewModel"
              Title="{Binding Title}"
-             Shell.NavBarIsVisible="False"
              Shell.BackgroundColor="{StaticResource Primary}"
              BackgroundColor="{StaticResource Secondary}">
     <Page.Behaviors>
@@ -25,35 +24,39 @@
                Margin="10,0,0,-5"
                IsVisible="{Binding IsLoginOrPasswordWrong}"
                FontSize="Small"/>
-        <Frame BorderColor="{StaticResource LightGreyTextColor}"
-               BackgroundColor="{StaticResource Tertiary}"
-               CornerRadius="0"
-               HeightRequest="90">
+        <Frame BorderColor="Transparent"
+               BackgroundColor="{StaticResource Primary}"
+               CornerRadius="20"
+               HeightRequest="55">
             <Entry Placeholder="Login"
+                   PlaceholderColor="{StaticResource PrimaryTextColor}"
                    FontSize="Medium"
                    HorizontalOptions="Fill"
                    VerticalOptions="Center"
-                   Text="{Binding Login, Mode=OneWayToSource}"
-                   TextColor="{StaticResource MediumGreyTextColor}"/>
+                   Text="{Binding Login, Mode=TwoWay}"
+                   TextColor="{StaticResource PrimaryTextColor}"
+                   Margin="0,-20"/>
         </Frame>
-        <Frame BorderColor="{StaticResource LightGreyTextColor}"
-               BackgroundColor="{StaticResource Tertiary}"
+        <Frame BorderColor="Transparent"
+               BackgroundColor="{StaticResource Primary}"
                Padding="20,10"
-               CornerRadius="0"
-               HeightRequest="90"
+               CornerRadius="20"
+               HeightRequest="55"
                VerticalOptions="Start">
             <Entry Placeholder="Password"
+                   PlaceholderColor="{StaticResource PrimaryTextColor}"
                    FontSize="Medium"
                    HorizontalOptions="Fill"
                    VerticalOptions="Center"
                    IsPassword="True"
                    Text="{Binding Password, Mode=TwoWay}"
-                   TextColor="{StaticResource MediumGreyTextColor}"/>
+                   TextColor="{StaticResource PrimaryTextColor}"
+                   Margin="0,-20"/>
         </Frame>
         <HorizontalStackLayout HorizontalOptions="Start" Spacing="45">
             <Label Text="New user? Sign Up"
                    TextDecorations="Underline"
-                   TextColor="{StaticResource MediumGreyTextColor}"
+                   TextColor="{StaticResource SecondaryTextColor}"
                    FontSize="Small"
                    Margin="10,-5,0,0">
                 <Label.GestureRecognizers>
@@ -63,9 +66,9 @@
         </HorizontalStackLayout>
         <Frame HeightRequest="50"
                WidthRequest="250"
-               CornerRadius="10"
+               CornerRadius="20"
                BackgroundColor="{StaticResource Primary}"
-               BorderColor="{StaticResource MediumGreyTextColor}"
+               BorderColor="Transparent"
                IsEnabled="{Binding IsNotBusy}"
                Padding="-5">
             <Frame.GestureRecognizers>
@@ -82,17 +85,18 @@
                 </Grid.RowDefinitions>
                 <ActivityIndicator IsVisible="{Binding IsBusy}"
                                    IsRunning="{Binding IsBusy}"
-                                   Color="{StaticResource Quaternary}"
+                                   Color="{StaticResource Secondary}"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center"
-                                   Grid.Column="0"
+                                   Grid.Column="1"
                                    HeightRequest="35"/>
                 <Label Text="Sign In"
                        FontSize="Medium"
-                       TextColor="{StaticResource MediumGreyTextColor}"
+                       TextColor="{StaticResource PrimaryTextColor}"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
-                       Grid.Column="1"/>
+                       Grid.Column="1"
+                       IsVisible="{Binding IsNotBusy}"/>
             </Grid>
         </Frame>
     </VerticalStackLayout>

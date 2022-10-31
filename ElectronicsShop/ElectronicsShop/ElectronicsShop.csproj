@@ -53,13 +53,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\RegistrationView.xaml.cs">
+	    <DependentUpon>RegistrationView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\AuthorizationView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\RegistrationViewLoginPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\RegistrationViewPasswordPage.xaml">
+	  <MauiXaml Update="Views\RegistrationView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
