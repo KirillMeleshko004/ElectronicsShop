@@ -1,5 +1,4 @@
 ﻿using ElectronicsShop.Views;
-using System.Security.AccessControl;
 
 namespace ElectronicsShop;
 
@@ -7,9 +6,12 @@ public partial class AppShell : Shell
 {
 	public AppShell()
 	{
-		InitializeComponent();
+        InitializeComponent();
 
+        BindingContext = new AppShellViewModel();
+
+        Routing.RegisterRoute(nameof(ShopMainView), typeof(ShopMainView));
         Routing.RegisterRoute(nameof(AuthorizationView), typeof(AuthorizationView));
         Routing.RegisterRoute(nameof(RegistrationView), typeof(RegistrationView));
-	}
+    }
 }

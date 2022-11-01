@@ -4,15 +4,76 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ElectronicsShop"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:views="clr-namespace:ElectronicsShop.Views"
+    xmlns:model="clr-namespace:ElectronicsShop.Models"
+    xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
+    Shell.TabBarIsVisible="False"
+    x:DataType="viewmodel:AppShellViewModel"
+    Shell.TitleColor="{StaticResource PrimaryTextColor}">
 
-    <ShellContent
-        Shell.NavBarIsVisible="False"
-        ContentTemplate="{DataTemplate local:Views.AuthorizationView}"
-        Route="Views.AuthorizationView"/>
-    <ShellContent
-        Shell.NavBarIsVisible="False"
-        ContentTemplate="{DataTemplate local:Views.RegistrationView}"
-        Route="Views.RegistrationView"/>
+    <ShellContent Title="Home"
+                  ContentTemplate="{DataTemplate local:Views.AuthorizationView}"
+                  Shell.FlyoutBehavior="Disabled"
+                  FlyoutItemIsVisible="False"
+                  Route="AuthorizationView"/>
 
+    <FlyoutItem Route="ShopMainView" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Shop" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Title="My account" Icon="{x:Static model:Icons.UserIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Title="Cart" Icon="{x:Static model:Icons.CartIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Title="Favourites" Icon="{x:Static model:Icons.FavouritesIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Title="Settings" Icon="{x:Static model:Icons.SettingsIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Title="Contact us" Icon="{x:Static model:Icons.ContactUsIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+    </FlyoutItem>
+    <Shell.FlyoutFooter>
+        <Button Margin="20" 
+                Text="Sign Out"
+                Command="{Binding LogOutCommand}"
+                BackgroundColor="{StaticResource Primary}"
+                TextColor="{StaticResource PrimaryTextColor}"
+                CornerRadius="20"/>
+    </Shell.FlyoutFooter>
+
+    <!--<Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid MaximumHeightRequest="60">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Icon}" Grid.Column="0" HorizontalOptions="Center" Aspect="AspectFill"/>
+                <Label Text="{Binding Title}" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>-->
+    <!--<Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="{StaticResource Secondary}"
+                  HeightRequest="200">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Aspect="Fill"
+                       Source="defaultaccountimage.svg"
+                       WidthRequest="150"/>
+                <Label Text="My account"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       Grid.Row="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>-->
+    <!--<FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Cart" Icon="defaultaccountimage.svg" ContentTemplate="{DataTemplate local:Views.ShopMainView}"/>
+        <ShellContent Title="Favourites" Icon="defaultaccountimage.svg" ContentTemplate="{DataTemplate local:Views.ShopMainView}"/>
+        <ShellContent Title="Settings" Icon="defaultaccountimage.svg" ContentTemplate="{DataTemplate local:Views.ShopMainView}"/>
+        <ShellContent Title="Contact us" Icon="defaultaccountimage.svg" ContentTemplate="{DataTemplate local:Views.ShopMainView}"/>
+    </FlyoutItem>-->
 </Shell>

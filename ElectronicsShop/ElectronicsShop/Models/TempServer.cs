@@ -9,7 +9,7 @@ namespace ElectronicsShop.Models
         static string path = FileSystem.Current.AppDataDirectory;
         static string fullPath = Path.Combine(path, "UserData.json");
 
-        static Dictionary<string, string> accounts;
+        static Dictionary<string, string> _accounts;
         static Dictionary<string, string> ReadAccounts()
         {
             Dictionary<string, string> accounts;
@@ -28,21 +28,20 @@ namespace ElectronicsShop.Models
         }
         static void WriteAccounts(Dictionary<string, string> accounts)
         {
-            using (FileStream fs = new(fullPath, FileMode.OpenOrCreate))
+            using (FileStream fs = new(fullPath, FileMode.Truncate))
             {
                 JsonSerializer.Serialize<Dictionary<string, string>>(fs, accounts);
             }
         }
         static TempServer()
         {
-            WriteAccounts(accounts);
-            accounts = ReadAccounts();
+            _accounts = ReadAccounts();
         }
         public async static Task<AccountInfo> AuthorizationAsync(string login, string password)
         {
             await Task.Delay(3000);
             if (login == null || password == null || login == "" || password == "") return new AccountInfo(login, AccountInfo.Errors.EmptyField);
-            if (!accounts.ContainsKey(login) || accounts[login] != password) return new AccountInfo(login, AccountInfo.Errors.IncorrectLoginOrPassword);
+            if (!_accounts.ContainsKey(login) || _accounts[login] != password) return new AccountInfo(login, AccountInfo.Errors.IncorrectLoginOrPassword);
             return new AccountInfo(login, AccountInfo.Errors.NoErrors);
         }
         public async static Task<AccountInfo> CreateAccountAsync(string login, string password, string repeatPassword)
@@ -50,10 +49,10 @@ namespace ElectronicsShop.Models
             await Task.Delay(3000);
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(repeatPassword)) 
                 return new AccountInfo(login, AccountInfo.Errors.EmptyField);
-            if (accounts.ContainsKey(login)) new AccountInfo(login, AccountInfo.Errors.SameLoginExist);
+            if (_accounts.ContainsKey(login)) return new AccountInfo(login, AccountInfo.Errors.SameLoginExist);
             if (password != repeatPassword) return new AccountInfo(login, AccountInfo.Errors.PasswordsNotSame);
-            accounts.Add(login, password);
-            WriteAccounts(accounts);
+            _accounts.Add(login, password);
+            WriteAccounts(_accounts);
             return new AccountInfo(login, AccountInfo.Errors.NoErrors);
         }
     }

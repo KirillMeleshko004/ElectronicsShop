@@ -4,6 +4,12 @@
         <name>ElectronicsShop</name>
     </assembly>
     <members>
+        <member name="F:ElectronicsShop.ViewModels.AppShellViewModel.logOutCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AppShellViewModel.LogOutCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AppShellViewModel.LogOutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AppShellViewModel.LogOut"/>.</summary>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.AuthorizationViewModel.Login">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthorizationViewModel.login"/>
         </member>
@@ -49,9 +55,6 @@
         <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.IsSuccessful">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.isSuccessful"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.IsLoginWrong">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.isLoginWrong"/>
-        </member>
         <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.ErrorMessage">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.errorMessage"/>
         </member>
@@ -60,6 +63,12 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.CreateAccountCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.RegistrationViewModel.CreateAccount"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.RegistrationViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.RegistrationViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.RegistrationViewModel.GoBack"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
             <summary>

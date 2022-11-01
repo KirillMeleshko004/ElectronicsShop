@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="ElectronicsShop.Models.Account" Collapsed="true">
+    <Position X="9.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Models\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.Models.AccountInfo" Collapsed="true">
+    <Position X="12.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAACQAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Models\AccountInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.Models.Product" Collapsed="true">
+    <Position X="12.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.Models.TempServer" Collapsed="true">
+    <Position X="11" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAQAACAAAIAMAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Models\TempServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.MainActivity" Collapsed="true">
+    <Position X="13" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platforms\Android\MainActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.MainApplication" Collapsed="true">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platforms\Android\MainApplication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.App" Collapsed="true">
+    <Position X="14.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.AppShell" Collapsed="true">
+    <Position X="9.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppShell.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.MauiProgram" Collapsed="true">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MauiProgram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.Services.AccountCreationService" Collapsed="true">
+    <Position X="11" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\AccountCreationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.Services.AuthorizationService" Collapsed="true">
+    <Position X="0.5" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\AuthorizationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.ViewModels.AuthorizationViewModel">
+    <Position X="4.5" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAGAAAAACAAAAAAAAAAAAAAABAABAAAAQoAAEAA=</HashCode>
+      <FileName>ViewModels\AuthorizationViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="authorizationService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ElectronicsShop.ViewModels.BaseViewModel">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAIAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.ViewModels.RegistrationViewModel" Collapsed="true">
+    <Position X="7.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEBAAAAAABAAAAABAAAAAAAAAgAAAAAAoAAEAA=</HashCode>
+      <FileName>ViewModels\RegistrationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.Views.RegistrationView" Collapsed="true">
+    <Position X="14.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\RegistrationView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.Views.ShopMainView" Collapsed="true">
+    <Position X="9.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ShopMainView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicsShop.Views.AuthorizationView">
+    <Position X="0.5" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\AuthorizationView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.Maui.Controls.ContentPage">
+    <Position X="17" Y="4.25" Width="3.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.Maui.Controls.TemplatedPage" Collapsed="true">
+    <Position X="18" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.Maui.Controls.Page" Collapsed="true">
+    <Position X="18" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.Maui.Controls.VisualElement" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.Maui.Controls.NavigableElement" Collapsed="true">
+    <Position X="21.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.Maui.Controls.Element" Collapsed="true">
+    <Position X="21.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.Maui.Controls.BindableObject" Collapsed="true">
+    <Position X="21.5" Y="7" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CommunityToolkit.Mvvm.ComponentModel.ObservableObject">
+    <Position X="1.5" Y="0.5" Width="3.75" />
+    <NestedTypes>
+      <Class Name="CommunityToolkit.Mvvm.ComponentModel.ObservableObject.TaskNotifier" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="CommunityToolkit.Mvvm.ComponentModel.ObservableObject.TaskNotifier&lt;T&gt;" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

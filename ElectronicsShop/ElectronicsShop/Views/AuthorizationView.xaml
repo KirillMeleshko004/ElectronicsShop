@@ -6,6 +6,7 @@
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
              x:DataType="viewmodel:AuthorizationViewModel"
              Title="{Binding Title}"
+             Shell.NavBarIsVisible="False"
              Shell.BackgroundColor="{StaticResource Primary}"
              BackgroundColor="{StaticResource Secondary}">
     <Page.Behaviors>
@@ -75,27 +76,17 @@
                 <TapGestureRecognizer Command="{Binding SignInCommand}"/>
             </Frame.GestureRecognizers>
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
                 <ActivityIndicator IsVisible="{Binding IsBusy}"
                                    IsRunning="{Binding IsBusy}"
                                    Color="{StaticResource Secondary}"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center"
-                                   Grid.Column="1"
                                    HeightRequest="35"/>
                 <Label Text="Sign In"
                        FontSize="Medium"
                        TextColor="{StaticResource PrimaryTextColor}"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
-                       Grid.Column="1"
                        IsVisible="{Binding IsNotBusy}"/>
             </Grid>
         </Frame>

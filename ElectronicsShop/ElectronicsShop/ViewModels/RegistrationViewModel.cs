@@ -22,10 +22,10 @@ namespace ElectronicsShop.ViewModels
         string repeatPassword;
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsNotSuccessful))]
         bool isSuccessful;
 
-        [ObservableProperty]
-        bool isLoginWrong;
+        public bool IsNotSuccessful => !isSuccessful;
 
         [ObservableProperty]
         string errorMessage;
@@ -40,17 +40,21 @@ namespace ElectronicsShop.ViewModels
         {
             IsBusy = true;
             AccountInfo accountInfo = await accountCreationService.CreateAccountAsync(Login, Password, RepeatPassword);
-            if (accountInfo.Error == AccountInfo.Errors.NoErrors) isSuccessful = true;
-            if (isSuccessful)
+            if (accountInfo.Error == AccountInfo.Errors.NoErrors) IsSuccessful = true;
+            if (IsSuccessful)
             {
-                IsLoginWrong = false;
             }
             else
             {
                 ErrorMessage = accountInfo.ErrorMessage;
-                IsLoginWrong = true;
             }
             IsBusy = false;
+        }
+
+        [RelayCommand]
+        Task GoBack()
+        {
+            return Shell.Current.GoToAsync("..");
         }
     }
 }

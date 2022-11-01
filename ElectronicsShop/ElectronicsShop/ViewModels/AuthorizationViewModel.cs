@@ -6,13 +6,12 @@ namespace ElectronicsShop.ViewModels
     public partial class AuthorizationViewModel : BaseViewModel
     {
         AuthorizationService authorizationService;
-        Account account;
 
         [ObservableProperty]
-        public string login;
+        string login;
 
         [ObservableProperty]
-        public string password;
+        string password;
 
         [ObservableProperty]
         bool isSuccessful;
@@ -23,10 +22,9 @@ namespace ElectronicsShop.ViewModels
         [ObservableProperty]
         string errorMessage;
 
-        public AuthorizationViewModel(AuthorizationService authorizationService, Account account)
+        public AuthorizationViewModel(AuthorizationService authorizationService)
         {
             this.authorizationService = authorizationService;
-            this.account = account;
             Title = "Authorization";
         }
 
@@ -39,8 +37,9 @@ namespace ElectronicsShop.ViewModels
             else isSuccessful = false;
             if (isSuccessful)
             {
-                account.Login = accountInfo.Login;
+                App.UserAccount = new Account(Login);
                 IsLoginOrPasswordWrong = false;
+                await Shell.Current.GoToAsync($"//{nameof(ShopMainView)}");
             }
             else
             {
