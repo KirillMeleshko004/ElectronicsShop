@@ -16,9 +16,9 @@
                   Shell.FlyoutBehavior="Disabled"
                   FlyoutItemIsVisible="False"
                   Route="AuthorizationView"/>
-
+    
     <FlyoutItem Route="ShopMainView" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Shop" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Title="Shop" Icon="{x:Static model:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
         <ShellContent Title="My account" Icon="{x:Static model:Icons.UserIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
         <ShellContent Title="Cart" Icon="{x:Static model:Icons.CartIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
         <ShellContent Title="Favourites" Icon="{x:Static model:Icons.FavouritesIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>

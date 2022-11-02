@@ -3,23 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ElectronicsShop.Views.ShopMainView"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
+             xmlns:model="clr-namespace:ElectronicsShop.Models"
              x:DataType="viewmodel:ShopMainViewModel">
-    <ListView ItemsSource="{Binding Products}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                </ViewCell>
+
+    <CollectionView ItemsSource="{Binding Products}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:Product">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding ProductType}"/>
+                    <Label Text="{Binding ProductName}" Grid.Row="1"/>
+                    <Label Text="{Binding Manufacturer}" Grid.Column="1"/>
+                    <Label Text="{Binding Description}" Grid.Column="1" Grid.Row="1"/>
+                </Grid>
             </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

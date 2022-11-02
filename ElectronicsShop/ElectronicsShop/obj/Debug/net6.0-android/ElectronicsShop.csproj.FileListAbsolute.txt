@@ -986,3 +986,8 @@ A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-and
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\contact_us.png
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\favourites.png
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\settings.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\green_logo.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\green_logo.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\green_logo.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\green_logo.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\green_logo.png

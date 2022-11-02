@@ -13,5 +13,6 @@ namespace ElectronicsShop.Models
         public const string FavouritesIcon = "favourites.svg";
         public const string SettingsIcon = "settings.svg";
         public const string ContactUsIcon = "contact_us.svg";
+        public const string ShopIcon = "green_logo";
     }
 }
