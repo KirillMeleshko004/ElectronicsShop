@@ -28,6 +28,8 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<AuthorizationService>();
         builder.Services.AddSingleton<AccountCreationService>();
+		builder.Services.AddSingleton<ProductsService>();
+
         return builder.Build();
 	}
 }

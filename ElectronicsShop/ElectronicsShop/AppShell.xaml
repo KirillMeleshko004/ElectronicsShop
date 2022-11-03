@@ -16,7 +16,7 @@
                   Shell.FlyoutBehavior="Disabled"
                   FlyoutItemIsVisible="False"
                   Route="AuthorizationView"/>
-    
+
     <FlyoutItem Route="ShopMainView" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Shop" Icon="{x:Static model:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
         <ShellContent Title="My account" Icon="{x:Static model:Icons.UserIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
@@ -33,47 +33,4 @@
                 TextColor="{StaticResource PrimaryTextColor}"
                 CornerRadius="20"/>
     </Shell.FlyoutFooter>
-
-    <!--<Shell.ItemTemplate>
-        <DataTemplate>
-            <Grid MaximumHeightRequest="60">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-                <Image Source="{Binding Icon}" Grid.Column="0" HorizontalOptions="Center" Aspect="AspectFill"/>
-                <Label Text="{Binding Title}" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center"/>
-            </Grid>
-        </DataTemplate>
-    </Shell.ItemTemplate>-->
-    <!--<Shell.FlyoutHeaderTemplate>
-        <DataTemplate>
-            <Grid BackgroundColor="{StaticResource Secondary}"
-                  HeightRequest="200">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Image Aspect="Fill"
-                       Source="defaultaccountimage.svg"
-                       WidthRequest="150"/>
-                <Label Text="My account"
-                       TextColor="Black"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"
-                       Grid.Row="1">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer/>
-                    </Label.GestureRecognizers>
-                </Label>
-            </Grid>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>-->
-    <!--<FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Cart" Icon="defaultaccountimage.svg" ContentTemplate="{DataTemplate local:Views.ShopMainView}"/>
-        <ShellContent Title="Favourites" Icon="defaultaccountimage.svg" ContentTemplate="{DataTemplate local:Views.ShopMainView}"/>
-        <ShellContent Title="Settings" Icon="defaultaccountimage.svg" ContentTemplate="{DataTemplate local:Views.ShopMainView}"/>
-        <ShellContent Title="Contact us" Icon="defaultaccountimage.svg" ContentTemplate="{DataTemplate local:Views.ShopMainView}"/>
-    </FlyoutItem>-->
 </Shell>

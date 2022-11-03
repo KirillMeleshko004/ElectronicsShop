@@ -5,24 +5,31 @@
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
              xmlns:model="clr-namespace:ElectronicsShop.Models"
              x:DataType="viewmodel:ShopMainViewModel">
-
-    <CollectionView ItemsSource="{Binding Products}">
+    <CollectionView ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Product">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Label Text="{Binding ProductType}"/>
-                    <Label Text="{Binding ProductName}" Grid.Row="1"/>
-                    <Label Text="{Binding Manufacturer}" Grid.Column="1"/>
-                    <Label Text="{Binding Description}" Grid.Column="1" Grid.Row="1"/>
-                </Grid>
+                <Frame Margin="10"
+                       HeightRequest="200"
+                       CornerRadius="20"
+                       BorderColor="{StaticResource Primary}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding ProductImage}"
+                           VerticalOptions="Center"
+                           HeightRequest="200"/>
+                        <Label Text="{Binding ProductType}"
+                               Grid.Column="1"
+                               VerticalOptions="Center"
+                               FontSize="Large"
+                               HorizontalOptions="Center"/>
+                    </Grid>
+                </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>

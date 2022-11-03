@@ -4,15 +4,12 @@ namespace ElectronicsShop.ViewModels
 {
     public partial class ShopMainViewModel : BaseViewModel
     {
+        ProductsService _productsService;
         public ObservableCollection<Product> Products { get; set; }
-        public ShopMainViewModel()
+        public ShopMainViewModel(ProductsService productsService)
         {
-            Products = new()
-            {
-                new Product("Smartphone", 1, "lol_1", "lol_1_manufacturer", 10000, "lol_1_description", 10),
-                new Product("Smartphone", 1, "lol_2", "lol_2_manufacturer", 10000, "lol_2_description", 10),
-                new Product("Smartphone", 1, "lol_3", "lol_3_manufacturer", 10000, "lol_3_description", 10)
-            };
+            _productsService = productsService;
+            Products = _productsService.GetProducts();
         }
     }
 }
