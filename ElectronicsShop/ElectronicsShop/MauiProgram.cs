@@ -25,6 +25,8 @@ public static class MauiProgram
 		builder.Services.AddTransient<RegistrationViewModel>();
 		builder.Services.AddTransient<ShopMainView>();
 		builder.Services.AddTransient<ShopMainViewModel>();
+        builder.Services.AddTransient<CategoriesView>();
+        builder.Services.AddTransient<CategoriesViewModel>();
 
         builder.Services.AddSingleton<AuthorizationService>();
         builder.Services.AddSingleton<AccountCreationService>();

@@ -10,10 +10,11 @@
             <DataTemplate x:DataType="model:Product">
                 <Frame Margin="10"
                        HeightRequest="200"
-                       CornerRadius="20"
+                       BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
                        BorderColor="{StaticResource Primary}">
                     <Grid>
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -21,12 +22,19 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Image Source="{Binding ProductImage}"
-                           VerticalOptions="Center"
-                           HeightRequest="200"/>
-                        <Label Text="{Binding ProductType}"
+                               VerticalOptions="Center"
+                               HeightRequest="200"
+                               Grid.RowSpan="2"/>
+                        <Label Text="{Binding ProductName}"
                                Grid.Column="1"
                                VerticalOptions="Center"
-                               FontSize="Large"
+                               FontSize="Medium"
+                               HorizontalOptions="Center"/>
+                        <Label Text="{Binding Price}"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               VerticalOptions="Center"
+                               FontSize="Medium"
                                HorizontalOptions="Center"/>
                     </Grid>
                 </Frame>

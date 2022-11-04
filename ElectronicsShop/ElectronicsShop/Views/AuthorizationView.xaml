@@ -5,17 +5,13 @@
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
              x:DataType="viewmodel:AuthorizationViewModel"
-             Title="{Binding Title}"
-             Shell.NavBarIsVisible="False"
-             Shell.BackgroundColor="{StaticResource Primary}"
-             BackgroundColor="{StaticResource Secondary}">
+             Shell.NavBarIsVisible="False">
     <Page.Behaviors>
         <mct:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
                                StatusBarStyle="DarkContent"/>
     </Page.Behaviors>
 
-    <VerticalStackLayout Padding="10,0" Spacing="10"
-          BackgroundColor="{StaticResource Secondary}">
+    <VerticalStackLayout Padding="10,0" Spacing="10">
         <Image Source="logo.svg"
                WidthRequest="403"
                Margin="0,-68"/>
@@ -26,8 +22,6 @@
                IsVisible="{Binding IsLoginOrPasswordWrong}"
                FontSize="Small"/>
         <Frame BorderColor="Transparent"
-               BackgroundColor="{StaticResource Primary}"
-               CornerRadius="20"
                HeightRequest="55">
             <Entry Placeholder="Login"
                    PlaceholderColor="{StaticResource PrimaryTextColor}"
@@ -39,9 +33,7 @@
                    Margin="0,-20"/>
         </Frame>
         <Frame BorderColor="Transparent"
-               BackgroundColor="{StaticResource Primary}"
                Padding="20,10"
-               CornerRadius="20"
                HeightRequest="55"
                VerticalOptions="Start">
             <Entry Placeholder="Password"
@@ -57,7 +49,6 @@
         <HorizontalStackLayout HorizontalOptions="Start" Spacing="45">
             <Label Text="New user? Sign Up"
                    TextDecorations="Underline"
-                   TextColor="{StaticResource SecondaryTextColor}"
                    FontSize="Small"
                    Margin="10,-5,0,0">
                 <Label.GestureRecognizers>
@@ -67,15 +58,13 @@
         </HorizontalStackLayout>
         <Frame HeightRequest="50"
                WidthRequest="250"
-               CornerRadius="20"
-               BackgroundColor="{StaticResource Primary}"
                BorderColor="Transparent"
                IsEnabled="{Binding IsNotBusy}"
                Padding="-5">
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding SignInCommand}"/>
             </Frame.GestureRecognizers>
-            <Grid>
+            <Grid BackgroundColor="Transparent">
                 <ActivityIndicator IsVisible="{Binding IsBusy}"
                                    IsRunning="{Binding IsBusy}"
                                    Color="{StaticResource Secondary}"

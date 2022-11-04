@@ -17,14 +17,25 @@
                   FlyoutItemIsVisible="False"
                   Route="AuthorizationView"/>
 
+    <!--<TabBar Title="Test">
+        <ShellContent Title="Shop" Icon="{x:Static model:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Title="Categories" Icon="{x:Static model:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Title="Cart" Icon="{x:Static model:Icons.CartIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+    </TabBar>-->
     <FlyoutItem Route="ShopMainView" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Shop" Icon="{x:Static model:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
-        <ShellContent Title="My account" Icon="{x:Static model:Icons.UserIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Title="Categories" Icon="{x:Static model:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:CategoriesView}"/>
         <ShellContent Title="Cart" Icon="{x:Static model:Icons.CartIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Title="My account" Icon="{x:Static model:Icons.UserIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
         <ShellContent Title="Favourites" Icon="{x:Static model:Icons.FavouritesIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
         <ShellContent Title="Settings" Icon="{x:Static model:Icons.SettingsIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
         <ShellContent Title="Contact us" Icon="{x:Static model:Icons.ContactUsIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
     </FlyoutItem>
+    <!--
+        MainShopPage
+        Categories
+        Cart
+    -->
     <Shell.FlyoutFooter>
         <Button Margin="20" 
                 Text="Sign Out"
