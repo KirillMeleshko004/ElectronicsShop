@@ -4,12 +4,10 @@ namespace ElectronicsShop.ViewModels
 {
     public partial class CategoriesViewModel : BaseViewModel
     {
-        ProductsService _productsService;
-        public ObservableCollection<Product> Categories { get; set; }
-        public CategoriesViewModel(ProductsService productsService)
+        public List<Categories> CategoriesList { get; set; }
+        public CategoriesViewModel()
         {
-            _productsService = productsService;
-            Categories = _productsService.GetProducts();
+            CategoriesList = Categories.CategoriesList;
         }
     }
 }

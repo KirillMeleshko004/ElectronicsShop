@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ElectronicsShop.GlobalConst
+{
+    public static class Icons
+    {
+        public const string UserIcon = "default_account_image.svg";
+        public const string CartIcon = "cart.svg";
+        public const string FavouritesIcon = "favourites.svg";
+        public const string SettingsIcon = "settings.svg";
+        public const string ContactUsIcon = "contact_us.svg";
+        public const string ShopIcon = "green_logo.svg";
+        public const string TvCategoryIcon = "tv_icon.png";
+        public const string SmartphoneCategoryIcon = "smartphone_icon.png";
+        public const string LaptopCategoryIcon = "laptop_icon.png";
+        public const string HomeAppliancesCategoryIcon = "washing_machine_icon.png";
+        public const string KitchenAppliancesCategoryIcon = "dishwasher_icon.png";
+        public const string AudioCategoryIcon = "headphones_icon.png";
+    }
+}

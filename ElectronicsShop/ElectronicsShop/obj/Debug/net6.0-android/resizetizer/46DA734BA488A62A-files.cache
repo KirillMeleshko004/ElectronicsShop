@@ -1,6 +1,12 @@
-﻿obj\Debug\net6.0-android\resizetizer\r\drawable\fridge.png
+﻿obj\Debug\net6.0-android\resizetizer\r\drawable\dishwasher_icon.png
+obj\Debug\net6.0-android\resizetizer\r\drawable\fridge.png
+obj\Debug\net6.0-android\resizetizer\r\drawable\headphones_icon.png
+obj\Debug\net6.0-android\resizetizer\r\drawable\laptop_icon.png
+obj\Debug\net6.0-android\resizetizer\r\drawable\smartphone_icon.png
 obj\Debug\net6.0-android\resizetizer\r\drawable\toaster.png
 obj\Debug\net6.0-android\resizetizer\r\drawable\tv.png
+obj\Debug\net6.0-android\resizetizer\r\drawable\tv_icon.png
+obj\Debug\net6.0-android\resizetizer\r\drawable\washing_machine_icon.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\cart.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\contact_us.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\default_account_image.png
