@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using ElectronicsShop.Views;
+using System.Collections.ObjectModel;
 
 namespace ElectronicsShop.ViewModels
 {
@@ -10,6 +11,15 @@ namespace ElectronicsShop.ViewModels
         {
             _productsService = productsService;
             Products = _productsService.GetProducts();
+        }
+        [RelayCommand]
+        Task GoToProduct(Product currentProduct)
+        {
+            return Shell.Current.GoToAsync($"{nameof(ProductView)}",
+                new Dictionary<string, object>
+                {
+                    ["CurrentProduct"] = currentProduct
+                });
         }
     }
 }

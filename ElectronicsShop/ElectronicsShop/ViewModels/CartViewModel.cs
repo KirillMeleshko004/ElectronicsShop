@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElectronicsShop.ViewModels
 {
-    public class CartViewModel
+    public partial class CartViewModel : BaseViewModel
     {
     }
 }

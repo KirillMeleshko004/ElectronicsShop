@@ -29,6 +29,8 @@ public static class MauiProgram
         builder.Services.AddTransient<CategoriesViewModel>();
         builder.Services.AddTransient<CartView>();
         builder.Services.AddTransient<CartViewModel>();
+        builder.Services.AddTransient<ProductView>();
+        builder.Services.AddTransient<ProductViewModel>();
 
         builder.Services.AddSingleton<AuthorizationService>();
         builder.Services.AddSingleton<AccountCreationService>();

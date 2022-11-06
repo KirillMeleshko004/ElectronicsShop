@@ -51,6 +51,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.Cate
 build_metadata.AdditionalFiles.TargetPath = Views\CategoriesView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CategoriesView.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/ProductView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.ProductView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ProductView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ProductView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/RegistrationView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.RegistrationView.xaml
