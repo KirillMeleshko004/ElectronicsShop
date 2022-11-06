@@ -11,6 +11,9 @@
     <MauiXaml Update="Views\AuthorizationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\CartView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\CategoriesView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

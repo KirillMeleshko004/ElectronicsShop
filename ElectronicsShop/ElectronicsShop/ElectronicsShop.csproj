@@ -87,5 +87,11 @@
 	  <MauiImage Include="Resources\TestImages\tv2.png" />
 	  <MauiImage Include="Resources\TestImages\washing_machine.png" />
 	</ItemGroup>
+	
+	<ItemGroup>
+	  <MauiXaml Update="Views\CartView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 
 </Project>

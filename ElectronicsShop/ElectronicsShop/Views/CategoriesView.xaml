@@ -5,38 +5,40 @@
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
              xmlns:model="clr-namespace:ElectronicsShop.Models"
              x:DataType="viewmodel:CategoriesViewModel">
-    <CollectionView ItemsSource="{Binding CategoriesList}" VerticalScrollBarVisibility="Always">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="model:CategoryInfo">
-                <Frame Margin="10"
-                       HeightRequest="200"
-                       BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
-                       BorderColor="{StaticResource Primary}">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer>
-                            
-                        </TapGestureRecognizer>
-                    </Frame.GestureRecognizers>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Image  Source="{Binding Icon}"
-                               Aspect="AspectFit"/>
-                        <Label Text="{Binding CategoryName}"
-                               Grid.Column="1"
-                               VerticalOptions="Center"
-                               FontSize="Large"
-                               HorizontalOptions="Center"
-                               HorizontalTextAlignment="Center"
-                               LineBreakMode="WordWrap"/>
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    <Grid>
+        <CollectionView ItemsSource="{Binding CategoriesList}" VerticalScrollBarVisibility="Always">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:CategoryInfo">
+                    <Frame Margin="10"
+                           HeightRequest="200"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+                           BorderColor="{StaticResource Primary}">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer>
+
+                            </TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image  Source="{Binding Icon}"
+                                    Aspect="AspectFit"/>
+                            <Label Text="{Binding CategoryName}"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   LineBreakMode="WordWrap"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

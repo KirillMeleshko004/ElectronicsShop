@@ -39,6 +39,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.Auth
 build_metadata.AdditionalFiles.TargetPath = Views\AuthorizationView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AuthorizationView.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/CartView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.CartView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CartView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CartView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/CategoriesView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.CategoriesView.xaml
