@@ -4,10 +4,10 @@ namespace ElectronicsShop.ViewModels
 {
     public partial class CategoriesViewModel : BaseViewModel
     {
-        public List<Categories> CategoriesList { get; set; }
+        public List<CategoryInfo> CategoriesList { get; set; }
         public CategoriesViewModel()
         {
-            CategoriesList = Categories.CategoriesList;
+            CategoriesList = CategoryInfo.CategoriesList;
         }
     }
 }

@@ -32,11 +32,11 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#FFFFFF" BaseSize="200,200" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#038f57" BaseSize="128,128" />
-
+		<MauiSplashScreen Include="Resources\Splash\logo.svg" Color="#000000" />
+		
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 
@@ -48,55 +48,44 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Remove="Новая папка1\**" />
-	  <AndroidResource Remove="Новая папка\**" />
-	  <Compile Remove="Новая папка1\**" />
-	  <Compile Remove="Новая папка\**" />
-	  <EmbeddedResource Remove="Новая папка1\**" />
-	  <EmbeddedResource Remove="Новая папка\**" />
-	  <MauiCss Remove="Новая папка1\**" />
-	  <MauiCss Remove="Новая папка\**" />
-	  <MauiXaml Remove="Новая папка1\**" />
-	  <MauiXaml Remove="Новая папка\**" />
-	  <None Remove="Новая папка1\**" />
-	  <None Remove="Новая папка\**" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Resources\Images\headphones_icon.png" />
-	  <None Remove="Resources\Images\laptop_icon.png" />
-	  <None Remove="Resources\Images\smartphone_icon.png" />
-	  <None Remove="Resources\Images\tv_icon.png" />
-	  <None Remove="Resources\Images\washing_machine_icon.png" />
+	  <None Remove="Resources\Splash\logo.svg" />
+	  <None Remove="Resources\TestImages - Копировать\fridge.png" />
+	  <None Remove="Resources\TestImages - Копировать\laptop_icon.png" />
+	  <None Remove="Resources\TestImages - Копировать\toaster.png" />
+	  <None Remove="Resources\TestImages - Копировать\tv.png" />
+	  <None Remove="Resources\TestImages\dishwasher.png" />
+	  <None Remove="Resources\TestImages\headphones.png" />
+	  <None Remove="Resources\TestImages\laptop.png" />
+	  <None Remove="Resources\TestImages\smartphone.png" />
+	  <None Remove="Resources\TestImages\tv2.png" />
+	  <None Remove="Resources\TestImages\washing_machine.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	</ItemGroup>
-
+	
 	<ItemGroup>
-	  <Compile Update="Views\RegistrationView.xaml.cs">
-	    <DependentUpon>RegistrationView.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Views\AuthorizationView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\CategoriesView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\RegistrationView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiImage Update="Resources\Images\smartphone_icon.png">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </MauiImage>
+	  <MauiImage Include="Resources\CategoriesIcons\dishwasher_icon.png" />
+	  <MauiImage Include="Resources\CategoriesIcons\headphones_icon.png" />
+	  <MauiImage Include="Resources\CategoriesIcons\laptop_icon.png" />
+		<MauiImage Include="Resources\CategoriesIcons\smartphone_icon.png" />
+	  <MauiImage Include="Resources\CategoriesIcons\tv_icon.png" />
+	  <MauiImage Include="Resources\CategoriesIcons\washing_machine_icon.png" />
+	  <MauiImage Include="Resources\TestImages - Копировать\fridge.png" />
+	  <MauiImage Include="Resources\TestImages - Копировать\laptop_icon.png" />
+	  <MauiImage Include="Resources\TestImages - Копировать\toaster.png" />
+	  <MauiImage Include="Resources\TestImages - Копировать\tv.png" />
+	  <MauiImage Include="Resources\TestImages\dishwasher.png" />
+	  <MauiImage Include="Resources\TestImages\fridge.png" />
+	  <MauiImage Include="Resources\TestImages\headphones.png" />
+	  <MauiImage Include="Resources\TestImages\laptop.png" />
+	  <MauiImage Include="Resources\TestImages\smartphone.png" />
+	  <MauiImage Include="Resources\TestImages\toaster.png" />
+	  <MauiImage Include="Resources\TestImages\tv.png" />
+	  <MauiImage Include="Resources\TestImages\tv2.png" />
+	  <MauiImage Include="Resources\TestImages\washing_machine.png" />
 	</ItemGroup>
 
 </Project>

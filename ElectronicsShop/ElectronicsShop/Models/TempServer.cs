@@ -39,7 +39,7 @@ namespace ElectronicsShop.Models
         }
         public async static Task<AccountInfo> AuthorizationAsync(string login, string password)
         {
-            await Task.Delay(3000);
+            await Task.Delay(500);
             if (login == null || password == null || login == "" || password == "") return new AccountInfo(login, AccountInfo.Errors.EmptyField);
             if (!_accounts.ContainsKey(login) || _accounts[login] != password) return new AccountInfo(login, AccountInfo.Errors.IncorrectLoginOrPassword);
             return new AccountInfo(login, AccountInfo.Errors.NoErrors);

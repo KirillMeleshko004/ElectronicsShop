@@ -1,0 +1,1 @@
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\ElectronicsShop.csproj;x64

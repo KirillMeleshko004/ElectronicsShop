@@ -12,7 +12,7 @@
     </Page.Behaviors>
 
     <VerticalStackLayout Padding="10,0" Spacing="10">
-        <Image Source="logo.svg"
+        <Image Source="shop_logo.svg"
                WidthRequest="403"
                Margin="0,-68"/>
         <Label Text="{Binding ErrorMessage}"
