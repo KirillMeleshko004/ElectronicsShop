@@ -7,6 +7,11 @@
              x:DataType="viewmodel:ProductViewModel"
              Title="{Binding CurrentProduct.ProductName}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.001*"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
         <ScrollView>
             <VerticalStackLayout Margin="10,30,10,0" Padding="10" Spacing="10">
                 <Image Source="{Binding CurrentProduct.ProductImage}"
@@ -29,25 +34,38 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Label Text="{Binding CurrentProduct.Price, StringFormat='{0:F2}$'}"
                                TextColor="{AppThemeBinding Dark=Black, Light=White}"
-                               Grid.RowSpan="3"
+                               Grid.RowSpan="2"
                                FontSize="Title"
                                VerticalOptions="Center"/>
                         <Label Text="{Binding CurrentProduct.Quantity, StringFormat='{0} pieces remains'}"
                                TextColor="{AppThemeBinding Dark=Black, Light=White}"
                                FontSize="Subtitle"
-                               Grid.Row="2"
+                               Grid.Row="1"
                                VerticalOptions="End"/>
                     </Grid>
                 </Frame>
+                <Label Text="{Binding CurrentProduct.Description, StringFormat='Description: {0}'}"
+                       Margin="20,0,0,0"/>
+                <Label Text="{Binding CurrentProduct.Manufacturer, StringFormat='Manufacturer: {0}'}"
+                       Margin="20,0,0,0"/>
+                <Label Text="{Binding CurrentProduct.ProductType, StringFormat='Product catrgory: {0}'}"
+                       Margin="20,0,0,0"/>
+                <Label Text="{Binding CurrentProduct.ProductName, StringFormat='Product model: {0}'}"
+                       Margin="20,0,0,0"/>
+                <Label Text="{Binding CurrentProduct.Price, StringFormat='Product price: {0}'}"
+                       Margin="20,0,0,0"/>
+                <Label Text="{Binding CurrentProduct.Quantity, StringFormat='Product quantity: {0}'}"
+                       Margin="20,0,0,0"/>
             </VerticalStackLayout>
         </ScrollView>
+        <BoxView Grid.Row="1" Color="{StaticResource Primary}"/>
         <Frame HeightRequest="50" VerticalOptions="End"
-               Margin="20,0,20,20"
-               Padding="20,0">
+               Margin="20"
+               Padding="20,0"
+               Grid.Row="2">
             <Grid BackgroundColor="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
