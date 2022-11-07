@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Behaviors;
+
 namespace ElectronicsShop.Views;
 
 public partial class ProductView : ContentPage
