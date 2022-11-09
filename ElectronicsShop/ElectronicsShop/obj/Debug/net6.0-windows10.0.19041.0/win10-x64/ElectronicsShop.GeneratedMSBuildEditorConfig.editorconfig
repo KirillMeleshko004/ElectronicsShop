@@ -45,12 +45,6 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.Cart
 build_metadata.AdditionalFiles.TargetPath = Views\CartView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CartView.xaml
 
-[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/CategoriesView.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.CategoriesView.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\CategoriesView.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\CategoriesView.xaml
-
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/ProductView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.ProductView.xaml
@@ -62,6 +56,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.RegistrationView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\RegistrationView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\RegistrationView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/SearchView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.SearchView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\SearchView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\SearchView.xaml
 
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/ShopMainView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

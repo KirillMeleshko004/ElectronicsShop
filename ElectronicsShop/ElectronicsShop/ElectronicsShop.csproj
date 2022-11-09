@@ -49,10 +49,6 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Splash\logo.svg" />
-	  <None Remove="Resources\TestImages - Копировать\fridge.png" />
-	  <None Remove="Resources\TestImages - Копировать\laptop_icon.png" />
-	  <None Remove="Resources\TestImages - Копировать\toaster.png" />
-	  <None Remove="Resources\TestImages - Копировать\tv.png" />
 	  <None Remove="Resources\TestImages\dishwasher.png" />
 	  <None Remove="Resources\TestImages\headphones.png" />
 	  <None Remove="Resources\TestImages\laptop.png" />
@@ -73,10 +69,6 @@
 		<MauiImage Include="Resources\CategoriesIcons\smartphone_icon.png" />
 	  <MauiImage Include="Resources\CategoriesIcons\tv_icon.png" />
 	  <MauiImage Include="Resources\CategoriesIcons\washing_machine_icon.png" />
-	  <MauiImage Include="Resources\TestImages - Копировать\fridge.png" />
-	  <MauiImage Include="Resources\TestImages - Копировать\laptop_icon.png" />
-	  <MauiImage Include="Resources\TestImages - Копировать\toaster.png" />
-	  <MauiImage Include="Resources\TestImages - Копировать\tv.png" />
 	  <MauiImage Include="Resources\TestImages\dishwasher.png" />
 	  <MauiImage Include="Resources\TestImages\fridge.png" />
 	  <MauiImage Include="Resources\TestImages\headphones.png" />
@@ -86,6 +78,12 @@
 	  <MauiImage Include="Resources\TestImages\tv.png" />
 	  <MauiImage Include="Resources\TestImages\tv2.png" />
 	  <MauiImage Include="Resources\TestImages\washing_machine.png" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Compile Update="Views\SearchView.xaml.cs">
+	    <DependentUpon>SearchView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 	
 	<ItemGroup>

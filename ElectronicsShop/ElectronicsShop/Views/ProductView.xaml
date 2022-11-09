@@ -16,7 +16,7 @@
             <VerticalStackLayout Margin="10,30,10,0" Padding="10" Spacing="10">
                 <Image Source="{Binding CurrentProduct.ProductImage}"
                        HeightRequest="300"
-                       WidthRequest="400"
+                       WidthRequest="350"
                        Margin="0,0,0,20"/>
                 <Label Text="{Binding CurrentProduct.ProductName}"
                        VerticalOptions="Center" 
@@ -66,6 +66,10 @@
                Margin="20"
                Padding="20,0"
                Grid.Row="2">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AddToCartCommand}"
+                                      CommandParameter="{Binding CurrentProduct}"/>
+            </Frame.GestureRecognizers>
             <Grid BackgroundColor="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

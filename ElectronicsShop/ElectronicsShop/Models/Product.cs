@@ -9,6 +9,9 @@
         public double Price { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }
+        public string ImageUrl { get; set; }
+
+        [System.Text.Json.Serialization.JsonIgnore]
         public ImageSource ProductImage { get; set; }
         public Product(string productType, int id, string productName, string manufacturer, double price, string description, int quantity, string image)
         {
@@ -19,7 +22,8 @@
             Price = price;
             Description = description;
             Quantity = quantity;
-            ProductImage = ImageSource.FromFile(image);
+            ImageUrl = image;
+            ProductImage = ImageSource.FromFile(ImageUrl);
         }
     }
 }

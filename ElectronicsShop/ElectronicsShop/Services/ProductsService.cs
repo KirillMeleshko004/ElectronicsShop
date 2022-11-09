@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using static ElectronicsShop.GlobalConst.CategoriesConst;
+using static ElectronicsShop.GlobalConst.SearchConst;
 
 namespace ElectronicsShop.Services
 {

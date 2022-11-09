@@ -28,7 +28,7 @@ namespace ElectronicsShop.Models
         }
         static void WriteAccounts(Dictionary<string, string> accounts)
         {
-            using (FileStream fs = new(fullPath, FileMode.Truncate))
+            using (FileStream fs = new(fullPath, FileMode.Create))
             {
                 JsonSerializer.Serialize<Dictionary<string, string>>(fs, accounts);
             }
@@ -40,20 +40,22 @@ namespace ElectronicsShop.Models
         public async static Task<AccountInfo> AuthorizationAsync(string login, string password)
         {
             await Task.Delay(500);
-            if (login == null || password == null || login == "" || password == "") return new AccountInfo(login, AccountInfo.Errors.EmptyField);
-            if (!_accounts.ContainsKey(login) || _accounts[login] != password) return new AccountInfo(login, AccountInfo.Errors.IncorrectLoginOrPassword);
-            return new AccountInfo(login, AccountInfo.Errors.NoErrors);
+            if (login == null || password == null || login == "" || password == "") return new AccountInfo(login, 
+                AccountErrorMessages.FIELDS_EMPTY);
+            if (!_accounts.ContainsKey(login) || _accounts[login] != password) return new AccountInfo(login,
+                AccountErrorMessages.INCORRECT_LOGIN_OR_PASSWORD);
+            return new AccountInfo(login, AccountErrorMessages.SUCCESS);
         }
         public async static Task<AccountInfo> CreateAccountAsync(string login, string password, string repeatPassword)
         {
             await Task.Delay(3000);
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(repeatPassword)) 
-                return new AccountInfo(login, AccountInfo.Errors.EmptyField);
-            if (_accounts.ContainsKey(login)) return new AccountInfo(login, AccountInfo.Errors.SameLoginExist);
-            if (password != repeatPassword) return new AccountInfo(login, AccountInfo.Errors.PasswordsNotSame);
+                return new AccountInfo(login, AccountErrorMessages.FIELDS_EMPTY);
+            if (_accounts.ContainsKey(login)) return new AccountInfo(login, AccountErrorMessages.SAME_LOGIN_EXIST);
+            if (password != repeatPassword) return new AccountInfo(login, AccountErrorMessages.PASSWORDS_NOT_SAME);
             _accounts.Add(login, password);
             WriteAccounts(_accounts);
-            return new AccountInfo(login, AccountInfo.Errors.NoErrors);
+            return new AccountInfo(login, AccountErrorMessages.SUCCESS);
         }
     }
 }

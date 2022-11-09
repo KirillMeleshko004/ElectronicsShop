@@ -25,8 +25,8 @@ public static class MauiProgram
 		builder.Services.AddTransient<RegistrationViewModel>();
 		builder.Services.AddTransient<ShopMainView>();
 		builder.Services.AddTransient<ShopMainViewModel>();
-        builder.Services.AddTransient<CategoriesView>();
-        builder.Services.AddTransient<CategoriesViewModel>();
+        builder.Services.AddTransient<SearchView>();
+        builder.Services.AddTransient<SearchViewModel>();
         builder.Services.AddTransient<CartView>();
         builder.Services.AddTransient<CartViewModel>();
         builder.Services.AddTransient<ProductView>();
@@ -35,6 +35,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<AuthorizationService>();
         builder.Services.AddSingleton<AccountCreationService>();
 		builder.Services.AddSingleton<ProductsService>();
+        builder.Services.AddSingleton<CartService>();
 
         return builder.Build();
 	}

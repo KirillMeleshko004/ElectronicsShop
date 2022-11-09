@@ -1,12 +1,4 @@
-﻿using ElectronicsShop.Services;
-using ElectronicsShop.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ElectronicsShop.ViewModels
+﻿namespace ElectronicsShop.ViewModels
 {
     public partial class RegistrationViewModel : BaseViewModel
     {
@@ -40,7 +32,7 @@ namespace ElectronicsShop.ViewModels
         {
             IsBusy = true;
             AccountInfo accountInfo = await accountCreationService.CreateAccountAsync(Login, Password, RepeatPassword);
-            if (accountInfo.Error == AccountInfo.Errors.NoErrors) IsSuccessful = true;
+            if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS) IsSuccessful = true;
             if (IsSuccessful)
             {
             }

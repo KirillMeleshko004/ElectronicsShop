@@ -1,5 +1,5 @@
 ﻿using ElectronicsShop.GlobalConst;
-using static ElectronicsShop.GlobalConst.CategoriesConst;
+using static ElectronicsShop.GlobalConst.SearchConst;
 
 namespace ElectronicsShop.Models
 {
@@ -12,7 +12,7 @@ namespace ElectronicsShop.Models
             CategoryName = category;
             Icon = ImageSource.FromFile(image);
         }
-        public static List<CategoryInfo> CategoriesList { get; } = new()
+        public static List<CategoryInfo> SearchList { get; } = new()
         {
             new CategoryInfo(SMARTPHONES_CATEGORY, Icons.SmartphoneCategoryIcon),
             new CategoryInfo(TV_CATEGORY, Icons.TvCategoryIcon),

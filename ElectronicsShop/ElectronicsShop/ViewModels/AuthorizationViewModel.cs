@@ -33,7 +33,7 @@ namespace ElectronicsShop.ViewModels
         {
             IsBusy = true;
             AccountInfo accountInfo = await authorizationService.DoAuthorizationAsync(Login, Password);
-            if (accountInfo.Error == AccountInfo.Errors.NoErrors) isSuccessful = true;
+            if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS) isSuccessful = true;
             else isSuccessful = false;
             if (isSuccessful)
             {
