@@ -4,10 +4,10 @@ namespace ElectronicsShop.ViewModels
 {
     public partial class SearchViewModel : BaseViewModel
     {
-        public List<CategoryInfo> SearchList { get; set; }
+        public List<CategoryInfo> CatalogList { get; set; }
         public SearchViewModel()
         {
-            SearchList = CategoryInfo.SearchList;
+            CatalogList = CategoryInfo.CatalogList;
         }
     }
 }

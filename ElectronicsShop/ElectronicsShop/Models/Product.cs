@@ -25,5 +25,22 @@
             ImageUrl = image;
             ProductImage = ImageSource.FromFile(ImageUrl);
         }
+
+        public override bool Equals(object obj)
+        {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Product pr = (Product)obj;
+                return pr.Id == this.Id;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

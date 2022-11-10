@@ -5,6 +5,7 @@ namespace ElectronicsShop.Services
 {
     public class CartService
     {
+
         public List<Product> GetCartList()
         {
             return Cart.GetCartList();
@@ -12,15 +13,16 @@ namespace ElectronicsShop.Services
         public async Task<List<Product>> AddProduct(Product product)
         {
             List<Product> tempList = await Cart.AddProduct(product);
-            CartChanged.Invoke();
+            if(CartChanged != null) CartChanged.Invoke();
             return tempList;
         }
         public async Task<List<Product>> RemoveProduct(Product product)
         {
             List<Product> tempList = await Cart.RemoveProduct(product);
-            CartChanged.Invoke();
+            //CartChanged.Invoke();
             return tempList;
         }
+
         public event CartUpdated CartChanged;
 
         public delegate void CartUpdated();

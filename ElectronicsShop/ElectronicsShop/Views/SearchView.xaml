@@ -6,7 +6,7 @@
              xmlns:model="clr-namespace:ElectronicsShop.Models"
              x:DataType="viewmodel:SearchViewModel">
     <Grid>
-        <CollectionView ItemsSource="{Binding SearchList}" VerticalScrollBarVisibility="Always">
+        <CollectionView ItemsSource="{Binding CatalogList}" VerticalScrollBarVisibility="Always">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:CategoryInfo">
                     <Frame Margin="10"

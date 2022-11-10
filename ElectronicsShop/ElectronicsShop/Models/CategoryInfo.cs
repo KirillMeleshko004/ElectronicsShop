@@ -12,7 +12,7 @@ namespace ElectronicsShop.Models
             CategoryName = category;
             Icon = ImageSource.FromFile(image);
         }
-        public static List<CategoryInfo> SearchList { get; } = new()
+        public static List<CategoryInfo> CatalogList { get; } = new()
         {
             new CategoryInfo(SMARTPHONES_CATEGORY, Icons.SmartphoneCategoryIcon),
             new CategoryInfo(TV_CATEGORY, Icons.TvCategoryIcon),

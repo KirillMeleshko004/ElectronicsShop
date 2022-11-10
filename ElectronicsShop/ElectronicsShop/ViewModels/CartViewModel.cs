@@ -13,30 +13,34 @@ namespace ElectronicsShop.ViewModels
         CartService _cartService;
 
         [ObservableProperty]
-        public List<Product> products;
+        ObservableCollection<Product> products;
 
         public CartViewModel(CartService cartService)
         {
             _cartService = cartService;
             _cartService.CartChanged += UpdateCart;
 
-            Products = cartService.GetCartList();
+            Products = new(cartService.GetCartList());
         }
         void UpdateCart()
         {
-            Products = _cartService.GetCartList();
+            var newProducts = from pr in _cartService.GetCartList() where !Products.Contains(pr) select pr;
+            foreach (Product product in newProducts)
+            {
+                Products.Add(product);
+            }
         }
 
         [RelayCommand]
         async Task RemoveProduct(Product product)
         {
-            Products = await _cartService.RemoveProduct(product);
+            Products = new(await _cartService.RemoveProduct(product));
         }
 
         [RelayCommand]
         async Task AddProduct(Product product)
         {
-            Products = await _cartService.AddProduct(product);
+            Products = new(await _cartService.AddProduct(product));
         }
     }
 }
