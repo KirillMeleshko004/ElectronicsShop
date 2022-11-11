@@ -5,9 +5,9 @@ namespace ElectronicsShop.Services
 {
     public class ProductsService
     {
-        public ObservableCollection<Product> GetProducts()
+        public List<Product> GetProducts()
         {
-            ObservableCollection<Product> products = new()
+            List<Product> products = new()
             {
                 new Product(KITCHEN_CATEGORY, 1, "Fridge_1", "lol_1_manufacturer", 10000, "lol_1_description", 10, "fridge.jpg"),
                 new Product(KITCHEN_CATEGORY, 2, "Toaster_1", "lol_2_manufacturer", 10000, "lol_2_description", 10, "toaster.jpg"),

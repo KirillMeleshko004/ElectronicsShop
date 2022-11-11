@@ -58,6 +58,15 @@
         <member name="P:ElectronicsShop.ViewModels.CartViewModel.AddProductCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CartViewModel.AddProduct(ElectronicsShop.Models.Product)"/>.</summary>
         </member>
+        <member name="F:ElectronicsShop.ViewModels.CategoryViewModel.goToCategoryCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.CategoryViewModel.GoToCategoryCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.CategoryViewModel.GoToCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CategoryViewModel.GoToCategory(ElectronicsShop.Models.CategoryInfo)"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.FilterViewModel.Products">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.FilterViewModel.products"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.ProductViewModel.CurrentProduct">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.ProductViewModel.currentProduct"/>
         </member>

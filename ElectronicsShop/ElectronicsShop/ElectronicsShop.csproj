@@ -81,13 +81,16 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <Compile Update="Views\SearchView.xaml.cs">
-	    <DependentUpon>SearchView.xaml</DependentUpon>
+	  <Compile Update="Views\CategoryView.xaml.cs">
+	    <DependentUpon>CategoryView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 	
 	<ItemGroup>
 	  <MauiXaml Update="Views\CartView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FilterView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProductView.xaml">

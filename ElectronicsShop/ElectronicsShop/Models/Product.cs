@@ -9,7 +9,6 @@
         public double Price { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }
-        public string ImageUrl { get; set; }
 
         [System.Text.Json.Serialization.JsonIgnore]
         public ImageSource ProductImage { get; set; }
@@ -22,9 +21,9 @@
             Price = price;
             Description = description;
             Quantity = quantity;
-            ImageUrl = image;
-            ProductImage = ImageSource.FromFile(ImageUrl);
+            ProductImage = ImageSource.FromFile(image);
         }
+        public Product() { }
 
         public override bool Equals(object obj)
         {

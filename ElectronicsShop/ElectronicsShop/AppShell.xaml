@@ -19,7 +19,7 @@
 
     <FlyoutItem Route="ShopMainView" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Shop" Icon="{x:Static globalconst:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
-        <ShellContent Title="Search" Icon="{x:Static globalconst:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:SearchView}"/>
+        <ShellContent Title="Search" Icon="{x:Static globalconst:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:CategoryView}"/>
         <ShellContent Title="Cart" Icon="{x:Static globalconst:Icons.CartIcon}" ContentTemplate="{DataTemplate views:CartView}"/>
         <ShellContent Title="My account" Icon="{x:Static globalconst:Icons.UserIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
         <ShellContent Title="Favourites" Icon="{x:Static globalconst:Icons.FavouritesIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>

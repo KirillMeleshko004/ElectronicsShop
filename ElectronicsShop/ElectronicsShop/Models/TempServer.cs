@@ -57,5 +57,11 @@ namespace ElectronicsShop.Models
             WriteAccounts(_accounts);
             return new AccountInfo(login, AccountErrorMessages.SUCCESS);
         }
+
+        public static List<Product> FilterProducts(Product filterProduct)
+        {
+            List<Product> products = new ProductsService().GetProducts();
+            return (from pr in products where pr.ProductType == filterProduct.ProductType select pr).ToList<Product>();
+        }
     }
 }

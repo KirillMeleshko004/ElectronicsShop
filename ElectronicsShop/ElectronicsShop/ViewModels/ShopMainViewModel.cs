@@ -10,12 +10,12 @@ namespace ElectronicsShop.ViewModels
         public ShopMainViewModel(ProductsService productsService)
         {
             _productsService = productsService;
-            Products = _productsService.GetProducts();
+            Products = new(_productsService.GetProducts());
         }
         [RelayCommand]
-        Task GoToProduct(Product currentProduct)
+        async Task GoToProduct(Product currentProduct)
         {
-            return Shell.Current.GoToAsync($"{nameof(ProductView)}",
+            await Shell.Current.GoToAsync($"{nameof(ProductView)}",
                 new Dictionary<string, object>
                 {
                     ["CurrentProduct"] = currentProduct
