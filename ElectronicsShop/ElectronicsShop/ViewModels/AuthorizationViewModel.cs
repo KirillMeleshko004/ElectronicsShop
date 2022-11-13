@@ -39,7 +39,11 @@ namespace ElectronicsShop.ViewModels
             {
                 App.UserAccount = new Account(Login);
                 IsLoginOrPasswordWrong = false;
-                await Shell.Current.GoToAsync($"//{nameof(ShopMainView)}");
+                await Shell.Current.GoToAsync($"..",
+                new Dictionary<string, object>
+                {
+                    ["IsSignedIn"] = isSuccessful
+                });
             }
             else
             {

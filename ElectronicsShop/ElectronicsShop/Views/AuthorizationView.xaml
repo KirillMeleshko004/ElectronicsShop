@@ -5,7 +5,9 @@
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
              x:DataType="viewmodel:AuthorizationViewModel"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="True"
+             Shell.FlyoutBehavior="Disabled"
+             Title="Authorization">
     <Page.Behaviors>
         <mct:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
                                StatusBarStyle="DarkContent"/>

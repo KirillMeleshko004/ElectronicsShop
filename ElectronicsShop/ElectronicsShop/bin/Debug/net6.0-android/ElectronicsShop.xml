@@ -4,11 +4,20 @@
         <name>ElectronicsShop</name>
     </assembly>
     <members>
+        <member name="P:ElectronicsShop.ViewModels.AppShellViewModel.IsSignedIn">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AppShellViewModel._isSignedIn"/>
+        </member>
         <member name="F:ElectronicsShop.ViewModels.AppShellViewModel.logOutCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AppShellViewModel.LogOutCommand"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.AppShellViewModel.LogOutCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AppShellViewModel.LogOut"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AppShellViewModel.LogOut"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AppShellViewModel.signInCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AppShellViewModel.SignInCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AppShellViewModel.SignInCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AppShellViewModel.SignIn"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.AuthorizationViewModel.Login">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthorizationViewModel.login"/>

@@ -2,13 +2,26 @@
 
 namespace ElectronicsShop.ViewModels
 {
+    [QueryProperty(nameof(IsSignedIn), nameof(IsSignedIn))]
     public partial class AppShellViewModel : BaseViewModel
     {
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsNotSignedIn))]
+        bool _isSignedIn;
+        public bool IsNotSignedIn => !_isSignedIn;
+
         [RelayCommand]
-        Task LogOut()
+        void LogOut()
         {
+            IsSignedIn = false;
             App.UserAccount = null;
-            return Shell.Current.GoToAsync($"//{nameof(AuthorizationView)}");
+        }
+
+
+        [RelayCommand]
+        async void SignIn()
+        {
+            await Shell.Current.GoToAsync($"{nameof(AuthorizationView)}");
         }
     }
 }

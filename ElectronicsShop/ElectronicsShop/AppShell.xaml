@@ -11,14 +11,13 @@
     x:DataType="viewmodel:AppShellViewModel"
     Shell.TitleColor="{StaticResource PrimaryTextColor}">
 
-    <ShellContent Title="Home"
-                  ContentTemplate="{DataTemplate local:Views.AuthorizationView}"
-                  Shell.FlyoutBehavior="Disabled"
-                  FlyoutItemIsVisible="False"
-                  Route="AuthorizationView"/>
 
     <FlyoutItem Route="ShopMainView" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Shop" Icon="{x:Static globalconst:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
+        <ShellContent Icon="{x:Static globalconst:Icons.ShopIcon}"
+                      Title="Shop"
+                      ContentTemplate="{DataTemplate local:Views.ShopMainView}"
+                      Shell.FlyoutBehavior="Flyout"
+                      FlyoutItemIsVisible="True"/>
         <ShellContent Title="Search" Icon="{x:Static globalconst:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:CategoryView}"/>
         <ShellContent Title="Cart" Icon="{x:Static globalconst:Icons.CartIcon}" ContentTemplate="{DataTemplate views:CartView}"/>
         <ShellContent Title="My account" Icon="{x:Static globalconst:Icons.UserIcon}" ContentTemplate="{DataTemplate views:ShopMainView}"/>
@@ -28,11 +27,21 @@
     </FlyoutItem>
     
     <Shell.FlyoutFooter>
-        <Button Margin="20" 
-                Text="Sign Out"
-                Command="{Binding LogOutCommand}"
-                BackgroundColor="{StaticResource Primary}"
-                TextColor="{StaticResource PrimaryTextColor}"
-                CornerRadius="20"/>
+        <Grid>
+            <Button Margin="20" 
+                    Text="Sign Out"
+                    IsVisible="{Binding IsSignedIn}"
+                    Command="{Binding LogOutCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource PrimaryTextColor}"
+                    CornerRadius="20"/>
+            <Button Margin="20" 
+                    Text="Sign In"
+                    IsVisible="{Binding IsNotSignedIn}"
+                    Command="{Binding SignInCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource PrimaryTextColor}"
+                    CornerRadius="20"/>
+        </Grid>
     </Shell.FlyoutFooter>
 </Shell>
