@@ -4,6 +4,9 @@
         <name>ElectronicsShop</name>
     </assembly>
     <members>
+        <member name="P:ElectronicsShop.Models.Account.IsSignedIn">
+            <inheritdoc cref="F:ElectronicsShop.Models.Account.isSignedIn"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.AppShellViewModel.IsSignedIn">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AppShellViewModel._isSignedIn"/>
         </member>
@@ -52,6 +55,9 @@
         <member name="P:ElectronicsShop.ViewModels.BaseViewModel.IsBusy">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.BaseViewModel._isBusy"/>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.CartViewModel.IsSignedIn">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.CartViewModel.isSignedIn"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.CartViewModel.Products">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.CartViewModel.products"/>
         </member>
@@ -66,6 +72,18 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.CartViewModel.AddProductCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CartViewModel.AddProduct(ElectronicsShop.Models.Product)"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.CartViewModel.goToProductCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.CartViewModel.GoToProductCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.CartViewModel.GoToProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CartViewModel.GoToProduct(ElectronicsShop.Models.Product)"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.CartViewModel.signInCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.CartViewModel.SignInCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.CartViewModel.SignInCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CartViewModel.SignIn"/>.</summary>
         </member>
         <member name="F:ElectronicsShop.ViewModels.CategoryViewModel.goToCategoryCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.CategoryViewModel.GoToCategoryCommand"/>.</summary>

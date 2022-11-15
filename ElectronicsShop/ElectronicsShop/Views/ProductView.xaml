@@ -30,7 +30,7 @@
                        Margin="20,0,0,0"/>
                 <Frame 
                        BorderColor="{StaticResource Primary}">
-                    <Grid BackgroundColor="Transparent" HeightRequest="100">
+                    <Grid BackgroundColor="Transparent" HeightRequest="70">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -40,11 +40,6 @@
                                Grid.RowSpan="2"
                                FontSize="Title"
                                VerticalOptions="Center"/>
-                        <Label Text="{Binding CurrentProduct.Quantity, StringFormat='{0} pieces remains'}"
-                               TextColor="{AppThemeBinding Dark=Black, Light=White}"
-                               FontSize="Subtitle"
-                               Grid.Row="1"
-                               VerticalOptions="End"/>
                     </Grid>
                 </Frame>
                 <Label Text="{Binding CurrentProduct.Description, StringFormat='Description: {0}'}"
@@ -56,8 +51,6 @@
                 <Label Text="{Binding CurrentProduct.ProductName, StringFormat='Product model: {0}'}"
                        Margin="20,0,0,0"/>
                 <Label Text="{Binding CurrentProduct.Price, StringFormat='Product price: {0}'}"
-                       Margin="20,0,0,0"/>
-                <Label Text="{Binding CurrentProduct.Quantity, StringFormat='Product quantity: {0}'}"
                        Margin="20,0,0,0"/>
             </VerticalStackLayout>
         </ScrollView>
@@ -78,8 +71,9 @@
                 </Grid.ColumnDefinitions>
                 <Label Text="Add to cart"
                        VerticalOptions="Center"
-                       HorizontalOptions="Center"
+                       HorizontalOptions="Start"
                        Grid.Column="1"
+                       Grid.ColumnSpan="2"
                        TextColor="{AppThemeBinding Dark=Black, Light=White}"
                        FontSize="Medium"
                        FontAttributes="Bold"/>

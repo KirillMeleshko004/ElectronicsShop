@@ -14,7 +14,8 @@ namespace ElectronicsShop.ViewModels
         void LogOut()
         {
             IsSignedIn = false;
-            App.UserAccount = null;
+            App.UserAccount.IsSignedIn = false;
+            App.UserAccount.Login = null;
         }
 
 

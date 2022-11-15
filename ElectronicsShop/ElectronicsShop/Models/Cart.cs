@@ -6,7 +6,7 @@ namespace ElectronicsShop.Models
 {
     public class Cart
     {
-        static string _path = FileSystem.Current.AppDataDirectory;
+        static string _path = FileSystem.Current.CacheDirectory;
         static string _fullPath = Path.Combine(_path, "CartData.json");
 
         static List<Product> _products;
@@ -23,6 +23,10 @@ namespace ElectronicsShop.Models
                 {
                     products = new List<Product>();
                 }
+            }
+            foreach (Product pr in products)
+            {
+                pr.ProductImage = ImageSource.FromFile(pr.ImageString);
             }
             return products;
         }
@@ -43,7 +47,15 @@ namespace ElectronicsShop.Models
         }
         public async static Task<List<Product>> AddProduct(Product product)
         {
-            _products.Add(product);
+            if (!_products.Contains(product))
+            {
+                product.Quantity++;
+                _products.Add(product);
+            }
+            else
+            {
+                _products[_products.IndexOf(product)].Quantity++;
+            }
             await WriteProducts(_products);
             return _products;
         }
@@ -52,7 +64,7 @@ namespace ElectronicsShop.Models
             Product tempProd = _products.Find(pr => pr.Id == product.Id);
             if (tempProd.Quantity != 1) tempProd.Quantity--;
             else _products.Remove(tempProd);
-            await WriteProducts(_products);
+            await Task.Run(()=>WriteProducts(_products));
             return _products;
         }
     }

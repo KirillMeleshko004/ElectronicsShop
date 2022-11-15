@@ -4,10 +4,24 @@
              x:Class="ElectronicsShop.Views.CartView"
              xmlns:model="clr-namespace:ElectronicsShop.Models"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
+             xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
              Title="CartView"
              x:DataType="viewmodel:CartViewModel">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.001*"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
         <CollectionView ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always">
+            <CollectionView.EmptyView>
+                <Grid>
+                    <Label Text="Cart is empty"
+                           FontSize="Medium"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+                </Grid>
+            </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
                     <Frame Margin="10"
@@ -15,12 +29,13 @@
                            BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
                            BorderColor="{StaticResource Primary}">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer>
-
-                            </TapGestureRecognizer>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartViewModel}},
+                            Path=GoToProductCommand}" CommandParameter="{Binding .}"/>
                         </Frame.GestureRecognizers>
                         <Grid>
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
@@ -28,7 +43,9 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Image  Source="{Binding ProductImage}"
-                                    Aspect="AspectFit"/>
+                                    Aspect="AspectFit"
+                                    HorizontalOptions="Center"
+                                    Grid.RowSpan="3"/>
                             <Label Text="{Binding ProductName}"
                                    Grid.Column="1"
                                    VerticalOptions="Center"
@@ -36,10 +53,70 @@
                                    HorizontalOptions="Center"
                                    HorizontalTextAlignment="Center"
                                    LineBreakMode="WordWrap"/>
+                            <Label Text="{Binding Quantity, StringFormat='x{0}'}"
+                                   Grid.Column="1"
+                                   Grid.Row="1"
+                                   VerticalOptions="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   LineBreakMode="WordWrap"/>
+                            <Button Grid.Column="1"
+                                    Grid.Row="2"
+                                    Text="Remove"
+                                    FontSize="Medium"
+                                    TextColor="{AppThemeBinding Dark=White, Light=Black}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartViewModel}},
+                                Path=RemoveProductCommand}" CommandParameter="{Binding .}"
+                                    Margin="20,0,20,0"/>
                         </Grid>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <BoxView Grid.Row="1" Color="{StaticResource Primary}"/>
+        <Frame HeightRequest="50" VerticalOptions="End"
+               Margin="20"
+               Padding="20,0"
+               Grid.Row="2"
+               IsVisible="{Binding IsNotSignedIn}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SignInCommand}"/>
+            </Frame.GestureRecognizers>
+            <Grid BackgroundColor="Transparent">
+                <Label Text="Sign in to checkout"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Dark=Black, Light=White}"
+                       FontSize="Medium"
+                       FontAttributes="Bold"/>
+            </Grid>
+        </Frame>
+        <Frame HeightRequest="50" VerticalOptions="End"
+               Margin="20"
+               Padding="20,0"
+               Grid.Row="2"
+               IsVisible="{Binding IsSignedIn}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer/>
+            </Frame.GestureRecognizers>
+            <Grid BackgroundColor="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Checkout"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Grid.Column="1"
+                       TextColor="{AppThemeBinding Dark=Black, Light=White}"
+                       FontSize="Medium"
+                       FontAttributes="Bold"/>
+                <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkCartIcon}, Light={x:Static globalconst:Icons.LightCartIcon}}"
+                       Grid.Column="0"
+                       HeightRequest="40"/>
+            </Grid>
+        </Frame>
     </Grid>
 </ContentPage>

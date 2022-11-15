@@ -37,7 +37,8 @@ namespace ElectronicsShop.ViewModels
             else isSuccessful = false;
             if (isSuccessful)
             {
-                App.UserAccount = new Account(Login);
+                App.UserAccount.Login = Login;
+                App.UserAccount.IsSignedIn = true;
                 IsLoginOrPasswordWrong = false;
                 await Shell.Current.GoToAsync($"..",
                 new Dictionary<string, object>
