@@ -23,22 +23,19 @@ public static class MauiProgram
 		builder.Services.AddTransient<AuthorizationViewModel>();
 		builder.Services.AddTransient<RegistrationView>();
 		builder.Services.AddTransient<RegistrationViewModel>();
-		builder.Services.AddTransient<ShopMainView>();
-		builder.Services.AddTransient<ShopMainViewModel>();
+		builder.Services.AddTransient<ProductsListView>();
+		builder.Services.AddTransient<ProductsListViewModel>();
         builder.Services.AddTransient<CategoryView>();
         builder.Services.AddTransient<CategoryViewModel>();
         builder.Services.AddTransient<CartView>();
         builder.Services.AddTransient<CartViewModel>();
         builder.Services.AddTransient<ProductView>();
         builder.Services.AddTransient<ProductViewModel>();
-        builder.Services.AddTransient<FilterView>();
-        builder.Services.AddTransient<FilterViewModel>();
 
         builder.Services.AddSingleton<AuthorizationService>();
         builder.Services.AddSingleton<AccountCreationService>();
 		builder.Services.AddSingleton<ProductsService>();
         builder.Services.AddSingleton<CartService>();
-        builder.Services.AddSingleton<FilterService>();
 
         return builder.Build();
 	}

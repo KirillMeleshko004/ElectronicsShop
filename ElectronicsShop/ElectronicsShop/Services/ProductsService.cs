@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Reflection.Metadata.Ecma335;
 using static ElectronicsShop.GlobalConst.SearchConst;
 
 namespace ElectronicsShop.Services
@@ -18,6 +19,10 @@ namespace ElectronicsShop.Services
                 new Product(LAPTOPS_CATEGORY, 7, "Laptop_1", "lol_3_manufacturer", 10000, "lol_3_description", 10, "laptop.jpg")
             };
             return products;
+        }
+        public List<Product> GetProducts(Product filter)
+        {
+            return TempServer.FilterProducts(filter);
         }
     }
 }

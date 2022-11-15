@@ -10,11 +10,10 @@ public partial class AppShell : Shell
 
         BindingContext = new AppShellViewModel();
 
-        Routing.RegisterRoute(nameof(ShopMainView), typeof(ShopMainView));
+        Routing.RegisterRoute(nameof(ProductsListView), typeof(ProductsListView));
         Routing.RegisterRoute(nameof(AuthorizationView), typeof(AuthorizationView));
         Routing.RegisterRoute(nameof(RegistrationView), typeof(RegistrationView));
         Routing.RegisterRoute(nameof(CartView), typeof(CartView));
         Routing.RegisterRoute(nameof(ProductView), typeof(ProductView));
-        Routing.RegisterRoute(nameof(FilterView), typeof(FilterView));
     }
 }

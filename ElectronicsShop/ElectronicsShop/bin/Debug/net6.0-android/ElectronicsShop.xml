@@ -73,8 +73,14 @@
         <member name="P:ElectronicsShop.ViewModels.CategoryViewModel.GoToCategoryCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CategoryViewModel.GoToCategory(ElectronicsShop.Models.CategoryInfo)"/>.</summary>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.FilterViewModel.Products">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.FilterViewModel.products"/>
+        <member name="P:ElectronicsShop.ViewModels.ProductsListViewModel.Products">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.ProductsListViewModel._products"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.ProductsListViewModel.goToProductCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.ProductsListViewModel.GoToProductCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.ProductsListViewModel.GoToProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.ProductsListViewModel.GoToProduct(ElectronicsShop.Models.Product)"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.ProductViewModel.CurrentProduct">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.ProductViewModel.currentProduct"/>
@@ -111,12 +117,6 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.GoBackCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.RegistrationViewModel.GoBack"/>.</summary>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.ShopMainViewModel.goToProductCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.ShopMainViewModel.GoToProductCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.ShopMainViewModel.GoToProductCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.ShopMainViewModel.GoToProduct(ElectronicsShop.Models.Product)"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
             <summary>

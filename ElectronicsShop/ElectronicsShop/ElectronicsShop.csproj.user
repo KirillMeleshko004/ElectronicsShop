@@ -14,9 +14,6 @@
     <MauiXaml Update="Views\CartView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\FilterView.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
     <MauiXaml Update="Views\CategoryView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

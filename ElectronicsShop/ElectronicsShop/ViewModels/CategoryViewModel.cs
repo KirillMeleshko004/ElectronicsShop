@@ -15,11 +15,10 @@ namespace ElectronicsShop.ViewModels
         [RelayCommand]
         async Task GoToCategory(CategoryInfo categoryInfo)
         {
-            Product filterProduct = new Product() { ProductType = categoryInfo.CategoryName };
-            await Shell.Current.GoToAsync($"{nameof(FilterView)}",
+            await Shell.Current.GoToAsync($"{nameof(ProductsListView)}",
                 new Dictionary<string, object>
                 {
-                    ["FilterProduct"] = filterProduct
+                    ["FilterProduct"] = new Product() { ProductType = categoryInfo.CategoryName }
                 });
         }
     }
