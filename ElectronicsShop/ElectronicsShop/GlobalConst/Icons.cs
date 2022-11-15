@@ -22,5 +22,7 @@ namespace ElectronicsShop.GlobalConst
         public const string HomeAppliancesCategoryIcon = "washing_machine_icon.png";
         public const string KitchenAppliancesCategoryIcon = "dishwasher_icon.png";
         public const string AudioCategoryIcon = "headphones_icon.png";
+        public const string DarkFavouritesIcon = "dark_favourites.png";
+        public const string LightFavouritesIcon = "light_favourites.png";
     }
 }
