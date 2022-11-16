@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
 using ElectronicsShop.Views;
 using System.Collections.ObjectModel;
+using System.Runtime.InteropServices.ObjectiveC;
 
 namespace ElectronicsShop.ViewModels
 {
@@ -23,6 +24,7 @@ namespace ElectronicsShop.ViewModels
             _cartService = cartService;
             _cartService.CartChanged += UpdateCart;
             IsSignedIn = App.UserAccount.IsSignedIn;
+            App.UserAccount.LoginChanged += AccountStateUpdated;
 
             Products = new(cartService.GetCartList());
         }
@@ -57,6 +59,11 @@ namespace ElectronicsShop.ViewModels
         async void SignIn()
         {
             await Shell.Current.GoToAsync($"{nameof(AuthorizationView)}");
+        }
+
+        void AccountStateUpdated(object sender, EventArgs e)
+        {
+            IsSignedIn = App.UserAccount.IsSignedIn;
         }
     }
 }

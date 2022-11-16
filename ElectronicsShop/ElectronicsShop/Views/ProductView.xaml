@@ -24,24 +24,35 @@
                        FontSize="Title"
                        Margin="20,0,0,0"/>
                 <Label Text="{Binding CurrentProduct.Manufacturer}"
-                       VerticalOptions="Center" 
-                       HorizontalOptions="Start"
-                       FontSize="Subtitle"
-                       Margin="20,0,0,0"/>
-                <Frame 
-                       BorderColor="{StaticResource Primary}">
-                    <Grid BackgroundColor="Transparent" HeightRequest="70">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{Binding CurrentProduct.Price, StringFormat='{0:F2}$'}"
-                               TextColor="{AppThemeBinding Dark=Black, Light=White}"
-                               Grid.RowSpan="2"
-                               FontSize="Title"
-                               VerticalOptions="Center"/>
-                    </Grid>
-                </Frame>
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Start"
+                           FontSize="Subtitle"
+                           Margin="20,0,0,0"/>
+                <Grid BackgroundColor="Transparent" HeightRequest="70" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding CurrentProduct.Price, StringFormat='{0:F2}$'}"
+                           Grid.RowSpan="2"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           Margin="15,0"/>
+                    <Frame Grid.Column="1"
+                           Grid.RowSpan="2"
+                           VerticalOptions="Center"
+                           HeightRequest="50">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer/>
+                        </Frame.GestureRecognizers>
+                        <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkFavouritesIcon},
+                               Light={x:Static globalconst:Icons.LightFavouritesIcon}}"
+                       
+                       HeightRequest="50">
+                        </Image>
+                    </Frame>
+                </Grid>
                 <Label Text="{Binding CurrentProduct.Description, StringFormat='Description: {0}'}"
                        Margin="20,0,0,0"/>
                 <Label Text="{Binding CurrentProduct.Manufacturer, StringFormat='Manufacturer: {0}'}"
@@ -60,10 +71,6 @@
               Grid.Row="2"
               ColumnSpacing="10"
               BackgroundColor="Transparent">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
             <Frame Padding="0">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding AddToCartCommand}"
@@ -72,7 +79,8 @@
                 <Grid BackgroundColor="Transparent">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Text="Add to cart"
                        VerticalOptions="Center"
@@ -85,16 +93,6 @@
                        Grid.Column="0"
                        HeightRequest="40"/>
                 </Grid>
-            </Frame>
-            <Frame Grid.Column="1">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer/>
-                </Frame.GestureRecognizers>
-                <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkFavouritesIcon},
-                               Light={x:Static globalconst:Icons.LightFavouritesIcon}}"
-                       
-                       HeightRequest="50">
-                </Image>
             </Frame>
         </Grid>
     </Grid>

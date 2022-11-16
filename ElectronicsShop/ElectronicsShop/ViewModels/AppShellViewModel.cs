@@ -10,6 +10,11 @@ namespace ElectronicsShop.ViewModels
         bool _isSignedIn;
         public bool IsNotSignedIn => !_isSignedIn;
 
+        public AppShellViewModel()
+        {
+            App.UserAccount.LoginChanged += AccountStateUpdated;
+        }
+
         [RelayCommand]
         void LogOut()
         {
@@ -23,6 +28,11 @@ namespace ElectronicsShop.ViewModels
         async void SignIn()
         {
             await Shell.Current.GoToAsync($"{nameof(AuthorizationView)}");
+        }
+
+        void AccountStateUpdated(object sender, EventArgs e)
+        {
+            IsSignedIn = App.UserAccount.IsSignedIn;
         }
     }
 }
