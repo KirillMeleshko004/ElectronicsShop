@@ -25,7 +25,7 @@
             <Button Margin="20" 
                     Text="Sign Out"
                     IsVisible="{Binding IsSignedIn}"
-                    Command="{Binding LogOutCommand}"
+                    Command="{Binding SignOutCommand}"
                     BackgroundColor="{StaticResource Primary}"
                     TextColor="{StaticResource PrimaryTextColor}"
                     CornerRadius="20"/>

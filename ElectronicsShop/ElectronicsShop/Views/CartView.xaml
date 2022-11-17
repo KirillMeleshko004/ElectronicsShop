@@ -52,7 +52,7 @@
                                    FontSize="Large"
                                    HorizontalOptions="Center"
                                    HorizontalTextAlignment="Center"
-                                   LineBreakMode="WordWrap"/>
+                                   LineBreakMode="TailTruncation"/>
                             <Label Text="{Binding Quantity, StringFormat='x{0}'}"
                                    Grid.Column="1"
                                    Grid.Row="1"

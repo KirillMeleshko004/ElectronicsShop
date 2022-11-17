@@ -5,7 +5,7 @@ namespace ElectronicsShop.ViewModels
 {
     public partial class AuthorizationViewModel : BaseViewModel
     {
-        AuthorizationService authorizationService;
+        readonly AuthorizationService authorizationService;
 
         [ObservableProperty]
         string login;
@@ -62,6 +62,16 @@ namespace ElectronicsShop.ViewModels
             IsLoginOrPasswordWrong = false;
             IsSuccessful = false;
             return Shell.Current.GoToAsync(nameof(RegistrationView), true);
+        }
+
+        [RelayCommand]
+        public async Task GoBack()
+        {
+            await Shell.Current.GoToAsync($"..",
+            new Dictionary<string, object>
+            {
+                ["IsSignedIn"] = isSuccessful
+            });
         }
     }
 }

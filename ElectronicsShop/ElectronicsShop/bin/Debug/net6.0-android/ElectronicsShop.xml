@@ -4,17 +4,14 @@
         <name>ElectronicsShop</name>
     </assembly>
     <members>
-        <member name="P:ElectronicsShop.Models.Account.IsSignedIn">
-            <inheritdoc cref="F:ElectronicsShop.Models.Account.isSignedIn"/>
-        </member>
         <member name="P:ElectronicsShop.ViewModels.AppShellViewModel.IsSignedIn">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AppShellViewModel._isSignedIn"/>
         </member>
-        <member name="F:ElectronicsShop.ViewModels.AppShellViewModel.logOutCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AppShellViewModel.LogOutCommand"/>.</summary>
+        <member name="F:ElectronicsShop.ViewModels.AppShellViewModel.signOutCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AppShellViewModel.SignOutCommand"/>.</summary>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.AppShellViewModel.LogOutCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AppShellViewModel.LogOut"/>.</summary>
+        <member name="P:ElectronicsShop.ViewModels.AppShellViewModel.SignOutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AppShellViewModel.SignOut"/>.</summary>
         </member>
         <member name="F:ElectronicsShop.ViewModels.AppShellViewModel.signInCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AppShellViewModel.SignInCommand"/>.</summary>
@@ -49,6 +46,12 @@
         <member name="P:ElectronicsShop.ViewModels.AuthorizationViewModel.SignUpCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AuthorizationViewModel.SignUp"/>.</summary>
         </member>
+        <member name="F:ElectronicsShop.ViewModels.AuthorizationViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AuthorizationViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthorizationViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AuthorizationViewModel.GoBack"/>.</summary>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.BaseViewModel.Title">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.BaseViewModel._title"/>
         </member>
@@ -65,7 +68,7 @@
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.CartViewModel.RemoveProductCommand"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.CartViewModel.RemoveProductCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CartViewModel.RemoveProduct(ElectronicsShop.Models.Product)"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CartViewModel.RemoveProduct(ElectronicsShop.Models.Product)"/>.</summary>
         </member>
         <member name="F:ElectronicsShop.ViewModels.CartViewModel.addProductCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.CartViewModel.AddProductCommand"/>.</summary>

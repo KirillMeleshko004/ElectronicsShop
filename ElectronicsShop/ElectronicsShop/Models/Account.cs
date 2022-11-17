@@ -1,12 +1,27 @@
-﻿namespace ElectronicsShop.Models
-{
-    public partial class Account : ObservableObject
-    {
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsNotSignedIn))]
-        bool isSignedIn;
+﻿using System.ComponentModel;
 
-        public bool IsNotSignedIn => !isSignedIn;
+namespace ElectronicsShop.Models
+{
+    public partial class Account : INotifyPropertyChanged
+    {
+        bool _isSignedIn;
+        public bool IsSignedIn
+        {
+            get
+            {
+                return _isSignedIn;
+            }
+            set
+            {
+                _isSignedIn = value;
+                OnPropertyChanged(nameof(IsSignedIn));
+                OnPropertyChanged(nameof(IsNotSignedIn));
+                AccountStateChanged?.Invoke(this, new EventArgs());
+            }
+        }
+
+        public bool IsNotSignedIn => !_isSignedIn;
+
         string _login;
         public string Login { 
             get
@@ -16,16 +31,19 @@
             set
             {
                 _login = value;
-                LoginChanged?.Invoke(this, new EventArgs());
             }
         }
-
-        public Account(string login)
+        public Account() 
         {
-            Login = login;
+            IsSignedIn = false;
+            Login = null;
         }
-        public Account() { }
 
-        public event EventHandler LoginChanged;
+        public event EventHandler AccountStateChanged;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        void OnPropertyChanged(string name) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

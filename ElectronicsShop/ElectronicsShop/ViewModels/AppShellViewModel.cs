@@ -1,4 +1,5 @@
 ﻿using ElectronicsShop.Views;
+using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels
 {
@@ -10,13 +11,31 @@ namespace ElectronicsShop.ViewModels
         bool _isSignedIn;
         public bool IsNotSignedIn => !_isSignedIn;
 
+
+        //bool _isSignedIn;
+        //public bool IsSignedIn
+        //{
+        //    get
+        //    {
+        //        return _isSignedIn;
+        //    }
+        //    set
+        //    {
+        //        _isSignedIn = value;
+        //        OnPropertyChanged(nameof(IsSignedIn));
+        //        OnPropertyChanged(nameof(IsNotSignedIn));
+        //    }
+        //}
+
+        //public bool IsNotSignedIn => !_isSignedIn;
+
         public AppShellViewModel()
         {
-            App.UserAccount.LoginChanged += AccountStateUpdated;
+            App.UserAccount.AccountStateChanged += AccountStateUpdated;
         }
 
         [RelayCommand]
-        void LogOut()
+        void SignOut()
         {
             IsSignedIn = false;
             App.UserAccount.IsSignedIn = false;
@@ -34,5 +53,6 @@ namespace ElectronicsShop.ViewModels
         {
             IsSignedIn = App.UserAccount.IsSignedIn;
         }
+
     }
 }

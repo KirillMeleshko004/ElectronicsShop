@@ -24,5 +24,6 @@ namespace ElectronicsShop.GlobalConst
         public const string AudioCategoryIcon = "headphones_icon.png";
         public const string DarkFavouritesIcon = "dark_favourites.png";
         public const string LightFavouritesIcon = "light_favourites.png";
+        public const string BackArrowIcon = "arrow.png";
     }
 }

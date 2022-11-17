@@ -59,12 +59,12 @@ namespace ElectronicsShop.Models
             await WriteProducts(_products);
             return _products;
         }
-        public async static Task<List<Product>> RemoveProduct(Product product)
+        public static List<Product> RemoveProduct(Product product)
         {
             Product tempProd = _products.Find(pr => pr.Id == product.Id);
             if (tempProd.Quantity != 1) tempProd.Quantity--;
             else _products.Remove(tempProd);
-            await Task.Run(()=>WriteProducts(_products));
+            Task.Run(()=>WriteProducts(_products));
             return _products;
         }
     }

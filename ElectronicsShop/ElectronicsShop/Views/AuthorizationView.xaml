@@ -4,8 +4,9 @@
              x:Class="ElectronicsShop.Views.AuthorizationView"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
+             xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
              x:DataType="viewmodel:AuthorizationViewModel"
-             Shell.NavBarIsVisible="True"
+             Shell.NavBarIsVisible="False"
              Shell.FlyoutBehavior="Disabled"
              Title="Authorization">
     <Page.Behaviors>
@@ -14,6 +15,24 @@
     </Page.Behaviors>
 
     <VerticalStackLayout Padding="10,0" Spacing="10">
+        <Grid BackgroundColor="{StaticResource Primary}"
+              HeightRequest="50"
+              Margin="-10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Source="{Static globalconst:Icons.BackArrowIcon}" HeightRequest="20"
+                   Margin="-10,0,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Authorization" Grid.Column="1" FontSize="21"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   Margin="5,0,0,0"/>
+        </Grid>
         <Image Source="shop_logo.svg"
                WidthRequest="403"
                Margin="0,-68"/>

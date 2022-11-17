@@ -23,8 +23,9 @@ namespace ElectronicsShop.ViewModels
         {
             _cartService = cartService;
             _cartService.CartChanged += UpdateCart;
+
             IsSignedIn = App.UserAccount.IsSignedIn;
-            App.UserAccount.LoginChanged += AccountStateUpdated;
+            App.UserAccount.AccountStateChanged += AccountStateUpdated;
 
             Products = new(cartService.GetCartList());
         }
@@ -34,9 +35,9 @@ namespace ElectronicsShop.ViewModels
         }
 
         [RelayCommand]
-        async Task RemoveProduct(Product product)
+        void RemoveProduct(Product product)
         {
-            Products = new(await _cartService.RemoveProduct(product));
+            Products = new(_cartService.RemoveProduct(product));
         }
 
         [RelayCommand]
