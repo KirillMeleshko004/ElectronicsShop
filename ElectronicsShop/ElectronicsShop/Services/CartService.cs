@@ -13,7 +13,7 @@ namespace ElectronicsShop.Services
         public async Task<List<Product>> AddProduct(Product product)
         {
             List<Product> tempList = await Cart.AddProduct(product);
-            if(CartChanged != null) CartChanged.Invoke();
+            CartChanged?.Invoke();
             return tempList;
         }
         public List<Product> RemoveProduct(Product product)

@@ -84,7 +84,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Text="Add to cart"
                        VerticalOptions="Center"
-                       HorizontalOptions="Start"
+                       HorizontalOptions="Center"
                        Grid.Column="1"
                        TextColor="{AppThemeBinding Dark=Black, Light=White}"
                        FontSize="Medium"
@@ -92,6 +92,12 @@
                     <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkCartIcon}, Light={x:Static globalconst:Icons.LightCartIcon}}"
                        Grid.Column="0"
                        HeightRequest="40"/>
+                    <Label Text="{Binding CountInCart, StringFormat='In cart: {0}'}"
+                           TextColor="{AppThemeBinding Dark=Black, Light=White}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Grid.Column="2"
+                           FontSize="Subtitle"/>
                 </Grid>
             </Frame>
         </Grid>
