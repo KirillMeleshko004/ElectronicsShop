@@ -8,6 +8,9 @@
     <DefaultDevice>pixel_5_6144_-_api_31</DefaultDevice>
   </PropertyGroup>
   <ItemGroup>
+    <MauiXaml Update="Views\AccountView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\AuthorizationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

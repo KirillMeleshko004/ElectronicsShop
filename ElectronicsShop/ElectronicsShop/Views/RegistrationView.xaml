@@ -4,8 +4,8 @@
              x:Class="ElectronicsShop.Views.RegistrationView"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
              x:DataType="viewmodel:RegistrationViewModel"
-             Title="{Binding Title}"
-             Shell.NavBarIsVisible="False">
+             Title="Registration"
+             Shell.NavBarIsVisible="True">
     
     <Grid>
         <VerticalStackLayout Padding="10,0" Spacing="10">

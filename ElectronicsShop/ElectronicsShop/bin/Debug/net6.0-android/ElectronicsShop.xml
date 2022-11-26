@@ -4,6 +4,18 @@
         <name>ElectronicsShop</name>
     </assembly>
     <members>
+        <member name="P:ElectronicsShop.ViewModels.AccountViewModel.UserName">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AccountViewModel.userName"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AccountViewModel.IsSignedIn">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AccountViewModel.isSignedIn"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AccountViewModel.signInCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AccountViewModel.SignInCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AccountViewModel.SignInCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AccountViewModel.SignIn"/>.</summary>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.AppShellViewModel.IsSignedIn">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AppShellViewModel._isSignedIn"/>
         </member>
