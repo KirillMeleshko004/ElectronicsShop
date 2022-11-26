@@ -24,6 +24,7 @@ namespace ElectronicsShop.ViewModels
 
         [ObservableProperty]
         ObservableCollection<Product> _products;
+
         public ProductsListViewModel(ProductsService productsService)
         {
             _productsService = productsService;

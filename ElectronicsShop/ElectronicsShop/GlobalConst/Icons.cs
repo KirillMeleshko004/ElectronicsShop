@@ -25,5 +25,7 @@ namespace ElectronicsShop.GlobalConst
         public const string DarkFavouritesIcon = "dark_favourites.png";
         public const string LightFavouritesIcon = "light_favourites.png";
         public const string BackArrowIcon = "arrow.png";
+        public const string SearchIcon = "search.png";
+        public const string DeleteTextIcon = "delete.png";
     }
 }

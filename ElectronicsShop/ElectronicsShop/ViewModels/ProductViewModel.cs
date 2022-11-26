@@ -20,7 +20,10 @@ namespace ElectronicsShop.ViewModels
             {
                 currentProduct = value;
                 OnPropertyChanged(nameof(CurrentProduct));
-                CountInCart = (from pr in _cartService.GetCartList() where pr.Id == currentProduct.Id select pr.Quantity).First<int>();
+                Product currentProductInCart = (from pr in _cartService.GetCartList() where pr.Id == currentProduct.Id select pr)
+                    .FirstOrDefault<Product>((Product)null);
+                if (currentProductInCart is not null) CountInCart = currentProductInCart.Quantity;
+                else CountInCart = 0;
             }
         }
 

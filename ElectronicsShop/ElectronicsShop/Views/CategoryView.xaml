@@ -2,11 +2,50 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ElectronicsShop.Views.CategoryView"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
              xmlns:model="clr-namespace:ElectronicsShop.Models"
+             xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
+             xmlns:searchhandlers="clr-namespace:ElectronicsShop.SearchHandlers"
              x:DataType="viewmodel:CategoryViewModel">
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
+                               StatusBarStyle="DarkContent"/>
+    </Page.Behaviors>
+    <Shell.SearchHandler>
+        <searchhandlers:ProductSearchHandler Placeholder="Search"
+                                             FontSize="Medium"
+                                             TextColor="White"
+                                             ShowsResults="True"
+                                             DisplayMemberName="ProductName"
+                                             Products="{x:Static viewmodel:CategoryViewModel.Products}"
+                                             BackgroundColor="{StaticResource Primary}"
+                                             SearchBoxVisibility="Collapsible"
+                                             ClearIcon="{Static globalconst:Icons.DeleteTextIcon}"
+                                             QueryIcon="{Static globalconst:Icons.SearchIcon}">
+            <searchhandlers:ProductSearchHandler.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+                    <Grid Padding="10"
+                          ColumnDefinitions="0.4*,0.6*"
+                          HeightRequest="120"
+                          BackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, 
+                                            Light={StaticResource Gray100}}">
+                        <Image Source="{Binding ProductImage}"
+                               VerticalOptions="Fill"
+                               HorizontalOptions="Fill"/>
+                        <Label Grid.Column="1"
+                               Text="{Binding ProductName}"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               LineBreakMode="TailTruncation"/>
+                    </Grid>
+                </DataTemplate>
+            </searchhandlers:ProductSearchHandler.ItemTemplate>
+        </searchhandlers:ProductSearchHandler>
+    </Shell.SearchHandler>
     <Grid>
-        <CollectionView ItemsSource="{Binding CatalogList}" VerticalScrollBarVisibility="Always">
+        <CollectionView ItemsSource="{Binding CatalogList}" VerticalScrollBarVisibility="Always" Grid.Row="1">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:CategoryInfo">
                     <Frame Margin="10"

@@ -11,7 +11,6 @@
     x:DataType="viewmodel:AppShellViewModel"
     Shell.TitleColor="{StaticResource PrimaryTextColor}">
 
-
     <FlyoutItem Route="ProductsListView" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Shop" Icon="{x:Static globalconst:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:CategoryView}"/>
         <ShellContent Title="Cart" Icon="{x:Static globalconst:Icons.CartIcon}" ContentTemplate="{DataTemplate views:CartView}"/>

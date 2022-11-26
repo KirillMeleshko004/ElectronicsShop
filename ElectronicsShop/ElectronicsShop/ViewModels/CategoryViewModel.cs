@@ -7,9 +7,12 @@ namespace ElectronicsShop.ViewModels
     public partial class CategoryViewModel : BaseViewModel
     {
         public List<CategoryInfo> CatalogList { get; set; }
-        public CategoryViewModel()
+
+        public static List<Product> Products { get; private set; } = new();
+        public CategoryViewModel(ProductsService productsService)
         {
             CatalogList = CategoryInfo.CatalogList;
+            Products = productsService.GetProducts();
         }
 
         [RelayCommand]

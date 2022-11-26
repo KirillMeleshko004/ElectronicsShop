@@ -25,6 +25,7 @@
             ImageString = image;
             ProductImage = ImageSource.FromFile(image);
         }
+
         public Product() { }
 
         public override bool Equals(object obj)
