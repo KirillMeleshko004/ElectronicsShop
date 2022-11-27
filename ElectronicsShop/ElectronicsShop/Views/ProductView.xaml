@@ -57,7 +57,7 @@
                        Margin="20,0,0,0"/>
                 <Label Text="{Binding CurrentProduct.Manufacturer, StringFormat='Manufacturer: {0}'}"
                        Margin="20,0,0,0"/>
-                <Label Text="{Binding CurrentProduct.ProductType, StringFormat='Product catrgory: {0}'}"
+                <Label Text="{Binding CurrentProduct.ProductCategory, StringFormat='Product catrgory: {0}'}"
                        Margin="20,0,0,0"/>
                 <Label Text="{Binding CurrentProduct.ProductName, StringFormat='Product model: {0}'}"
                        Margin="20,0,0,0"/>

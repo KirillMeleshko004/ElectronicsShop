@@ -1,15 +1,17 @@
-﻿using System;
-using System.Net;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace ElectronicsShop.Models
 {
     public class TempServer
     {
-        static string path = FileSystem.Current.AppDataDirectory;
-        static string fullPath = Path.Combine(path, "UserData.json");
+        static readonly string path = FileSystem.Current.AppDataDirectory;
+        static readonly string fullPath = Path.Combine(path, "UserData.json");
+        static readonly string orderPath = FileSystem.Current.AppDataDirectory;
+        static readonly string fullOrderPath = Path.Combine(orderPath, "OrderData.json");
 
-        static Dictionary<string, string> _accounts;
+        static readonly Dictionary<string, string> _accounts;
+        static readonly List<Order> _orders;
+
         static Dictionary<string, string> ReadAccounts()
         {
             Dictionary<string, string> accounts;
@@ -36,6 +38,8 @@ namespace ElectronicsShop.Models
         static TempServer()
         {
             _accounts = ReadAccounts();
+
+            _orders = ReadOrders();
         }
         public async static Task<AccountInfo> AuthorizationAsync(string login, string password)
         {
@@ -61,7 +65,46 @@ namespace ElectronicsShop.Models
         public static List<Product> FilterProducts(Product filterProduct)
         {
             List<Product> products = new ProductsService().GetProducts();
-            return (from pr in products where pr.ProductType == filterProduct.ProductType select pr).ToList<Product>();
+            return (from pr in products where pr.ProductCategory == filterProduct.ProductCategory select pr).ToList<Product>();
+        }
+
+
+        public async static Task<bool> Checkout(Order order)
+        {
+            _orders.Add(order);
+            await Task.Delay(100);
+            WriteOrders(_orders);
+            return true;
+        }
+
+        public async static Task<List<Order>> GetOrders(string userName)
+        {
+            await Task.Delay(100);
+            return (from order in _orders where order.UserName == userName select order).ToList<Order>();
+        }
+
+        static List<Order> ReadOrders()
+        {
+            List<Order> orders;
+            using (FileStream fs = new(fullPath, FileMode.OpenOrCreate))
+            {
+                try
+                {
+                    orders = JsonSerializer.Deserialize<List<Order>>(fs);
+                }
+                catch (Exception)
+                {
+                    orders = new List<Order>();
+                }
+            }
+            return orders;
+        }
+        static void WriteOrders(List<Order> orders)
+        {
+            using (FileStream fs = new(fullPath, FileMode.Create))
+            {
+                JsonSerializer.Serialize<List<Order>>(fs, orders);
+            }
         }
     }
 }

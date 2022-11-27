@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
 using ElectronicsShop.Views;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.InteropServices.ObjectiveC;
 
 namespace ElectronicsShop.ViewModels
@@ -13,16 +14,21 @@ namespace ElectronicsShop.ViewModels
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotSignedIn))]
         bool isSignedIn;
-
         public bool IsNotSignedIn => !isSignedIn;
 
         [ObservableProperty]
         ObservableCollection<Product> products;
 
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
+        bool isEmpty = true;
+        public bool IsNotEmpty => !isEmpty;
+
         public CartViewModel(CartService cartService)
         {
             _cartService = cartService;
             _cartService.CartChanged += UpdateCart;
+            PropertyChanged += CollectionChanged;
 
             IsSignedIn = App.UserAccount.IsSignedIn;
             App.UserAccount.AccountStateChanged += AccountStateUpdated;
@@ -65,6 +71,12 @@ namespace ElectronicsShop.ViewModels
         void AccountStateUpdated(object sender, EventArgs e)
         {
             IsSignedIn = App.UserAccount.IsSignedIn;
+        }
+        public void CollectionChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName != nameof(Products)) return;
+            if (Products.Count == 0) IsEmpty = true;
+            else IsEmpty = false;
         }
     }
 }

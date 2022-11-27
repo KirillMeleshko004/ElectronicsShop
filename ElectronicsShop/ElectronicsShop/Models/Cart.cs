@@ -32,7 +32,7 @@ namespace ElectronicsShop.Models
         }
         static async Task WriteProducts(List<Product> products)
         {
-            using (FileStream fs = new(_fullPath, FileMode.Truncate))
+            using (FileStream fs = new(_fullPath, FileMode.Create))
             {
                 await JsonSerializer.SerializeAsync<List<Product>>(fs, products);
             }

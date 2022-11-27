@@ -4,44 +4,56 @@
              x:Class="ElectronicsShop.Views.ProductsListView"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
              xmlns:model="clr-namespace:ElectronicsShop.Models"
-             x:DataType="viewmodel:ProductsListViewModel">
-    <CollectionView ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="model:Product">
-                <Frame Margin="10"
-                       HeightRequest="200"
-                       BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
-                       BorderColor="{StaticResource Primary}">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProductsListViewModel}},
-                            Path=GoToProductCommand}" CommandParameter="{Binding .}"/>
-                    </Frame.GestureRecognizers>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Image Source="{Binding ProductImage}"
-                               VerticalOptions="Fill"
-                               Grid.RowSpan="2"/>
-                        <Label Text="{Binding ProductName}"
-                               Grid.Column="1"
-                               VerticalOptions="Center"
-                               FontSize="Medium"
-                               HorizontalOptions="Center"/>
-                        <Label Text="{Binding Price}"
-                               Grid.Column="1"
-                               Grid.Row="1"
-                               VerticalOptions="Center"
-                               FontSize="Medium"
-                               HorizontalOptions="Center"/>
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+             x:DataType="viewmodel:ProductsListViewModel"
+             Title="{Binding Title}">
+
+    <Grid>
+        <CollectionView ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always"
+                        IsVisible="{Binding IsNotEmpty}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+                    <Frame Margin="10"
+                           HeightRequest="200"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+                           BorderColor="{StaticResource Primary}">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource 
+                                AncestorType={x:Type viewmodel:ProductsListViewModel}},
+                                Path=GoToProductCommand}" CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ProductImage}"
+                                   VerticalOptions="Fill"
+                                   Grid.RowSpan="2"/>
+                            <Label Text="{Binding ProductName}"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   FontSize="Medium"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="{Binding Price}"
+                                   Grid.Column="1"
+                                   Grid.Row="1"
+                                   VerticalOptions="Center"
+                                   FontSize="Medium"
+                                   HorizontalOptions="Center"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Text="{Binding Title, StringFormat='No results could be found for &quot;{0}&quot;'}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="Medium"
+               HorizontalTextAlignment="Center"
+               IsVisible="{Binding IsEmpty}"/>
+    </Grid>
 </ContentPage>

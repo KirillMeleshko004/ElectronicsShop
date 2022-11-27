@@ -13,15 +13,13 @@
             <RowDefinition Height="0.001*"/>
             <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
-        <CollectionView ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always">
-            <CollectionView.EmptyView>
-                <Grid>
-                    <Label Text="Cart is empty"
-                           FontSize="Medium"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"/>
-                </Grid>
-            </CollectionView.EmptyView>
+        <Label Text="Cart is empty"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="Medium"
+               IsVisible="{Binding IsEmpty}"/>
+        <CollectionView ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always"
+                        IsVisible="{Binding IsNotEmpty}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
                     <Frame Margin="10"

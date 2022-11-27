@@ -1,35 +1,28 @@
 ﻿using ElectronicsShop.Views;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels
 {
-    [QueryProperty(nameof(FilterProduct), nameof(FilterProduct))]
+    [QueryProperty(nameof(Title), nameof(Title))]
+    [QueryProperty(nameof(Products), nameof(Products))]
     public partial class ProductsListViewModel : BaseViewModel
     {
         ProductsService _productsService;
 
-        Product _filterProduct;
-        public Product FilterProduct 
-        { 
-            get
-            {
-                return _filterProduct;
-            } 
-            set
-            {
-                _filterProduct = value;
-                DataTransferred(this, null);
-            }
-        }
-
         [ObservableProperty]
         ObservableCollection<Product> _products;
 
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
+        bool isEmpty = true;
+        public bool IsNotEmpty => !isEmpty;
         public ProductsListViewModel(ProductsService productsService)
         {
             _productsService = productsService;
 
-            DataTransferred += DataTransferredAction;
+            PropertyChanged += CollectionChanged;
         }
         
         [RelayCommand]
@@ -42,11 +35,11 @@ namespace ElectronicsShop.ViewModels
                 });
         }
 
-        event EventHandler DataTransferred;
-
-        public void DataTransferredAction(object sender, EventArgs e)
+        public void CollectionChanged(object sender, PropertyChangedEventArgs e)
         {
-            Products = new(_productsService.GetProducts(_filterProduct));
+            if (e.PropertyName != nameof(Products)) return;
+            if (Products.Count == 0) IsEmpty = true;
+            else IsEmpty = false;
         }
     }
 }

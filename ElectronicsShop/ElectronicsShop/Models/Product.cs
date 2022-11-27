@@ -2,7 +2,7 @@
 {
     public class Product
     {
-        public string ProductType { get; set; }
+        public string ProductCategory { get; set; }
         public int Id { get; set; }
         public string ProductName { get; set; }
         public string Manufacturer { get; set; }
@@ -15,7 +15,7 @@
         public ImageSource ProductImage { get; set; }
         public Product(string productType, int id, string productName, string manufacturer, double price, string description, int quantity, string image)
         {
-            ProductType = productType;
+            ProductCategory = productType;
             Id = id;
             ProductName = productName;
             Manufacturer = manufacturer;

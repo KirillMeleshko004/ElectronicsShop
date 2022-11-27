@@ -12,17 +12,22 @@ namespace ElectronicsShop.ViewModels
         public CategoryViewModel(ProductsService productsService)
         {
             CatalogList = CategoryInfo.CatalogList;
+
             Products = productsService.GetProducts();
         }
 
         [RelayCommand]
         async Task GoToCategory(CategoryInfo categoryInfo)
         {
+            ObservableCollection<Product> categoryProducts = (from product in Products
+                                              where product.ProductCategory == categoryInfo.CategoryName
+                                              select product).ToObservableCollection<Product>();
             await Shell.Current.GoToAsync($"{nameof(ProductsListView)}",
                 new Dictionary<string, object>
                 {
-                    ["FilterProduct"] = new Product() { ProductType = categoryInfo.CategoryName }
-                });
+                    ["Title"] = categoryInfo.CategoryName,
+                    ["Products"] = categoryProducts
+                }); 
         }
     }
 }

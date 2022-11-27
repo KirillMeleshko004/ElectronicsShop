@@ -1,4 +1,6 @@
-﻿using ElectronicsShop.Views;
+﻿using ElectronicsShop.Models;
+using ElectronicsShop.Views;
+using System.Collections.ObjectModel;
 
 namespace ElectronicsShop.SearchHandlers
 {
@@ -21,8 +23,6 @@ namespace ElectronicsShop.SearchHandlers
         }
         protected override async void OnItemSelected(object item)
         {
-            base.OnItemSelected(item);
-
             Product currentProduct = (Product)item;
 
             await Shell.Current.GoToAsync($"{nameof(ProductView)}",
@@ -31,5 +31,19 @@ namespace ElectronicsShop.SearchHandlers
                     ["CurrentProduct"] = currentProduct
                 });
         }
+
+        protected override void OnQueryConfirmed()
+        {
+            if (string.IsNullOrEmpty(Query)) return;
+            ObservableCollection<Product> searchResults = new((IEnumerable<Product>)this.ItemsSource);
+            Shell.Current.GoToAsync($"{nameof(ProductsListView)}",
+            new Dictionary<string, object>
+                {
+                    ["Title"] = this.Query,
+                    ["Products"] = searchResults
+            });
+
+        }
+        
     }
 }
