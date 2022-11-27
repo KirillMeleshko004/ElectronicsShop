@@ -1,5 +1,5 @@
 ﻿using ElectronicsShop.Models;
-using ElectronicsShop.Views;
+
 using System.Collections.ObjectModel;
 
 namespace ElectronicsShop.SearchHandlers

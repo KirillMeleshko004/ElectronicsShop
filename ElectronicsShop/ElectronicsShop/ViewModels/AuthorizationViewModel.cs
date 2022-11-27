@@ -1,5 +1,5 @@
 ﻿using ElectronicsShop.Services;
-using ElectronicsShop.Views;
+
 
 namespace ElectronicsShop.ViewModels
 {

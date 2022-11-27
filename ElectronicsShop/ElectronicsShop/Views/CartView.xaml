@@ -96,7 +96,7 @@
                Grid.Row="2"
                IsVisible="{Binding IsSignedIn}">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer/>
+                <TapGestureRecognizer Command="{Binding CheckoutCommand}"/>
             </Frame.GestureRecognizers>
             <Grid BackgroundColor="Transparent">
                 <Grid.ColumnDefinitions>

@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
-using ElectronicsShop.Views;
+
 using System.Collections.ObjectModel;
 
 namespace ElectronicsShop.ViewModels

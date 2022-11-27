@@ -1,5 +1,4 @@
-﻿using ElectronicsShop.Views;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels
 {

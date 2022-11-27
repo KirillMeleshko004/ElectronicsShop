@@ -69,9 +69,13 @@ namespace ElectronicsShop.Models
         }
 
 
-        public async static Task<bool> Checkout(Order order)
+        public async static Task<bool> Checkout(List<Product> products, string userName, 
+            DateTime orderTime, double totalPrice)
         {
-            _orders.Add(order);
+            int newId = 1;
+            foreach (Order order in _orders) newId++;
+            Order newOrder = new Order(products, orderTime, userName, totalPrice, newId);
+            _orders.Add(newOrder);
             await Task.Delay(100);
             WriteOrders(_orders);
             return true;

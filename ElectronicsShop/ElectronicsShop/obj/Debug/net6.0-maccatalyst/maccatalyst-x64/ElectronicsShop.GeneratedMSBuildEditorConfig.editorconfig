@@ -57,6 +57,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.Cate
 build_metadata.AdditionalFiles.TargetPath = Views\CategoryView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CategoryView.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/CheckoutView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.CheckoutView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CheckoutView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CheckoutView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/OrdersView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.OrdersView.xaml

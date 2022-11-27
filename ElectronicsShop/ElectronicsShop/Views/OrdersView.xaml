@@ -7,6 +7,12 @@
              Title="{Binding Title}"
              x:DataType="viewmodel:OrdersViewModel">
     <Grid>
+        <Label Text="{Binding UserName, StringFormat='There are no orders for {0}'}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="Medium"
+               IsVisible="{Binding IsEmpty}"
+               HorizontalTextAlignment="Center"/>
         <CollectionView IsVisible="{Binding IsNotEmpty}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Order">
@@ -16,9 +22,14 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding OrderTime}"/>
-                            <Label Text="{Binding TotalPrice}"
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding OrderTime, StringFormat='Order tiem: {0}'}"/>
+                            <Label Text="{Binding TotalPrice, StringFormat='Total price: {0}'}"
                                    Grid.Column="1"/>
+                            <Label Text="{Binding OrderId, StringFormat='Order id: {0}'}"/>
                         </Grid>
                     </Frame>
                 </DataTemplate>

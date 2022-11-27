@@ -89,7 +89,8 @@
                        TextColor="{AppThemeBinding Dark=Black, Light=White}"
                        FontSize="Medium"
                        FontAttributes="Bold"/>
-                    <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkCartIcon}, Light={x:Static globalconst:Icons.LightCartIcon}}"
+                    <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkCartIcon}, 
+                        Light={x:Static globalconst:Icons.LightCartIcon}}"
                        Grid.Column="0"
                        HeightRequest="40"/>
                     <Label Text="{Binding CountInCart, StringFormat='In cart: {0}'}"

@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
-using ElectronicsShop.Views;
+
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
@@ -58,6 +58,22 @@ namespace ElectronicsShop.ViewModels
                 new Dictionary<string, object>
                 {
                     ["CurrentProduct"] = currentProduct
+                });
+        }
+        [RelayCommand]
+        async Task Checkout()
+        {
+            double totalPrice = 0;
+            foreach(Product product in Products)
+            {
+                totalPrice += product.Price * product.Quantity;
+            }
+            await Shell.Current.GoToAsync($"{nameof(CheckoutView)}",
+                new Dictionary<string, object>
+                {
+                    ["Products"] = Products,
+                    ["UserName"] = App.UserAccount.Login,
+                    ["TotalPrice"] = totalPrice
                 });
         }
 

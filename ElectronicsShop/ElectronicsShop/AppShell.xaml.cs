@@ -1,4 +1,4 @@
-﻿using ElectronicsShop.Views;
+﻿
 
 namespace ElectronicsShop;
 
@@ -17,5 +17,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(ProductView), typeof(ProductView));
         Routing.RegisterRoute(nameof(AccountView), typeof(AccountView));
         Routing.RegisterRoute(nameof(OrdersView), typeof(OrdersView));
+        Routing.RegisterRoute(nameof(CheckoutView), typeof(CheckoutView));
     }
 }

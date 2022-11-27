@@ -1,4 +1,4 @@
-﻿using ElectronicsShop.Views;
+﻿
 
 namespace ElectronicsShop;
 

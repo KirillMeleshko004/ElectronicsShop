@@ -1,5 +1,4 @@
-﻿using ElectronicsShop.Models;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels
@@ -14,6 +13,8 @@ namespace ElectronicsShop.ViewModels
 
         [ObservableProperty]
         string userName;
+        [ObservableProperty]
+        int orderId;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
@@ -33,7 +34,7 @@ namespace ElectronicsShop.ViewModels
             if (e.PropertyName != nameof(UserName)) return;
 
             Title = $"{UserName}'s orders";
-            Orders = new ObservableCollection<Order>(await _orderService.GetOrdersAsync(userName));
+            Orders = new ObservableCollection<Order>(await _orderService.GetOrdersAsync(UserName));
         }
         void OrdersChanged(object sender, PropertyChangedEventArgs e)
         {
