@@ -2,7 +2,6 @@
 using ElectronicsShop.Views;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Runtime.InteropServices.ObjectiveC;
 
 namespace ElectronicsShop.ViewModels
 {
@@ -31,7 +30,7 @@ namespace ElectronicsShop.ViewModels
             PropertyChanged += CollectionChanged;
 
             IsSignedIn = App.UserAccount.IsSignedIn;
-            App.UserAccount.AccountStateChanged += AccountStateUpdated;
+            App.UserAccount.PropertyChanged += AccountStateUpdated;
 
             Products = new(cartService.GetCartList());
         }
@@ -68,11 +67,12 @@ namespace ElectronicsShop.ViewModels
             await Shell.Current.GoToAsync($"{nameof(AuthorizationView)}");
         }
 
-        void AccountStateUpdated(object sender, EventArgs e)
+        void AccountStateUpdated(object sender, PropertyChangedEventArgs e)
         {
+            if (e.PropertyName == nameof(Account.IsSignedIn)) return;
             IsSignedIn = App.UserAccount.IsSignedIn;
         }
-        public void CollectionChanged(object sender, PropertyChangedEventArgs e)
+        void CollectionChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(Products)) return;
             if (Products.Count == 0) IsEmpty = true;

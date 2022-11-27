@@ -1,4 +1,5 @@
 ﻿using ElectronicsShop.Views;
+using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels
 {
@@ -18,11 +19,12 @@ namespace ElectronicsShop.ViewModels
             IsSignedIn = App.UserAccount.IsSignedIn;
             if (IsSignedIn) UserName = App.UserAccount.Login;
 
-            App.UserAccount.AccountStateChanged += AccountStateUpdated;
+            App.UserAccount.PropertyChanged += AccountStateUpdated;
         }
 
-        void AccountStateUpdated(object sender, EventArgs e)
+        void AccountStateUpdated(object sender, PropertyChangedEventArgs e)
         {
+            if (e.PropertyName == nameof(Account.IsSignedIn)) return;
             IsSignedIn = App.UserAccount.IsSignedIn;
             UserName = App.UserAccount.Login;
         }

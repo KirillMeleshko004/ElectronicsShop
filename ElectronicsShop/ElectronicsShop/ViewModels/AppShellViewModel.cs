@@ -11,27 +11,9 @@ namespace ElectronicsShop.ViewModels
         bool _isSignedIn;
         public bool IsNotSignedIn => !_isSignedIn;
 
-
-        //bool _isSignedIn;
-        //public bool IsSignedIn
-        //{
-        //    get
-        //    {
-        //        return _isSignedIn;
-        //    }
-        //    set
-        //    {
-        //        _isSignedIn = value;
-        //        OnPropertyChanged(nameof(IsSignedIn));
-        //        OnPropertyChanged(nameof(IsNotSignedIn));
-        //    }
-        //}
-
-        //public bool IsNotSignedIn => !_isSignedIn;
-
         public AppShellViewModel()
         {
-            App.UserAccount.AccountStateChanged += AccountStateUpdated;
+            App.UserAccount.PropertyChanged += AccountStateUpdated;
         }
 
         [RelayCommand]
@@ -49,8 +31,9 @@ namespace ElectronicsShop.ViewModels
             await Shell.Current.GoToAsync($"{nameof(AuthorizationView)}");
         }
 
-        void AccountStateUpdated(object sender, EventArgs e)
+        void AccountStateUpdated(object sender, PropertyChangedEventArgs e)
         {
+            if (e.PropertyName == nameof(Account.IsSignedIn)) return;
             IsSignedIn = App.UserAccount.IsSignedIn;
         }
 

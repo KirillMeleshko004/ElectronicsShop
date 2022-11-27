@@ -4,6 +4,9 @@
         <name>ElectronicsShop</name>
     </assembly>
     <members>
+        <member name="P:ElectronicsShop.Models.Account.IsSignedIn">
+            <inheritdoc cref="F:ElectronicsShop.Models.Account._isSignedIn"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.AccountViewModel.UserName">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AccountViewModel.userName"/>
         </member>
