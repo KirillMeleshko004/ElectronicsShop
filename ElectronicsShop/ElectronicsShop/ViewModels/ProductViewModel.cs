@@ -5,7 +5,7 @@ namespace ElectronicsShop.ViewModels
     [QueryProperty(nameof(CurrentProduct), nameof(CurrentProduct))]
     public partial class ProductViewModel : BaseViewModel
     {
-        CartService _cartService;
+        readonly CartService _cartService;
 
         [ObservableProperty]
         Product currentProduct;

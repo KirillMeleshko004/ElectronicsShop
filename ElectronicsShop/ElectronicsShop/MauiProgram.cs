@@ -33,11 +33,14 @@ public static class MauiProgram
         builder.Services.AddTransient<ProductViewModel>();
         builder.Services.AddTransient<AccountView>();
         builder.Services.AddTransient<AccountViewModel>();
+        builder.Services.AddTransient<OrdersView>();
+        builder.Services.AddTransient<OrdersViewModel>();
 
         builder.Services.AddSingleton<AuthorizationService>();
         builder.Services.AddSingleton<AccountCreationService>();
 		builder.Services.AddSingleton<ProductsService>();
         builder.Services.AddSingleton<CartService>();
+        builder.Services.AddSingleton<OrderService>();
 
         return builder.Build();
 	}

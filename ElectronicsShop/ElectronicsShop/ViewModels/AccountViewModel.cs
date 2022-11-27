@@ -22,6 +22,16 @@ namespace ElectronicsShop.ViewModels
             App.UserAccount.PropertyChanged += AccountStateUpdated;
         }
 
+        [RelayCommand]
+        async void GoToOrders()
+        {
+            await Shell.Current.GoToAsync($"{nameof(OrdersView)}",
+                new Dictionary<string, object>
+                {
+                    ["UserName"] = userName
+                });
+        }
+
         void AccountStateUpdated(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(Account.IsSignedIn)) return;

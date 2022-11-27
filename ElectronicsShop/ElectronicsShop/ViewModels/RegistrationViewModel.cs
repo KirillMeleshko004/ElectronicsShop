@@ -2,7 +2,7 @@
 {
     public partial class RegistrationViewModel : BaseViewModel
     {
-        AccountCreationService accountCreationService;
+        readonly AccountCreationService accountCreationService;
 
         [ObservableProperty]
         public string login;

@@ -24,7 +24,8 @@
                              Padding="20">
             <Button Text="My orders"
                     TextColor="White"
-                    HorizontalOptions="Fill"/>
+                    HorizontalOptions="Fill"
+                    Command="{Binding GoToOrdersCommand}"/>
             <Button Text="Change password"
                     TextColor="White"
                     HorizontalOptions="Fill"

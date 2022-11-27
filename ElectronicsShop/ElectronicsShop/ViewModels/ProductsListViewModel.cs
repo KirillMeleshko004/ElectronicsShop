@@ -9,7 +9,7 @@ namespace ElectronicsShop.ViewModels
     [QueryProperty(nameof(Products), nameof(Products))]
     public partial class ProductsListViewModel : BaseViewModel
     {
-        ProductsService _productsService;
+        readonly ProductsService _productsService;
 
         [ObservableProperty]
         ObservableCollection<Product> _products;
