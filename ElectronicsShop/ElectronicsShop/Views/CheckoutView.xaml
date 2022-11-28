@@ -7,7 +7,7 @@
              x:Class="ElectronicsShop.Views.CheckoutView"
              x:DataType="viewmodel:CheckoutViewModel"
              Title="Checkout"
-             Shell.NavBarIsVisible="{Binding IsFailed}">
+             Shell.NavBarIsVisible="{Binding IsNotSuccessful}">
     <Grid RowSpacing="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -16,12 +16,12 @@
             <RowDefinition Height="3"/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
-        <!--<Label Text="Error"
-                   TextColor="{StaticResource ErrorMessageTextColor}"
-                   HorizontalTextAlignment="Start"
-                   Margin="10,0,0,-5"
-                   IsVisible="{Binding IsFailed}"/>-->
-        <CollectionView ItemsSource="{Binding Products}" IsEnabled="{Binding IsFailed}">
+        <Label Text="Error"
+               TextColor="{StaticResource ErrorMessageTextColor}"
+               HorizontalTextAlignment="Start"
+               Margin="10,0,0,-5"
+               IsVisible="{Binding IsFailed}"/>
+        <CollectionView ItemsSource="{Binding Products}" IsEnabled="{Binding IsNotSuccessful}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
                     <Grid Margin="8,8,8,0"
@@ -101,7 +101,7 @@
                Margin="20"
                Padding="20,0"
                Grid.Row="4"
-               IsEnabled="{Binding IsFailed}">
+               IsEnabled="{Binding IsNotSuccessful}">
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding ConfirmCommand}"/>
             </Frame.GestureRecognizers>
@@ -120,7 +120,8 @@
                HeightRequest="150"
                WidthRequest="300"
                BackgroundColor="{AppThemeBinding Dark=Black, Light=White}"
-               IsVisible="{Binding IsSuccessful}">
+               IsVisible="{Binding IsSuccessful}"
+               Grid.RowSpan="5">
             <Grid BackgroundColor="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition/>

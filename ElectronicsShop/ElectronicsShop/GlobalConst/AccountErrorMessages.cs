@@ -7,6 +7,7 @@
         public static readonly string CONNECTION_ERROR = "Incorrect login or password!";
         public static readonly string FIELDS_EMPTY = "Some fields are empty!";
         public static readonly string PASSWORDS_NOT_SAME = "Passords are not the same!";
+        public static readonly string INCORRECT_OLD_PASSWORD = "Incorrect old password!";
         public static readonly string SUCCESS = "Success!";
     }
 }

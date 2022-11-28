@@ -14,12 +14,6 @@
         string repeatPassword;
 
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsNotSuccessful))]
-        bool isSuccessful;
-
-        public bool IsNotSuccessful => !isSuccessful;
-
-        [ObservableProperty]
         string errorMessage;
         public RegistrationViewModel(AccountCreationService accountCreationService)
         {
@@ -32,14 +26,13 @@
         {
             IsBusy = true;
             AccountInfo accountInfo = await accountCreationService.CreateAccountAsync(Login, Password, RepeatPassword);
-            if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS) IsSuccessful = true;
-            if (IsSuccessful)
+            if (accountInfo.ErrorMessage != AccountErrorMessages.SUCCESS)
             {
-            }
-            else
-            {
+                IsSuccessful = false;
                 ErrorMessage = accountInfo.ErrorMessage;
             }
+            else IsSuccessful = true;
+
             IsBusy = false;
         }
 

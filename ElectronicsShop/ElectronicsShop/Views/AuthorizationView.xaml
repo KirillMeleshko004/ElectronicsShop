@@ -35,7 +35,7 @@
                TextColor="{StaticResource ErrorMessageTextColor}"
                HorizontalTextAlignment="Start"
                Margin="10,0,0,-5"
-               IsVisible="{Binding IsLoginOrPasswordWrong}"
+               IsVisible="{Binding IsFailed}"
                FontSize="Small"/>
         <Frame BorderColor="Transparent"
                HeightRequest="55">

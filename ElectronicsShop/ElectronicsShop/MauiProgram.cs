@@ -42,7 +42,8 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<AuthorizationService>();
         builder.Services.AddSingleton<AccountCreationService>();
-		builder.Services.AddSingleton<ProductsService>();
+        builder.Services.AddSingleton<PasswordChangingService>();
+        builder.Services.AddSingleton<ProductsService>();
         builder.Services.AddSingleton<CartService>();
         builder.Services.AddSingleton<OrderService>();
 

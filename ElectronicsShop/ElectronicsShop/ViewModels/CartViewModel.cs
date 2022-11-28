@@ -88,8 +88,9 @@ namespace ElectronicsShop.ViewModels
 
         void AccountStateUpdated(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(Account.IsSignedIn)) return;
-            IsSignedIn = App.UserAccount.IsSignedIn;
+            if (e.PropertyName != nameof(Account.IsSignedIn)) return;
+            this.IsSignedIn = !App.UserAccount.IsSignedIn;
+            this.IsSignedIn = App.UserAccount.IsSignedIn;
         }
         void CollectionChanged(object sender, PropertyChangedEventArgs e)
         {

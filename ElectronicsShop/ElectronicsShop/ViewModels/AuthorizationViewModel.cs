@@ -14,12 +14,6 @@ namespace ElectronicsShop.ViewModels
         string password;
 
         [ObservableProperty]
-        bool isSuccessful;
-
-        [ObservableProperty]
-        bool isLoginOrPasswordWrong;
-
-        [ObservableProperty]
         string errorMessage;
 
         public AuthorizationViewModel(AuthorizationService authorizationService)
@@ -33,23 +27,23 @@ namespace ElectronicsShop.ViewModels
         {
             IsBusy = true;
             AccountInfo accountInfo = await authorizationService.DoAuthorizationAsync(Login, Password);
-            if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS) isSuccessful = true;
-            else isSuccessful = false;
-            if (isSuccessful)
+            if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
             {
+                IsSuccessful = true;
                 App.UserAccount.Login = Login;
                 App.UserAccount.IsSignedIn = true;
-                IsLoginOrPasswordWrong = false;
+                IsFailed = false;
                 await Shell.Current.GoToAsync($"..",
                 new Dictionary<string, object>
                 {
-                    ["IsSignedIn"] = isSuccessful
+                    ["IsSignedIn"] = IsSuccessful
                 });
             }
             else
             {
+                IsSuccessful = false;
                 ErrorMessage = accountInfo.ErrorMessage;
-                IsLoginOrPasswordWrong = true;
+                IsFailed = true;
                 Password = string.Empty;
             }
             IsBusy = false;
@@ -60,7 +54,7 @@ namespace ElectronicsShop.ViewModels
             IsBusy = true;
             Login = string.Empty;
             Password = string.Empty;
-            IsLoginOrPasswordWrong = false;
+            IsFailed = false;
             IsSuccessful = false;
             await Shell.Current.GoToAsync(nameof(RegistrationView), true);
             IsBusy = false;
@@ -72,7 +66,7 @@ namespace ElectronicsShop.ViewModels
             await Shell.Current.GoToAsync($"..",
             new Dictionary<string, object>
             {
-                ["IsSignedIn"] = isSuccessful
+                ["IsSignedIn"] = IsSuccessful
             });
         }
     }

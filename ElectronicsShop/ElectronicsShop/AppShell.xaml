@@ -12,7 +12,7 @@
     Shell.TitleColor="{StaticResource PrimaryTextColor}">
 
     <FlyoutItem Route="flyout" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Route="Main" Title="Shop" Icon="{x:Static globalconst:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:CategoryView}"/>
+        <ShellContent Route="Main" Title="Shop" Icon="{x:Static globalconst:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:CategoryView}" />
         <ShellContent Title="Cart" Icon="{x:Static globalconst:Icons.CartIcon}" ContentTemplate="{DataTemplate views:CartView}"/>
         <ShellContent Title="My account" Icon="{x:Static globalconst:Icons.UserIcon}" ContentTemplate="{DataTemplate views:AccountView}"/>
         <ShellContent Title="Favourites" Icon="{x:Static globalconst:Icons.FavouritesIcon}" ContentTemplate="{DataTemplate views:ProductsListView}"/>

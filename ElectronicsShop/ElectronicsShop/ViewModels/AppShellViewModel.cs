@@ -19,8 +19,8 @@ namespace ElectronicsShop.ViewModels
         void SignOut()
         {
             IsSignedIn = false;
-            App.UserAccount.IsSignedIn = false;
             App.UserAccount.Login = null;
+            App.UserAccount.IsSignedIn = false;
         }
 
 
@@ -32,8 +32,9 @@ namespace ElectronicsShop.ViewModels
 
         void AccountStateUpdated(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(Account.IsSignedIn)) return;
-            IsSignedIn = App.UserAccount.IsSignedIn;
+            if (e.PropertyName != nameof(Account.IsSignedIn)) return;
+            this.IsSignedIn = !App.UserAccount.IsSignedIn;
+            this.IsSignedIn = App.UserAccount.IsSignedIn;
         }
 
     }
