@@ -110,7 +110,7 @@ namespace ElectronicsShop.Models
         static List<Order> ReadOrders()
         {
             List<Order> orders;
-            using (FileStream fs = new(fullOrderPath, FileMode.Create))
+            using (FileStream fs = new(fullOrderPath, FileMode.OpenOrCreate))
             {
                 try
                 {
@@ -120,6 +120,11 @@ namespace ElectronicsShop.Models
                 {
                     orders = new List<Order>();
                 }
+            }
+            foreach (Order order in orders)
+            {
+                foreach(Product product in order.Products)
+                    product.ProductImage = ImageSource.FromFile(product.ImageString);
             }
             return orders;
         }
