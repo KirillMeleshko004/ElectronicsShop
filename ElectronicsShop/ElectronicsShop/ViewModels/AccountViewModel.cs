@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using ElectronicsShop.Models;
+using ElectronicsShop.Services;
+using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels
 {
@@ -87,6 +89,13 @@ namespace ElectronicsShop.ViewModels
             IsFailed = false;
 
             IsBusy = false;
+        }
+        public void Refresh()
+        {
+            IsSignedIn = App.UserAccount.IsSignedIn;
+            if (IsSignedIn) UserName = App.UserAccount.Login;
+
+            App.UserAccount.PropertyChanged += AccountStateUpdated;
         }
     }
 }

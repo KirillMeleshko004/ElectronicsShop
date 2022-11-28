@@ -11,12 +11,12 @@
     x:DataType="viewmodel:AppShellViewModel"
     Shell.TitleColor="{StaticResource PrimaryTextColor}">
 
-    <FlyoutItem Route="flyout" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Route="Main" Title="Shop" Icon="{x:Static globalconst:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:CategoryView}" />
-        <ShellContent Title="Cart" Icon="{x:Static globalconst:Icons.CartIcon}" ContentTemplate="{DataTemplate views:CartView}"/>
-        <ShellContent Title="My account" Icon="{x:Static globalconst:Icons.UserIcon}" ContentTemplate="{DataTemplate views:AccountView}"/>
-        <ShellContent Title="Favourites" Icon="{x:Static globalconst:Icons.FavouritesIcon}" ContentTemplate="{DataTemplate views:ProductsListView}"/>
-        <ShellContent Title="Contact us" Icon="{x:Static globalconst:Icons.ContactUsIcon}" ContentTemplate="{DataTemplate views:ProductsListView}"/>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Route="CategoryView" Title="Shop" Icon="{x:Static globalconst:Icons.ShopIcon}" ContentTemplate="{DataTemplate views:CategoryView}" />
+        <ShellContent Route ="CartView" Title="Cart" Icon="{x:Static globalconst:Icons.CartIcon}" ContentTemplate="{DataTemplate views:CartView}"/>
+        <ShellContent Route="AccountView" Title="My account" Icon="{x:Static globalconst:Icons.UserIcon}" ContentTemplate="{DataTemplate views:AccountView}"/>
+        <ShellContent Route="ProductsListView" Title="Favourites" Icon="{x:Static globalconst:Icons.FavouritesIcon}" ContentTemplate="{DataTemplate views:ProductsListView}"/>
+        <ShellContent Route="ProductsListView" Title="Contact us" Icon="{x:Static globalconst:Icons.ContactUsIcon}" ContentTemplate="{DataTemplate views:ProductsListView}"/>
     </FlyoutItem>
     
     <Shell.FlyoutFooter>

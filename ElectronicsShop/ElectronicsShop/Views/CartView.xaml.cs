@@ -2,10 +2,12 @@ namespace ElectronicsShop.Views;
 
 public partial class CartView : ContentPage
 {
+	public CartViewModel ViewModel { get; set; }
 	public CartView(CartViewModel viewModel)
 	{
 		InitializeComponent();
 
-		BindingContext = viewModel;
+        ViewModel = viewModel;
+		BindingContext = ViewModel;
 	}
 }

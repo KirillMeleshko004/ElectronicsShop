@@ -6,14 +6,15 @@ namespace ElectronicsShop.ViewModels
 {
     public partial class CategoryViewModel : BaseViewModel
     {
+        readonly ProductsService _productsService;
         public List<CategoryInfo> CatalogList { get; set; }
 
         public static List<Product> Products { get; private set; } = new();
         public CategoryViewModel(ProductsService productsService)
         {
             CatalogList = CategoryInfo.CatalogList;
-
-            Products = productsService.GetProducts();
+            _productsService = productsService;
+            Products = _productsService.GetProducts();
         }
 
         [RelayCommand]
@@ -27,7 +28,13 @@ namespace ElectronicsShop.ViewModels
                 {
                     ["Title"] = categoryInfo.CategoryName,
                     ["Products"] = categoryProducts
-                }); 
+                });
+        }
+        public void Refresh()
+        {
+            CatalogList = CategoryInfo.CatalogList;
+
+            Products = _productsService.GetProducts();
         }
     }
 }

@@ -1,13 +1,17 @@
+using AndroidX.Lifecycle;
+
 namespace ElectronicsShop.Views;
 
 public partial class AccountView : ContentPage
 {
-	public AccountView(AccountViewModel viewModel)
+    public AccountViewModel ViewModel { get; set; }
+    public AccountView(AccountViewModel viewModel)
 	{
 		InitializeComponent();
 
-		BindingContext = viewModel;
-	}
+        ViewModel = viewModel;
+        BindingContext = ViewModel;
+    }
 
 	private void Button_Clicked(object sender, EventArgs e)
 	{

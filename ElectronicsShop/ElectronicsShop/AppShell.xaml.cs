@@ -21,4 +21,23 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(OrdersView), typeof(OrdersView));
         Routing.RegisterRoute(nameof(OrderDetailsView), typeof(OrderDetailsView));
     }
+    protected override void OnNavigated(ShellNavigatedEventArgs args)
+    {
+        string location = args.Current?.Location?.ToString();
+        switch(location)
+        {
+            case $"//{nameof(CategoryView)}":
+                ((CategoryView)Shell.Current.CurrentPage).ViewModel.Refresh();
+                break;
+            case $"//{nameof(CartView)}":
+                ((CartView)Shell.Current.CurrentPage).ViewModel.Refresh();
+                break;
+            case $"//{nameof(AccountView)}":
+                ((AccountView)Shell.Current.CurrentPage).ViewModel.Refresh();
+                break;
+            default: break;
+        }
+
+        base.OnNavigated(args);
+    }
 }

@@ -8,7 +8,7 @@ namespace ElectronicsShop.ViewModels
     [QueryProperty(nameof(IsSignedIn), nameof(IsSignedIn))]
     public partial class CartViewModel : BaseViewModel
     {
-        CartService _cartService;
+        readonly CartService _cartService;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotSignedIn))]
@@ -32,7 +32,7 @@ namespace ElectronicsShop.ViewModels
             IsSignedIn = App.UserAccount.IsSignedIn;
             App.UserAccount.PropertyChanged += AccountStateUpdated;
 
-            Products = new(cartService.GetCartList());
+            Products = new(_cartService.GetCartList());
         }
         void UpdateCart()
         {
@@ -97,6 +97,16 @@ namespace ElectronicsShop.ViewModels
             if (e.PropertyName != nameof(Products)) return;
             if (Products.Count == 0) IsEmpty = true;
             else IsEmpty = false;
+        }
+        public void Refresh()
+        {
+            _cartService.CartChanged += UpdateCart;
+            PropertyChanged += CollectionChanged;
+
+            IsSignedIn = App.UserAccount.IsSignedIn;
+            App.UserAccount.PropertyChanged += AccountStateUpdated;
+
+            Products = new(_cartService.GetCartList());
         }
     }
 }

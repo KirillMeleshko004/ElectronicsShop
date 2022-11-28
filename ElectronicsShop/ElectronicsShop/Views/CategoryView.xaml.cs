@@ -1,11 +1,15 @@
+using AndroidX.Lifecycle;
+
 namespace ElectronicsShop.Views;
 
 public partial class CategoryView : ContentPage
 {
-	public CategoryView(CategoryViewModel viewModel)
+    public CategoryViewModel ViewModel { get; set; }
+    public CategoryView(CategoryViewModel viewModel)
 	{
 		InitializeComponent();
 
-		BindingContext = viewModel;
-	}
+        ViewModel = viewModel;
+        BindingContext = ViewModel;
+    }
 }
