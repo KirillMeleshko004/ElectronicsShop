@@ -1,7 +1,4 @@
-﻿using ElectronicsShop.Models;
-using System.Text.Json;
-
-namespace ElectronicsShop.Services
+﻿namespace ElectronicsShop.Services
 {
     public class CartService
     {
@@ -21,6 +18,11 @@ namespace ElectronicsShop.Services
             List<Product> tempList = Cart.RemoveProduct(product);
             CartChanged.Invoke();
             return tempList;
+        }
+        public void ClearCart()
+        {
+            Cart.ClearCart();
+            CartChanged?.Invoke();
         }
 
         public event CartUpdated CartChanged;

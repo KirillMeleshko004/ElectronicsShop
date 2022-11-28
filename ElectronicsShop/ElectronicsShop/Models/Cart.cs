@@ -67,5 +67,10 @@ namespace ElectronicsShop.Models
             Task.Run(()=>WriteProducts(_products));
             return _products;
         }
+        public async static void ClearCart()
+        {
+            _products.Clear();
+            await WriteProducts(_products);
+        }
     }
 }

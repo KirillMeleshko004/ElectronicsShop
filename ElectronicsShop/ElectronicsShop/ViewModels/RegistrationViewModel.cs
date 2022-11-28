@@ -44,9 +44,9 @@
         }
 
         [RelayCommand]
-        Task GoBack()
+        async Task GoBack()
         {
-            return Shell.Current.GoToAsync("..");
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

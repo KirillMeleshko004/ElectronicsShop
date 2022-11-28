@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json;
 
 namespace ElectronicsShop.Models
 {
@@ -69,16 +70,22 @@ namespace ElectronicsShop.Models
         }
 
 
-        public async static Task<bool> Checkout(List<Product> products, string userName, 
-            DateTime orderTime, double totalPrice)
+        public async static Task<bool> Checkout(Order order)
         {
-            int newId = 1;
-            foreach (Order order in _orders) newId++;
-            Order newOrder = new Order(products, orderTime, userName, totalPrice, newId);
-            _orders.Add(newOrder);
+            _orders.Add(order);
             await Task.Delay(100);
             WriteOrders(_orders);
             return true;
+        }
+        public async static Task<int> GetNewOrderId()
+        {
+            var ids = (from or in _orders select or.OrderId);
+            int newId;
+            if (ids.Any())
+                newId = ids.Max<int>() + 1;
+            else newId = 1; 
+            await Task.Delay(100);
+            return newId;
         }
 
         public async static Task<List<Order>> GetOrders(string userName)
@@ -90,7 +97,7 @@ namespace ElectronicsShop.Models
         static List<Order> ReadOrders()
         {
             List<Order> orders;
-            using (FileStream fs = new(fullPath, FileMode.OpenOrCreate))
+            using (FileStream fs = new(fullOrderPath, FileMode.Create))
             {
                 try
                 {
@@ -105,7 +112,7 @@ namespace ElectronicsShop.Models
         }
         static void WriteOrders(List<Order> orders)
         {
-            using (FileStream fs = new(fullPath, FileMode.Create))
+            using (FileStream fs = new(fullOrderPath, FileMode.Create))
             {
                 JsonSerializer.Serialize<List<Order>>(fs, orders);
             }

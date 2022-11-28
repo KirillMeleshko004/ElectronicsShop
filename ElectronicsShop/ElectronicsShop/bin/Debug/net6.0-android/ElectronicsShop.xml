@@ -130,8 +130,23 @@
         <member name="P:ElectronicsShop.ViewModels.CheckoutViewModel.UserName">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.CheckoutViewModel.userName"/>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.CheckoutViewModel.IsSuccessful">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.CheckoutViewModel.isSuccessful"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.CheckoutViewModel.TotalPrice">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.CheckoutViewModel.totalPrice"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.CheckoutViewModel.confirmCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.CheckoutViewModel.ConfirmCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.CheckoutViewModel.ConfirmCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CheckoutViewModel.Confirm"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.CheckoutViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.CheckoutViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.CheckoutViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CheckoutViewModel.GoBack"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.OrdersViewModel.Orders">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.OrdersViewModel.orders"/>

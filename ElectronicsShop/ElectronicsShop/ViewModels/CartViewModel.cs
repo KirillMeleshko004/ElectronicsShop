@@ -63,6 +63,7 @@ namespace ElectronicsShop.ViewModels
         [RelayCommand]
         async Task Checkout()
         {
+            if (!Products.Any()) return;
             double totalPrice = 0;
             foreach(Product product in Products)
             {
@@ -80,7 +81,9 @@ namespace ElectronicsShop.ViewModels
         [RelayCommand]
         async void SignIn()
         {
+            IsBusy = true;
             await Shell.Current.GoToAsync($"{nameof(AuthorizationView)}");
+            IsBusy = false;
         }
 
         void AccountStateUpdated(object sender, PropertyChangedEventArgs e)

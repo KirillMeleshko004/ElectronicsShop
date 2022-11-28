@@ -62,7 +62,8 @@
                    TextColor="{StaticResource PrimaryTextColor}"
                    Margin="0,-20"/>
         </Frame>
-        <HorizontalStackLayout HorizontalOptions="Start" Spacing="45">
+        <HorizontalStackLayout HorizontalOptions="Start" Spacing="45"
+                               IsEnabled="{Binding IsNotBusy}">
             <Label Text="New user? Sign Up"
                    TextDecorations="Underline"
                    FontSize="Small"

@@ -2,10 +2,13 @@
 {
     public class OrderService
     {
-        public async Task<bool> СheckoutAsync(List<Product> products, string userName, 
-            DateTime orderTime, double totalPrice)
+        public async Task<bool> СheckoutAsync(Order order)
         {
-            return await TempServer.Checkout(products, userName, orderTime, totalPrice);
+            return await TempServer.Checkout(order);
+        }
+        public async Task<int> GetOrderId()
+        {
+            return await TempServer.GetNewOrderId();
         }
         public async Task<List<Order>> GetOrdersAsync(string userName)
         {

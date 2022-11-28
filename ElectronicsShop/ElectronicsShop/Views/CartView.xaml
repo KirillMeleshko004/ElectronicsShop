@@ -77,7 +77,8 @@
                Margin="20"
                Padding="20,0"
                Grid.Row="2"
-               IsVisible="{Binding IsNotSignedIn}">
+               IsVisible="{Binding IsNotSignedIn}"
+               IsEnabled="{Binding IsNotBusy}">
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding SignInCommand}"/>
             </Frame.GestureRecognizers>

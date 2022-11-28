@@ -13,23 +13,23 @@
                FontSize="Medium"
                IsVisible="{Binding IsEmpty}"
                HorizontalTextAlignment="Center"/>
-        <CollectionView IsVisible="{Binding IsNotEmpty}">
+        <CollectionView IsVisible="{Binding IsNotEmpty}" ItemsSource="{Binding Orders}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Order">
-                    <Frame HorizontalOptions="Fill" Margin="10">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
+                    <Frame HorizontalOptions="Fill" Margin="10,5">
+                        <Grid BackgroundColor="Transparent" RowSpacing="5">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Label Text="{Binding OrderTime, StringFormat='Order tiem: {0}'}"/>
-                            <Label Text="{Binding TotalPrice, StringFormat='Total price: {0}'}"
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer/>
+                            </Grid.GestureRecognizers>
+                            <Label Grid.Row="0" Text="{Binding OrderTime, StringFormat='Order time: {0}'}"/>
+                            <Label Grid.Row="1" Text="{Binding TotalPrice, StringFormat='Total price: {0}'}"
                                    Grid.Column="1"/>
-                            <Label Text="{Binding OrderId, StringFormat='Order id: {0}'}"/>
+                            <Label Grid.Row="2" Text="{Binding OrderId, StringFormat='Order id: {0}'}"/>
                         </Grid>
                     </Frame>
                 </DataTemplate>
