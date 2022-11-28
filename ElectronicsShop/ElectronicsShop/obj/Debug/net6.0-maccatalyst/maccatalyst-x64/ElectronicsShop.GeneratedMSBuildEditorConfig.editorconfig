@@ -63,23 +63,29 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.Chec
 build_metadata.AdditionalFiles.TargetPath = Views\CheckoutView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CheckoutView.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/OrderDetailsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.OrderDetailsView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\OrderDetailsView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\OrderDetailsView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/OrdersView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.OrdersView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\OrdersView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\OrdersView.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/ProductDetailsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.ProductDetailsView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ProductDetailsView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ProductDetailsView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/ProductsListView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.ProductsListView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\ProductsListView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\ProductsListView.xaml
-
-[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/ProductView.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.ProductView.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\ProductView.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\ProductView.xaml
 
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/RegistrationView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

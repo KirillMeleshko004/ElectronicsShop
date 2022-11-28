@@ -25,7 +25,7 @@ namespace ElectronicsShop.SearchHandlers
         {
             Product currentProduct = (Product)item;
 
-            await Shell.Current.GoToAsync($"{nameof(ProductView)}",
+            await Shell.Current.GoToAsync($"{nameof(ProductDetailsView)}",
                 new Dictionary<string, object>
                 {
                     ["CurrentProduct"] = currentProduct

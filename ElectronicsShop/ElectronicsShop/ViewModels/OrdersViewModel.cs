@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using ElectronicsShop.Models;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels
@@ -41,6 +42,16 @@ namespace ElectronicsShop.ViewModels
             if (e.PropertyName != nameof(Orders)) return;
             if (Orders.Count == 0) IsEmpty = true;
             else IsEmpty = false;
+        }
+
+        [RelayCommand]
+        async Task GoToOrder(Order order)
+        {
+            await Shell.Current.GoToAsync($"{nameof(OrderDetailsView)}",
+                new Dictionary<string, object>
+                {
+                    ["CurrentOrder"] = order
+                });
         }
     }
 }

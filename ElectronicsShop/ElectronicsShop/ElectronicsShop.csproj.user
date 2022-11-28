@@ -23,10 +23,13 @@
     <MauiXaml Update="Views\CheckoutView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\OrderDetailsView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\OrdersView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ProductView.xaml">
+    <MauiXaml Update="Views\ProductDetailsView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\RegistrationView.xaml">

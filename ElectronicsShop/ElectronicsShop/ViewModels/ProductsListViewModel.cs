@@ -28,7 +28,7 @@ namespace ElectronicsShop.ViewModels
         [RelayCommand]
         async Task GoToProduct(Product currentProduct)
         {
-            await Shell.Current.GoToAsync($"{nameof(ProductView)}",
+            await Shell.Current.GoToAsync($"{nameof(ProductDetailsView)}",
                 new Dictionary<string, object>
                 {
                     ["CurrentProduct"] = currentProduct

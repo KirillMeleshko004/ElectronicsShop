@@ -148,6 +148,9 @@
         <member name="P:ElectronicsShop.ViewModels.CheckoutViewModel.GoBackCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CheckoutViewModel.GoBack"/>.</summary>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.OrderDetailsViewModel.CurrentOrder">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.OrderDetailsViewModel.currentOrder"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.OrdersViewModel.Orders">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.OrdersViewModel.orders"/>
         </member>
@@ -160,6 +163,24 @@
         <member name="P:ElectronicsShop.ViewModels.OrdersViewModel.IsEmpty">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.OrdersViewModel.isEmpty"/>
         </member>
+        <member name="F:ElectronicsShop.ViewModels.OrdersViewModel.goToOrderCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.OrdersViewModel.GoToOrderCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.OrdersViewModel.GoToOrderCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.OrdersViewModel.GoToOrder(ElectronicsShop.Models.Order)"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.ProductDetailsViewModel.CurrentProduct">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.ProductDetailsViewModel.currentProduct"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.ProductDetailsViewModel.CountInCart">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.ProductDetailsViewModel.countInCart"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.ProductDetailsViewModel.addToCartCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.ProductDetailsViewModel.AddToCartCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.ProductDetailsViewModel.AddToCartCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.ProductDetailsViewModel.AddToCart(ElectronicsShop.Models.Product)"/>.</summary>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.ProductsListViewModel.Products">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.ProductsListViewModel._products"/>
         </member>
@@ -171,18 +192,6 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.ProductsListViewModel.GoToProductCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.ProductsListViewModel.GoToProduct(ElectronicsShop.Models.Product)"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.ProductViewModel.CurrentProduct">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.ProductViewModel.currentProduct"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.ProductViewModel.CountInCart">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.ProductViewModel.countInCart"/>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.ProductViewModel.addToCartCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.ProductViewModel.AddToCartCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.ProductViewModel.AddToCartCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.ProductViewModel.AddToCart(ElectronicsShop.Models.Product)"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.RegistrationViewModel.Login">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.RegistrationViewModel.login"/>

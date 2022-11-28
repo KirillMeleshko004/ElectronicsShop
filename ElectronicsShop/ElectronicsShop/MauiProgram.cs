@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using ElectronicsShop.Services;
 using ElectronicsShop.ViewModels;
-
+using ElectronicsShop.Views;
 
 namespace ElectronicsShop;
 
@@ -29,14 +29,16 @@ public static class MauiProgram
         builder.Services.AddTransient<CategoryViewModel>();
         builder.Services.AddTransient<CartView>();
         builder.Services.AddTransient<CartViewModel>();
-        builder.Services.AddTransient<ProductView>();
-        builder.Services.AddTransient<ProductViewModel>();
+        builder.Services.AddTransient<ProductDetailsView>();
+        builder.Services.AddTransient<ProductDetailsViewModel>();
         builder.Services.AddTransient<AccountView>();
         builder.Services.AddTransient<AccountViewModel>();
         builder.Services.AddTransient<OrdersView>();
         builder.Services.AddTransient<OrdersViewModel>();
         builder.Services.AddTransient<CheckoutView>();
         builder.Services.AddTransient<CheckoutViewModel>();
+        builder.Services.AddTransient<OrderDetailsView>();
+        builder.Services.AddTransient<OrderDetailsViewModel>();
 
         builder.Services.AddSingleton<AuthorizationService>();
         builder.Services.AddSingleton<AccountCreationService>();

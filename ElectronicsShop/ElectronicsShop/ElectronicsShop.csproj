@@ -90,6 +90,9 @@
 	  <Compile Update="Views\ProductsListView.xaml.cs">
 	    <DependentUpon>ProductsListView.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\ProductDetailsView.xaml.cs">
+	    <DependentUpon>ProductDetailsView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -102,10 +105,13 @@
 	  <MauiXaml Update="Views\CheckoutView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\OrderDetailsView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\OrdersView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ProductView.xaml">
+	  <MauiXaml Update="Views\ProductDetailsViewProductDetailsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
