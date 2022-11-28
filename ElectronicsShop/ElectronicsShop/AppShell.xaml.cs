@@ -32,6 +32,12 @@ public partial class AppShell : Shell
             case $"//{nameof(AccountView)}":
                 ((AccountView)Shell.Current.CurrentPage).ViewModel.Refresh();
                 break;
+            case $"//{nameof(FavouritesView)}":
+                ((FavouritesView)Shell.Current.CurrentPage).ViewModel.Refresh();
+                break;
+            case $"//{nameof(FeedbackView)}":
+                ((FeedbackView)Shell.Current.CurrentPage).ViewModel.Refresh();
+                break;
             default: break;
         }
 

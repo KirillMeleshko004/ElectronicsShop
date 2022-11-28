@@ -63,6 +63,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.Chec
 build_metadata.AdditionalFiles.TargetPath = Views\CheckoutView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CheckoutView.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/FavouritesView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.FavouritesView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\FavouritesView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\FavouritesView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/FeedbackView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.FeedbackView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\FeedbackView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\FeedbackView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/OrderDetailsView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.OrderDetailsView.xaml
