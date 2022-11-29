@@ -40,9 +40,9 @@ namespace ElectronicsShop.ViewModels
         }
 
         [RelayCommand]
-        void RemoveProduct(Product product)
+        async void RemoveProduct(Product product)
         {
-            Products = new(_cartService.RemoveProduct(product));
+            Products = new(await _cartService.RemoveProduct(product));
         }
 
         [RelayCommand]

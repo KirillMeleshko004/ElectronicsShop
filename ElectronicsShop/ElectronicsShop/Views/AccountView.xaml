@@ -10,16 +10,14 @@
             <RowDefinition Height="0.3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <BoxView Color="{StaticResource Primary}" IsVisible="{Binding IsSignedIn}"/>
+        <BoxView Color="{StaticResource Primary}"/>
         <Label Grid.Row="0"
                Text="{Binding UserName}"
                HorizontalOptions="Center"
                VerticalOptions="Center"
-               IsVisible="{Binding IsSignedIn}"
                TextColor="White"
                FontSize="Title"/>
         <VerticalStackLayout Grid.Row="1"
-                             IsVisible="{Binding IsSignedIn}"
                              Spacing="20"
                              Padding="20">
             <Button Text="My orders"
@@ -45,7 +43,7 @@
                        HorizontalTextAlignment="Start"
                        IsVisible="{Binding IsSuccessful}"
                        FontSize="Small"/>
-                
+
                 <Entry x:Name="oldPasswordEntry" 
                        Placeholder="Old password" FontSize="Medium" IsPassword="True"
                        Text="{Binding OldPassword, Mode=TwoWay}"
@@ -66,15 +64,5 @@
                         Command="{Binding CahngePasswordCommand}"/>
             </VerticalStackLayout>
         </VerticalStackLayout>
-        <Button Text="Sign in to view account"
-                TextColor="White"
-                IsVisible="{Binding IsNotSignedIn}"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Grid.RowSpan="2"
-                WidthRequest="300"
-                HeightRequest="60"
-                FontSize="Medium"
-                Command="{Binding SignInCommand}"/>
     </Grid>
 </ContentPage>

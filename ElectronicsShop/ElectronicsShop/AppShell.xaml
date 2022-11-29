@@ -42,7 +42,7 @@
                    VerticalTextAlignment="Center"
                    IsVisible="{Binding IsNotSignedIn}"
                    Grid.Row="1"/>
-            <Label Text="{Binding UserName}"
+            <Label Text="{Binding UserName, StringFormat='Welcome, {0}'}"
                    FontSize="Medium"
                    Margin="0,5,0,15"
                    HorizontalTextAlignment="Center"

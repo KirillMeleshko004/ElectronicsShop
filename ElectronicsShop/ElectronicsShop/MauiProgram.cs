@@ -50,6 +50,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<ProductsService>();
         builder.Services.AddSingleton<CartService>();
         builder.Services.AddSingleton<OrderService>();
+        builder.Services.AddSingleton<FavouritesService>();
 
         return builder.Build();
 	}

@@ -1,6 +1,4 @@
-﻿using System.Collections.Specialized;
-using System.Linq;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace ElectronicsShop.Models
 {
@@ -59,18 +57,26 @@ namespace ElectronicsShop.Models
             await WriteProducts(_products);
             return _products;
         }
-        public static List<Product> RemoveProduct(Product product)
+        public async static Task<List<Product>> RemoveProduct(Product product)
         {
+            await Task.Delay(1);
             Product tempProd = _products.Find(pr => pr.Id == product.Id);
             if (tempProd.Quantity != 1) tempProd.Quantity--;
             else _products.Remove(tempProd);
-            Task.Run(()=>WriteProducts(_products));
+            await WriteProducts(_products);
             return _products;
         }
         public async static void ClearCart()
         {
             _products.Clear();
             await WriteProducts(_products);
+        }
+        public async static Task<int> CountProductInCart(int productId)
+        {
+            await Task.Delay(1);
+            if (!_products.Any()) return 0;
+            if ((from product in _products where product.Id == productId select product).Count() == 0) return 0;
+            return (from product in _products where product.Id == productId select product.Quantity).ElementAt(0);
         }
     }
 }

@@ -8,13 +8,16 @@ namespace ElectronicsShop.ViewModels
         [ObservableProperty]
         ObservableCollection<Product> _favourites;
 
-        public FavouritesViewModel()
+        FavouritesService _favouritesService;
+        public FavouritesViewModel(FavouritesService favouritesService)
         {
-            _favourites = App.UserAccount.Favourites.ToObservableCollection<Product>();
+            _favouritesService = favouritesService;
+
+            Refresh();
         }
-        public void Refresh()
+        public async void Refresh()
         {
-            _favourites = App.UserAccount.Favourites.ToObservableCollection<Product>();
+            Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserAccount.UserName)).ToObservableCollection<Product>();
         }
     }
 }

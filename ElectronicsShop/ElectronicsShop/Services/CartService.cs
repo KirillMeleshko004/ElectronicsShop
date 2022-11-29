@@ -13,9 +13,9 @@
             CartChanged?.Invoke();
             return tempList;
         }
-        public List<Product> RemoveProduct(Product product)
+        public async Task<List<Product>> RemoveProduct(Product product)
         {
-            List<Product> tempList = Cart.RemoveProduct(product);
+            List<Product> tempList = await Cart.RemoveProduct(product);
             CartChanged.Invoke();
             return tempList;
         }
@@ -23,6 +23,10 @@
         {
             Cart.ClearCart();
             CartChanged?.Invoke();
+        }
+        public async Task<int> CountProductInCart(int productId)
+        {
+            return await Cart.CountProductInCart(productId);
         }
 
         public event CartUpdated CartChanged;

@@ -1,4 +1,4 @@
-using AndroidX.Lifecycle;
+using System.ComponentModel;
 
 namespace ElectronicsShop.Views;
 

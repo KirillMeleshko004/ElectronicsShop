@@ -6,25 +6,26 @@ namespace ElectronicsShop.ViewModels
     public partial class ProductDetailsViewModel : BaseViewModel
     {
         readonly CartService _cartService;
+        readonly FavouritesService _favouritesService;
 
         [ObservableProperty]
         Product currentProduct;
         [ObservableProperty]
         int countInCart;
+        [ObservableProperty]
+        bool isFavouriteForUser;
 
-        public ProductDetailsViewModel(CartService cartService)
+        public ProductDetailsViewModel(CartService cartService, FavouritesService favouritesService)
         {
             _cartService = cartService;
+            _favouritesService = favouritesService;
 
-            PropertyChanged += ProductChanged;
+            PropertyChanged += ProductPropertyChanged;
         }
-        public void ProductChanged(object sender, PropertyChangedEventArgs e)
+        public async void ProductPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(CurrentProduct)) return;
-            Product currentProductInCart = (from pr in _cartService.GetCartList() where pr.Id == currentProduct.Id select pr)
-                    .FirstOrDefault<Product>((Product)null);
-            if (currentProductInCart is not null) CountInCart = currentProductInCart.Quantity;
-            else CountInCart = 0;
+            CountInCart = await _cartService.CountProductInCart(CurrentProduct.Id);
         }
 
         [RelayCommand]

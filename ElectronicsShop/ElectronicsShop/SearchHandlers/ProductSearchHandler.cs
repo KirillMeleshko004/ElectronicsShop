@@ -1,14 +1,26 @@
 ﻿using ElectronicsShop.Models;
 
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace ElectronicsShop.SearchHandlers
 {
     public class ProductSearchHandler : SearchHandler
     {
-        public IList<Product> Products { get; set; }
+        //public IEnumerable<Product> Products { get; set; }
+        public static readonly BindableProperty ProductsProperty = BindableProperty.Create(
+            nameof(Products), 
+            typeof(ObservableCollection<Product>), 
+            typeof(ProductSearchHandler), 
+            propertyChanged: ProductsChanged);
+        public ObservableCollection<Product> Products
+        {
+            get => (ObservableCollection<Product>)GetValue(ProductsProperty);
+            set => SetValue(ProductsProperty, value);
+        }
         protected override void OnQueryChanged(string oldValue, string newValue)
         {
+            if (Products is null) return;
             base.OnQueryChanged(oldValue, newValue);
 
             if(string.IsNullOrEmpty(newValue))
@@ -43,6 +55,12 @@ namespace ElectronicsShop.SearchHandlers
                     ["Products"] = searchResults
             });
 
+        }
+
+        static void ProductsChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            ProductSearchHandler searchHandler = (ProductSearchHandler)bindable;
+            searchHandler.Products = (ObservableCollection<Product>)newValue;
         }
         
     }

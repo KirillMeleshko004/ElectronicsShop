@@ -13,12 +13,13 @@
                                StatusBarStyle="DarkContent"/>
     </Page.Behaviors>
     <Shell.SearchHandler>
-        <searchhandlers:ProductSearchHandler Placeholder="Search"
+        <searchhandlers:ProductSearchHandler x:Name="searh"
+                                             Placeholder="Search"
                                              FontSize="Medium"
                                              TextColor="White"
                                              ShowsResults="True"
                                              DisplayMemberName="ProductName"
-                                             Products="{x:Static viewmodel:CategoryViewModel.Products}"
+                                             Products="{Binding Products}"
                                              BackgroundColor="{StaticResource Primary}"
                                              SearchBoxVisibility="Collapsible"
                                              ClearIcon="{Static globalconst:Icons.DeleteTextIcon}"

@@ -7,9 +7,6 @@
         <member name="P:ElectronicsShop.Models.Account.IsSignedIn">
             <inheritdoc cref="F:ElectronicsShop.Models.Account._isSignedIn"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.AccountViewModel.IsSignedIn">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.AccountViewModel.isSignedIn"/>
-        </member>
         <member name="P:ElectronicsShop.ViewModels.AccountViewModel.UserName">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AccountViewModel.userName"/>
         </member>
@@ -139,6 +136,9 @@
         <member name="P:ElectronicsShop.ViewModels.CartViewModel.SignInCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.CartViewModel.SignIn"/>.</summary>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.CategoryViewModel.Products">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.CategoryViewModel.products"/>
+        </member>
         <member name="F:ElectronicsShop.ViewModels.CategoryViewModel.goToCategoryCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.CategoryViewModel.GoToCategoryCommand"/>.</summary>
         </member>
@@ -195,6 +195,9 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.ProductDetailsViewModel.CountInCart">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.ProductDetailsViewModel.countInCart"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.ProductDetailsViewModel.IsFavouriteForUser">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.ProductDetailsViewModel.isFavouriteForUser"/>
         </member>
         <member name="F:ElectronicsShop.ViewModels.ProductDetailsViewModel.addToCartCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.ProductDetailsViewModel.AddToCartCommand"/>.</summary>

@@ -4,15 +4,8 @@ using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels
 {
-    [QueryProperty(nameof(IsSignedIn), nameof(IsSignedIn))]
     public partial class AccountViewModel : BaseViewModel
     {
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsNotSignedIn))]
-        bool isSignedIn;
-        public bool IsNotSignedIn => !isSignedIn;
-
-
         [ObservableProperty]
         string userName;
 
@@ -32,11 +25,9 @@ namespace ElectronicsShop.ViewModels
         readonly PasswordChangingService _passwordChangingService;
         public AccountViewModel(PasswordChangingService passwordChangingService)
         {
-            IsSignedIn = App.UserAccount.IsSignedIn;
-            if (IsSignedIn) UserName = App.UserAccount.UserName;
-
-            App.UserAccount.PropertyChanged += AccountStateUpdated;
             _passwordChangingService = passwordChangingService;
+
+            Refresh();
         }
 
         [RelayCommand]
@@ -49,13 +40,6 @@ namespace ElectronicsShop.ViewModels
                 });
         }
 
-        void AccountStateUpdated(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName != nameof(Account.IsSignedIn)) return;
-            this.IsSignedIn = !App.UserAccount.IsSignedIn;
-            this.IsSignedIn = App.UserAccount.IsSignedIn;
-            if (IsSignedIn) this.UserName = App.UserAccount.UserName;
-        }
 
         [RelayCommand]
         async void SignIn()
@@ -92,10 +76,7 @@ namespace ElectronicsShop.ViewModels
         }
         public void Refresh()
         {
-            IsSignedIn = App.UserAccount.IsSignedIn;
-            if (IsSignedIn) UserName = App.UserAccount.UserName;
-
-            App.UserAccount.PropertyChanged += AccountStateUpdated;
+            UserName = App.UserAccount.UserName;
         }
     }
 }

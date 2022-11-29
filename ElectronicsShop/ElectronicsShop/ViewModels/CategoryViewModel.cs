@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
-
+using ElectronicsShop.Models;
+using Microsoft.Maui.Controls.Internals;
 using System.Collections.ObjectModel;
 
 namespace ElectronicsShop.ViewModels
@@ -8,13 +9,14 @@ namespace ElectronicsShop.ViewModels
     {
         readonly ProductsService _productsService;
         public List<CategoryInfo> CatalogList { get; set; }
-
-        public static List<Product> Products { get; private set; } = new();
+        [ObservableProperty]
+        ObservableCollection<Product> products;
         public CategoryViewModel(ProductsService productsService)
         {
             CatalogList = CategoryInfo.CatalogList;
             _productsService = productsService;
-            Products = _productsService.GetProducts();
+
+            Refresh();
         }
 
         [RelayCommand]
@@ -30,11 +32,11 @@ namespace ElectronicsShop.ViewModels
                     ["Products"] = categoryProducts
                 });
         }
-        public void Refresh()
+        public async void Refresh()
         {
             CatalogList = CategoryInfo.CatalogList;
 
-            Products = _productsService.GetProducts();
+            Products = (await _productsService.GetProductsAsync()).ToObservableCollection();
         }
     }
 }
