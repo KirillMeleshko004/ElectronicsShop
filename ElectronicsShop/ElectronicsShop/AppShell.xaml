@@ -17,12 +17,40 @@
         <ShellContent Route ="CartView" Title="Cart" Icon="{x:Static globalconst:Icons.CartIcon}" 
                       ContentTemplate="{DataTemplate views:CartView}"/>
         <ShellContent Route="AccountView" Title="My account" Icon="{x:Static globalconst:Icons.UserIcon}" 
-                      ContentTemplate="{DataTemplate views:AccountView}"/>
+                      ContentTemplate="{DataTemplate views:AccountView}"
+                      IsVisible="{Binding IsSignedIn}"/>
         <ShellContent Route="FavouritesView" Title="Favourites" Icon="{x:Static globalconst:Icons.FavouritesIcon}" 
-                      ContentTemplate="{DataTemplate views:FavouritesView}"/>
+                      ContentTemplate="{DataTemplate views:FavouritesView}"
+                      IsVisible="{Binding IsSignedIn}"/>
         <ShellContent Route="FeedbackView" Title="Contact us" Icon="{x:Static globalconst:Icons.ContactUsIcon}"
-                      ContentTemplate="{DataTemplate views:FeedbackView}"/>
+                      ContentTemplate="{DataTemplate views:FeedbackView}"
+                      IsVisible="{Binding IsSignedIn}"/>
     </FlyoutItem>
+    <Shell.FlyoutHeader>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Source="{Static globalconst:Icons.Logo}"
+                       HeightRequest="400"
+                       Margin="0,-60"/>
+            <Label Text="Sign in to see more options"
+                   FontSize="Medium"
+                   Margin="0,5,0,15"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   IsVisible="{Binding IsNotSignedIn}"
+                   Grid.Row="1"/>
+            <Label Text="{Binding UserName}"
+                   FontSize="Medium"
+                   Margin="0,5,0,15"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   IsVisible="{Binding IsSignedIn}"
+                   Grid.Row="1"/>
+        </Grid>
+    </Shell.FlyoutHeader>
 
     <Shell.FlyoutFooter>
         <Grid>

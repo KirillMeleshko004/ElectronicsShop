@@ -10,6 +10,9 @@ namespace ElectronicsShop.ViewModels
         bool _isSignedIn;
         public bool IsNotSignedIn => !_isSignedIn;
 
+        [ObservableProperty]
+        string userName;
+
         public AppShellViewModel()
         {
             App.UserAccount.PropertyChanged += AccountStateUpdated;
@@ -19,7 +22,8 @@ namespace ElectronicsShop.ViewModels
         void SignOut()
         {
             IsSignedIn = false;
-            App.UserAccount.Login = null;
+            UserName = null;
+            App.UserAccount.UserName = null;
             App.UserAccount.IsSignedIn = false;
         }
 
@@ -33,8 +37,8 @@ namespace ElectronicsShop.ViewModels
         void AccountStateUpdated(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(Account.IsSignedIn)) return;
-            this.IsSignedIn = !App.UserAccount.IsSignedIn;
-            this.IsSignedIn = App.UserAccount.IsSignedIn;
+            IsSignedIn = App.UserAccount.IsSignedIn;
+            if (IsSignedIn) UserName = App.UserAccount.UserName;
         }
 
     }

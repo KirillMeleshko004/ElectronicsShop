@@ -33,7 +33,7 @@ namespace ElectronicsShop.ViewModels
         public AccountViewModel(PasswordChangingService passwordChangingService)
         {
             IsSignedIn = App.UserAccount.IsSignedIn;
-            if (IsSignedIn) UserName = App.UserAccount.Login;
+            if (IsSignedIn) UserName = App.UserAccount.UserName;
 
             App.UserAccount.PropertyChanged += AccountStateUpdated;
             _passwordChangingService = passwordChangingService;
@@ -54,7 +54,7 @@ namespace ElectronicsShop.ViewModels
             if (e.PropertyName != nameof(Account.IsSignedIn)) return;
             this.IsSignedIn = !App.UserAccount.IsSignedIn;
             this.IsSignedIn = App.UserAccount.IsSignedIn;
-            if (IsSignedIn) this.UserName = App.UserAccount.Login;
+            if (IsSignedIn) this.UserName = App.UserAccount.UserName;
         }
 
         [RelayCommand]
@@ -67,7 +67,7 @@ namespace ElectronicsShop.ViewModels
         public async Task CahngePassword()
         {
             IsBusy = true;
-            AccountInfo accountInfo = await _passwordChangingService.ChangePasswordAsync(App.UserAccount.Login, OldPassword, NewPassword, RepeatPassword);
+            AccountInfo accountInfo = await _passwordChangingService.ChangePasswordAsync(App.UserAccount.UserName, OldPassword, NewPassword, RepeatPassword);
             if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
             {
                 IsSuccessful = true;
@@ -93,7 +93,7 @@ namespace ElectronicsShop.ViewModels
         public void Refresh()
         {
             IsSignedIn = App.UserAccount.IsSignedIn;
-            if (IsSignedIn) UserName = App.UserAccount.Login;
+            if (IsSignedIn) UserName = App.UserAccount.UserName;
 
             App.UserAccount.PropertyChanged += AccountStateUpdated;
         }

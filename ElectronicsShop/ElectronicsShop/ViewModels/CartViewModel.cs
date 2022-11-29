@@ -73,7 +73,7 @@ namespace ElectronicsShop.ViewModels
                 new Dictionary<string, object>
                 {
                     ["Products"] = Products,
-                    ["UserName"] = App.UserAccount.Login,
+                    ["UserName"] = App.UserAccount.UserName,
                     ["TotalPrice"] = totalPrice
                 });
         }

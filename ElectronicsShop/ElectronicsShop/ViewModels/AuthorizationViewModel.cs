@@ -30,7 +30,7 @@ namespace ElectronicsShop.ViewModels
             if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
             {
                 IsSuccessful = true;
-                App.UserAccount.Login = Login;
+                App.UserAccount.UserName = Login;
                 App.UserAccount.IsSignedIn = true;
                 IsFailed = false;
                 await Shell.Current.GoToAsync($"..",

@@ -28,7 +28,7 @@
                    VerticalOptions="Center"
                    Margin="5,0,0,0"/>
         </Grid>
-        <Image Source="shop_logo.svg"
+        <Image Source="{Static globalconst:Icons.Logo}"
                WidthRequest="403"
                Margin="0,-68"/>
         <Label Text="{Binding ErrorMessage}"

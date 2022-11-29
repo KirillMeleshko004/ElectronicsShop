@@ -8,6 +8,7 @@ namespace ElectronicsShop.GlobalConst
 {
     public static class Icons
     {
+        public const string Logo = "shop_logo.png";
         public const string UserIcon = "default_account_image.svg";
         public const string CartIcon = "cart.svg";
         public const string DarkCartIcon = "dark_cart.svg";

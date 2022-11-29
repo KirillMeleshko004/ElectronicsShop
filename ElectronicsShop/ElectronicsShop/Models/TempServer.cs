@@ -135,5 +135,10 @@ namespace ElectronicsShop.Models
                 JsonSerializer.Serialize<List<Order>>(fs, orders);
             }
         }
+
+        public static async Task<List<Product>> GetFavouritesForUserAsync(string userName)
+        {
+            return null;
+        }
     }
 }
