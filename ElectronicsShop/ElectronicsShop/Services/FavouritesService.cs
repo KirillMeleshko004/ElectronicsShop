@@ -6,9 +6,13 @@
         {
             return await TempServer.GetFavouritesForUserAsync(userName);
         }
-        public async static void SetFavouriteAsync(string userName, int productId)
+        public async Task SetFavouriteAsync(string userName, int productId)
         {
             await TempServer.SetFavouriteAsync(userName, productId);
+        }
+        public async Task DeleteFromFavouritesAsync(string userName, int productId)
+        {
+            await TempServer.DeleteFromFavouritesAsync(userName, productId);
         }
         public async Task<bool> IsProductFavouriteForUserAsync(string userName, int productId)
         {

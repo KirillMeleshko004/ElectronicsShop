@@ -7,7 +7,7 @@
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotBusy))]
-        bool _isBusy;
+        bool _isBusy = false;
         public bool IsNotBusy => !_isBusy;
 
         [ObservableProperty]

@@ -2,7 +2,7 @@
 {
     public partial class RegistrationViewModel : BaseViewModel
     {
-        readonly AccountCreationService accountCreationService;
+        readonly AccountCreationService _accountCreationService;
 
         [ObservableProperty]
         public string login;
@@ -17,7 +17,7 @@
         string errorMessage;
         public RegistrationViewModel(AccountCreationService accountCreationService)
         {
-            this.accountCreationService = accountCreationService;
+            this._accountCreationService = accountCreationService;
             Title = "Authorization";
         }
 
@@ -25,7 +25,7 @@
         async Task CreateAccount()
         {
             IsBusy = true;
-            AccountInfo accountInfo = await accountCreationService.CreateAccountAsync(Login, Password, RepeatPassword);
+            AccountInfo accountInfo = await _accountCreationService.CreateAccountAsync(Login, Password, RepeatPassword);
             if (accountInfo.ErrorMessage != AccountErrorMessages.SUCCESS)
             {
                 IsSuccessful = false;

@@ -67,7 +67,7 @@
             <Label Text="New user? Sign Up"
                    TextDecorations="Underline"
                    FontSize="Small"
-                   Margin="10,-5,0,0">
+                   Margin="10,2,0,8">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
                 </Label.GestureRecognizers>

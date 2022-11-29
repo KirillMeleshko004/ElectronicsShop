@@ -5,7 +5,7 @@
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
              x:DataType="viewmodel:RegistrationViewModel"
              Title="Registration"
-             Shell.NavBarIsVisible="True">
+             Shell.NavBarIsVisible="{Binding IsNotSuccessful}">
     
     <Grid>
         <VerticalStackLayout Padding="10,0" Spacing="10">

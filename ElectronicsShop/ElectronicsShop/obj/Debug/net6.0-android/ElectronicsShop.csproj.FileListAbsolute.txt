@@ -1033,6 +1033,11 @@ A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-and
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\environment.x86_64.o
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\compressed_assemblies.x86_64.o
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\app_shared_libraries\x86_64\libxamarin-app.so
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\active_favourites.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\active_favourites.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\active_favourites.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\active_favourites.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\active_favourites.png
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\mscorlib.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Collections.Concurrent.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Data.dll

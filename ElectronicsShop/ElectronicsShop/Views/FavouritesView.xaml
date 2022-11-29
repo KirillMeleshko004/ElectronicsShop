@@ -5,7 +5,54 @@
              xmlns:model="clr-namespace:ElectronicsShop.Models"
              xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
              x:Class="ElectronicsShop.Views.FavouritesView"
-             Title="Favourites"
+             Title="{Binding Title}"
              x:DataType="viewmodel:FavouritesViewModel">
-    
+
+    <CollectionView ItemsSource="{Binding Favourites}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:Product">
+                <Frame Margin="10"
+                       HeightRequest="200"
+                       BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+                       BorderColor="{StaticResource Primary}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FavouritesViewModel}},
+                            Path=GoToProductCommand}" CommandParameter="{Binding .}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid RowSpacing="10" ColumnSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="0.4*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image  Source="{Binding ProductImage}"
+                                Aspect="AspectFit"
+                                HorizontalOptions="Start"
+                                Margin="20,0"/>
+                        <Label Text="{Binding ProductName}"
+                               Grid.ColumnSpan="2"
+                               Grid.Row="1"
+                               VerticalOptions="Center"
+                               FontSize="Large"
+                               HorizontalOptions="Start"
+                               HorizontalTextAlignment="Center"
+                               LineBreakMode="TailTruncation"
+                               Margin="20,0,10,0"/>
+                        <ImageButton Source="{x:Static globalconst:Icons.ActiveFavouritesIcon}"
+                                     Grid.Column="1"
+                                     Grid.Row="0"
+                                     CornerRadius="20"
+                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FavouritesViewModel}},
+                                        Path=UnfavouriteCommand}" CommandParameter="{Binding .}"
+                                     Margin="20,0,20,0"
+                                     WidthRequest="75"
+                                     HeightRequest="75"/>
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

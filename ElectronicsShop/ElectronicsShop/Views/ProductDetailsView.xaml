@@ -42,15 +42,23 @@
                     <Frame Grid.Column="1"
                            Grid.RowSpan="2"
                            VerticalOptions="Center"
-                           HeightRequest="50">
+                           HeightRequest="50"
+                           IsEnabled="{Binding IsSignedIn}"
+                           Padding="-0">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer/>
+                            <TapGestureRecognizer Command="{Binding AddToFavouritesCommand}"/>
                         </Frame.GestureRecognizers>
-                        <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkFavouritesIcon},
-                               Light={x:Static globalconst:Icons.LightFavouritesIcon}}"
-                       
-                       HeightRequest="50">
-                        </Image>
+                        <Grid BackgroundColor="Transparent">
+                            <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkFavouritesIcon},
+                                   Light={x:Static globalconst:Icons.LightFavouritesIcon}}"
+                                   IsVisible="{Binding IsNotFavouriteForUser}"
+                                   HeightRequest="50">
+                            </Image>
+                            <Image Source="{x:Static globalconst:Icons.ActiveFavouritesIcon}"
+                                   IsVisible="{Binding IsFavouriteForUser}"
+                                   HeightRequest="50">
+                            </Image>
+                        </Grid>
                     </Frame>
                 </Grid>
                 <Label Text="{Binding CurrentProduct.Description, StringFormat='Description: {0}'}"

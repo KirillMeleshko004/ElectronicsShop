@@ -192,6 +192,13 @@ namespace ElectronicsShop.Models
             }
             WriteFavourites(_favourites);
         }
+        public async static Task DeleteFromFavouritesAsync(string userName, int productId)
+        {
+            await Task.Delay(10);
+            if (_favourites.ContainsKey(userName))
+                _favourites[userName].Remove((from product in _products where product.Id == productId select product).ElementAt(0));
+            WriteFavourites(_favourites);
+        }
         public async static Task<bool> IsProductFavouriteForUserAsync(string userName, int productId)
         {
             await Task.Delay(10);

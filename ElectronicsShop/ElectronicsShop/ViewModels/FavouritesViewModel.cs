@@ -8,7 +8,8 @@ namespace ElectronicsShop.ViewModels
         [ObservableProperty]
         ObservableCollection<Product> _favourites;
 
-        FavouritesService _favouritesService;
+
+        readonly FavouritesService _favouritesService;
         public FavouritesViewModel(FavouritesService favouritesService)
         {
             _favouritesService = favouritesService;
@@ -17,7 +18,28 @@ namespace ElectronicsShop.ViewModels
         }
         public async void Refresh()
         {
+            Title = $"{App.UserAccount.UserName}'s favourites";
             Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserAccount.UserName)).ToObservableCollection<Product>();
+        }
+
+        [RelayCommand]
+        async Task GoToProduct(Product currentProduct)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ProductDetailsView)}",
+                new Dictionary<string, object>
+                {
+                    ["CurrentProduct"] = currentProduct
+                });
+        }
+
+        [RelayCommand]
+        async Task Unfavourite(Product product)
+        {
+            if (IsBusy) return;
+            IsBusy = true;
+            await _favouritesService.DeleteFromFavouritesAsync(App.UserAccount.UserName, product.Id);
+            Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserAccount.UserName)).ToObservableCollection<Product>();
+            IsBusy = false;
         }
     }
 }
