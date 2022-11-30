@@ -841,6 +841,21 @@
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
       <PackagePath>OpenSans-Semibold.ttf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\active_favourites.scale-100.png">
+      <PackagePath>active_favourites.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\active_favourites.scale-125.png">
+      <PackagePath>active_favourites.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\active_favourites.scale-150.png">
+      <PackagePath>active_favourites.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\active_favourites.scale-200.png">
+      <PackagePath>active_favourites.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\active_favourites.scale-400.png">
+      <PackagePath>active_favourites.scale-400.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
     </AppxPackagedFile>
@@ -934,6 +949,21 @@
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\arrow.scale-100.png">
+      <PackagePath>arrow.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\arrow.scale-125.png">
+      <PackagePath>arrow.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\arrow.scale-150.png">
+      <PackagePath>arrow.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\arrow.scale-200.png">
+      <PackagePath>arrow.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\arrow.scale-400.png">
+      <PackagePath>arrow.scale-400.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\cart.scale-100.png">
       <PackagePath>cart.scale-100.png</PackagePath>
     </AppxPackagedFile>
@@ -964,6 +994,36 @@
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\contact_us.scale-400.png">
       <PackagePath>contact_us.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dark_cart.scale-100.png">
+      <PackagePath>dark_cart.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dark_cart.scale-125.png">
+      <PackagePath>dark_cart.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dark_cart.scale-150.png">
+      <PackagePath>dark_cart.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dark_cart.scale-200.png">
+      <PackagePath>dark_cart.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dark_cart.scale-400.png">
+      <PackagePath>dark_cart.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dark_favourites.scale-100.png">
+      <PackagePath>dark_favourites.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dark_favourites.scale-125.png">
+      <PackagePath>dark_favourites.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dark_favourites.scale-150.png">
+      <PackagePath>dark_favourites.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dark_favourites.scale-200.png">
+      <PackagePath>dark_favourites.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dark_favourites.scale-400.png">
+      <PackagePath>dark_favourites.scale-400.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\default_account_image.scale-100.png">
       <PackagePath>default_account_image.scale-100.png</PackagePath>
     </AppxPackagedFile>
@@ -978,6 +1038,24 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\default_account_image.scale-400.png">
       <PackagePath>default_account_image.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\delete.scale-100.png">
+      <PackagePath>delete.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\delete.scale-125.png">
+      <PackagePath>delete.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\delete.scale-150.png">
+      <PackagePath>delete.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\delete.scale-200.png">
+      <PackagePath>delete.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\delete.scale-400.png">
+      <PackagePath>delete.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dishwasher.scale-100.png">
+      <PackagePath>dishwasher.scale-100.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\dishwasher_icon.scale-100.png">
       <PackagePath>dishwasher_icon.scale-100.png</PackagePath>
@@ -1015,11 +1093,47 @@
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\green_logo.scale-400.png">
       <PackagePath>green_logo.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\headphones.scale-100.png">
+      <PackagePath>headphones.scale-100.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\headphones_icon.scale-100.png">
       <PackagePath>headphones_icon.scale-100.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\laptop.scale-100.png">
+      <PackagePath>laptop.scale-100.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\laptop_icon.scale-100.png">
       <PackagePath>laptop_icon.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\light_cart.scale-100.png">
+      <PackagePath>light_cart.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\light_cart.scale-125.png">
+      <PackagePath>light_cart.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\light_cart.scale-150.png">
+      <PackagePath>light_cart.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\light_cart.scale-200.png">
+      <PackagePath>light_cart.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\light_cart.scale-400.png">
+      <PackagePath>light_cart.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\light_favourites.scale-100.png">
+      <PackagePath>light_favourites.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\light_favourites.scale-125.png">
+      <PackagePath>light_favourites.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\light_favourites.scale-150.png">
+      <PackagePath>light_favourites.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\light_favourites.scale-200.png">
+      <PackagePath>light_favourites.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\light_favourites.scale-400.png">
+      <PackagePath>light_favourites.scale-400.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logo.scale-100.png">
       <PackagePath>logo.scale-100.png</PackagePath>
@@ -1036,6 +1150,21 @@
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logo.scale-400.png">
       <PackagePath>logo.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-100.png">
+      <PackagePath>search.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-125.png">
+      <PackagePath>search.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-150.png">
+      <PackagePath>search.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-200.png">
+      <PackagePath>search.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-400.png">
+      <PackagePath>search.scale-400.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-100.png">
       <PackagePath>settings.scale-100.png</PackagePath>
     </AppxPackagedFile>
@@ -1051,6 +1180,24 @@
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-400.png">
       <PackagePath>settings.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shop_logo.scale-100.png">
+      <PackagePath>shop_logo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shop_logo.scale-125.png">
+      <PackagePath>shop_logo.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shop_logo.scale-150.png">
+      <PackagePath>shop_logo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shop_logo.scale-200.png">
+      <PackagePath>shop_logo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shop_logo.scale-400.png">
+      <PackagePath>shop_logo.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\smartphone.scale-100.png">
+      <PackagePath>smartphone.scale-100.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\smartphone_icon.scale-100.png">
       <PackagePath>smartphone_icon.scale-100.png</PackagePath>
     </AppxPackagedFile>
@@ -1060,8 +1207,14 @@
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\tv.scale-100.png">
       <PackagePath>tv.scale-100.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\tv2.scale-100.png">
+      <PackagePath>tv2.scale-100.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\tv_icon.scale-100.png">
       <PackagePath>tv_icon.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\washing_machine.scale-100.png">
+      <PackagePath>washing_machine.scale-100.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\washing_machine_icon.scale-100.png">
       <PackagePath>washing_machine_icon.scale-100.png</PackagePath>
