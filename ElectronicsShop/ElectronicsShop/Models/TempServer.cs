@@ -53,11 +53,6 @@ namespace ElectronicsShop.Models
                     orders = new List<Order>();
                 }
             }
-            foreach (Order order in orders)
-            {
-                foreach (Product product in order.Products)
-                    product.ProductImage = ImageSource.FromFile(product.ImageString);
-            }
             return orders;
         }
         static void WriteOrders(List<Order> orders)
@@ -81,11 +76,6 @@ namespace ElectronicsShop.Models
                 {
                     products = new Dictionary<string, List<Product>>();
                 }
-            }
-            foreach (KeyValuePair<string, List<Product>> kvp in products)
-            {
-                foreach(Product product in kvp.Value)
-                    product.ProductImage = ImageSource.FromFile(product.ImageString);
             }
             return products;
         }

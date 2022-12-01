@@ -30,7 +30,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Image Source="{Binding ProductImage}"
+                            <Image Source="{Binding ImageString}"
                                    VerticalOptions="Fill"
                                    Grid.RowSpan="2"/>
                             <Label Text="{Binding ProductName}"

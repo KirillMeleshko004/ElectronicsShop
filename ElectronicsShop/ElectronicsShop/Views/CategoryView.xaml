@@ -31,7 +31,7 @@
                           HeightRequest="120"
                           BackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, 
                                             Light={StaticResource Gray100}}">
-                        <Image Source="{Binding ProductImage}"
+                        <Image Source="{Binding ImageString}"
                                VerticalOptions="Fill"
                                HorizontalOptions="Fill"/>
                         <Label Grid.Column="1"

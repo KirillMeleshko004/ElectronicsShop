@@ -28,7 +28,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
-                        <Image  Source="{Binding ProductImage}"
+                        <Image  Source="{Binding ImageString}"
                                 Aspect="AspectFit"
                                 HorizontalOptions="Start"
                                 Margin="20,0"/>

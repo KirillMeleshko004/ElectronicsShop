@@ -22,10 +22,6 @@ namespace ElectronicsShop.Models
                     products = new List<Product>();
                 }
             }
-            foreach (Product pr in products)
-            {
-                pr.ProductImage = ImageSource.FromFile(pr.ImageString);
-            }
             return products;
         }
         static async Task WriteProducts(List<Product> products)

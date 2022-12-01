@@ -40,7 +40,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Image  Source="{Binding ProductImage}"
+                            <Image  Source="{Binding ImageString}"
                                     Aspect="AspectFit"
                                     HorizontalOptions="Center"
                                     Grid.RowSpan="3"/>
