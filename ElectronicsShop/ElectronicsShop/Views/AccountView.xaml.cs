@@ -18,4 +18,13 @@ public partial class AccountView : ContentPage
         newPasswordEntry.Text = String.Empty;
         repeatPasswordEntry.Text = String.Empty;
     }
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        changePasswordFields.IsVisible = false;
+        oldPasswordEntry.Text = String.Empty;
+        newPasswordEntry.Text = String.Empty;
+        repeatPasswordEntry.Text = String.Empty;
+        base.OnNavigatedTo(args);
+    }
 }

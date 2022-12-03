@@ -8,6 +8,10 @@ namespace ElectronicsShop.ViewModels
         [ObservableProperty]
         ObservableCollection<Product> _favourites;
 
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
+        bool isEmpty = true;
+        public bool IsNotEmpty => !isEmpty;
 
         readonly FavouritesService _favouritesService;
         public FavouritesViewModel(FavouritesService favouritesService)
@@ -20,6 +24,7 @@ namespace ElectronicsShop.ViewModels
         {
             Title = $"{App.UserAccount.UserName}'s favourites";
             Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserAccount.UserName)).ToObservableCollection<Product>();
+            IsEmpty = Favourites.Count == 0;
         }
 
         [RelayCommand]

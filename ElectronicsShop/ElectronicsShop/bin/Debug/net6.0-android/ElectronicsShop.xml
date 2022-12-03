@@ -178,6 +178,9 @@
         <member name="P:ElectronicsShop.ViewModels.FavouritesViewModel.Favourites">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.FavouritesViewModel._favourites"/>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.FavouritesViewModel.IsEmpty">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.FavouritesViewModel.isEmpty"/>
+        </member>
         <member name="F:ElectronicsShop.ViewModels.FavouritesViewModel.goToProductCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.FavouritesViewModel.GoToProductCommand"/>.</summary>
         </member>

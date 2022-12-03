@@ -62,16 +62,14 @@
             NewPassword = string.Empty;
             RepeatPassword = string.Empty;
 
-
-            await Task.Delay(5000);
-            IsSuccessful = false;
-            IsFailed = false;
-
             IsBusy = false;
         }
         public void Refresh()
         {
             UserName = App.UserAccount.UserName;
+
+            IsSuccessful = false;
+            IsFailed = false;
         }
     }
 }
