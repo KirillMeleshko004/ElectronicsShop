@@ -11115,8 +11115,9 @@ public final class R {
     public static final int tv=0x7f0700b6;
     public static final int tv2=0x7f0700b7;
     public static final int tv_icon=0x7f0700b8;
-    public static final int washing_machine=0x7f0700b9;
-    public static final int washing_machine_icon=0x7f0700ba;
+    public static final int unactive_favourites=0x7f0700b9;
+    public static final int washing_machine=0x7f0700ba;
+    public static final int washing_machine_icon=0x7f0700bb;
   }
   public static final class id {
     public static final int ALT=0x7f080000;

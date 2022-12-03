@@ -39,27 +39,23 @@
                            FontAttributes="Bold"
                            VerticalOptions="Center"
                            Margin="15,0"/>
-                    <Frame Grid.Column="1"
-                           Grid.RowSpan="2"
-                           VerticalOptions="Center"
-                           HeightRequest="50"
-                           IsEnabled="{Binding IsSignedIn}"
-                           Padding="-0">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding AddToFavouritesCommand}"/>
-                        </Frame.GestureRecognizers>
-                        <Grid BackgroundColor="Transparent">
-                            <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkFavouritesIcon},
-                                   Light={x:Static globalconst:Icons.LightFavouritesIcon}}"
-                                   IsVisible="{Binding IsNotFavouriteForUser}"
-                                   HeightRequest="50">
-                            </Image>
-                            <Image Source="{x:Static globalconst:Icons.ActiveFavouritesIcon}"
-                                   IsVisible="{Binding IsFavouriteForUser}"
-                                   HeightRequest="50">
-                            </Image>
-                        </Grid>
-                    </Frame>
+                    <Grid Grid.Column="1"
+                          Grid.RowSpan="2"
+                          WidthRequest="75"
+                          HeightRequest="75"
+                          IsVisible="{Binding IsSignedIn}">
+                        <ImageButton Source="{x:Static globalconst:Icons.UnactiveFavouritesIcon}"
+                                     IsVisible="{Binding IsNotFavouriteForUser}"
+                                     Command="{Binding AddToFavouritesCommand}"
+                                     IsEnabled="{Binding IsNotBusy}"
+                                     Margin="0,-10,0,0"/>
+                        <ImageButton Source="{x:Static globalconst:Icons.ActiveFavouritesIcon}"
+                                     IsVisible="{Binding IsFavouriteForUser}"
+                                     Command="{Binding AddToFavouritesCommand}"
+                                     IsEnabled="{Binding IsNotBusy}"
+                                     Margin="0,-10,0,0"/>
+
+                    </Grid>
                 </Grid>
                 <Label Text="{Binding CurrentProduct.Description, StringFormat='Description: {0}'}"
                        Margin="20,0,0,0"/>

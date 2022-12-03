@@ -1043,6 +1043,11 @@ A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-and
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\Newtonsoft.Json.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Reactive.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\Firebase.Storage.dll
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\unactive_favourites.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\unactive_favourites.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\unactive_favourites.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\unactive_favourites.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\unactive_favourites.png
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\mscorlib.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Collections.Concurrent.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Data.dll

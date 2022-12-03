@@ -36,6 +36,11 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
                     ["CurrentProduct"] = currentProduct
                 });
         }
+        [RelayCommand]
+        async Task AddProduct()
+        {
+            await Shell.Current.GoToAsync($"{nameof(ProductCreationView)}");
+        }
 
         public void CollectionChanged(object sender, PropertyChangedEventArgs e)
         {

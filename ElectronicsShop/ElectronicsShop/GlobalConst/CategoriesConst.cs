@@ -1,6 +1,6 @@
 ﻿namespace ElectronicsShop.GlobalConst;
 
-public static class SearchConst
+public static class CategoriesConst
 {
     public static readonly string SMARTPHONES_CATEGORY = "Smartphones";
     public static readonly string TV_CATEGORY = "TVs";

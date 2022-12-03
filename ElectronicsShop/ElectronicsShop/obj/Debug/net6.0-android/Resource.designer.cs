@@ -21051,10 +21051,13 @@ namespace ElectronicsShop
 			public const int tv_icon = 2131165368;
 			
 			// aapt resource value: 0x7F0700B9
-			public const int washing_machine = 2131165369;
+			public const int unactive_favourites = 2131165369;
 			
 			// aapt resource value: 0x7F0700BA
-			public const int washing_machine_icon = 2131165370;
+			public const int washing_machine = 2131165370;
+			
+			// aapt resource value: 0x7F0700BB
+			public const int washing_machine_icon = 2131165371;
 			
 			static Drawable()
 			{

@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using static ElectronicsShop.GlobalConst.SearchConst;
+using static ElectronicsShop.GlobalConst.CategoriesConst;
 
 namespace ElectronicsShop.Models
 {

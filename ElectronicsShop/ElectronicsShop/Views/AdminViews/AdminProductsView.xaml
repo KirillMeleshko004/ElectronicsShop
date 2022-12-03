@@ -46,6 +46,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <BoxView Grid.Row="1" Color="{StaticResource Primary}"/>
-        <Button Text="Add" Grid.Row="2" TextColor="White" Margin="10,0,10,10"/>
+        <Button Text="Add Product" Grid.Row="2" TextColor="White" Margin="10,0,10,10"
+                Command="{Binding AddProductCommand}"/>
     </Grid>
 </ContentPage>

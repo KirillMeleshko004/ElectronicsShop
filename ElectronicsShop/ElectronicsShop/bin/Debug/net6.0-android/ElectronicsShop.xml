@@ -19,6 +19,12 @@
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminProductsViewModel.GoToProductCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.AdminProductsViewModel.GoToProduct(ElectronicsShop.Models.Product)"/>.</summary>
         </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.AdminProductsViewModel.addProductCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.AdminProductsViewModel.AddProductCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminProductsViewModel.AddProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.AdminProductsViewModel.AddProduct"/>.</summary>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminShellViewModel.UserName">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.AdminShellViewModel.userName"/>
         </member>
@@ -27,6 +33,36 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminShellViewModel.SignOutCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.AdminShellViewModel.SignOut"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.ProductName">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.productName"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.ProductCategory">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.productCategory"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.Manufacturer">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.manufacturer"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.Price">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.price"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.Description">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.description"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.ImageUrl">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.imageUrl"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.addProductCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.AddProductCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.AddProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.AddProduct"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.pickImageCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.PickImageCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.PickImageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.PickImage"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.BaseViewModel.Title">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.BaseViewModel._title"/>

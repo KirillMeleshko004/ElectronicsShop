@@ -1,4 +1,7 @@
-﻿namespace ElectronicsShop.Services
+﻿using Firebase.Database;
+using Firebase.Database.Query;
+
+namespace ElectronicsShop.Services
 {
     public class CartService
     {

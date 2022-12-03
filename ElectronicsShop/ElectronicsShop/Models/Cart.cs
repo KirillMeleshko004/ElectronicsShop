@@ -8,6 +8,7 @@ namespace ElectronicsShop.Models
         static string _fullPath = Path.Combine(_path, "CartData.json");
 
         static List<Product> _products;
+        static List<(Product, int)> _productsWithCount;
         static List<Product> ReadProducts()
         {
             List<Product> products;

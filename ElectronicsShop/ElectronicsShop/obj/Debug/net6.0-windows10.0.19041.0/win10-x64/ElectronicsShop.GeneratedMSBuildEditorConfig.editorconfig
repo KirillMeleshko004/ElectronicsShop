@@ -45,6 +45,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.Admi
 build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AdminProductsView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AdminProductsView.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/ProductCreationView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.ProductCreationView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\ProductCreationView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\ProductCreationView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/AccountView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.AccountView.xaml

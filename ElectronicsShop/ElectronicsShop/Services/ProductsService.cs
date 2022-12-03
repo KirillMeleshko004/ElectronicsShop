@@ -1,4 +1,5 @@
 ﻿using Firebase.Database;
+using Firebase.Database.Query;
 using Firebase.Storage;
 
 namespace ElectronicsShop.Services
@@ -15,6 +16,36 @@ namespace ElectronicsShop.Services
         }
         public async Task AddProductAsync(Product product, FileResult productImage)
         {
+            Stream imageToUpload = await productImage.OpenReadAsync();
+
+            await _firebaseStorage
+                .Child($"{productImage.FileName}")
+                .PutAsync(imageToUpload);
+
+            string imageURI = await _firebaseStorage
+                .Child($"{productImage.FileName}")
+                .GetDownloadUrlAsync();
+
+            int count = (await _firebaseClient
+               .Child(nameof(Product))
+               .OnceAsync<UserData>()).Count;
+
+            product.ImageString = imageURI;
+            product.Id = count + 1;
+
+            await _firebaseClient.Child(nameof(Product)).PostAsync(product);
+        }
+        public async Task DeleteProductAsync(Product product)
+        {
+            await _firebaseClient
+                .Child(nameof(Product))
+                .Child(nameof(Product.Id))
+                .OrderByKey()
+                .EqualTo(product.Id)
+                .DeleteAsync();
+
+            await _firebaseStorage.Child(product.ImageString)
+                .DeleteAsync();
         }
     }
 }

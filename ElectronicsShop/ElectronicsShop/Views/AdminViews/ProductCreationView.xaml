@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AdminViewModels"
+             x:Class="ElectronicsShop.Views.AdminViews.ProductCreationView"
+             Title="ProductCreationView"
+             x:DataType="viewmodel:ProductCreationViewModel">
+    <VerticalStackLayout Spacing="10" Padding="10">
+        <Image Source="{Binding ImageUrl}" HeightRequest="300"/>
+        <Button Text="Pick image" TextColor="White" Command="{Binding PickImageCommand}"/>
+        <Entry Placeholder="Product name" Text="{Binding ProductName}"/>
+        <Picker ItemsSource="{Static viewmodel:ProductCreationViewModel.Categories}" SelectedItem="{Binding ProductCategory}"/>
+        <Entry Placeholder="Product manufacturer" Text="{Binding Manufacturer}"/>
+        <Entry Placeholder="Product price" Text="{Binding Price}"/>
+        <Editor Placeholder="Description" Text="{Binding Description}" HorizontalOptions="Fill"/>
+        <Button Text="Add product" TextColor="White" Command="{Binding AddProductCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>
