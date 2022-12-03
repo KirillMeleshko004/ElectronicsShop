@@ -4,9 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ElectronicsShop"
-    xmlns:views="clr-namespace:ElectronicsShop.Views"
+    xmlns:views="clr-namespace:ElectronicsShop.Views.UserViews"
     xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
-    xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
+    xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.UserViewModels"
     Shell.TabBarIsVisible="False"
     x:DataType="viewmodel:AppShellViewModel"
     Shell.TitleColor="{StaticResource PrimaryTextColor}">

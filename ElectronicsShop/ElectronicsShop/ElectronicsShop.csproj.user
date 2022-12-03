@@ -14,40 +14,40 @@
     <MauiXaml Update="Shells\AdminShell.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\AccountView.xaml">
+    <MauiXaml Update="Views\UserViews\AccountView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\AdminProductsView.xaml">
+    <MauiXaml Update="Views\AdminViews\AdminProductsView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\AuthorizationView.xaml">
+    <MauiXaml Update="Views\UserViews\AuthorizationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\CartView.xaml">
+    <MauiXaml Update="Views\UserViews\CartView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\CategoryView.xaml">
+    <MauiXaml Update="Views\UserViews\CategoryView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\CheckoutView.xaml">
+    <MauiXaml Update="Views\UserViews\CheckoutView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\FavouritesView.xaml">
+    <MauiXaml Update="Views\UserViews\FavouritesView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\FeedbackView.xaml">
+    <MauiXaml Update="Views\UserViews\FeedbackView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\OrderDetailsView.xaml">
+    <MauiXaml Update="Views\UserViews\OrderDetailsView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\OrdersView.xaml">
+    <MauiXaml Update="Views\UserViews\OrdersView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ProductDetailsView.xaml">
+    <MauiXaml Update="Views\UserViews\ProductDetailsView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\RegistrationView.xaml">
+    <MauiXaml Update="Views\UserViews\RegistrationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

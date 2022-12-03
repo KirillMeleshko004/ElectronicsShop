@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.UserViewModels"
+             x:Class="ElectronicsShop.Views.UserViews.AccountView"
+             Title="My Account"
+             x:DataType="viewmodel:AccountViewModel">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <BoxView Color="{StaticResource Primary}"/>
+        <Label Grid.Row="0"
+               Text="{Binding UserName}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               TextColor="White"
+               FontSize="Title"/>
+        <VerticalStackLayout Grid.Row="1"
+                             Spacing="20"
+                             Padding="20">
+            <Button Text="My orders"
+                    TextColor="White"
+                    HorizontalOptions="Fill"
+                    Command="{Binding GoToOrdersCommand}"/>
+            <Button Text="Change password"
+                    TextColor="White"
+                    HorizontalOptions="Fill"
+                    Clicked="Button_Clicked"/>
+            <VerticalStackLayout x:Name="changePasswordFields"
+                                 IsVisible="False"
+                                 Margin="10,0">
+                <Label x:Name="errorLabel"
+                       Text="{Binding ErrorMessage}"
+                       TextColor="{StaticResource ErrorMessageTextColor}"
+                       HorizontalTextAlignment="Start"
+                       FontSize="Small"
+                       IsVisible="{Binding IsFailed}"/>
+
+                <Label Text="Password successfully changed"
+                       TextColor="{StaticResource SuccessTextColor}"
+                       HorizontalTextAlignment="Start"
+                       IsVisible="{Binding IsSuccessful}"
+                       FontSize="Small"/>
+
+                <Entry x:Name="oldPasswordEntry" 
+                       Placeholder="Old password" FontSize="Medium" IsPassword="True"
+                       Text="{Binding OldPassword, Mode=TwoWay}"
+                       HorizontalOptions="Fill"/>
+                <Entry x:Name="newPasswordEntry" 
+                       Placeholder="New password" FontSize="Medium" IsPassword="True"
+                       HorizontalOptions="Fill"
+                       Text="{Binding NewPassword, Mode=TwoWay}"/>
+                <Entry x:Name="repeatPasswordEntry" 
+                       Placeholder="Repeat password" FontSize="Medium" IsPassword="True"
+                       HorizontalOptions="Fill"
+                       Text="{Binding RepeatPassword, Mode=TwoWay}"/>
+                <Button Text="Change"
+                        TextColor="White"
+                        HorizontalOptions="Start"
+                        WidthRequest="200"
+                        Margin="0,10"
+                        Command="{Binding CahngePasswordCommand}"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

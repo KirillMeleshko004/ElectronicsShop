@@ -83,16 +83,16 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <Compile Update="Views\CategoryView.xaml.cs">
+	  <Compile Update="Views\UserViews\CategoryView.xaml.cs">
 	    <DependentUpon>CategoryView.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\CheckOutView.xaml.cs">
+	  <Compile Update="Views\UserViews\CheckOutView.xaml.cs">
 	    <DependentUpon>CheckoutView.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ProductsListView.xaml.cs">
+	  <Compile Update="Views\UserViews\ProductsListView.xaml.cs">
 	    <DependentUpon>ProductsListView.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ProductDetailsView.xaml.cs">
+	  <Compile Update="Views\UserViews\ProductDetailsView.xaml.cs">
 	    <DependentUpon>ProductDetailsView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
@@ -101,28 +101,28 @@
 	  <MauiXaml Update="Shells\AdminShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\AccountView.xaml">
+	  <MauiXaml Update="Views\UserViews\AccountView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\AdminProductsView.xaml">
+	  <MauiXaml Update="Views\AdminViews\AdminProductsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CartView.xaml">
+	  <MauiXaml Update="Views\UserViews\CartView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CheckoutView.xaml">
+	  <MauiXaml Update="Views\UserViews\CheckoutView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\FavouritesView.xaml">
+	  <MauiXaml Update="Views\UserViews\FavouritesView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\FeedbackView.xaml">
+	  <MauiXaml Update="Views\UserViews\FeedbackView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\OrderDetailsView.xaml">
+	  <MauiXaml Update="Views\UserViews\OrderDetailsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\OrdersView.xaml">
+	  <MauiXaml Update="Views\UserViews\OrdersView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProductDetailsViewProductDetailsView.xaml">

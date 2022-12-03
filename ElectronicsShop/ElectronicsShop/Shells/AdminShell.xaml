@@ -2,9 +2,9 @@
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:ElectronicsShop"
-       xmlns:views="clr-namespace:ElectronicsShop.Views"
+       xmlns:views="clr-namespace:ElectronicsShop.Views.AdminViews"
        xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
-       xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels"
+             xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AdminViewModels"
        x:Class="ElectronicsShop.Shells.AdminShell"
        Shell.TabBarIsVisible="False"
        x:DataType="viewmodel:AdminShellViewModel">
@@ -12,8 +12,6 @@
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Route="AdminProductsView" Title="Shop" Icon="{x:Static globalconst:Icons.ShopIcon}" 
                       ContentTemplate="{DataTemplate views:AdminProductsView}" />
-        <ShellContent Route="AccountView" Title="My account" Icon="{x:Static globalconst:Icons.UserIcon}" 
-                      ContentTemplate="{DataTemplate views:AccountView}"/>
     </FlyoutItem>
     <Shell.FlyoutHeader>
         <Grid>

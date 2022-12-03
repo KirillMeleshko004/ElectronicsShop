@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using ElectronicsShop.Services.AccountServices;
-using ElectronicsShop.ViewModels;
+using ElectronicsShop.ViewModels.UserViewModels;
 using ElectronicsShop.Views;
 
 namespace ElectronicsShop;
