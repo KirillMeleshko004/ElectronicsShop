@@ -1040,13 +1040,14 @@ A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-and
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\active_favourites.png
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\Firebase.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\LiteDB.dll
-A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\mscorlib.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\Newtonsoft.Json.dll
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Reactive.dll
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\Firebase.Storage.dll
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\mscorlib.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Collections.Concurrent.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Data.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Net.NetworkInformation.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Private.CoreLib.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Private.Uri.dll
-A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Reactive.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Xml.dll

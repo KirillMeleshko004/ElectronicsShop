@@ -1,4 +1,4 @@
-﻿namespace ElectronicsShop.Services
+﻿namespace ElectronicsShop.Services.AccountServices
 {
     public class AuthorizationService
     {

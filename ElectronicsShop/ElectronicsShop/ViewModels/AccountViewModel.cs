@@ -1,8 +1,4 @@
-﻿using ElectronicsShop.Models;
-using ElectronicsShop.Services;
-using System.ComponentModel;
-
-namespace ElectronicsShop.ViewModels
+﻿namespace ElectronicsShop.ViewModels
 {
     public partial class AccountViewModel : BaseViewModel
     {
@@ -20,7 +16,6 @@ namespace ElectronicsShop.ViewModels
 
         [ObservableProperty]
         string errorMessage;
-
 
         readonly PasswordChangingService _passwordChangingService;
         public AccountViewModel(PasswordChangingService passwordChangingService)

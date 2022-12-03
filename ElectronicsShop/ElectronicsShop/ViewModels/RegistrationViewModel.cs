@@ -25,7 +25,7 @@
         async Task CreateAccount()
         {
             IsBusy = true;
-            AccountInfo accountInfo = await _accountCreationService.CreateAccountAsync(Login, Password, RepeatPassword);
+            AccountInfo accountInfo = await _accountCreationService.RegisterUserAsync(Login, Password, RepeatPassword);
             if (accountInfo.ErrorMessage != AccountErrorMessages.SUCCESS)
             {
                 IsSuccessful = false;

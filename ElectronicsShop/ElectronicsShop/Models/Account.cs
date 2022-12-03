@@ -8,11 +8,11 @@ namespace ElectronicsShop.Models
         bool _isSignedIn;
 
         public string UserName { get; set; }
+        public string Role { get; set; }
 
         public Account() 
         {
             IsSignedIn = false;
-            UserName = null;
             PropertyChanged += SignedIn;
         }
 
