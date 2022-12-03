@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:ElectronicsShop.Models"
+             xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AdminViewModels"
              x:Class="ElectronicsShop.Views.AdminViews.AdminProductsView"
-             Title="Admin...">
-    <VerticalStackLayout Padding="10">
-        <Label Text="Admin productsview"/>
-    </VerticalStackLayout>
+             x:DataType="viewmodel:AdminProductsViewModel">
+    <Grid RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <CollectionView ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always"
+                        IsVisible="{Binding IsNotEmpty}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+                    <Frame Margin="10"
+                           HeightRequest="200"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+                           BorderColor="{StaticResource Primary}">
+                        <Grid RowSpacing="15" ColumnSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="0.4*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageString}"
+                                   VerticalOptions="Fill"/>
+                            <Label Text="{Binding ProductName}"
+                                   Grid.Row="1"
+                                   Grid.ColumnSpan="2"
+                                   VerticalOptions="Center"
+                                   FontSize="Medium"
+                                   HorizontalOptions="Start"
+                                   Margin="20,0,0,0"/>
+                            <Button Text="Edit" Grid.Column="1" TextColor="White" HeightRequest="70"/>
+                            <Button Text="Delete" Grid.Column="2" TextColor="White" HeightRequest="70"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <BoxView Grid.Row="1" Color="{StaticResource Primary}"/>
+        <Button Text="Add" Grid.Row="2" TextColor="White" Margin="10,0,10,10"/>
+    </Grid>
 </ContentPage>

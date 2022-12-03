@@ -2,8 +2,10 @@ namespace ElectronicsShop.Views.AdminViews;
 
 public partial class AdminProductsView : ContentPage
 {
-	public AdminProductsView()
+	public AdminProductsView(AdminProductsViewModel viewModel)
 	{
 		InitializeComponent();
+
+		BindingContext = viewModel;
 	}
 }
