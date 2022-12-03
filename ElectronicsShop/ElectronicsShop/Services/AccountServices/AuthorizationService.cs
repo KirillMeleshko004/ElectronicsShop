@@ -23,7 +23,7 @@ namespace ElectronicsShop.Services.AccountServices
             if (userAccount is null || userAccount.Object.Password != SHA256HashComputer.ComputeSha256Hash(password))
                 return new AccountInfo(null, null, AccountErrorMessages.INCORRECT_LOGIN_OR_PASSWORD);
 
-            return new AccountInfo(login, userAccount.Object.Password, AccountErrorMessages.SUCCESS);
+            return new AccountInfo(login, userAccount.Object.Role, AccountErrorMessages.SUCCESS);
         }
     }
 }

@@ -30,6 +30,9 @@
                 App.UserAccount.UserName = Login;
                 App.UserAccount.IsSignedIn = true;
                 IsFailed = false;
+                if (accountInfo.Role == Roles.Admin)
+                    App.Current.MainPage = new AdminShell();
+                else
                 await Shell.Current.GoToAsync($"..",
                 new Dictionary<string, object>
                 {

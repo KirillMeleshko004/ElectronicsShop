@@ -15,12 +15,6 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/AppShell.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.AppShell.xaml
-build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
-build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
-
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Resources.Styles.Colors.xaml
@@ -33,11 +27,29 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Resources.
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Shells/AdminShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Shells.AdminShell.xaml
+build_metadata.AdditionalFiles.TargetPath = Shells\AdminShell.xaml
+build_metadata.AdditionalFiles.RelativePath = Shells\AdminShell.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Shells/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Shells.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = Shells\AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = Shells\AppShell.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AccountView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AccountView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\AccountView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AccountView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminProductsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminProductsView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminProductsView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminProductsView.xaml
 
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AuthorizationView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
