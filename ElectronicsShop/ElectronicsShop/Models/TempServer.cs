@@ -105,39 +105,6 @@ namespace ElectronicsShop.Models
                 new Product(LAPTOPS_CATEGORY, 7, "Laptop_1", "lol_3_manufacturer", 10000, "lol_3_description", 0, "laptop.jpg")
             };
         }
-        public async static Task<AccountInfo> AuthorizationAsync(string login, string password)
-        {
-            await Task.Delay(1);
-            if (login == null || password == null || login == "" || password == "") return new AccountInfo(login, 
-                AccountErrorMessages.FIELDS_EMPTY);
-            if (!_accounts.ContainsKey(login) || _accounts[login] != password) return new AccountInfo(login,
-                AccountErrorMessages.INCORRECT_LOGIN_OR_PASSWORD);
-            return new AccountInfo(login, AccountErrorMessages.SUCCESS);
-        }
-        public async static Task<AccountInfo> CreateAccountAsync(string login, string password, string repeatPassword)
-        {
-            await Task.Delay(1);
-            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(repeatPassword)) 
-                return new AccountInfo(login, AccountErrorMessages.FIELDS_EMPTY);
-            if (_accounts.ContainsKey(login)) return new AccountInfo(login, AccountErrorMessages.SAME_LOGIN_EXIST);
-            if (password != repeatPassword) return new AccountInfo(login, AccountErrorMessages.PASSWORDS_NOT_SAME);
-            _accounts.Add(login, password);
-            WriteAccounts(_accounts);
-            return new AccountInfo(login, AccountErrorMessages.SUCCESS);
-        }
-        public async static Task<AccountInfo> ChangePasswordAsync(string login, string oldPassword, string newPassword, string repeatPassword)
-        {
-            await Task.Delay(1);
-            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(oldPassword) || 
-                string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(repeatPassword))
-                return new AccountInfo(login, AccountErrorMessages.FIELDS_EMPTY);
-            if (_accounts[login] != oldPassword) return new AccountInfo(login,
-                AccountErrorMessages.INCORRECT_OLD_PASSWORD);
-            else if (newPassword!=repeatPassword) return new AccountInfo(login, AccountErrorMessages.PASSWORDS_NOT_SAME);
-            _accounts[login] = newPassword;
-            WriteAccounts(_accounts);
-            return new AccountInfo(login, AccountErrorMessages.SUCCESS);
-        }
 
         public async static Task<bool> Checkout(Order order)
         {

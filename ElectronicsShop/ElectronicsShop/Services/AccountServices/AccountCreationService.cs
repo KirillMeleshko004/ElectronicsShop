@@ -8,11 +8,6 @@ namespace ElectronicsShop.Services.AccountServices
         private const string _dbURI = "https://electronicsshop-8c6b3-default-rtdb.europe-west1.firebasedatabase.app/";
         private readonly FirebaseClient _firebaseClient = new FirebaseClient(_dbURI);
 
-        public async Task<AccountInfo> CreateAccountAsync(string login, string password, string repeatPassword)
-        {
-            return await TempServer.CreateAccountAsync(login, password, repeatPassword);
-        }
-
         public async Task<AccountInfo> RegisterUserAsync(string login, string password, string repeatPassword)
         {
             string state = AuthDataChecker.CheckRegData(login, password, repeatPassword);
@@ -31,8 +26,8 @@ namespace ElectronicsShop.Services.AccountServices
                 Password = SHA256HashComputer.ComputeSha256Hash(password),
                 Role = role
             });
+
             return new AccountInfo(login, role, AccountErrorMessages.SUCCESS);
         }
-
     }
 }

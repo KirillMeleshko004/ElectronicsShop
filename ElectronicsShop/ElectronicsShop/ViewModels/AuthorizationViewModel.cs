@@ -1,7 +1,4 @@
-﻿using ElectronicsShop.Services;
-
-
-namespace ElectronicsShop.ViewModels
+﻿namespace ElectronicsShop.ViewModels
 {
     public partial class AuthorizationViewModel : BaseViewModel
     {
@@ -26,7 +23,7 @@ namespace ElectronicsShop.ViewModels
         public async Task SignIn()
         {
             IsBusy = true;
-            AccountInfo accountInfo = await authorizationService.DoAuthorizationAsync(Login, Password);
+            AccountInfo accountInfo = await authorizationService.AuthUserAsync(Login, Password);
             if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
             {
                 IsSuccessful = true;

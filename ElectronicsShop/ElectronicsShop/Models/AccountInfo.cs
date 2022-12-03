@@ -11,11 +11,5 @@
             Role = role;
             ErrorMessage = error;
         }
-
-        public AccountInfo(string login, string error)
-        {
-            Login = login;
-            ErrorMessage = error;
-        }
     }
 }
