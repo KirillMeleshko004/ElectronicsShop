@@ -39,6 +39,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Shells.App
 build_metadata.AdditionalFiles.TargetPath = Shells\AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = Shells\AppShell.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Shells/AuthShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Shells.AuthShell.xaml
+build_metadata.AdditionalFiles.TargetPath = Shells\AuthShell.xaml
+build_metadata.AdditionalFiles.RelativePath = Shells\AuthShell.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/AdminProductsView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.AdminProductsView.xaml
@@ -51,17 +57,23 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.Admi
 build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\ProductCreationView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\ProductCreationView.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AuthViews/AuthorizationView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AuthViews.AuthorizationView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AuthViews\AuthorizationView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AuthViews\AuthorizationView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AuthViews/RegistrationView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AuthViews.RegistrationView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AuthViews\RegistrationView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AuthViews\RegistrationView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/AccountView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.AccountView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\UserViews\AccountView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\UserViews\AccountView.xaml
-
-[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/AuthorizationView.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.AuthorizationView.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\UserViews\AuthorizationView.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\UserViews\AuthorizationView.xaml
 
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/CartView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -116,9 +128,3 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.ProductsListView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\UserViews\ProductsListView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\UserViews\ProductsListView.xaml
-
-[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/RegistrationView.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.RegistrationView.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\UserViews\RegistrationView.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\UserViews\RegistrationView.xaml

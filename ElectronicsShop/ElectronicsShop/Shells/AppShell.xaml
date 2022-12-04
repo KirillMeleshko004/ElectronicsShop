@@ -17,14 +17,11 @@
         <ShellContent Route ="CartView" Title="Cart" Icon="{x:Static globalconst:Icons.CartIcon}" 
                       ContentTemplate="{DataTemplate views:CartView}"/>
         <ShellContent Route="AccountView" Title="My account" Icon="{x:Static globalconst:Icons.UserIcon}" 
-                      ContentTemplate="{DataTemplate views:AccountView}"
-                      IsVisible="{Binding IsSignedIn}"/>
+                      ContentTemplate="{DataTemplate views:AccountView}"/>
         <ShellContent Route="FavouritesView" Title="Favourites" Icon="{x:Static globalconst:Icons.FavouritesIcon}" 
-                      ContentTemplate="{DataTemplate views:FavouritesView}"
-                      IsVisible="{Binding IsSignedIn}"/>
+                      ContentTemplate="{DataTemplate views:FavouritesView}"/>
         <ShellContent Route="FeedbackView" Title="Contact us" Icon="{x:Static globalconst:Icons.ContactUsIcon}"
-                      ContentTemplate="{DataTemplate views:FeedbackView}"
-                      IsVisible="{Binding IsSignedIn}"/>
+                      ContentTemplate="{DataTemplate views:FeedbackView}"/>
     </FlyoutItem>
     <Shell.FlyoutHeader>
         <Grid>
@@ -35,19 +32,11 @@
             <Image Source="{Static globalconst:Icons.Logo}"
                        HeightRequest="400"
                        Margin="0,-60"/>
-            <Label Text="Sign in to see more options"
-                   FontSize="Medium"
-                   Margin="0,5,0,15"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center"
-                   IsVisible="{Binding IsNotSignedIn}"
-                   Grid.Row="1"/>
             <Label Text="{Binding UserName, StringFormat='Welcome, {0}'}"
                    FontSize="Medium"
                    Margin="0,5,0,15"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
-                   IsVisible="{Binding IsSignedIn}"
                    Grid.Row="1"/>
         </Grid>
     </Shell.FlyoutHeader>
@@ -56,15 +45,7 @@
         <Grid>
             <Button Margin="20" 
                     Text="Sign Out"
-                    IsVisible="{Binding IsSignedIn}"
                     Command="{Binding SignOutCommand}"
-                    BackgroundColor="{StaticResource Primary}"
-                    TextColor="{StaticResource PrimaryTextColor}"
-                    CornerRadius="20"/>
-            <Button Margin="20" 
-                    Text="Sign In"
-                    IsVisible="{Binding IsNotSignedIn}"
-                    Command="{Binding SignInCommand}"
                     BackgroundColor="{StaticResource Primary}"
                     TextColor="{StaticResource PrimaryTextColor}"
                     CornerRadius="20"/>

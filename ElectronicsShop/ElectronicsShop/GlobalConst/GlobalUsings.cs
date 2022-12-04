@@ -2,8 +2,10 @@
 global using ElectronicsShop.ViewModels;
 global using ElectronicsShop.ViewModels.AdminViewModels;
 global using ElectronicsShop.ViewModels.UserViewModels;
+global using ElectronicsShop.ViewModels.AuthViewModels;
 global using ElectronicsShop.Views.UserViews;
 global using ElectronicsShop.Views.AdminViews;
+global using ElectronicsShop.Views.AuthViews;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
 global using ElectronicsShop.Services;

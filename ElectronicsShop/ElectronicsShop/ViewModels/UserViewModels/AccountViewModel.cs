@@ -37,16 +37,10 @@
 
 
         [RelayCommand]
-        async void SignIn()
-        {
-            await Shell.Current.GoToAsync($"{nameof(AuthorizationView)}");
-        }
-
-        [RelayCommand]
         public async Task CahngePassword()
         {
             IsBusy = true;
-            AccountInfo accountInfo = await _passwordChangingService.ChangePasswordAsync(App.UserAccount.UserName, OldPassword, NewPassword, RepeatPassword);
+            AccountInfo accountInfo = await _passwordChangingService.ChangePasswordAsync(App.UserName, OldPassword, NewPassword, RepeatPassword);
             if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
             {
                 IsSuccessful = true;
@@ -66,7 +60,7 @@
         }
         public void Refresh()
         {
-            UserName = App.UserAccount.UserName;
+            UserName = App.UserName;
 
             IsSuccessful = false;
             IsFailed = false;

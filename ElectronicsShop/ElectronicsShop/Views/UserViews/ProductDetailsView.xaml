@@ -42,8 +42,7 @@
                     <Grid Grid.Column="1"
                           Grid.RowSpan="2"
                           WidthRequest="75"
-                          HeightRequest="75"
-                          IsVisible="{Binding IsSignedIn}">
+                          HeightRequest="75">
                         <ImageButton Source="{x:Static globalconst:Icons.UnactiveFavouritesIcon}"
                                      IsVisible="{Binding IsNotFavouriteForUser}"
                                      Command="{Binding AddToFavouritesCommand}"

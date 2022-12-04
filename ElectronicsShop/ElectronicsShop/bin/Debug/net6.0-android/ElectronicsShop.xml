@@ -4,9 +4,6 @@
         <name>ElectronicsShop</name>
     </assembly>
     <members>
-        <member name="P:ElectronicsShop.Models.Account.IsSignedIn">
-            <inheritdoc cref="F:ElectronicsShop.Models.Account._isSignedIn"/>
-        </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminProductsViewModel.Products">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.AdminProductsViewModel._products"/>
         </member>
@@ -64,6 +61,51 @@
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.PickImageCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.PickImage"/>.</summary>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.Login">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.login"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.Password">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.password"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.ErrorMessage">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.errorMessage"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.signInCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.SignInCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.SignInCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.SignIn"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.signUpCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.SignUpCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.SignUpCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.SignUp"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.Login">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.login"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.Password">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.password"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.RepeatPassword">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.repeatPassword"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.ErrorMessage">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.errorMessage"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.createAccountCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.CreateAccountCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.CreateAccountCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.CreateAccount"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AuthViewModels.RegistrationViewModel.GoBack"/>.</summary>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.BaseViewModel.Title">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.BaseViewModel._title"/>
         </member>
@@ -109,9 +151,6 @@
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.AccountViewModel.CahngePasswordCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AccountViewModel.CahngePassword"/>.</summary>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.IsSignedIn">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel._isSignedIn"/>
-        </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.UserName">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.userName"/>
         </member>
@@ -120,42 +159,6 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.SignOutCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.SignOut"/>.</summary>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.signInCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.SignInCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.SignInCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.SignIn"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.Login">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.login"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.Password">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.password"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.ErrorMessage">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.errorMessage"/>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.signInCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.SignInCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.SignInCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.SignIn"/>.</summary>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.signUpCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.SignUpCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.SignUpCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.SignUp"/>.</summary>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.goBackCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.GoBackCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.GoBackCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AuthorizationViewModel.GoBack"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.IsSignedIn">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.isSignedIn"/>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.Products">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.products"/>
@@ -186,12 +189,6 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.CheckoutCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.Checkout"/>.</summary>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.signInCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.SignInCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.SignInCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.SignIn"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel.Products">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel.products"/>
@@ -271,9 +268,6 @@
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.IsFavouriteForUser">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel._isFavouriteForUser"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.IsSignedIn">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel._isSignedIn"/>
-        </member>
         <member name="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.addToCartCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.AddToCartCommand"/>.</summary>
         </member>
@@ -297,30 +291,6 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductsListViewModel.GoToProductCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.ProductsListViewModel.GoToProduct(ElectronicsShop.Models.Product)"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.Login">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.login"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.Password">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.password"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.RepeatPassword">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.repeatPassword"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.ErrorMessage">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.errorMessage"/>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.createAccountCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.CreateAccountCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.CreateAccountCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.CreateAccount"/>.</summary>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.goBackCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.GoBackCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.GoBackCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.RegistrationViewModel.GoBack"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
             <summary>

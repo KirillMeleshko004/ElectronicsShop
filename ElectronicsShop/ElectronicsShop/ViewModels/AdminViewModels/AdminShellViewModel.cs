@@ -7,13 +7,13 @@
 
         public AdminShellViewModel()
         {
-            UserName = App.UserAccount.UserName;
+            UserName = App.UserName;
         }
 
         [RelayCommand]
         void SignOut()
         {
-            App.Current.MainPage = new AppShell();
+            App.Current.MainPage = new AuthShell();
         }
     }
 }

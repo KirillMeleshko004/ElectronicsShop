@@ -17,15 +17,10 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         bool _isFavouriteForUser = false;
         public bool IsNotFavouriteForUser => !_isFavouriteForUser;
 
-        [ObservableProperty]
-        bool _isSignedIn;
-
         public ProductDetailsViewModel(CartService cartService, FavouritesService favouritesService)
         {
             _cartService = cartService;
             _favouritesService = favouritesService;
-
-            IsSignedIn = App.UserAccount.IsSignedIn;
 
             PropertyChanged += ProductPropertyChanged;
         }
@@ -33,7 +28,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             if (e.PropertyName != nameof(CurrentProduct)) return;
             CountInCart = await _cartService.CountProductInCart(CurrentProduct.Id);
-            if (IsSignedIn) IsFavouriteForUser = await _favouritesService.IsProductFavouriteForUserAsync(App.UserAccount.UserName, CurrentProduct.Id);
+            IsFavouriteForUser = await _favouritesService.IsProductFavouriteForUserAsync(App.UserName, CurrentProduct.Id);
         }
 
         [RelayCommand]
@@ -49,8 +44,8 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             if (IsBusy) return;
             IsBusy = true;
             if(IsFavouriteForUser)
-                await _favouritesService.DeleteFromFavouritesAsync(App.UserAccount.UserName, CurrentProduct.Id);
-            else await _favouritesService.SetFavouriteAsync(App.UserAccount.UserName, CurrentProduct.Id);
+                await _favouritesService.DeleteFromFavouritesAsync(App.UserName, CurrentProduct.Id);
+            else await _favouritesService.SetFavouriteAsync(App.UserName, CurrentProduct.Id);
             IsFavouriteForUser = !IsFavouriteForUser;
             IsBusy = false;
         }

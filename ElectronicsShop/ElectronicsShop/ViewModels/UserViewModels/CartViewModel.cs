@@ -5,15 +5,9 @@ using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.UserViewModels
 {
-    [QueryProperty(nameof(IsSignedIn), nameof(IsSignedIn))]
     public partial class CartViewModel : BaseViewModel
     {
         readonly CartService _cartService;
-
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsNotSignedIn))]
-        bool isSignedIn;
-        public bool IsNotSignedIn => !isSignedIn;
 
         [ObservableProperty]
         ObservableCollection<Product> products;
@@ -28,9 +22,6 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             _cartService = cartService;
             _cartService.CartChanged += UpdateCart;
             PropertyChanged += CollectionChanged;
-
-            IsSignedIn = App.UserAccount.IsSignedIn;
-            App.UserAccount.PropertyChanged += AccountStateUpdated;
 
             Products = new(_cartService.GetCartList());
         }
@@ -73,24 +64,9 @@ namespace ElectronicsShop.ViewModels.UserViewModels
                 new Dictionary<string, object>
                 {
                     ["Products"] = Products,
-                    ["UserName"] = App.UserAccount.UserName,
+                    ["UserName"] = App.UserName,
                     ["TotalPrice"] = totalPrice
                 });
-        }
-
-        [RelayCommand]
-        async void SignIn()
-        {
-            IsBusy = true;
-            await Shell.Current.GoToAsync($"{nameof(AuthorizationView)}");
-            IsBusy = false;
-        }
-
-        void AccountStateUpdated(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName != nameof(Account.IsSignedIn)) return;
-            this.IsSignedIn = !App.UserAccount.IsSignedIn;
-            this.IsSignedIn = App.UserAccount.IsSignedIn;
         }
         void CollectionChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -102,9 +78,6 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             _cartService.CartChanged += UpdateCart;
             PropertyChanged += CollectionChanged;
-
-            IsSignedIn = App.UserAccount.IsSignedIn;
-            App.UserAccount.PropertyChanged += AccountStateUpdated;
 
             Products = new(_cartService.GetCartList());
         }

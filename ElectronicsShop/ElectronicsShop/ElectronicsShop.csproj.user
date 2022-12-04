@@ -14,6 +14,9 @@
     <MauiXaml Update="Shells\AdminShell.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Shells\AuthShell.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\AdminViews\ProductCreationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -23,7 +26,7 @@
     <MauiXaml Update="Views\AdminViews\AdminProductsView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\UserViews\AuthorizationView.xaml">
+    <MauiXaml Update="Views\AuthViews\AuthorizationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\UserViews\CartView.xaml">
@@ -50,7 +53,7 @@
     <MauiXaml Update="Views\UserViews\ProductDetailsView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\UserViews\RegistrationView.xaml">
+    <MauiXaml Update="Views\AuthViews\RegistrationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

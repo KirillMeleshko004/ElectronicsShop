@@ -22,8 +22,8 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         }
         public async void Refresh()
         {
-            Title = $"{App.UserAccount.UserName}'s favourites";
-            Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserAccount.UserName)).ToObservableCollection<Product>();
+            Title = $"{App.UserName}'s favourites";
+            Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserName)).ToObservableCollection<Product>();
             IsEmpty = Favourites.Count == 0;
         }
 
@@ -42,8 +42,8 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             if (IsBusy) return;
             IsBusy = true;
-            await _favouritesService.DeleteFromFavouritesAsync(App.UserAccount.UserName, product.Id);
-            Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserAccount.UserName)).ToObservableCollection<Product>();
+            await _favouritesService.DeleteFromFavouritesAsync(App.UserName, product.Id);
+            Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserName)).ToObservableCollection<Product>();
             IsBusy = false;
         }
     }

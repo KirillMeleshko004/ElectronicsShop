@@ -73,29 +73,11 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <BoxView Grid.Row="1" Color="{StaticResource Primary}"/>
+        
         <Frame HeightRequest="50" VerticalOptions="End"
                Margin="20"
                Padding="20,0"
-               Grid.Row="2"
-               IsVisible="{Binding IsNotSignedIn}"
-               IsEnabled="{Binding IsNotBusy}">
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding SignInCommand}"/>
-            </Frame.GestureRecognizers>
-            <Grid BackgroundColor="Transparent">
-                <Label Text="Sign in to checkout"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       TextColor="{AppThemeBinding Dark=Black, Light=White}"
-                       FontSize="Medium"
-                       FontAttributes="Bold"/>
-            </Grid>
-        </Frame>
-        <Frame HeightRequest="50" VerticalOptions="End"
-               Margin="20"
-               Padding="20,0"
-               Grid.Row="2"
-               IsVisible="{Binding IsSignedIn}">
+               Grid.Row="2">
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding CheckoutCommand}"/>
             </Frame.GestureRecognizers>
@@ -112,7 +94,8 @@
                        TextColor="{AppThemeBinding Dark=Black, Light=White}"
                        FontSize="Medium"
                        FontAttributes="Bold"/>
-                <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkCartIcon}, Light={x:Static globalconst:Icons.LightCartIcon}}"
+                <Image Source="{AppThemeBinding Dark={x:Static globalconst:Icons.DarkCartIcon},
+                    Light={x:Static globalconst:Icons.LightCartIcon}}"
                        Grid.Column="0"
                        HeightRequest="40"/>
             </Grid>

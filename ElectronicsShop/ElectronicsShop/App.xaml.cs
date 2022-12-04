@@ -1,14 +1,12 @@
-﻿
-
-namespace ElectronicsShop;
+﻿namespace ElectronicsShop;
 
 public partial class App : Application
 {
-	public static Account UserAccount { get; set; } = new Account();
-	public App()
+	public static string UserName { get; set; }
+    public App()
 	{
 		InitializeComponent();
 
-		MainPage = new Shells.AppShell();
+		MainPage = new Shells.AuthShell();
 	}
 }
