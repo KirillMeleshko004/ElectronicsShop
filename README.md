@@ -1,2 +1,2 @@
 # ElectronicsShop
-Electronics shop MAUI application with ASP.NET server part
+Electronics shop MAUI application with Firebase server part
