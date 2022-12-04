@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AdminViewModels"
              x:Class="ElectronicsShop.Views.AdminViews.ProductCreationView"
-             Title="ProductCreationView"
+             Title="Add product"
              x:DataType="viewmodel:ProductCreationViewModel">
     <VerticalStackLayout Spacing="10" Padding="10">
         <Image Source="{Binding ImageUrl}" HeightRequest="300"/>

@@ -17,6 +17,9 @@
     <MauiXaml Update="Shells\AuthShell.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\AdminViews\ProductChangingView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\AdminViews\ProductCreationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

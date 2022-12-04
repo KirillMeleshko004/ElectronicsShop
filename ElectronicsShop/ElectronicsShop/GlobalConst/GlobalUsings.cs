@@ -12,3 +12,4 @@ global using ElectronicsShop.Services;
 global using ElectronicsShop.GlobalConst;
 global using ElectronicsShop.Services.AccountServices;
 global using ElectronicsShop.Shells;
+global using ElectronicsShop.ShopEventArgs;

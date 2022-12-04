@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
+using ElectronicsShop.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
@@ -18,35 +19,55 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         public AdminProductsViewModel(ProductsService productsService)
         {
             _productsService = productsService;
+            _productsService.ProductChanged += ProductChanged;
+
             GetProducts();
-            PropertyChanged += CollectionChanged;
         }
 
         async void GetProducts()
         {
             Products = (await _productsService.GetProductsAsync()).ToObservableCollection<Product>();
+            if (Products.Count != 0) IsEmpty = false;
         }
 
-        [RelayCommand]
-        async Task GoToProduct(Product currentProduct)
-        {
-            await Shell.Current.GoToAsync($"{nameof(ProductDetailsView)}",
-                new Dictionary<string, object>
-                {
-                    ["CurrentProduct"] = currentProduct
-                });
-        }
         [RelayCommand]
         async Task AddProduct()
         {
             await Shell.Current.GoToAsync($"{nameof(ProductCreationView)}");
         }
 
-        public void CollectionChanged(object sender, PropertyChangedEventArgs e)
+        [RelayCommand]
+        async Task DeleteProduct(Product product)
         {
-            if (e.PropertyName != nameof(Products)) return;
-            if (Products.Count == 0) IsEmpty = true;
-            else IsEmpty = false;
+            await _productsService.DeleteProductAsync(product);
+        }
+
+        [RelayCommand]
+        async Task ChangeProduct(Product product)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ProductChangingView)}",
+                new Dictionary<string, object>
+                {
+                    ["Product"] = product
+                });
+        }
+
+        void ProductChanged(object sender, ProductEventArgs e)
+        {
+            switch(e.Action)
+            {
+                case ProductEventArgs.Actions.added:
+                    Products.Add(e.Product);
+                    if (IsEmpty) IsEmpty = false;
+                    break;
+                case ProductEventArgs.Actions.removed:
+                    Products.Remove(e.Product);
+                    if (IsNotEmpty) IsEmpty = true;
+                    break;
+                case ProductEventArgs.Actions.changed:
+                    Products[Products.IndexOf(e.Product)] = e.Product;
+                    break;
+            }
         }
     }
 }

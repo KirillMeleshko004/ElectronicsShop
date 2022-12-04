@@ -41,7 +41,6 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         [RelayCommand]
         async Task AddToFavourites()
         {
-            if (IsBusy) return;
             IsBusy = true;
             if(IsFavouriteForUser)
                 await _favouritesService.DeleteFromFavouritesAsync(App.UserName, CurrentProduct.Id);
