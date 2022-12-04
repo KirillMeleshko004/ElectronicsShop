@@ -88,6 +88,9 @@
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.ImageUrl">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.imageUrl"/>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.IsNotEmpty">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.isNotEmpty"/>
+        </member>
         <member name="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.addProductCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.AddProductCommand"/>.</summary>
         </member>

@@ -5,14 +5,40 @@
              x:Class="ElectronicsShop.Views.AdminViews.ProductCreationView"
              Title="Add product"
              x:DataType="viewmodel:ProductCreationViewModel">
-    <VerticalStackLayout Spacing="10" Padding="10">
-        <Image Source="{Binding ImageUrl}" HeightRequest="300"/>
-        <Button Text="Pick image" TextColor="White" Command="{Binding PickImageCommand}"/>
-        <Entry Placeholder="Product name" Text="{Binding ProductName}"/>
-        <Picker ItemsSource="{Static viewmodel:ProductCreationViewModel.Categories}" SelectedItem="{Binding ProductCategory}"/>
-        <Entry Placeholder="Product manufacturer" Text="{Binding Manufacturer}"/>
-        <Entry Placeholder="Product price" Text="{Binding Price}"/>
-        <Editor Placeholder="Description" Text="{Binding Description}" HorizontalOptions="Fill"/>
-        <Button Text="Add product" TextColor="White" Command="{Binding AddProductCommand}"/>
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="10">
+            <Frame BackgroundColor="Transparent" BorderColor="{StaticResource Primary}">
+                <Image Source="{Binding ImageUrl}" HeightRequest="300"/>
+            </Frame>
+            <Button Text="Change image" TextColor="White" Command="{Binding PickImageCommand}"/>
+            <ScrollView HeightRequest="300">
+                <VerticalStackLayout>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                    <Entry Placeholder="Product name" Text="{Binding ProductName}" MaxLength="45"/>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                    <Picker ItemsSource="{Static viewmodel:ProductCreationViewModel.Categories}" 
+                        TextColor="White" TitleColor="{StaticResource Gray500}" Title="Choose category..."
+                        SelectedItem="{Binding ProductCategory}"/>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                    <Entry Placeholder="Product manufacturer" Text="{Binding Manufacturer}" MaxLength="45"/>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Entry Placeholder="Product price" Text="{Binding Price}" MaxLength="15" Keyboard="Numeric"/>
+                        <Label Grid.Column="1" Text="$" VerticalOptions="Center" FontSize="Medium" HorizontalOptions="End"
+                           Margin="0,0,10,0"/>
+                    </Grid>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                    <Editor Placeholder="Description" Text="{Binding Description}"
+                        AutoSize="TextChanges"/>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                </VerticalStackLayout>
+            </ScrollView>
+            <Button Text="Add product" TextColor="White" Command="{Binding AddProductCommand}"
+                IsVisible="{Binding IsNotEmpty}"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

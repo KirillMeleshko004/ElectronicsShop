@@ -1,4 +1,6 @@
-﻿namespace ElectronicsShop.ViewModels.AdminViewModels
+﻿using System.ComponentModel;
+
+namespace ElectronicsShop.ViewModels.AdminViewModels
 {
     public partial class ProductCreationViewModel : BaseViewModel
     {
@@ -19,11 +21,15 @@
         [ObservableProperty]
         string manufacturer;
         [ObservableProperty]
-        double price;
+        string price;
         [ObservableProperty]
         string description;
         [ObservableProperty]
         string imageUrl;
+
+
+        [ObservableProperty]
+        bool isNotEmpty = false;
 
 
         private FileResult _image;
@@ -31,18 +37,31 @@
         public ProductCreationViewModel(ProductsService productsService)
         {
             _productsService = productsService;
+
+            PropertyChanged += CheckEmpty;
+        }
+        private void CheckEmpty(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(IsNotEmpty)) return;
+            if (String.IsNullOrEmpty(ProductName) ||
+                String.IsNullOrEmpty(ProductCategory) ||
+                String.IsNullOrEmpty(Manufacturer) ||
+                String.IsNullOrEmpty(Description) ||
+                String.IsNullOrEmpty(Price) ||
+                String.IsNullOrEmpty(ImageUrl))
+                IsNotEmpty = false;
+            else IsNotEmpty = true;
         }
 
         [RelayCommand]
         public async Task AddProduct()
         {
-
             Product productToAdd = new Product
             {
                 ProductName = productName,
                 ProductCategory = productCategory,
                 Manufacturer = manufacturer,
-                Price = price,
+                Price = Double.Parse(price),
                 Description = description
             };
             await _productsService.AddProductAsync(productToAdd, _image);

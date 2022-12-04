@@ -1048,6 +1048,11 @@ A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-and
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\stamp\_GenerateJavaStubs.stamp
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\stamp\_GeneratePackageManagerJava.stamp
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\stamp\_ResolveLibraryProjectImports.stamp
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\default_image.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\default_image.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\default_image.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\default_image.png
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\default_image.png
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\mscorlib.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Collections.Concurrent.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Data.dll
