@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ElectronicsShop.GlobalConst
+﻿namespace ElectronicsShop.GlobalConst
 {
     public static class Icons
     {

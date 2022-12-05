@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
-
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
@@ -10,7 +10,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         readonly CartService _cartService;
 
         [ObservableProperty]
-        ObservableCollection<Product> products;
+        ObservableCollection<CartProduct> products;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
@@ -23,32 +23,62 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             _cartService.CartChanged += UpdateCart;
             PropertyChanged += CollectionChanged;
 
-            Products = new(_cartService.GetCartList());
+            GetCart();
         }
-        void UpdateCart()
+        async void GetCart()
         {
-            Products = _cartService.GetCartList().ToObservableCollection<Product>();
+            Products = (await _cartService.GetCartForUserAsync(App.UserName))?
+                .ToObservableCollection<CartProduct>();
+        }
+        void UpdateCart(object sender, CartEventArgs e)
+        {
+            if(e.Product is null)
+            {
+                Products.Clear();
+                return;
+            }
+            List<CartProduct> products = 
+                (from product in Products where product.Equals(e.Product) select product).ToList();
+            if (!Products.Contains(e.Product)) 
+                Products.Add(e.Product);
+            else
+            {
+                if(Products[Products.IndexOf(e.Product)].Quantity == 0)
+                {
+                    Products.Remove(e.Product);
+                }
+                else
+                    Products[Products.IndexOf(e.Product)] = e.Product;
+                IsEmpty = Products.Count == 0;
+            }
         }
 
         [RelayCommand]
-        async void RemoveProduct(Product product)
+        async void RemoveProduct(CartProduct product)
         {
-            Products = new(await _cartService.RemoveProduct(product));
+            IsBusy = true;
+            await _cartService.RemoveProductFromCartAsync(App.UserName, product);
+            IsBusy = false;
         }
 
         [RelayCommand]
-        async Task AddProduct(Product product)
+        async Task GoToProduct(CartProduct currentProduct)
         {
-            Products = new(await _cartService.AddProduct(product));
-        }
-
-        [RelayCommand]
-        async Task GoToProduct(Product currentProduct)
-        {
+            //Костыль!!!!!!!!!!
+            Product prod = new Product 
+            {
+                Id = currentProduct.Id,
+                ProductName = currentProduct.ProductName,
+                ProductCategory = currentProduct.ProductCategory,
+                Manufacturer = currentProduct.Manufacturer,
+                Price = currentProduct.Price,
+                Description = currentProduct.Description,
+                ImageString = currentProduct.ImageString,
+             };
             await Shell.Current.GoToAsync($"{nameof(ProductDetailsView)}",
                 new Dictionary<string, object>
                 {
-                    ["CurrentProduct"] = currentProduct
+                    ["CurrentProduct"] = prod
                 });
         }
         [RelayCommand]
@@ -56,7 +86,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             if (!Products.Any()) return;
             double totalPrice = 0;
-            foreach(Product product in Products)
+            foreach (CartProduct product in Products)
             {
                 totalPrice += product.Price * product.Quantity;
             }
@@ -71,15 +101,14 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         void CollectionChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(Products)) return;
-            if (Products.Count == 0) IsEmpty = true;
-            else IsEmpty = false;
+
+            IsEmpty = Products.Count == 0;
         }
         public void Refresh()
         {
-            _cartService.CartChanged += UpdateCart;
             PropertyChanged += CollectionChanged;
 
-            Products = new(_cartService.GetCartList());
+            GetCart();
         }
     }
 }

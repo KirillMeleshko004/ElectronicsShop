@@ -5,35 +5,115 @@ namespace ElectronicsShop.Services
 {
     public class CartService
     {
+        private const string _dbURI = "https://electronicsshop-8c6b3-default-rtdb.europe-west1.firebasedatabase.app/";
+        private readonly FirebaseClient _firebaseClient = new FirebaseClient(_dbURI);
 
-        public List<Product> GetCartList()
+        public async Task<List<CartProduct>> GetCartForUserAsync(string userName)
         {
-            return Cart.GetCartList();
+            Cart cart = (await _firebaseClient
+                .Child(nameof(Cart))
+                .OrderBy(nameof(Cart.UserName))
+                .EqualTo(userName)
+                .OnceAsync<Cart>())
+                .FirstOrDefault((FirebaseObject<Cart>)null)?
+                .Object;
+
+            if (cart is null) return new List<CartProduct>();
+            
+            return cart.Products;
         }
-        public async Task<List<Product>> AddProduct(Product product)
+        public async Task AddProductToCartAsync(string userName, CartProduct product)
         {
-            List<Product> tempList = await Cart.AddProduct(product);
-            CartChanged?.Invoke();
-            return tempList;
+            product.Quantity++;
+
+            var cartForUser = (await _firebaseClient
+                .Child(nameof(Cart))
+                .OrderBy(nameof(Cart.UserName))
+                .EqualTo(userName)
+                .OnceAsync<Cart>())
+                .FirstOrDefault((FirebaseObject<Cart>)null);
+
+            if (cartForUser is null)
+            {
+                await _firebaseClient.Child(nameof(Cart)).PostAsync(new Cart
+                {
+                    UserName = userName,
+                    Products = new List<CartProduct> { product },
+                });
+                CartChanged?.Invoke(this, new CartEventArgs(product));
+                return;
+            }
+
+            if (cartForUser.Object.Products.Contains(product))
+                cartForUser.Object.Products[cartForUser.Object.Products.IndexOf(product)].Quantity++;
+            else
+                cartForUser.Object.Products.Add(product);
+
+            await _firebaseClient.Child(nameof(Cart))
+                    .Child(cartForUser.Key)
+                    .PatchAsync(cartForUser.Object);
+
+            product.Quantity = cartForUser.Object.Products[cartForUser.Object.Products.IndexOf(product)].Quantity;
+            CartChanged?.Invoke(this, new CartEventArgs(product));
         }
-        public async Task<List<Product>> RemoveProduct(Product product)
+        public async Task RemoveProductFromCartAsync(string userName, CartProduct product)
         {
-            List<Product> tempList = await Cart.RemoveProduct(product);
-            CartChanged.Invoke();
-            return tempList;
+            product.Quantity--;
+
+            var cartForUser = (await _firebaseClient
+                .Child(nameof(Cart))
+                .OrderBy(nameof(Cart.UserName))
+                .EqualTo(userName)
+                .OnceAsync<Cart>())
+                .FirstOrDefault((FirebaseObject<Cart>)null);
+
+            if (product.Quantity == 0)
+            {
+                await _firebaseClient
+                .Child(nameof(Cart))
+                .Child(cartForUser.Key)
+                .DeleteAsync();
+
+                CartChanged?.Invoke(this, new CartEventArgs(product));
+                return;
+            }
+
+            cartForUser.Object.Products[cartForUser.Object.Products.IndexOf(product)].Quantity--;
+            await _firebaseClient
+                .Child(nameof(Cart))
+                .Child(cartForUser.Key)
+                .PatchAsync(cartForUser.Object);
+
+            CartChanged?.Invoke(this, new CartEventArgs(product));
         }
-        public void ClearCart()
+        public async Task ClearCartAsync(string userName)
         {
-            Cart.ClearCart();
-            CartChanged?.Invoke();
+            var cartForUser = (await _firebaseClient
+                .Child(nameof(Cart))
+                .OrderBy(nameof(Cart.UserName))
+                .EqualTo(userName)
+                .OnceAsync<Cart>())
+                .FirstOrDefault((FirebaseObject<Cart>)null);
+            await _firebaseClient
+                .Child(nameof(Cart))
+                .Child(cartForUser.Key)
+                .DeleteAsync();
+            CartChanged?.Invoke(this, new CartEventArgs(null));
         }
-        public async Task<int> CountProductInCart(int productId)
+        
+        public async Task<int> CountProductInCartAsync(string userName, Product product)
         {
-            return await Cart.CountProductInCart(productId);
+            var cartForUser = (await _firebaseClient
+                .Child(nameof(Cart))
+                .OrderBy(nameof(Cart.UserName))
+                .EqualTo(userName)
+                .OnceAsync<Cart>())
+                .FirstOrDefault((FirebaseObject<Cart>)null);
+            if (cartForUser is null) return 0;
+            return (from prod in cartForUser.Object.Products where prod.Id == product.Id select prod.Quantity)
+                .FirstOrDefault(0);
         }
 
-        public event CartUpdated CartChanged;
-
-        public delegate void CartUpdated();
+        public event EventHandler<CartEventArgs> CartChanged;
     }
 }

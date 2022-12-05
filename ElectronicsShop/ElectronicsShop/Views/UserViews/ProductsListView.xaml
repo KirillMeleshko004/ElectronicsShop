@@ -38,7 +38,7 @@
                                    VerticalOptions="Center"
                                    FontSize="Medium"
                                    HorizontalOptions="Center"/>
-                            <Label Text="{Binding Price}"
+                            <Label Text="{Binding Price, StringFormat='{0} $'}"
                                    Grid.Column="1"
                                    Grid.Row="1"
                                    VerticalOptions="Center"

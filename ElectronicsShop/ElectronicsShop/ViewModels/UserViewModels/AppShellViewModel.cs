@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace ElectronicsShop.ViewModels.UserViewModels
+﻿namespace ElectronicsShop.ViewModels.UserViewModels
 {
     public partial class AppShellViewModel : BaseViewModel
     {

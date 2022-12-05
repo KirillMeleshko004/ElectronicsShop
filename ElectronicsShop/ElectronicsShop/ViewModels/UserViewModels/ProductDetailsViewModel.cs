@@ -27,22 +27,22 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         public async void ProductPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(CurrentProduct)) return;
-            CountInCart = await _cartService.CountProductInCart(CurrentProduct.Id);
+            CountInCart = await _cartService.CountProductInCartAsync(App.UserName, CurrentProduct);
             IsFavouriteForUser = await _favouritesService.IsProductFavouriteForUserAsync(App.UserName, CurrentProduct.Id);
         }
 
         [RelayCommand]
         async Task AddToCart(Product product)
         {
-            List<Product> newCartList = await _cartService.AddProduct(product);
-            CountInCart = (from pr in newCartList where pr.Id == CurrentProduct.Id select pr.Quantity).First<int>();
+            await _cartService.AddProductToCartAsync(App.UserName, new CartProduct(product) { Quantity = CountInCart });
+            CountInCart++;
         }
 
         [RelayCommand]
         async Task AddToFavourites()
         {
             IsBusy = true;
-            if(IsFavouriteForUser)
+            if (IsFavouriteForUser)
                 await _favouritesService.DeleteFromFavouritesAsync(App.UserName, CurrentProduct.Id);
             else await _favouritesService.SetFavouriteAsync(App.UserName, CurrentProduct.Id);
             IsFavouriteForUser = !IsFavouriteForUser;

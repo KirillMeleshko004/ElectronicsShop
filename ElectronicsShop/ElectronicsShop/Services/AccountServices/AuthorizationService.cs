@@ -1,6 +1,5 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
-using System.Linq;
 
 namespace ElectronicsShop.Services.AccountServices
 {

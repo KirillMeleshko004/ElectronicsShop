@@ -13,7 +13,7 @@
             <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
         <ScrollView>
-            <VerticalStackLayout Margin="10,30,10,0" Padding="10" Spacing="10">
+            <VerticalStackLayout Margin="10,20,10,0" Padding="10" Spacing="10">
                 <Image Source="{Binding CurrentProduct.ImageString}"
                        HeightRequest="300"
                        WidthRequest="350"
@@ -23,17 +23,12 @@
                        HorizontalOptions="Start"
                        FontSize="Title"
                        Margin="20,0,0,0"/>
-                <Label Text="{Binding CurrentProduct.Manufacturer}"
-                           VerticalOptions="Center" 
-                           HorizontalOptions="Start"
-                           FontSize="Subtitle"
-                           Margin="20,0,0,0"/>
                 <Grid BackgroundColor="Transparent" HeightRequest="70" Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="{Binding CurrentProduct.Price, StringFormat='{0:F2}$'}"
+                    <Label Text="{Binding CurrentProduct.Price, StringFormat='{0:C2}'}"
                            Grid.RowSpan="2"
                            FontSize="30"
                            FontAttributes="Bold"

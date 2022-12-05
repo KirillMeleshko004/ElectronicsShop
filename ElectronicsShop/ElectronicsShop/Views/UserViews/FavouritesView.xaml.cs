@@ -2,12 +2,12 @@ namespace ElectronicsShop.Views.UserViews;
 
 public partial class FavouritesView : ContentPage
 {
-	public FavouritesViewModel ViewModel { get; set; }
-	public FavouritesView(FavouritesViewModel viewModel)
-	{
-		InitializeComponent();
+    public FavouritesViewModel ViewModel { get; set; }
+    public FavouritesView(FavouritesViewModel viewModel)
+    {
+        InitializeComponent();
 
-		ViewModel = viewModel;
-		BindingContext = ViewModel;
-	}
+        ViewModel = viewModel;
+        BindingContext = ViewModel;
+    }
 }

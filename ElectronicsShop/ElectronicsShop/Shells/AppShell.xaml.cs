@@ -2,8 +2,8 @@
 
 public partial class AppShell : Shell
 {
-	public AppShell()
-	{
+    public AppShell()
+    {
         InitializeComponent();
 
         BindingContext = new AppShellViewModel();
@@ -19,7 +19,7 @@ public partial class AppShell : Shell
     protected override void OnNavigated(ShellNavigatedEventArgs args)
     {
         string location = args.Current?.Location?.ToString();
-        switch(location)
+        switch (location)
         {
             case $"//{nameof(CategoryView)}":
                 ((CategoryView)Shell.Current.CurrentPage).ViewModel.Refresh();

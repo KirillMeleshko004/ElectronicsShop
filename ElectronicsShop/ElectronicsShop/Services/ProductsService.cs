@@ -19,7 +19,8 @@ namespace ElectronicsShop.Services
                     .Child(nameof(Product))
                     .OrderByKey()
                     .OnceAsync<Product>()
-                    ) select fbObj.Object).ToList<Product>();
+                    )
+                    select fbObj.Object).ToList<Product>();
         }
         public async Task AddProductAsync(Product product, FileResult productImage)
         {
@@ -55,8 +56,8 @@ namespace ElectronicsShop.Services
             await _firebaseClient
                 .Child(nameof(Product))
                 .Child(prodKey)
-                .DeleteAsync(); 
-            
+                .DeleteAsync();
+
 
             await _firebaseStorage.Child(System.IO.Path.GetFileName(new Uri(product.ImageString).LocalPath))
                 .DeleteAsync();
@@ -85,7 +86,7 @@ namespace ElectronicsShop.Services
                 .OrderBy(nameof(Product.Id))
                 .EqualTo(product.Id)
                 .OnceAsync<Product>());
-            string productKey = 
+            string productKey =
                 coll.First().Key;
 
             await _firebaseClient.Child(nameof(Product)).Child(productKey).PatchAsync(product);

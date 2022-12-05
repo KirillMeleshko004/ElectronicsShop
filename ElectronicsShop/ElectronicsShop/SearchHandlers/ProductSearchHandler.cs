@@ -1,7 +1,4 @@
-﻿using ElectronicsShop.Models;
-
-using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
 
 namespace ElectronicsShop.SearchHandlers
 {
@@ -9,9 +6,9 @@ namespace ElectronicsShop.SearchHandlers
     {
         //public IEnumerable<Product> Products { get; set; }
         public static readonly BindableProperty ProductsProperty = BindableProperty.Create(
-            nameof(Products), 
-            typeof(ObservableCollection<Product>), 
-            typeof(ProductSearchHandler), 
+            nameof(Products),
+            typeof(ObservableCollection<Product>),
+            typeof(ProductSearchHandler),
             propertyChanged: ProductsChanged);
         public ObservableCollection<Product> Products
         {
@@ -23,13 +20,14 @@ namespace ElectronicsShop.SearchHandlers
             if (Products is null) return;
             base.OnQueryChanged(oldValue, newValue);
 
-            if(string.IsNullOrEmpty(newValue))
+            if (string.IsNullOrEmpty(newValue))
             {
                 ItemsSource = null;
             }
             else
             {
-                ItemsSource = (from product in Products where product.ProductName.ToLower().Contains(newValue.ToLower()) 
+                ItemsSource = (from product in Products
+                               where product.ProductName.ToLower().Contains(newValue.ToLower())
                                select product).ToList();
             }
         }
@@ -50,9 +48,9 @@ namespace ElectronicsShop.SearchHandlers
             ObservableCollection<Product> searchResults = new((IEnumerable<Product>)this.ItemsSource);
             Shell.Current.GoToAsync($"{nameof(ProductsListView)}",
             new Dictionary<string, object>
-                {
-                    ["Title"] = this.Query,
-                    ["Products"] = searchResults
+            {
+                ["Title"] = this.Query,
+                ["Products"] = searchResults
             });
 
         }
@@ -62,6 +60,6 @@ namespace ElectronicsShop.SearchHandlers
             ProductSearchHandler searchHandler = (ProductSearchHandler)bindable;
             searchHandler.Products = (ObservableCollection<Product>)newValue;
         }
-        
+
     }
 }

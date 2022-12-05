@@ -1,5 +1,4 @@
-﻿using ElectronicsShop.Models;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.UserViewModels

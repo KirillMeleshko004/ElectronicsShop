@@ -21,8 +21,8 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         async Task GoToCategory(CategoryInfo categoryInfo)
         {
             ObservableCollection<Product> categoryProducts = (from product in Products
-                                              where product.ProductCategory == categoryInfo.CategoryName
-                                              select product).ToObservableCollection<Product>();
+                                                              where product.ProductCategory == categoryInfo.CategoryName
+                                                              select product).ToObservableCollection<Product>();
             await Shell.Current.GoToAsync($"{nameof(ProductsListView)}",
                 new Dictionary<string, object>
                 {

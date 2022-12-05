@@ -1,5 +1,4 @@
-﻿using ElectronicsShop.GlobalConst;
-using static ElectronicsShop.GlobalConst.CategoriesConst;
+﻿using static ElectronicsShop.GlobalConst.CategoriesConst;
 
 namespace ElectronicsShop.Models
 {

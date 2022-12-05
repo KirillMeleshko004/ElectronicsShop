@@ -1,5 +1,4 @@
-﻿using ElectronicsShop.Models;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.AdminViewModels
 {
@@ -58,8 +57,8 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         public async Task ChangeProduct()
         {
             Product.ProductName = ProductName;
-            Product.ProductCategory = ProductCategory ;
-            Product.Manufacturer = Manufacturer ;
+            Product.ProductCategory = ProductCategory;
+            Product.Manufacturer = Manufacturer;
             Product.Price = Price;
             Product.Description = Description;
             Product.ImageString = ImageUrl;

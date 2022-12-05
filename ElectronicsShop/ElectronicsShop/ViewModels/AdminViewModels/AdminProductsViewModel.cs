@@ -1,7 +1,5 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
-using ElectronicsShop.Models;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.AdminViewModels
 {
@@ -54,14 +52,15 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         void ProductChanged(object sender, ProductEventArgs e)
         {
-            switch(e.Action)
+            switch (e.Action)
             {
                 case ProductEventArgs.Actions.added:
                     Products.Add(e.Product);
                     if (IsEmpty) IsEmpty = false;
                     break;
                 case ProductEventArgs.Actions.removed:
-                    Products.Remove(e.Product);
+                    Products = (from product in Products where product.Id != e.Product.Id select product)
+                        .ToObservableCollection<Product>();
                     if (IsNotEmpty) IsEmpty = true;
                     break;
                 case ProductEventArgs.Actions.changed:

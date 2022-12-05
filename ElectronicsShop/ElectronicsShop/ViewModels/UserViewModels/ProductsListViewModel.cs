@@ -1,6 +1,5 @@
 ﻿
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.UserViewModels
@@ -24,7 +23,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
 
             PropertyChanged += CollectionChanged;
         }
-        
+
         [RelayCommand]
         async Task GoToProduct(Product currentProduct)
         {

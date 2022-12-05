@@ -4,11 +4,15 @@
              x:Class="ElectronicsShop.Views.AuthViews.AuthorizationView"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AuthViewModels"
              xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              x:DataType="viewmodel:AuthorizationViewModel"
              Shell.NavBarIsVisible="True"
              Shell.FlyoutBehavior="Disabled"
              Title="Authorization">
-
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
+                               StatusBarStyle="DarkContent"/>
+    </Page.Behaviors>
     <VerticalStackLayout Padding="10,0" Spacing="10">
         <Image Source="{Static globalconst:Icons.Logo}"
                WidthRequest="403"

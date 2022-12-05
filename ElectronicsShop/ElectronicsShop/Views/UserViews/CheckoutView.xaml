@@ -23,7 +23,7 @@
                IsVisible="{Binding IsFailed}"/>
         <CollectionView ItemsSource="{Binding Products}" IsEnabled="{Binding IsNotSuccessful}">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Product">
+                <DataTemplate x:DataType="model:CartProduct">
                     <Grid Margin="8,8,8,0"
                           HeightRequest="120"
                           BackgroundColor="{AppThemeBinding Light=White, Dark=Red}">

@@ -33,7 +33,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             DateTime orderTime = DateTime.Now;
             IsSuccessful = await _orderService.СheckoutAsync(new Order(Products.ToList<Product>(), orderTime, UserName, TotalPrice, newOrderId));
             IsFailed = !IsSuccessful;
-            _cartService.ClearCart();
+            await _cartService.ClearCartAsync(App.UserName);
         }
 
         [RelayCommand]

@@ -6,6 +6,6 @@ public partial class RegistrationView : ContentPage
 	{
 		InitializeComponent();
 
-        BindingContext = viewModel;
-    }
+		BindingContext = viewModel;
+	}
 }

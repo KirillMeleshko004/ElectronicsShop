@@ -8,7 +8,7 @@ public partial class AdminShell : Shell
 
 		BindingContext = new AdminShellViewModel();
 
-        Routing.RegisterRoute(nameof(ProductCreationView), typeof(ProductCreationView));
-        Routing.RegisterRoute(nameof(ProductChangingView), typeof(ProductChangingView));
-    }
+		Routing.RegisterRoute(nameof(ProductCreationView), typeof(ProductCreationView));
+		Routing.RegisterRoute(nameof(ProductChangingView), typeof(ProductChangingView));
+	}
 }

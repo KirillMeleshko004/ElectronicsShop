@@ -4,8 +4,8 @@ public partial class CategoryView : ContentPage
 {
     public CategoryViewModel ViewModel { get; set; }
     public CategoryView(CategoryViewModel viewModel)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
 
         ViewModel = viewModel;
         BindingContext = ViewModel;

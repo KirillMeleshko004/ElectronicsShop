@@ -19,9 +19,10 @@
                FontSize="Medium"
                IsVisible="{Binding IsEmpty}"/>
         <CollectionView ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always"
-                        IsVisible="{Binding IsNotEmpty}">
+                        IsVisible="{Binding IsNotEmpty}"
+                        IsEnabled="{Binding IsNotBusy}">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Product">
+                <DataTemplate x:DataType="model:CartProduct">
                     <Frame Margin="10"
                            HeightRequest="200"
                            BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"

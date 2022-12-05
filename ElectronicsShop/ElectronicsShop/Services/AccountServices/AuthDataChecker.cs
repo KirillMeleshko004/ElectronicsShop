@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using static ElectronicsShop.GlobalConst.AccountErrorMessages;
+﻿using static ElectronicsShop.GlobalConst.AccountErrorMessages;
 namespace ElectronicsShop.Services.AccountServices
 {
     public static class AuthDataChecker

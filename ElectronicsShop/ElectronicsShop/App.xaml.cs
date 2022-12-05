@@ -2,11 +2,11 @@
 
 public partial class App : Application
 {
-	public static string UserName { get; set; }
+    public static string UserName { get; set; }
     public App()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
 
-		MainPage = new Shells.AuthShell();
-	}
+        MainPage = new Shells.AuthShell();
+    }
 }

@@ -1,30 +1,27 @@
 ﻿using CommunityToolkit.Maui;
-using ElectronicsShop.Services.AccountServices;
-using ElectronicsShop.ViewModels.UserViewModels;
-using ElectronicsShop.Views;
 
 namespace ElectronicsShop;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.UseMauiApp<App>().UseMauiCommunityToolkit()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .UseMauiApp<App>().UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
-		builder.Services.AddTransient<AuthorizationView>();
-		builder.Services.AddTransient<AuthorizationViewModel>();
-		builder.Services.AddTransient<RegistrationView>();
-		builder.Services.AddTransient<RegistrationViewModel>();
-		builder.Services.AddTransient<ProductsListView>();
-		builder.Services.AddTransient<ProductsListViewModel>();
+        builder.Services.AddTransient<AuthorizationView>();
+        builder.Services.AddTransient<AuthorizationViewModel>();
+        builder.Services.AddTransient<RegistrationView>();
+        builder.Services.AddTransient<RegistrationViewModel>();
+        builder.Services.AddTransient<ProductsListView>();
+        builder.Services.AddTransient<ProductsListViewModel>();
         builder.Services.AddTransient<CategoryView>();
         builder.Services.AddTransient<CategoryViewModel>();
         builder.Services.AddTransient<CartView>();
@@ -59,5 +56,5 @@ public static class MauiProgram
         builder.Services.AddSingleton<FavouritesService>();
 
         return builder.Build();
-	}
+    }
 }
