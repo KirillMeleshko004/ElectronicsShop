@@ -4,7 +4,6 @@ namespace ElectronicsShop.SearchHandlers
 {
     public class ProductSearchHandler : SearchHandler
     {
-        //public IEnumerable<Product> Products { get; set; }
         public static readonly BindableProperty ProductsProperty = BindableProperty.Create(
             nameof(Products),
             typeof(ObservableCollection<Product>),

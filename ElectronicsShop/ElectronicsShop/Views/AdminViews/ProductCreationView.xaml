@@ -7,10 +7,15 @@
              x:DataType="viewmodel:ProductCreationViewModel">
     <ScrollView>
         <VerticalStackLayout Spacing="10" Padding="10">
-            <Frame BackgroundColor="Transparent" BorderColor="{StaticResource Primary}">
-                <Image Source="{Binding ImageUrl}" HeightRequest="300"/>
-            </Frame>
-            <Button Text="Change image" TextColor="White" Command="{Binding PickImageCommand}"/>
+            <Border BackgroundColor="Transparent" Stroke="{StaticResource Primary}"
+                    Padding="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Image Source="{Binding ImageUrl}" HeightRequest="270"/>
+            </Border>
+            <Button Text="Change image" TextColor="White" Command="{Binding PickImageCommand}"
+                    IsEnabled="{Binding IsNotBusy}"/>
             <ScrollView HeightRequest="300">
                 <VerticalStackLayout>
                     <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
@@ -38,7 +43,8 @@
                 </VerticalStackLayout>
             </ScrollView>
             <Button Text="Add product" TextColor="White" Command="{Binding AddProductCommand}"
-                IsVisible="{Binding IsNotEmpty}"/>
+                    IsVisible="{Binding IsNotEmpty}"
+                    IsEnabled="{Binding IsNotBusy}"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

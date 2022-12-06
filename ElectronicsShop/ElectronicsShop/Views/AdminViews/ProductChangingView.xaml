@@ -5,14 +5,45 @@
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AdminViewModels"
              Title="Change Product"
              x:DataType="viewmodel:ProductChangingViewModel">
-    <VerticalStackLayout Spacing="10" Padding="10">
-        <Image Source="{Binding ImageUrl, Mode=TwoWay}" HeightRequest="300"/>
-        <Button Text="Change image" TextColor="White" Command="{Binding PickImageCommand}"/>
-        <Entry Placeholder="Product name" Text="{Binding ProductName, Mode=TwoWay}"/>
-        <Picker ItemsSource="{Static viewmodel:ProductCreationViewModel.Categories}" SelectedItem="{Binding ProductCategory}"/>
-        <Entry Placeholder="Product manufacturer" Text="{Binding Manufacturer, Mode=TwoWay}"/>
-        <Entry Placeholder="Product price" Text="{Binding Price, Mode=TwoWay}"/>
-        <Editor Placeholder="Description" Text="{Binding Description, Mode=TwoWay}" HorizontalOptions="Fill"/>
-        <Button Text="Change" TextColor="White" Command="{Binding ChangeProductCommand}"/>
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="10">
+            <Border BackgroundColor="Transparent" Stroke="{StaticResource Primary}"
+                    Padding="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Image Source="{Binding ImageUrl, Mode=TwoWay}" HeightRequest="270"/>
+            </Border>
+            <Button Text="Change image" TextColor="White" Command="{Binding PickImageCommand}"
+                    IsEnabled="{Binding IsNotBusy}"/>
+            <ScrollView HeightRequest="300">
+                <VerticalStackLayout>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                    <Entry Placeholder="Product name" Text="{Binding ProductName}" MaxLength="45"/>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                    <Picker ItemsSource="{Static viewmodel:ProductCreationViewModel.Categories}" 
+                        TextColor="White" TitleColor="{StaticResource Gray500}" Title="Choose category..."
+                        SelectedItem="{Binding ProductCategory}"/>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                    <Entry Placeholder="Product manufacturer" Text="{Binding Manufacturer}" MaxLength="45"/>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Entry Placeholder="Product price" Text="{Binding Price}" MaxLength="15" Keyboard="Numeric"/>
+                        <Label Grid.Column="1" Text="$" VerticalOptions="Center" FontSize="Medium" HorizontalOptions="End"
+                           Margin="0,0,10,0"/>
+                    </Grid>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                    <Editor Placeholder="Description" Text="{Binding Description}"
+                        AutoSize="TextChanges"/>
+                    <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
+                </VerticalStackLayout>
+            </ScrollView>
+            <Button Text="Change" TextColor="White" Command="{Binding ChangeProductCommand}"
+                    IsEnabled="{Binding IsNotBusy}"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using ElectronicsShop.Models;
+using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.AdminViewModels
 {
@@ -56,6 +57,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         [RelayCommand]
         public async Task ChangeProduct()
         {
+            IsBusy = true;
             Product.ProductName = ProductName;
             Product.ProductCategory = ProductCategory;
             Product.Manufacturer = Manufacturer;
@@ -64,6 +66,9 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             Product.ImageString = ImageUrl;
 
             await _productsService.ChangeProductAsync(Product, _image);
+            await Shell.Current.DisplayAlert("Success", "Product changed", "Ok");
+            await Shell.Current.GoToAsync("..");
+            IsBusy = false;
         }
 
         [RelayCommand]

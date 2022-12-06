@@ -65,7 +65,8 @@
                IsEnabled="{Binding IsNotBusy}"
                Padding="-5">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding SignInCommand}"/>
+                <TapGestureRecognizer Command="{Binding SignInCommand}"
+                                      Tapped="TapGestureRecognizer_Tapped"/>
             </Frame.GestureRecognizers>
             <Grid BackgroundColor="Transparent">
                 <ActivityIndicator IsVisible="{Binding IsBusy}"

@@ -101,17 +101,13 @@ namespace ElectronicsShop.Services
             CartChanged?.Invoke(this, new CartEventArgs(null));
         }
         
-        public async Task<int> CountProductInCartAsync(string userName, Product product)
+        public async Task<bool> IsProductInCartOfUser(string userName, Product product)
         {
-            var cartForUser = (await _firebaseClient
+            return (await _firebaseClient
                 .Child(nameof(Cart))
                 .OrderBy(nameof(Cart.UserName))
                 .EqualTo(userName)
-                .OnceAsync<Cart>())
-                .FirstOrDefault((FirebaseObject<Cart>)null);
-            if (cartForUser is null) return 0;
-            return (from prod in cartForUser.Object.Products where prod.Id == product.Id select prod.Quantity)
-                .FirstOrDefault(0);
+                .OnceAsync<Cart>()).Count() != 0;
         }
 
         public event EventHandler<CartEventArgs> CartChanged;

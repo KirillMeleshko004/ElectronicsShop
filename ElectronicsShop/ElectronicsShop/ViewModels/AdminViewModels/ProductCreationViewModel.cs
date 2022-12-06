@@ -56,6 +56,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         [RelayCommand]
         public async Task AddProduct()
         {
+            IsBusy = true;
             Product productToAdd = new Product
             {
                 ProductName = productName,
@@ -65,6 +66,9 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
                 Description = description
             };
             await _productsService.AddProductAsync(productToAdd, _image);
+            await Shell.Current.DisplayAlert("Success", "Product added", "Ok");
+            await Shell.Current.GoToAsync("..");
+            IsBusy = false;
         }
 
         [RelayCommand]

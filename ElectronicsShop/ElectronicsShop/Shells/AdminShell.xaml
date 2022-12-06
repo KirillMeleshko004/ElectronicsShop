@@ -10,7 +10,7 @@
        x:DataType="viewmodel:AdminShellViewModel">
     
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Route="AdminProductsView" Title="Shop" Icon="{x:Static globalconst:Icons.ShopIcon}" 
+        <ShellContent Route="AdminProductsView" Title="Products" Icon="{x:Static globalconst:Icons.ShopIcon}" 
                       ContentTemplate="{DataTemplate views:AdminProductsView}" />
     </FlyoutItem>
     <Shell.FlyoutHeader>

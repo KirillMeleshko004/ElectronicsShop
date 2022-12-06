@@ -295,6 +295,9 @@
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.CountInCart">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel._countInCart"/>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.InCart">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel._inCart"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.IsFavouriteForUser">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel._isFavouriteForUser"/>
         </member>

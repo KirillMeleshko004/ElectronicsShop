@@ -13,6 +13,8 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         [ObservableProperty]
         int _countInCart;
         [ObservableProperty]
+        bool _inCart;
+        [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotFavouriteForUser))]
         bool _isFavouriteForUser = false;
         public bool IsNotFavouriteForUser => !_isFavouriteForUser;
@@ -27,7 +29,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         public async void ProductPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(CurrentProduct)) return;
-            CountInCart = await _cartService.CountProductInCartAsync(App.UserName, CurrentProduct);
+            InCart = await _cartService.IsProductInCartOfUser(App.UserName, CurrentProduct);
             IsFavouriteForUser = await _favouritesService.IsProductFavouriteForUserAsync(App.UserName, CurrentProduct.Id);
         }
 
@@ -35,6 +37,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         async Task AddToCart(Product product)
         {
             await _cartService.AddProductToCartAsync(App.UserName, new CartProduct(product) { Quantity = CountInCart });
+            await Shell.Current.DisplayAlert("Added", $"Prodcut {product.ProductName} added to cart", "Ok");
             CountInCart++;
         }
 

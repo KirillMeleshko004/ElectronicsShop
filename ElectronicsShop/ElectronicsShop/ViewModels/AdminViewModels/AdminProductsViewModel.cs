@@ -31,23 +31,33 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         [RelayCommand]
         async Task AddProduct()
         {
+            IsBusy = true;
             await Shell.Current.GoToAsync($"{nameof(ProductCreationView)}");
+            IsBusy = false;
         }
 
         [RelayCommand]
         async Task DeleteProduct(Product product)
         {
-            await _productsService.DeleteProductAsync(product);
+            IsBusy = true;
+            bool choice = await Shell.Current.DisplayAlert("Are you sure?!",
+                $"Product {product.ProductName} will be deleted",
+                "Confirm",
+                "Cancel");
+            if (choice) await _productsService.DeleteProductAsync(product);
+            IsBusy = false;
         }
 
         [RelayCommand]
         async Task ChangeProduct(Product product)
         {
+            IsBusy = true;
             await Shell.Current.GoToAsync($"{nameof(ProductChangingView)}",
                 new Dictionary<string, object>
                 {
                     ["Product"] = product
                 });
+            IsBusy = false;
         }
 
         void ProductChanged(object sender, ProductEventArgs e)
@@ -59,9 +69,8 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
                     if (IsEmpty) IsEmpty = false;
                     break;
                 case ProductEventArgs.Actions.removed:
-                    Products = (from product in Products where product.Id != e.Product.Id select product)
-                        .ToObservableCollection<Product>();
-                    if (IsNotEmpty) IsEmpty = true;
+                    Products.Remove(e.Product);
+                    if (Products.Count == 0) IsEmpty = true;
                     break;
                 case ProductEventArgs.Actions.changed:
                     Products[Products.IndexOf(e.Product)] = e.Product;

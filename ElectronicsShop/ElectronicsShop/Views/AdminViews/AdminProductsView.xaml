@@ -15,39 +15,55 @@
                         IsVisible="{Binding IsNotEmpty}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
-                    <Frame Margin="10"
-                           HeightRequest="200"
-                           BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
-                           BorderColor="{StaticResource Primary}">
+
+                    <Border Margin="5"
+                            HeightRequest="200"
+                            BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+                            Padding="15"
+                            Stroke="{StaticResource Primary}"
+                            StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
                         <Grid RowSpacing="15" ColumnSpacing="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="0.4*"/>
+                                <RowDefinition Height="0.2*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="0.5*"/>
-                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="0.6*"/>
+                                <ColumnDefinition Width="0.6*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="{Binding ImageString}"
-                                   VerticalOptions="Fill"/>
+                                   VerticalOptions="Fill"
+                                   HorizontalOptions="Start"
+                                   Margin="20,0,0,0"/>
                             <Label Text="{Binding ProductName}"
                                    Grid.Row="1"
                                    Grid.ColumnSpan="2"
-                                   VerticalOptions="Center"
+                                   VerticalOptions="End"
                                    FontSize="Medium"
                                    HorizontalOptions="Start"
                                    Margin="20,0,0,0"/>
-                            <Button Text="Edit" Grid.Column="1" TextColor="White" HeightRequest="70"
+                            <Button Text="Edit" Grid.Column="1" TextColor="White" HeightRequest="60"
                                     Command="{Binding Source={RelativeSource 
                                         AncestorType={x:Type viewmodel:AdminProductsViewModel}},
-                                        Path=ChangeProductCommand}" CommandParameter="{Binding .}"/>
-                            <Button Text="Delete" Grid.Column="2" TextColor="White" HeightRequest="70"
+                                        Path=ChangeProductCommand}" CommandParameter="{Binding .}"
+                                    VerticalOptions="Center"
+                                    IsEnabled="{Binding Source={RelativeSource 
+                                        AncestorType={x:Type viewmodel:AdminProductsViewModel}},
+                                        Path=IsNotBusy}"/>
+                            <Button Text="Delete" Grid.Column="2" TextColor="White" HeightRequest="60"
                                     Command="{Binding Source={RelativeSource 
                                         AncestorType={x:Type viewmodel:AdminProductsViewModel}},
-                                        Path=DeleteProductCommand}" CommandParameter="{Binding .}"/>
+                                        Path=DeleteProductCommand}" CommandParameter="{Binding .}"
+                                    VerticalOptions="Center"
+                                    IsEnabled="{Binding Source={RelativeSource 
+                                        AncestorType={x:Type viewmodel:AdminProductsViewModel}},
+                                        Path=IsNotBusy}"/>
                         </Grid>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

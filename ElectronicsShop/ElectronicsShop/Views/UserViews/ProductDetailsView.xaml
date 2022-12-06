@@ -4,6 +4,7 @@
              x:Class="ElectronicsShop.Views.UserViews.ProductDetailsView"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.UserViewModels"
              xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
+             xmlns:amimation="clr-namespace:ElectronicsShop.Animations"
              x:DataType="viewmodel:ProductDetailsViewModel"
              Title="{Binding CurrentProduct.ProductName}">
     <Grid>
@@ -72,7 +73,8 @@
             <Frame Padding="0">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding AddToCartCommand}"
-                                      CommandParameter="{Binding CurrentProduct}"/>
+                                      CommandParameter="{Binding CurrentProduct}"
+                                          Tapped="TapGestureRecognizer_Tapped"/>
                 </Frame.GestureRecognizers>
                 <Grid BackgroundColor="Transparent">
                     <Grid.ColumnDefinitions>
@@ -91,12 +93,13 @@
                         Light={x:Static globalconst:Icons.LightCartIcon}}"
                        Grid.Column="0"
                        HeightRequest="40"/>
-                    <Label Text="{Binding CountInCart, StringFormat='In cart: {0}'}"
+                    <Label Text="In cart"
                            TextColor="{AppThemeBinding Dark=Black, Light=White}"
                            VerticalOptions="Center"
                            HorizontalOptions="Center"
                            Grid.Column="2"
-                           FontSize="Subtitle"/>
+                           FontSize="Subtitle"
+                           IsVisible="{Binding InCart}"/>
                 </Grid>
             </Frame>
         </Grid>

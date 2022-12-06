@@ -19,8 +19,7 @@
                FontSize="Medium"
                IsVisible="{Binding IsEmpty}"/>
         <CollectionView ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always"
-                        IsVisible="{Binding IsNotEmpty}"
-                        IsEnabled="{Binding IsNotBusy}">
+                        IsVisible="{Binding IsNotEmpty}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:CartProduct">
                     <Frame Margin="10"
@@ -67,6 +66,8 @@
                                     TextColor="{AppThemeBinding Dark=White, Light=Black}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartViewModel}},
                                 Path=RemoveProductCommand}" CommandParameter="{Binding .}"
+                                    IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartViewModel}},
+                                Path=IsNotBusy}"
                                     Margin="20,0,20,0"/>
                         </Grid>
                     </Frame>

@@ -8,4 +8,10 @@ public partial class ProductDetailsView : ContentPage
 
         BindingContext = viewModel;
     }
+
+    private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+    {
+        Frame frame = (Frame)sender;
+        Animations.FrameAnimation.AnimateFrame(frame);
+    }
 }
