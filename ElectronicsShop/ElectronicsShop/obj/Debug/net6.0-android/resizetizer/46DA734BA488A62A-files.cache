@@ -15,6 +15,7 @@ obj\Debug\net6.0-android\resizetizer\r\drawable\washing_machine.png
 obj\Debug\net6.0-android\resizetizer\r\drawable\washing_machine_icon.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\active_favourites.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\arrow.png
+obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\bin.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\cart.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\contact_us.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\dark_cart.png
@@ -33,6 +34,7 @@ obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\shop_logo.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\unactive_favourites.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\active_favourites.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\arrow.png
+obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\bin.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\cart.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\contact_us.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\dark_cart.png
@@ -51,6 +53,7 @@ obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\shop_logo.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\unactive_favourites.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\active_favourites.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\arrow.png
+obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\bin.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\cart.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\contact_us.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\dark_cart.png
@@ -69,6 +72,7 @@ obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\shop_logo.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xhdpi\unactive_favourites.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\active_favourites.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\arrow.png
+obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\bin.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\cart.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\contact_us.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\dark_cart.png
@@ -87,6 +91,7 @@ obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\shop_logo.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxhdpi\unactive_favourites.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\active_favourites.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\arrow.png
+obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\bin.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\cart.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\contact_us.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-xxxhdpi\dark_cart.png

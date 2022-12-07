@@ -22,7 +22,7 @@ namespace ElectronicsShop.Services
             
             return cart.Products;
         }
-        public async Task AddProductToCartAsync(string userName, CartProduct product)
+        public async Task<CartProduct> AddProductToCartAsync(string userName, CartProduct product)
         {
             product.Quantity++;
 
@@ -40,9 +40,11 @@ namespace ElectronicsShop.Services
                     UserName = userName,
                     Products = new List<CartProduct> { product },
                 });
-                CartChanged?.Invoke(this, new CartEventArgs(product));
-                return;
+                return product;
             }
+
+            if(cartForUser.Object.Products is null)
+                cartForUser.Object.Products = new List<CartProduct>();
 
             if (cartForUser.Object.Products.Contains(product))
                 cartForUser.Object.Products[cartForUser.Object.Products.IndexOf(product)].Quantity++;
@@ -53,10 +55,28 @@ namespace ElectronicsShop.Services
                     .Child(cartForUser.Key)
                     .PatchAsync(cartForUser.Object);
 
-            product.Quantity = cartForUser.Object.Products[cartForUser.Object.Products.IndexOf(product)].Quantity;
-            CartChanged?.Invoke(this, new CartEventArgs(product));
+            return product;
         }
-        public async Task RemoveProductFromCartAsync(string userName, CartProduct product)
+        public async Task FullRemoveProductAsync(string userName, Product product)
+        {
+            var cartForUser = (await _firebaseClient
+               .Child(nameof(Cart))
+               .OrderBy(nameof(Cart.UserName))
+               .EqualTo(userName)
+               .OnceAsync<Cart>())
+               .FirstOrDefault((FirebaseObject<Cart>)null);
+
+            if(cartForUser is not null)
+            {
+                cartForUser.Object.Products.Remove(new CartProduct(product));
+
+                await _firebaseClient
+                    .Child(nameof(Cart))
+                    .Child(cartForUser.Key)
+                    .PatchAsync(cartForUser.Object);
+            }
+        }
+        public async Task<CartProduct> RemoveProductFromCartAsync(string userName, CartProduct product)
         {
             product.Quantity--;
 
@@ -68,23 +88,16 @@ namespace ElectronicsShop.Services
                 .FirstOrDefault((FirebaseObject<Cart>)null);
 
             if (product.Quantity == 0)
-            {
-                await _firebaseClient
-                .Child(nameof(Cart))
-                .Child(cartForUser.Key)
-                .DeleteAsync();
+                cartForUser.Object.Products.Remove(product);
+            else
+                cartForUser.Object.Products[cartForUser.Object.Products.IndexOf(product)].Quantity--;
 
-                CartChanged?.Invoke(this, new CartEventArgs(product));
-                return;
-            }
-
-            cartForUser.Object.Products[cartForUser.Object.Products.IndexOf(product)].Quantity--;
             await _firebaseClient
                 .Child(nameof(Cart))
                 .Child(cartForUser.Key)
                 .PatchAsync(cartForUser.Object);
 
-            CartChanged?.Invoke(this, new CartEventArgs(product));
+            return product;
         }
         public async Task ClearCartAsync(string userName)
         {
@@ -98,18 +111,18 @@ namespace ElectronicsShop.Services
                 .Child(nameof(Cart))
                 .Child(cartForUser.Key)
                 .DeleteAsync();
-            CartChanged?.Invoke(this, new CartEventArgs(null));
         }
         
         public async Task<bool> IsProductInCartOfUser(string userName, Product product)
         {
-            return (await _firebaseClient
+            var cart = (await _firebaseClient
                 .Child(nameof(Cart))
                 .OrderBy(nameof(Cart.UserName))
                 .EqualTo(userName)
-                .OnceAsync<Cart>()).Count() != 0;
+                .OnceAsync<Cart>())
+                .FirstOrDefault((FirebaseObject<Cart>)null); ;
+            if (cart is null || cart.Object.Products is null) return false;
+            return (from cartProduct in cart.Object.Products where cartProduct.Id == product.Id select cartProduct).Any();
         }
-
-        public event EventHandler<CartEventArgs> CartChanged;
     }
 }

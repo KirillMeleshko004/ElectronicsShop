@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.UserViewModels
 {
@@ -13,11 +15,13 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         [ObservableProperty]
         int _countInCart;
         [ObservableProperty]
-        bool _inCart;
+        [NotifyPropertyChangedFor(nameof(NotInCart))]
+        bool _inCart = false;
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotFavouriteForUser))]
         bool _isFavouriteForUser = false;
         public bool IsNotFavouriteForUser => !_isFavouriteForUser;
+        public bool NotInCart => !_inCart;
 
         public ProductDetailsViewModel(CartService cartService, FavouritesService favouritesService)
         {
@@ -36,9 +40,29 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         [RelayCommand]
         async Task AddToCart(Product product)
         {
+            IsBusy = true;
             await _cartService.AddProductToCartAsync(App.UserName, new CartProduct(product) { Quantity = CountInCart });
-            await Shell.Current.DisplayAlert("Added", $"Prodcut {product.ProductName} added to cart", "Ok");
-            CountInCart++;
+
+
+            string text = "Added to cart";
+            await Toast.Make(text, ToastDuration.Short).Show();
+
+            InCart = true;
+            IsBusy = false;
+        }
+
+        [RelayCommand]
+        async Task RemoveFromCart(Product product)
+        {
+            IsBusy = true;
+            await _cartService.FullRemoveProductAsync(App.UserName, (product)); 
+
+
+            string text = "Removed from cart";
+            await Toast.Make(text, ToastDuration.Short).Show();
+
+            InCart = false;
+            IsBusy = false;
         }
 
         [RelayCommand]

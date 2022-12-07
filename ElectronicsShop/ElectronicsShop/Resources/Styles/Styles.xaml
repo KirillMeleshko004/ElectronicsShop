@@ -48,9 +48,8 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Primary}}" />
         <Setter Property="CornerRadius" Value="20" />
     </Style>
-    
-    
-    
+
+
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource White}}" />
     </Style>

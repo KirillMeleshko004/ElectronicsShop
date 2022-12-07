@@ -10,7 +10,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         readonly CartService _cartService;
 
         [ObservableProperty]
-        ObservableCollection<CartProduct> products;
+        ObservableCollection<CartProduct> _products;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
@@ -20,65 +20,50 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         public CartViewModel(CartService cartService)
         {
             _cartService = cartService;
-            _cartService.CartChanged += UpdateCart;
-            PropertyChanged += CollectionChanged;
-
-            GetCart();
+            Refresh();
         }
         async void GetCart()
         {
             Products = (await _cartService.GetCartForUserAsync(App.UserName))?
                 .ToObservableCollection<CartProduct>();
         }
-        void UpdateCart(object sender, CartEventArgs e)
-        {
-            if(e.Product is null)
-            {
-                Products.Clear();
-                return;
-            }
-            List<CartProduct> products = 
-                (from product in Products where product.Equals(e.Product) select product).ToList();
-            if (!Products.Contains(e.Product)) 
-                Products.Add(e.Product);
-            else
-            {
-                if(Products[Products.IndexOf(e.Product)].Quantity == 0)
-                {
-                    Products.Remove(e.Product);
-                }
-                else
-                    Products[Products.IndexOf(e.Product)] = e.Product;
-                IsEmpty = Products.Count == 0;
-            }
-        }
 
         [RelayCommand]
         async void RemoveProduct(CartProduct product)
         {
             IsBusy = true;
-            await _cartService.RemoveProductFromCartAsync(App.UserName, product);
+            CartProduct remProd = await _cartService.RemoveProductFromCartAsync(App.UserName, product);
+            if (remProd.Quantity == 0) Products.Remove(product);
+            else Products[Products.IndexOf(product)] = remProd;
+            IsEmpty = !Products.Any();
+            IsBusy = false;
+        }
+        [RelayCommand]
+        async void FullyRemoveProduct(CartProduct product)
+        {
+            IsBusy = true;
+            await _cartService.FullRemoveProductAsync(App.UserName, product);
+            Products.Remove(product);
+            IsEmpty = !Products.Any();
+            IsBusy = false;
+        }
+
+        [RelayCommand]
+        async Task AddProduct(CartProduct product)
+        {
+            IsBusy = true;
+            CartProduct newProd = await _cartService.AddProductToCartAsync(App.UserName, product);
+            Products[Products.IndexOf(product)] = newProd;
             IsBusy = false;
         }
 
         [RelayCommand]
         async Task GoToProduct(CartProduct currentProduct)
         {
-            //Костыль!!!!!!!!!!
-            Product prod = new Product 
-            {
-                Id = currentProduct.Id,
-                ProductName = currentProduct.ProductName,
-                ProductCategory = currentProduct.ProductCategory,
-                Manufacturer = currentProduct.Manufacturer,
-                Price = currentProduct.Price,
-                Description = currentProduct.Description,
-                ImageString = currentProduct.ImageString,
-             };
             await Shell.Current.GoToAsync($"{nameof(ProductDetailsView)}",
                 new Dictionary<string, object>
                 {
-                    ["CurrentProduct"] = prod
+                    ["CurrentProduct"] = currentProduct.GetProduct()
                 });
         }
         [RelayCommand]

@@ -22,5 +22,6 @@
         public const string BackArrowIcon = "arrow.png";
         public const string SearchIcon = "search.png";
         public const string DeleteTextIcon = "delete.png";
+        public const string BinIcon = "bin.png";
     }
 }

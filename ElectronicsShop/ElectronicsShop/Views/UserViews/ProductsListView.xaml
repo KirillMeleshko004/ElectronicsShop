@@ -7,45 +7,56 @@
              x:DataType="viewmodel:ProductsListViewModel"
              Title="{Binding Title}">
 
-    <Grid>
+    <Grid Padding="0,2,0,0">
         <CollectionView ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always"
                         IsVisible="{Binding IsNotEmpty}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout  Orientation="Vertical"
+                                  Span="2"
+                                  VerticalItemSpacing="2"
+                                  HorizontalItemSpacing="2" />
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
-                    <Frame Margin="10"
-                           HeightRequest="200"
-                           BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
-                           BorderColor="{StaticResource Primary}">
-                        <Frame.GestureRecognizers>
+                    <Border  StrokeShape="RoundRectangle 20"
+                             HeightRequest="280"
+                             StrokeThickness="2"
+                             BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+                             Stroke="{StaticResource Primary}"
+                             Padding="5">
+                        <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Source={RelativeSource 
                                 AncestorType={x:Type viewmodel:ProductsListViewModel}},
                                 Path=GoToProductCommand}" CommandParameter="{Binding .}"/>
-                        </Frame.GestureRecognizers>
+                        </Border.GestureRecognizers>
                         <Grid>
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="6*"/>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="1.8*"/>
                             </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Image Source="{Binding ImageString}"
-                                   VerticalOptions="Fill"
-                                   Grid.RowSpan="2"/>
-                            <Label Text="{Binding ProductName}"
-                                   Grid.Column="1"
-                                   VerticalOptions="Center"
-                                   FontSize="Medium"
-                                   HorizontalOptions="Center"/>
-                            <Label Text="{Binding Price, StringFormat='{0} $'}"
-                                   Grid.Column="1"
+                            <Border StrokeShape="RoundRectangle 20"
+                                    Stroke="Transparent"
+                                    HorizontalOptions="FillAndExpand">
+                                <Image Source="{Binding ImageString}" Aspect="Fill"/>
+                            </Border>
+
+                            <Label Text="{Binding Price, StringFormat='{0:C2}'}"
                                    Grid.Row="1"
-                                   VerticalOptions="Center"
+                                   VerticalOptions="End"
                                    FontSize="Medium"
-                                   HorizontalOptions="Center"/>
+                                   HorizontalOptions="Center"
+                                   VerticalTextAlignment="Center"
+                                   Margin="0,0,0,-5"/>
+                            <Label Text="{Binding ProductName}"
+                                   Grid.Row="2"
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="Small"
+                                   HorizontalOptions="Center"
+                                   MaxLines="2"/>
                         </Grid>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

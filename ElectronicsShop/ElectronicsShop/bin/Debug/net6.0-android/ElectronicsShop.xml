@@ -197,7 +197,7 @@
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.SignOut"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.Products">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.products"/>
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel._products"/>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.IsEmpty">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.isEmpty"/>
@@ -207,6 +207,18 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.RemoveProductCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.RemoveProduct(ElectronicsShop.Models.CartProduct)"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.fullyRemoveProductCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.FullyRemoveProductCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.FullyRemoveProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.FullyRemoveProduct(ElectronicsShop.Models.CartProduct)"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.addProductCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.AddProductCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.AddProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.AddProduct(ElectronicsShop.Models.CartProduct)"/>.</summary>
         </member>
         <member name="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.goToProductCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.GoToProductCommand"/>.</summary>
@@ -306,6 +318,12 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.AddToCartCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.AddToCart(ElectronicsShop.Models.Product)"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.removeFromCartCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.RemoveFromCartCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.RemoveFromCartCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.RemoveFromCart(ElectronicsShop.Models.Product)"/>.</summary>
         </member>
         <member name="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.addToFavouritesCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.AddToFavouritesCommand"/>.</summary>

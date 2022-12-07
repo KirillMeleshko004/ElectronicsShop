@@ -17,11 +17,9 @@
             {
                 return false;
             }
-            else
-            {
-                Product pr = (Product)obj;
-                return pr.Id == this.Id;
-            }
+            
+            Product pr = (Product)obj;
+            return pr.Id == this.Id;
         }
         public override int GetHashCode()
         {

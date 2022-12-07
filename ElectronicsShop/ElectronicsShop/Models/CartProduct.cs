@@ -18,5 +18,19 @@
             ImageString = product.ImageString;
             Quantity = 0;
         }
+
+        public Product GetProduct()
+        {
+            return new Product
+            {
+                Id = Id,
+                ProductName = ProductName,
+                ProductCategory = ProductCategory,
+                Manufacturer = Manufacturer,
+                Price = Price,
+                Description = Description,
+                ImageString = ImageString,
+            };
+        }
     }
 }
