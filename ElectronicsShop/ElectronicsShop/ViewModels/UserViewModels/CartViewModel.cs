@@ -79,7 +79,6 @@ namespace ElectronicsShop.ViewModels.UserViewModels
                 new Dictionary<string, object>
                 {
                     ["Products"] = Products,
-                    ["UserName"] = App.UserName,
                     ["TotalPrice"] = totalPrice
                 });
         }

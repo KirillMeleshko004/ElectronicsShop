@@ -27,6 +27,13 @@ namespace ElectronicsShop.ViewModels.UserViewModels
 
             PropertyChanged += UserChanged;
             PropertyChanged += OrdersChanged;
+
+            Refresh();
+        }
+        public async void Refresh()
+        {
+            if (string.IsNullOrEmpty(UserName)) return;
+            Orders = new ObservableCollection<Order>(await _orderService.GetOrdersAsync(UserName));
         }
 
         async void UserChanged(object sender, PropertyChangedEventArgs e)

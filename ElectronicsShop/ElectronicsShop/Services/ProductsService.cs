@@ -34,12 +34,12 @@ namespace ElectronicsShop.Services
                 .Child($"{productImage.FileName}")
                 .GetDownloadUrlAsync();
 
-            int count = (await _firebaseClient
+            int newId = (await _firebaseClient
                .Child(nameof(Product))
-               .OnceAsync<UserData>()).Count;
+               .OnceAsync<UserData>())?.Count + 1 ?? 1;
 
             product.ImageString = imageURI;
-            product.Id = count + 1;
+            product.Id = newId;
 
             await _firebaseClient.Child(nameof(Product)).PostAsync(product);
 

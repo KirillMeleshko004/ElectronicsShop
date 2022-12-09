@@ -3,7 +3,6 @@
 namespace ElectronicsShop.ViewModels.UserViewModels
 {
     [QueryProperty(nameof(Products), nameof(Products))]
-    [QueryProperty(nameof(UserName), nameof(UserName))]
     [QueryProperty(nameof(TotalPrice), nameof(TotalPrice))]
     public partial class CheckoutViewModel : BaseViewModel
     {
@@ -11,10 +10,20 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         readonly CartService _cartService;
 
         [ObservableProperty]
-        ObservableCollection<Product> products;
+        ObservableCollection<CartProduct> _products; 
 
         [ObservableProperty]
-        string userName;
+        string _country; 
+        [ObservableProperty]
+        string _city; 
+        [ObservableProperty]
+        string _street; 
+        [ObservableProperty]
+        int _buildingNumber; 
+        [ObservableProperty]
+        int? _apartmentNumber;
+        [ObservableProperty]
+        int _postcode;
 
         [ObservableProperty]
         double totalPrice;
@@ -27,19 +36,21 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         }
 
         [RelayCommand]
-        async Task Confirm()
+        async Task ConfirmAsync()
         {
-            int newOrderId = await _orderService.GetOrderId();
-            DateTime orderTime = DateTime.Now;
-            IsSuccessful = await _orderService.СheckoutAsync(new Order(Products.ToList<Product>(), orderTime, UserName, TotalPrice, newOrderId));
-            IsFailed = !IsSuccessful;
-            await _cartService.ClearCartAsync(App.UserName);
-        }
+            IsBusy = true;
 
-        [RelayCommand]
-        public async Task GoBack()
-        {
+            Address address = new(Country, City, Street, BuildingNumber, ApartmentNumber, Postcode);
+
+            await _orderService.CheckoutAsync(App.UserName, Products.ToList(), address, TotalPrice);
+            await _cartService.ClearCartAsync(App.UserName);
+
+            await Shell.Current.DisplayAlert("Success!",
+                $"You order now awaiting confirmation. You can follow the status update in your account page",
+                "Ok");
             await Shell.Current.GoToAsync($"..");
+
+            IsBusy = false;
         }
     }
 }

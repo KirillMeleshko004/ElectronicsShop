@@ -8,33 +8,8 @@ namespace ElectronicsShop.Models
         static readonly string orderPath = FileSystem.Current.AppDataDirectory;
         static readonly string fullOrderPath = Path.Combine(orderPath, "OrderData.json");
 
-        static readonly List<Order> _orders;
         static readonly Dictionary<string, List<Product>> _favourites;
         static readonly List<Product> _products;
-
-        static List<Order> ReadOrders()
-        {
-            List<Order> orders;
-            using (FileStream fs = new(fullOrderPath, FileMode.OpenOrCreate))
-            {
-                try
-                {
-                    orders = JsonSerializer.Deserialize<List<Order>>(fs);
-                }
-                catch (Exception)
-                {
-                    orders = new List<Order>();
-                }
-            }
-            return orders;
-        }
-        static void WriteOrders(List<Order> orders)
-        {
-            using (FileStream fs = new(fullOrderPath, FileMode.Create))
-            {
-                JsonSerializer.Serialize<List<Order>>(fs, orders);
-            }
-        }
 
         static Dictionary<string, List<Product>> ReadFavourites()
         {
@@ -62,33 +37,8 @@ namespace ElectronicsShop.Models
         static TempServer()
         {
 
-            _orders = ReadOrders();
 
             _favourites = ReadFavourites();
-        }
-
-        public async static Task<bool> Checkout(Order order)
-        {
-            _orders.Add(order);
-            await Task.Delay(100);
-            WriteOrders(_orders);
-            return true;
-        }
-        public async static Task<int> GetNewOrderId()
-        {
-            var ids = (from or in _orders select or.OrderId);
-            int newId;
-            if (ids.Any())
-                newId = ids.Max<int>() + 1;
-            else newId = 1;
-            await Task.Delay(100);
-            return newId;
-        }
-
-        public async static Task<List<Order>> GetOrders(string userName)
-        {
-            await Task.Delay(100);
-            return (from order in _orders where order.UserName == userName select order).ToList<Order>();
         }
 
         public async static Task<List<Product>> GetFavouritesForUserAsync(string userName)

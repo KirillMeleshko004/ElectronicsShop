@@ -14,6 +14,12 @@
         <Label Text="{Binding CurrentOrder.TotalPrice, StringFormat='Total price: {0}$'}"
                FontSize="Medium"
                Margin="20,0,0,0"/>
+        <Label Text="{Binding CurrentOrder.Status, StringFormat='Status: {0}'}"
+               FontSize="Medium"
+               Margin="20,0,0,0"/>
+        <Label Text = "{Binding CurrentOrder.Address, StringFormat='Address: {0}'}"
+               FontSize="Medium"
+               Margin="20,0,0,0"/>
         <Label Text="Products:"
                FontSize="Medium"
                Margin="20,0,0,-20"/>
@@ -76,5 +82,8 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Button Text="Request cancellation"
+                IsVisible="{Binding IsCancelable}"
+                Command="{Binding RequestCancellationCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

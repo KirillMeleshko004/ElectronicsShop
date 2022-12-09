@@ -242,10 +242,25 @@
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel.GoToCategory(ElectronicsShop.Models.CategoryInfo)"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Products">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.products"/>
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._products"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.UserName">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.userName"/>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Country">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._country"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.City">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._city"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Street">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._street"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.BuildingNumber">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._buildingNumber"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.ApartmentNumber">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._apartmentNumber"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Postcode">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._postcode"/>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.TotalPrice">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.totalPrice"/>
@@ -254,13 +269,7 @@
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.ConfirmCommand"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.ConfirmCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Confirm"/>.</summary>
-        </member>
-        <member name="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.goBackCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.GoBackCommand"/>.</summary>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.GoBackCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.GoBack"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.ConfirmAsync"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.FavouritesViewModel.Favourites">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.FavouritesViewModel._favourites"/>
@@ -281,7 +290,13 @@
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.FavouritesViewModel.Unfavourite(ElectronicsShop.Models.Product)"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.OrderDetailsViewModel.CurrentOrder">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.OrderDetailsViewModel.currentOrder"/>
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.OrderDetailsViewModel._currentOrder"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.UserViewModels.OrderDetailsViewModel.requestCancellationCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.OrderDetailsViewModel.RequestCancellationCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.OrderDetailsViewModel.RequestCancellationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.OrderDetailsViewModel.RequestCancellationAsync"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.OrdersViewModel.Orders">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.OrdersViewModel.orders"/>
