@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace ElectronicsShop.ViewModels.UserViewModels
 {
-    public partial class FavouritesViewModel : BaseViewModel
+    public partial class FavouritesViewModel : BaseViewModel, IRefreshableAsync
     {
         [ObservableProperty]
         ObservableCollection<Product> _favourites;
@@ -18,9 +18,9 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             _favouritesService = favouritesService;
 
-            Refresh();
+            RefreshAsync();
         }
-        public async void Refresh()
+        public async void RefreshAsync()
         {
             Title = $"{App.UserName}'s favourites";
             Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserName)).ToObservableCollection<Product>();

@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.UserViewModels
 {
-    public partial class CartViewModel : BaseViewModel
+    public partial class CartViewModel : BaseViewModel, IRefreshableAsync
     {
         readonly CartService _cartService;
 
@@ -20,7 +20,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         public CartViewModel(CartService cartService)
         {
             _cartService = cartService;
-            Refresh();
+            RefreshAsync();
         }
         async void GetCart()
         {
@@ -88,7 +88,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
 
             IsEmpty = Products.Count == 0;
         }
-        public void Refresh()
+        public void RefreshAsync()
         {
             PropertyChanged += CollectionChanged;
 

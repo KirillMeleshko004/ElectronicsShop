@@ -1,19 +1,21 @@
+using ElectronicsShop.ViewModels;
+
 namespace ElectronicsShop.Views.UserViews;
 
 public partial class OrdersView : ContentPage
 {
-    OrdersViewModel _viewModel;
+    IRefreshableAsync _viewModel;
     public OrdersView(OrdersViewModel viewModel)
     {
         InitializeComponent();
 
         _viewModel = viewModel;
 
-        BindingContext = _viewModel;
+        BindingContext = viewModel;
     }
 
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
-        _viewModel.Refresh();
+        _viewModel.RefreshAsync();
     }
 }

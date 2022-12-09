@@ -1,8 +1,8 @@
 ﻿namespace ElectronicsShop.ViewModels.UserViewModels
 {
-    public partial class FeedbackViewModel : BaseViewModel
+    public partial class FeedbackViewModel : BaseViewModel, IRefreshableAsync
     {
-        public void Refresh()
+        public async void RefreshAsync()
         {
 
         }

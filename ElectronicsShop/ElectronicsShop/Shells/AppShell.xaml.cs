@@ -22,19 +22,19 @@ public partial class AppShell : Shell
         switch (location)
         {
             case $"//{nameof(CategoryView)}":
-                ((CategoryView)Shell.Current.CurrentPage).ViewModel.Refresh();
+                ((CategoryView)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
                 break;
             case $"//{nameof(CartView)}":
-                ((CartView)Shell.Current.CurrentPage).ViewModel.Refresh();
+                ((CartView)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
                 break;
             case $"//{nameof(AccountView)}":
-                ((AccountView)Shell.Current.CurrentPage).ViewModel.Refresh();
+                ((AccountView)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
                 break;
             case $"//{nameof(FavouritesView)}":
-                ((FavouritesView)Shell.Current.CurrentPage).ViewModel.Refresh();
+                ((FavouritesView)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
                 break;
             case $"//{nameof(FeedbackView)}":
-                ((FeedbackView)Shell.Current.CurrentPage).ViewModel.Refresh();
+                ((FeedbackView)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
                 break;
             default: break;
         }

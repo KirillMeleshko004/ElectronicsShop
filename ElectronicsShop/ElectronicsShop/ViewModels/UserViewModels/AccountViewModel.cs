@@ -1,6 +1,6 @@
 ﻿namespace ElectronicsShop.ViewModels.UserViewModels
 {
-    public partial class AccountViewModel : BaseViewModel
+    public partial class AccountViewModel : BaseViewModel, IRefreshableAsync
     {
         [ObservableProperty]
         string userName;
@@ -22,7 +22,7 @@
         {
             _passwordChangingService = passwordChangingService;
 
-            Refresh();
+            RefreshAsync();
         }
 
         [RelayCommand]
@@ -58,7 +58,7 @@
 
             IsBusy = false;
         }
-        public void Refresh()
+        public void RefreshAsync()
         {
             UserName = App.UserName;
 

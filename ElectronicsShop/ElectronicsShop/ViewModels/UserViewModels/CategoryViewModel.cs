@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace ElectronicsShop.ViewModels.UserViewModels
 {
-    public partial class CategoryViewModel : BaseViewModel
+    public partial class CategoryViewModel : BaseViewModel, IRefreshableAsync
     {
         readonly ProductsService _productsService;
         public List<CategoryInfo> CatalogList { get; set; }
@@ -14,7 +14,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             CatalogList = CategoryInfo.CatalogList;
             _productsService = productsService;
 
-            Refresh();
+            RefreshAsync();
         }
 
         [RelayCommand]
@@ -30,7 +30,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
                     ["Products"] = categoryProducts
                 });
         }
-        public async void Refresh()
+        public async void RefreshAsync()
         {
             CatalogList = CategoryInfo.CatalogList;
 

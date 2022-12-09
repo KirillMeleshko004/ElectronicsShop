@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace ElectronicsShop.ViewModels.UserViewModels
 {
     [QueryProperty(nameof(UserName), nameof(UserName))]
-    public partial class OrdersViewModel : BaseViewModel
+    public partial class OrdersViewModel : BaseViewModel, IRefreshableAsync
     {
         readonly OrderService _orderService;
 
@@ -28,9 +28,9 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             PropertyChanged += UserChanged;
             PropertyChanged += OrdersChanged;
 
-            Refresh();
+            RefreshAsync();
         }
-        public async void Refresh()
+        public async void RefreshAsync()
         {
             if (string.IsNullOrEmpty(UserName)) return;
             Orders = new ObservableCollection<Order>(await _orderService.GetOrdersAsync(UserName));

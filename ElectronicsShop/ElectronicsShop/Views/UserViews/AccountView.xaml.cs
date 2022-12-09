@@ -1,14 +1,17 @@
+using ElectronicsShop.ViewModels;
+
 namespace ElectronicsShop.Views.UserViews;
 
 public partial class AccountView : ContentPage
 {
-    public AccountViewModel ViewModel { get; set; }
+    public IRefreshableAsync ViewModel { get; set; }
     public AccountView(AccountViewModel viewModel)
     {
         InitializeComponent();
 
         ViewModel = viewModel;
-        BindingContext = ViewModel;
+
+        BindingContext = viewModel;
     }
 
     private void Button_Clicked(object sender, EventArgs e)
