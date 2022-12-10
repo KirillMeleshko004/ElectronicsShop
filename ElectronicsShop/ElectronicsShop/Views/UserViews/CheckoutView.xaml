@@ -82,27 +82,34 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-            </Border>
-            <VerticalStackLayout Padding="20,5,0,0">
-                <Label Text="Address" FontSize="Medium" />
-                <Entry Placeholder="Country"
-                       FontSize="Medium"
-                       Text="{Binding Country}"/>
-                <Entry Placeholder="City"
-                       FontSize="Medium"
-                       Text="{Binding City}"/>
-                <Entry Placeholder="Street"
-                       FontSize="Medium"
-                       Text="{Binding Street}"/>
-                <Entry Placeholder="Building Number"
-                       FontSize="Medium"
-                       Text="{Binding BuildingNumber}"/>
-                <Entry Placeholder="ApartmentNumber"
-                       FontSize="Medium"
-                       Text="{Binding ApartmentNumber}"/>
-                <Entry Placeholder="Postcode"
-                       FontSize="Medium"
-                       Text="{Binding Postcode}"/>
+                </Border>
+                <Label Text="Address:" FontSize="Medium" Margin="20,5,0,0"/>
+                <VerticalStackLayout Padding="20,5,0,0">
+                    <Picker ItemsSource="{Binding Countries}" 
+                            SelectedItem="{Binding Country}"
+                            Title="Select country"/>
+                    <Entry x:Name="cityEntry"
+                           Placeholder="City"
+                           FontSize="Small"
+                           Text="{Binding City}"/>
+                    <Entry x:Name="postcodeEntry"
+                           Placeholder="Postcode"
+                           FontSize="Small"
+                           Text="{Binding Postcode}"/>
+                    <Entry x:Name="streetEntry"
+                           Placeholder="Street"
+                           FontSize="Small"
+                           Text="{Binding Street}"/>
+                    <Entry x:Name="buildingEntry"
+                           Placeholder="Building Number"
+                           FontSize="Small"
+                           Text="{Binding BuildingNumber}"
+                           Keyboard="Numeric"/>
+                    <Entry x:Name="apartmentEntry"
+                           Placeholder="Apartment Number"
+                           FontSize="Small"
+                           Text="{Binding ApartmentNumber}"
+                           Keyboard="Numeric"/>
             </VerticalStackLayout>
         </VerticalStackLayout>
         </ScrollView>

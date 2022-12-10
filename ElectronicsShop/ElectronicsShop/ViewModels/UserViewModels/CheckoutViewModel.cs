@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.UserViewModels
 {
@@ -6,6 +7,8 @@ namespace ElectronicsShop.ViewModels.UserViewModels
     [QueryProperty(nameof(TotalPrice), nameof(TotalPrice))]
     public partial class CheckoutViewModel : BaseViewModel
     {
+        public List<string> Countries { get; } = Address.GetCountries().ToList<string>();
+
         readonly OrderService _orderService;
         readonly CartService _cartService;
 
@@ -19,14 +22,17 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         [ObservableProperty]
         string _street; 
         [ObservableProperty]
-        int _buildingNumber; 
+        int? _buildingNumber; 
         [ObservableProperty]
         int? _apartmentNumber;
         [ObservableProperty]
-        int _postcode;
+        int? _postcode;
 
         [ObservableProperty]
         double totalPrice;
+
+        [ObservableProperty]
+        bool isNotEmpty = false;
 
         public CheckoutViewModel(OrderService orderService, CartService cartService)
         {
@@ -35,12 +41,34 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             _cartService = cartService;
         }
 
+        private void CheckEmpty(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(IsNotEmpty)) return;
+            if (String.IsNullOrEmpty(Country) ||
+                String.IsNullOrEmpty(City) ||
+                String.IsNullOrEmpty(Street) ||
+                BuildingNumber is null ||
+                Postcode is null)
+                IsNotEmpty = false;
+            else IsNotEmpty = true;
+        }
+
         [RelayCommand]
         async Task ConfirmAsync()
         {
             IsBusy = true;
 
-            Address address = new(Country, City, Street, BuildingNumber, ApartmentNumber, Postcode);
+            Address address = new()
+            {
+                Country = Country, 
+                City = City, 
+                Street = Street,
+                BuildingNumber = (int)BuildingNumber,
+                ApartmentNumber = ApartmentNumber,
+                Postcode = (int)Postcode,
+            };
+
+
 
             await _orderService.CheckoutAsync(App.UserName, Products.ToList(), address, TotalPrice);
             await _cartService.ClearCartAsync(App.UserName);

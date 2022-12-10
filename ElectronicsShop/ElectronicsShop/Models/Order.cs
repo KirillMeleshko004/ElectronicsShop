@@ -2,26 +2,13 @@
 {
     public class Order
     {
-        public List<CartProduct> Products { get; private set; }
-        public int OrderId { get; private set; }
-        public DateTime OrderTime { get; private set; }
-        public double TotalPrice { get; private set; }
+        public List<CartProduct> Products { get; set; }
+        public int OrderId { get; set; }
+        public DateTime OrderTime { get; set; }
+        public double TotalPrice { get; set; }
         public Address Address { get; set; }
         public string Status { get; set; }
-        public string UserName { get; private set; }
-
-        public Order(List<CartProduct> products, DateTime orderTime, double totalPrice, int orderId, Address adress, string status, string userName)
-        {
-            Products = products;
-            OrderTime = orderTime;
-            TotalPrice = totalPrice;
-            OrderId = orderId;
-            Address = adress;
-            Status = status;
-            UserName = userName;
-        }
-
-
+        public string UserName { get; set; }
 
         public static bool IsCancelable(string status)
         {

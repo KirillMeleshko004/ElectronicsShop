@@ -26,7 +26,7 @@ namespace ElectronicsShop.Services
                 .OrderBy(identityName)
                 .EqualTo(identityValue)
                 .OnceAsync<T>();
-            return data is null ? default : data.First().Object;
+            return data.Any() ? data.First().Object : default;
         }
         public static async Task<T> GetDataAsync(string identityValue, string identityName)
         {
@@ -37,33 +37,50 @@ namespace ElectronicsShop.Services
                 .OnceAsync<T>();
             return data.Any() ? data.First().Object : default;
         }
+        public static async Task<IEnumerable<T>> GetMultipleDataAsync(int identityValue, string identityName)
+        {
+            return (from FBObj in (await _firebaseClient
+                .Child(typeof(T).Name)
+                .OrderBy(identityName)
+                .EqualTo(identityValue)
+                .OnceAsync<T>())
+                    select FBObj.Object)?.AsEnumerable<T>();
+        }
+        public static async Task<IEnumerable<T>> GetMultipleDataAsync(string identityValue, string identityName)
+        {
+            return (from FBObj in (await _firebaseClient
+                .Child(typeof(T).Name)
+                .OrderBy(identityName)
+                .EqualTo(identityValue)
+                .OnceAsync<T>()) select FBObj.Object)?.AsEnumerable<T>();
+        }
         public static async Task SaveDataAsync(T data)
         {
             await _firebaseClient
                 .Child(data.GetType().Name)
                 .PostAsync(data);
         }
-        public static async Task DeleteElementAsync(T data, int identityValue, string identityName)
+        public static async Task DeleteElementAsync(int identityValue, string identityName)
         {
             var FBObj = (await _firebaseClient
-                .Child(data.GetType().Name)
+                .Child(typeof(T).Name)
                 .OrderBy(identityName)
                 .EqualTo(identityValue)
                 .OnceAsync<T>()).First();
             await _firebaseClient
-                .Child(data.GetType().Name)
+                .Child(typeof(T).Name)
                 .Child(FBObj.Key)
                 .DeleteAsync();
         }
-        public static async Task DeleteElementAsync(T data, string identityValue, string identityName)
+        public static async Task DeleteElementAsync(string identityValue, string identityName)
         {
             var FBObj = (await _firebaseClient
-                .Child(data.GetType().Name)
+                .Child(typeof(T).Name)
                 .OrderBy(identityName)
                 .EqualTo(identityValue)
                 .OnceAsync<T>()).First();
             await _firebaseClient
-                .Child(data.GetType().Name)
+                .Child(typeof(T).Name)
                 .Child(FBObj.Key)
                 .DeleteAsync();
         }

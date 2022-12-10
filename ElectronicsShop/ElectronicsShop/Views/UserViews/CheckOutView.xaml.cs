@@ -8,4 +8,11 @@ public partial class CheckoutView : ContentPage
 
         BindingContext = viewModel;
     }
+
+    void OnPickerSelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        int selectedIndex = picker.SelectedIndex;
+
+    }
 }

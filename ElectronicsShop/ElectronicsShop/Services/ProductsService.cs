@@ -19,7 +19,7 @@
         {
             await DataSourceService<Product>.DeleteFileAsync(product.ImageString);
 
-            await DataSourceService<Product>.DeleteElementAsync(product, product.Id, nameof(Product.Id));
+            await DataSourceService<Product>.DeleteElementAsync(product.Id, nameof(Product.Id));
 
             ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.Actions.removed));
         }

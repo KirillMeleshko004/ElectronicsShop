@@ -265,6 +265,9 @@
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.TotalPrice">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.totalPrice"/>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.IsNotEmpty">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.isNotEmpty"/>
+        </member>
         <member name="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.confirmCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.ConfirmCommand"/>.</summary>
         </member>
