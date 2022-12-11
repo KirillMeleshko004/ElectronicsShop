@@ -1066,3 +1066,5 @@ A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-and
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Private.CoreLib.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Private.Uri.dll
 A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\System.Xml.dll
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\Geocoding.Core.dll
+A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\obj\Debug\net6.0-android\android\assets\Geocoding.Microsoft.dll

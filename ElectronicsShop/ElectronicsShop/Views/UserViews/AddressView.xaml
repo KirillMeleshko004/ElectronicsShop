@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.UserViewModels"
+             xmlns:model="clr-namespace:ElectronicsShop.Models"
+             x:Class="ElectronicsShop.Views.UserViews.AddressView"
+             Title="Address"
+             x:DataType="viewmodel:AddressViewModel">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Border>
+                <Picker ItemsSource="{Binding Countries}" 
+                        SelectedItem="{Binding Country}"
+                        Title="Select country"
+                        SelectedIndexChanged="Picker_SelectedIndexChanged"/>
+            </Border>
+            <VerticalStackLayout x:Name="addressFields" 
+                                 IsVisible="false"
+                                 Padding="20">
+                <Entry x:Name="cityEntry"
+                       Placeholder="City"
+                       FontSize="Small"
+                       Text="{Binding City}"
+                       Visual="Default"/>
+                <Entry x:Name="streetEntry"
+                       Placeholder="Street"
+                       FontSize="Small"
+                       Text="{Binding Street}"/>
+                <Entry x:Name="buildingEntry"
+                       Placeholder="Building Number"
+                       FontSize="Small"
+                       Text="{Binding BuildingNumber}"
+                       Keyboard="Numeric"/>
+                <HorizontalStackLayout Spacing="40">
+                    <Entry x:Name="postalcodeEntry"
+                           Placeholder="Postalcode"
+                           FontSize="Small"
+                           Text="{Binding Postalcode, Mode=TwoWay}"/>
+                    <Button Text="Suggest postalcode"
+                            Command="{Binding SuggestPostalCodeCommand}"/>
+                </HorizontalStackLayout>
+                <Entry x:Name="apartmentEntry"
+                       Placeholder="Apartment Number"
+                       FontSize="Small"
+                       Text="{Binding ApartmentNumber}"
+                       Keyboard="Numeric"/>
+                <Label Text="{Binding ErrorMessage}"
+                       IsVisible="{Binding IsFailed}"
+                       TextColor="{StaticResource ErrorMessageTextColor}"/>
+            </VerticalStackLayout>
+            <Button Text="Confirm" Command="{Binding ValidateAddressCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -15,6 +15,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(ProductDetailsView), typeof(ProductDetailsView));
         Routing.RegisterRoute(nameof(OrdersView), typeof(OrdersView));
         Routing.RegisterRoute(nameof(OrderDetailsView), typeof(OrderDetailsView));
+        Routing.RegisterRoute(nameof(AddressView), typeof(AddressView));
     }
     protected override void OnNavigated(ShellNavigatedEventArgs args)
     {

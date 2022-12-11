@@ -187,6 +187,45 @@
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.AccountViewModel.CahngePasswordCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AccountViewModel.CahngePassword"/>.</summary>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.Products">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel._products"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.ErrorMessage">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.errorMessage"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.Country">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel._country"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.City">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel._city"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.Street">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel._street"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.BuildingNumber">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel._buildingNumber"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.ApartmentNumber">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel._apartmentNumber"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.Postalcode">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel._postalcode"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.IsNotEmpty">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.isNotEmpty"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.validateAddressCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.ValidateAddressCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.ValidateAddressCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.ValidateAddress"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.suggestPostalCodeCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.SuggestPostalCodeCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.SuggestPostalCodeCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.SuggestPostalCode"/>.</summary>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.UserName">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AppShellViewModel.userName"/>
         </member>
@@ -244,29 +283,23 @@
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Products">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._products"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Country">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._country"/>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Email">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._email"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.City">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._city"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Street">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._street"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.BuildingNumber">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._buildingNumber"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.ApartmentNumber">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._apartmentNumber"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Postcode">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._postcode"/>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Address">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._address"/>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.TotalPrice">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.totalPrice"/>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.IsNotEmpty">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.isNotEmpty"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.enterAddressCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.EnterAddressCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.EnterAddressCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.EnterAddress"/>.</summary>
         </member>
         <member name="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.confirmCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.ConfirmCommand"/>.</summary>

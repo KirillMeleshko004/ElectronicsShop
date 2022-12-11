@@ -13,6 +13,8 @@ public class MonoPackageManager_Resources {
 		"CommunityToolkit.Mvvm.dll",
 		"Firebase.dll",
 		"Firebase.Storage.dll",
+		"Geocoding.Core.dll",
+		"Geocoding.Microsoft.dll",
 		"GoogleGson.dll",
 		"LiteDB.dll",
 		"Microsoft.Extensions.Configuration.dll",

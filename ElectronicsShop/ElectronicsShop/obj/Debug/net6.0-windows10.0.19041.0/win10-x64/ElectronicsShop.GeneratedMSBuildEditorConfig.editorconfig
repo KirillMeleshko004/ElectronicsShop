@@ -81,6 +81,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.User
 build_metadata.AdditionalFiles.TargetPath = Views\UserViews\AccountView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\UserViews\AccountView.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/AddressView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.AddressView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\AddressView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\AddressView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/CartView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.CartView.xaml

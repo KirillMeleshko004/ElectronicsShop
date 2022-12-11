@@ -62,6 +62,8 @@
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	  <PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
 	  <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+	  <PackageReference Include="Geocoding.Core" Version="4.0.1" />
+	  <PackageReference Include="Geocoding.Microsoft" Version="4.0.1" />
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -114,6 +116,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AdminViews\AdminProductsView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\UserViews\AddressView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\UserViews\CartView.xaml">

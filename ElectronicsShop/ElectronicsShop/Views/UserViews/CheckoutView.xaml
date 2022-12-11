@@ -84,34 +84,9 @@
                 </CollectionView>
                 </Border>
                 <Label Text="Address:" FontSize="Medium" Margin="20,5,0,0"/>
-                <VerticalStackLayout Padding="20,5,0,0">
-                    <Picker ItemsSource="{Binding Countries}" 
-                            SelectedItem="{Binding Country}"
-                            Title="Select country"/>
-                    <Entry x:Name="cityEntry"
-                           Placeholder="City"
-                           FontSize="Small"
-                           Text="{Binding City}"/>
-                    <Entry x:Name="postcodeEntry"
-                           Placeholder="Postcode"
-                           FontSize="Small"
-                           Text="{Binding Postcode}"/>
-                    <Entry x:Name="streetEntry"
-                           Placeholder="Street"
-                           FontSize="Small"
-                           Text="{Binding Street}"/>
-                    <Entry x:Name="buildingEntry"
-                           Placeholder="Building Number"
-                           FontSize="Small"
-                           Text="{Binding BuildingNumber}"
-                           Keyboard="Numeric"/>
-                    <Entry x:Name="apartmentEntry"
-                           Placeholder="Apartment Number"
-                           FontSize="Small"
-                           Text="{Binding ApartmentNumber}"
-                           Keyboard="Numeric"/>
+                <Label Text="{Binding Address}"/>
+                <Button Command="{Binding EnterAddressCommand}"/>
             </VerticalStackLayout>
-        </VerticalStackLayout>
         </ScrollView>
 
 

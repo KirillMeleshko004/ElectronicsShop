@@ -78,6 +78,14 @@
               "target": "Package",
               "version": "[1.0.3, )"
             },
+            "Geocoding.Core": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Geocoding.Microsoft": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
               "version": "[6.0.541, )",
@@ -137,6 +145,14 @@
             "FirebaseStorage.net": {
               "target": "Package",
               "version": "[1.0.3, )"
+            },
+            "Geocoding.Core": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Geocoding.Microsoft": {
+              "target": "Package",
+              "version": "[4.0.1, )"
             },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
@@ -203,6 +219,14 @@
               "target": "Package",
               "version": "[1.0.3, )"
             },
+            "Geocoding.Core": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Geocoding.Microsoft": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
               "version": "[6.0.541, )",
@@ -268,6 +292,14 @@
             "FirebaseStorage.net": {
               "target": "Package",
               "version": "[1.0.3, )"
+            },
+            "Geocoding.Core": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Geocoding.Microsoft": {
+              "target": "Package",
+              "version": "[4.0.1, )"
             },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
