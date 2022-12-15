@@ -29,7 +29,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         }
 
         [RelayCommand]
-        async void RemoveProduct(CartProduct product)
+        async Task RemoveProduct(CartProduct product)
         {
             IsBusy = true;
             CartProduct remProd = await _cartService.RemoveProductFromCartAsync(App.UserName, product);
@@ -39,7 +39,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             IsBusy = false;
         }
         [RelayCommand]
-        async void FullyRemoveProduct(CartProduct product)
+        async Task FullyRemoveProduct(CartProduct product)
         {
             IsBusy = true;
             await _cartService.FullRemoveProductAsync(App.UserName, product);

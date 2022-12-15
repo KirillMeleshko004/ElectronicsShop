@@ -187,9 +187,6 @@
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.AccountViewModel.CahngePasswordCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.AccountViewModel.CahngePassword"/>.</summary>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.Products">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel._products"/>
-        </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.ErrorMessage">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.AddressViewModel.errorMessage"/>
         </member>
@@ -245,13 +242,13 @@
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.RemoveProductCommand"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.RemoveProductCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.RemoveProduct(ElectronicsShop.Models.CartProduct)"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.RemoveProduct(ElectronicsShop.Models.CartProduct)"/>.</summary>
         </member>
         <member name="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.fullyRemoveProductCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.FullyRemoveProductCommand"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.FullyRemoveProductCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.FullyRemoveProduct(ElectronicsShop.Models.CartProduct)"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.FullyRemoveProduct(ElectronicsShop.Models.CartProduct)"/>.</summary>
         </member>
         <member name="F:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.addProductCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.AddProductCommand"/>.</summary>
@@ -290,16 +287,13 @@
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._address"/>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.TotalPrice">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.totalPrice"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.IsNotEmpty">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.isNotEmpty"/>
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._totalPrice"/>
         </member>
         <member name="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.enterAddressCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.EnterAddressCommand"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.EnterAddressCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.EnterAddress"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.EnterAddressAsync"/>.</summary>
         </member>
         <member name="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.confirmCommand">
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.ConfirmCommand"/>.</summary>
@@ -340,9 +334,6 @@
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.OrdersViewModel.UserName">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.OrdersViewModel.userName"/>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.OrdersViewModel.OrderId">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.OrdersViewModel.orderId"/>
-        </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.OrdersViewModel.IsEmpty">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.OrdersViewModel.isEmpty"/>
         </member>
@@ -354,9 +345,6 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.CurrentProduct">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel._currentProduct"/>
-        </member>
-        <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.CountInCart">
-            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel._countInCart"/>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel.InCart">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.ProductDetailsViewModel._inCart"/>

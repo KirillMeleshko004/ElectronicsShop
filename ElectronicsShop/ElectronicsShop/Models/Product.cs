@@ -9,7 +9,6 @@
         public double Price { get; set; }
         public string Description { get; set; }
         public string ImageString { get; set; }
-        public Product() { }
 
         public override bool Equals(object obj)
         {

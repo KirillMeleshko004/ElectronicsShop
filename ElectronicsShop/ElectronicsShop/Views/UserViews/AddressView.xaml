@@ -7,48 +7,53 @@
              Title="Address"
              x:DataType="viewmodel:AddressViewModel">
     <ScrollView>
-        <VerticalStackLayout>
-            <Border>
-                <Picker ItemsSource="{Binding Countries}" 
-                        SelectedItem="{Binding Country}"
-                        Title="Select country"
-                        SelectedIndexChanged="Picker_SelectedIndexChanged"/>
-            </Border>
-            <VerticalStackLayout x:Name="addressFields" 
-                                 IsVisible="false"
-                                 Padding="20">
-                <Entry x:Name="cityEntry"
-                       Placeholder="City"
-                       FontSize="Small"
-                       Text="{Binding City}"
-                       Visual="Default"/>
-                <Entry x:Name="streetEntry"
-                       Placeholder="Street"
-                       FontSize="Small"
-                       Text="{Binding Street}"/>
-                <Entry x:Name="buildingEntry"
-                       Placeholder="Building Number"
-                       FontSize="Small"
-                       Text="{Binding BuildingNumber}"
-                       Keyboard="Numeric"/>
-                <HorizontalStackLayout Spacing="40">
-                    <Entry x:Name="postalcodeEntry"
-                           Placeholder="Postalcode"
-                           FontSize="Small"
-                           Text="{Binding Postalcode, Mode=TwoWay}"/>
-                    <Button Text="Suggest postalcode"
-                            Command="{Binding SuggestPostalCodeCommand}"/>
-                </HorizontalStackLayout>
-                <Entry x:Name="apartmentEntry"
-                       Placeholder="Apartment Number"
-                       FontSize="Small"
-                       Text="{Binding ApartmentNumber}"
-                       Keyboard="Numeric"/>
+        <VerticalStackLayout Padding="10">
                 <Label Text="{Binding ErrorMessage}"
-                       IsVisible="{Binding IsFailed}"
-                       TextColor="{StaticResource ErrorMessageTextColor}"/>
+                           IsVisible="{Binding IsFailed}"
+                           TextColor="{StaticResource ErrorMessageTextColor}"
+                       Margin="0,5,0,0"/>
+                <Picker ItemsSource="{Binding Countries}" 
+                            SelectedItem="{Binding Country}"
+                            Title="Select country"
+                        FontSize="Medium"
+                            SelectedIndexChanged="Picker_SelectedIndexChanged"
+                            BackgroundColor="Transparent">
+                </Picker>
+                <VerticalStackLayout x:Name="addressFields" 
+                                     IsVisible="false"
+                                     Spacing="5"
+                                     Margin="0,0,0,20">
+                    <Entry x:Name="cityEntry"
+                           Placeholder="City"
+                           FontSize="Medium"
+                           Text="{Binding City}"
+                           Visual="Default"/>
+                    <Entry x:Name="streetEntry"
+                           Placeholder="Street"
+                           FontSize="Medium"
+                           Text="{Binding Street}"/>
+                    <Entry x:Name="buildingEntry"
+                           Placeholder="Building Number"
+                           FontSize="Medium"
+                           Text="{Binding BuildingNumber}"
+                           Keyboard="Numeric"/>
+                    <Entry x:Name="apartmentEntry"
+                           Placeholder="Apartment Number (if exist)"
+                           FontSize="Medium"
+                           Text="{Binding ApartmentNumber}"
+                           Keyboard="Numeric"/>
+                    <HorizontalStackLayout Spacing="40">
+                        <Entry x:Name="postalcodeEntry"
+                               Placeholder="Postalcode"
+                               FontSize="Medium"
+                               Text="{Binding Postalcode, Mode=TwoWay}"/>
+                        <Button Text="Suggest postalcode"
+                                Command="{Binding SuggestPostalCodeCommand}"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+                <Button Text="Confirm" Command="{Binding ValidateAddressCommand}"
+                    HeightRequest="70"
+                    VerticalOptions="End"/>
             </VerticalStackLayout>
-            <Button Text="Confirm" Command="{Binding ValidateAddressCommand}"/>
-        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

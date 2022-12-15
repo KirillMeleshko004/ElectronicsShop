@@ -13,8 +13,6 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         [ObservableProperty]
         Product _currentProduct;
         [ObservableProperty]
-        int _countInCart;
-        [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(NotInCart))]
         bool _inCart = false;
         [ObservableProperty]
@@ -41,7 +39,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         async Task AddToCart(Product product)
         {
             IsBusy = true;
-            await _cartService.AddProductToCartAsync(App.UserName, new CartProduct(product) { Quantity = CountInCart });
+            await _cartService.AddProductToCartAsync(App.UserName, new CartProduct(product) { Quantity = 0 });
 
 
             string text = "Added to cart";

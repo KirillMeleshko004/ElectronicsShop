@@ -2,7 +2,7 @@
 {
     public class OrderService
     {
-        public async Task CheckoutAsync(string userName, List<CartProduct> products, string address, double totalPrice)
+        public async Task CheckoutAsync(string userName, List<CartProduct> products, string address, string email, double totalPrice)
         {
             int newId = await DataSourceService<Order>.GetNewIdAsync();
             Order newOrder = new Order
@@ -12,6 +12,7 @@
                 TotalPrice = totalPrice, 
                 OrderId = newId, 
                 Address = address, 
+                Email = email,
                 Status = OrderStatus.AWAITING_CONFIRMATION, 
                 UserName = userName,
             };

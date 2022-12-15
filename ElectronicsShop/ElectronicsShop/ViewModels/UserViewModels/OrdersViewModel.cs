@@ -13,8 +13,6 @@ namespace ElectronicsShop.ViewModels.UserViewModels
 
         [ObservableProperty]
         string userName;
-        [ObservableProperty]
-        int orderId;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
@@ -25,7 +23,6 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             _orderService = orderService;
 
-            PropertyChanged += UserChanged;
             PropertyChanged += OrdersChanged;
 
             RefreshAsync();
@@ -36,13 +33,6 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             Orders = new ObservableCollection<Order>(await _orderService.GetOrdersAsync(UserName));
         }
 
-        async void UserChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName != nameof(UserName)) return;
-
-            Title = $"{UserName}'s orders";
-            Orders = new ObservableCollection<Order>(await _orderService.GetOrdersAsync(UserName));
-        }
         void OrdersChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(Orders)) return;

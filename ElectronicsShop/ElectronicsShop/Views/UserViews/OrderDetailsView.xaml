@@ -6,23 +6,23 @@
              xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
               x:Class="ElectronicsShop.Views.UserViews.OrderDetailsView"
              x:DataType="viewmodel:OrderDetailsViewModel"
-             Title="{Binding CurrentOrder.OrderId, StringFormat='Order #{0}'}">
+             Title="{Binding CurrentOrder.OrderId, StringFormat='Order №{0}'}">
     <VerticalStackLayout Spacing="20" Padding="10">
         <Label Text="{Binding CurrentOrder.OrderTime, StringFormat='Order time: {0}'}"
                FontSize="Medium"
-               Margin="20,15,0,0"/>
+               Margin="20,15,20,0"/>
         <Label Text="{Binding CurrentOrder.TotalPrice, StringFormat='Total price: {0}$'}"
                FontSize="Medium"
-               Margin="20,0,0,0"/>
+               Margin="20,0,20,0"/>
         <Label Text="{Binding CurrentOrder.Status, StringFormat='Status: {0}'}"
                FontSize="Medium"
-               Margin="20,0,0,0"/>
-        <Label Text = "{Binding CurrentOrder.Address, StringFormat='Address: {0}'}"
+               Margin="20,0,20,0"/>
+        <Label Text = "{Binding CurrentOrder.Address, StringFormat='Shipping address: {0}'}"
                FontSize="Medium"
-               Margin="20,0,0,0"/>
+               Margin="20,0,20,0"/>
         <Label Text="Products:"
                FontSize="Medium"
-               Margin="20,0,0,-20"/>
+               Margin="20,0,20,-20"/>
         <CollectionView ItemsSource="{Binding CurrentOrder.Products}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:CartProduct">

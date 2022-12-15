@@ -1,8 +1,6 @@
 ﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
-using Geocoding;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.UserViewModels
 {
@@ -23,10 +21,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         string _address;
 
         [ObservableProperty]
-        double totalPrice;
-
-        [ObservableProperty]
-        bool isNotEmpty = false;
+        double _totalPrice;
 
         public CheckoutViewModel(OrderService orderService, CartService cartService)
         {
@@ -35,30 +30,36 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             _cartService = cartService;
         }
 
-        private void CheckEmpty(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(IsNotEmpty)) return;
-            if (String.IsNullOrEmpty(Email) ||
-                String.IsNullOrEmpty(Address))
-                IsNotEmpty = false;
-            else IsNotEmpty = true;
-        }
         [RelayCommand]
-        async Task EnterAddress()
+        async Task EnterAddressAsync()
         {
             await Shell.Current.GoToAsync($"{nameof(AddressView)}");
         }
-
 
         [RelayCommand]
         async Task ConfirmAsync()
         {
             IsBusy = true;
 
-            //await _orderService.CheckoutAsync(App.UserName, 
-            //    Products.ToList(), 
-            //    await _addressService.GetFormattedAddressAsync(Country, City, Street, (int)BuildingNumber),
-            //    TotalPrice);
+            if (string.IsNullOrEmpty(Address))
+            {
+                await ShowErrorToast("Incorrect address");
+                IsBusy = false;
+                return;
+            }
+            if (string.IsNullOrEmpty(Email) || !Order.IsEmail(Email))
+            {
+                await ShowErrorToast("Incorrect email");
+                IsBusy = false;
+                return;
+            }
+
+
+            await _orderService.CheckoutAsync(App.UserName,
+                Products.ToList(),
+                Address,
+                Email,
+                TotalPrice);
             await _cartService.ClearCartAsync(App.UserName);
 
             await Shell.Current.DisplayAlert("Success!",
@@ -67,6 +68,10 @@ namespace ElectronicsShop.ViewModels.UserViewModels
             await Shell.Current.GoToAsync($"..");
 
             IsBusy = false;
+        }
+        private async Task ShowErrorToast(string message)
+        {
+            await Toast.Make(message, ToastDuration.Long).Show();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-
-namespace ElectronicsShop.ViewModels.UserViewModels
+﻿namespace ElectronicsShop.ViewModels.UserViewModels
 {
     public partial class AddressViewModel : BaseViewModel
     {
@@ -8,8 +6,6 @@ namespace ElectronicsShop.ViewModels.UserViewModels
 
         readonly AddressService _addressService;
 
-        [ObservableProperty]
-        ObservableCollection<CartProduct> _products;
 
         [ObservableProperty]
         string errorMessage;
