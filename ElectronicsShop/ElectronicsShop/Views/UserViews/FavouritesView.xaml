@@ -18,14 +18,16 @@
         <CollectionView ItemsSource="{Binding Favourites}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
-                    <Frame Margin="10"
-                           HeightRequest="200"
-                           BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
-                           BorderColor="{StaticResource Primary}">
-                        <Frame.GestureRecognizers>
+                    <Border StrokeShape="RoundRectangle 20"
+                            HeightRequest="200"
+                            StrokeThickness="2"
+                            BackgroundColor="Transparent"
+                            Stroke="{StaticResource Primary}"
+                            Padding="5">
+                        <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FavouritesViewModel}},
                                 Path=GoToProductCommand}" CommandParameter="{Binding .}"/>
-                        </Frame.GestureRecognizers>
+                        </Border.GestureRecognizers>
                         <Grid RowSpacing="10" ColumnSpacing="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
@@ -35,10 +37,20 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="0.5*"/>
                             </Grid.ColumnDefinitions>
-                            <Image  Source="{Binding ImageString}"
-                                    Aspect="AspectFit"
+                            <Border StrokeShape="RoundRectangle 20"
+                                    Stroke="Transparent"
                                     HorizontalOptions="Start"
-                                    Margin="20,0"/>
+                                    Margin="20,0"
+                                    BackgroundColor="Transparent">
+                                <Border.Shadow>
+                                    <Shadow Brush="{StaticResource Primary}"
+                                            Offset="20,20"
+                                            Radius="40"
+                                            Opacity="0.8"/>
+                                </Border.Shadow>
+                                <Image Source="{Binding ImageString}" Aspect="AspectFit"/>
+                            </Border>
+
                             <Label Text="{Binding ProductName}"
                                    Grid.ColumnSpan="2"
                                    Grid.Row="1"
@@ -58,7 +70,7 @@
                                          WidthRequest="75"
                                          HeightRequest="75"/>
                         </Grid>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

@@ -24,10 +24,12 @@
                 <DataTemplate x:DataType="model:CartProduct">
                     <Border Margin="3"
                             HeightRequest="180"
-                            BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+                            BackgroundColor="Transparent"
                             Stroke="{StaticResource Primary}"
                             Padding="15"
-                            StrokeShape="RoundRectangle 20">
+                            StrokeShape="RoundRectangle 20"
+                            IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartViewModel}},
+                            Path=IsNotBusy}">
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartViewModel}},
                             Path=GoToProductCommand}" CommandParameter="{Binding .}"/>
@@ -44,7 +46,14 @@
 
                             <Border Grid.RowSpan="2"
                                     StrokeShape="RoundRectangle 20"
-                                    Stroke="Transparent">
+                                    Stroke="Transparent"
+                                    BackgroundColor="Transparent">
+                                <Border.Shadow>
+                                    <Shadow Brush="{StaticResource Primary}"
+                                            Offset="20,20"
+                                            Radius="40"
+                                            Opacity="0.8"/>
+                                </Border.Shadow>
                                 <Image  x:Name="productImage"
                                         Source="{Binding ImageString}"
                                         Aspect="Fill"/>

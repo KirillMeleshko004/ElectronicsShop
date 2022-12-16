@@ -14,11 +14,18 @@
             <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
         <ScrollView>
-            <VerticalStackLayout Margin="10,10,10,0" Spacing="10">
+            <VerticalStackLayout Spacing="10" Padding="10,10">
                 <Border StrokeShape="RoundRectangle 20"
                         Stroke="Transparent"
+                        Background="Transparent"
                         HorizontalOptions="FillAndExpand"
                         HeightRequest="380">
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource Primary}"
+                                            Offset="20,20"
+                                            Radius="40"
+                                            Opacity="0.8"/>
+                    </Border.Shadow>
                     <Image Source="{Binding CurrentProduct.ImageString}"
                            Aspect="Fill"/>
                 </Border>
@@ -26,13 +33,13 @@
                        VerticalOptions="Center" 
                        HorizontalOptions="Start"
                        FontSize="Title"
-                       Margin="20,0,0,0"/>
-                <Grid BackgroundColor="Transparent" HeightRequest="70" Margin="10">
+                       Margin="10,0,0,0"/>
+                <Grid BackgroundColor="Transparent" HeightRequest="70">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="{Binding CurrentProduct.Price, StringFormat='{0:C2}'}"
+                    <Label Text="{Binding CurrentProduct.Price, StringFormat='{0:f2}$'}"
                            Grid.RowSpan="2"
                            FontSize="30"
                            FontAttributes="Bold"
@@ -56,15 +63,15 @@
                     </Grid>
                 </Grid>
                 <Label Text="{Binding CurrentProduct.Description, StringFormat='Description: {0}'}"
-                       Margin="20,0,0,0"/>
+                       Margin="20,0"/>
                 <Label Text="{Binding CurrentProduct.Manufacturer, StringFormat='Manufacturer: {0}'}"
-                       Margin="20,0,0,0"/>
+                       Margin="20,0"/>
                 <Label Text="{Binding CurrentProduct.ProductCategory, StringFormat='Product catrgory: {0}'}"
-                       Margin="20,0,0,0"/>
+                       Margin="20,0"/>
                 <Label Text="{Binding CurrentProduct.ProductName, StringFormat='Product model: {0}'}"
-                       Margin="20,0,0,0"/>
-                <Label Text="{Binding CurrentProduct.Price, StringFormat='Product price: {0}'}"
-                       Margin="20,0,0,0"/>
+                       Margin="20,0"/>
+                <Label Text="{Binding CurrentProduct.Price, StringFormat='Product price: {0:f2}$'}"
+                       Margin="20,0"/>
             </VerticalStackLayout>
         </ScrollView>
         <BoxView Grid.Row="1" Color="{StaticResource Primary}"/>

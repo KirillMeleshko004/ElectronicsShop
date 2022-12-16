@@ -11,13 +11,16 @@
         <Label Text="{Binding CurrentOrder.OrderTime, StringFormat='Order time: {0}'}"
                FontSize="Medium"
                Margin="20,15,20,0"/>
-        <Label Text="{Binding CurrentOrder.TotalPrice, StringFormat='Total price: {0}$'}"
+        <Label Text="{Binding CurrentOrder.TotalPrice, StringFormat='Total price: {0:f2}$'}"
                FontSize="Medium"
                Margin="20,0,20,0"/>
         <Label Text="{Binding CurrentOrder.Status, StringFormat='Status: {0}'}"
                FontSize="Medium"
                Margin="20,0,20,0"/>
         <Label Text = "{Binding CurrentOrder.Address, StringFormat='Shipping address: {0}'}"
+               FontSize="Medium"
+               Margin="20,0,20,0"/>
+        <Label Text = "{Binding CurrentOrder.Email, StringFormat='Email: {0}'}"
                FontSize="Medium"
                Margin="20,0,20,0"/>
         <Label Text="Products:"

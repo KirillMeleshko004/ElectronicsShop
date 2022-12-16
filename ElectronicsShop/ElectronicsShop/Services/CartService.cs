@@ -1,128 +1,76 @@
-﻿using Firebase.Database;
-using Firebase.Database.Query;
-
-namespace ElectronicsShop.Services
+﻿namespace ElectronicsShop.Services
 {
     public class CartService
     {
-        private const string _dbURI = "https://electronicsshop-8c6b3-default-rtdb.europe-west1.firebasedatabase.app/";
-        private readonly FirebaseClient _firebaseClient = new FirebaseClient(_dbURI);
-
         public async Task<List<CartProduct>> GetCartForUserAsync(string userName)
         {
-            Cart cart = (await _firebaseClient
-                .Child(nameof(Cart))
-                .OrderBy(nameof(Cart.UserName))
-                .EqualTo(userName)
-                .OnceAsync<Cart>())
-                .FirstOrDefault((FirebaseObject<Cart>)null)?
-                .Object;
-
-            if (cart is null) return new List<CartProduct>();
-            
-            return cart.Products;
+            Cart cart = await DataSourceService<Cart>.GetDataAsync(userName, nameof(Cart.UserName));
+            return cart is null ? new List<CartProduct>() : cart.Products;
         }
         public async Task<CartProduct> AddProductToCartAsync(string userName, CartProduct product)
         {
             product.Quantity++;
 
-            var cartForUser = (await _firebaseClient
-                .Child(nameof(Cart))
-                .OrderBy(nameof(Cart.UserName))
-                .EqualTo(userName)
-                .OnceAsync<Cart>())
-                .FirstOrDefault((FirebaseObject<Cart>)null);
+            Cart cart = await DataSourceService<Cart>.GetDataAsync(userName, nameof(Cart.UserName));
 
-            if (cartForUser is null)
+            if (cart is null)
             {
-                await _firebaseClient.Child(nameof(Cart)).PostAsync(new Cart
+                await DataSourceService<Cart>.SaveDataAsync(new Cart
                 {
                     UserName = userName,
                     Products = new List<CartProduct> { product },
                 });
+
                 return product;
             }
 
-            if(cartForUser.Object.Products is null)
-                cartForUser.Object.Products = new List<CartProduct>();
+            cart.Products ??= new List<CartProduct>();
 
-            if (cartForUser.Object.Products.Contains(product))
-                cartForUser.Object.Products[cartForUser.Object.Products.IndexOf(product)].Quantity++;
+            if (cart.Products.Contains(product))
+                cart.Products[cart.Products.IndexOf(product)].Quantity++;
             else
-                cartForUser.Object.Products.Add(product);
+                cart.Products.Add(product);
 
-            await _firebaseClient.Child(nameof(Cart))
-                    .Child(cartForUser.Key)
-                    .PatchAsync(cartForUser.Object);
+            await DataSourceService<Cart>.AlterSingleElementAsync(cart, userName, nameof(Cart.UserName));
 
             return product;
         }
         public async Task FullRemoveProductAsync(string userName, Product product)
         {
-            var cartForUser = (await _firebaseClient
-               .Child(nameof(Cart))
-               .OrderBy(nameof(Cart.UserName))
-               .EqualTo(userName)
-               .OnceAsync<Cart>())
-               .FirstOrDefault((FirebaseObject<Cart>)null);
+            Cart cart = await DataSourceService<Cart>.GetDataAsync(userName, nameof(Cart.UserName));
 
-            if(cartForUser is not null)
+            if (cart is not null)
             {
-                cartForUser.Object.Products.Remove(new CartProduct(product));
-
-                await _firebaseClient
-                    .Child(nameof(Cart))
-                    .Child(cartForUser.Key)
-                    .PatchAsync(cartForUser.Object);
+                cart.Products.Remove(new CartProduct(product));
+                await DataSourceService<Cart>.AlterSingleElementAsync(cart, userName, nameof(Cart.UserName));
             }
         }
         public async Task<CartProduct> RemoveProductFromCartAsync(string userName, CartProduct product)
         {
             product.Quantity--;
 
-            var cartForUser = (await _firebaseClient
-                .Child(nameof(Cart))
-                .OrderBy(nameof(Cart.UserName))
-                .EqualTo(userName)
-                .OnceAsync<Cart>())
-                .FirstOrDefault((FirebaseObject<Cart>)null);
+            Cart cart = await DataSourceService<Cart>.GetDataAsync(userName, nameof(Cart.UserName));
 
-            if (product.Quantity == 0)
-                cartForUser.Object.Products.Remove(product);
+            if (product.Quantity is 0)
+                cart.Products.Remove(product);
             else
-                cartForUser.Object.Products[cartForUser.Object.Products.IndexOf(product)].Quantity--;
+                cart.Products[cart.Products.IndexOf(product)].Quantity--;
 
-            await _firebaseClient
-                .Child(nameof(Cart))
-                .Child(cartForUser.Key)
-                .PatchAsync(cartForUser.Object);
+            await DataSourceService<Cart>.AlterSingleElementAsync(cart, userName, nameof(Cart.UserName));
 
             return product;
         }
         public async Task ClearCartAsync(string userName)
         {
-            var cartForUser = (await _firebaseClient
-                .Child(nameof(Cart))
-                .OrderBy(nameof(Cart.UserName))
-                .EqualTo(userName)
-                .OnceAsync<Cart>())
-                .FirstOrDefault((FirebaseObject<Cart>)null);
-            await _firebaseClient
-                .Child(nameof(Cart))
-                .Child(cartForUser.Key)
-                .DeleteAsync();
+            await DataSourceService<Cart>.DeleteElementAsync(userName, nameof(Cart.UserName));
         }
         
         public async Task<bool> IsProductInCartOfUser(string userName, Product product)
         {
-            var cart = (await _firebaseClient
-                .Child(nameof(Cart))
-                .OrderBy(nameof(Cart.UserName))
-                .EqualTo(userName)
-                .OnceAsync<Cart>())
-                .FirstOrDefault((FirebaseObject<Cart>)null); ;
-            if (cart is null || cart.Object.Products is null) return false;
-            return (from cartProduct in cart.Object.Products where cartProduct.Id == product.Id select cartProduct).Any();
+            Cart cart = await DataSourceService<Cart>.GetDataAsync(userName, nameof(Cart.UserName));
+
+            if (cart is null || cart.Products is null) return false;
+            return (from cartProduct in cart.Products where cartProduct.Id == product.Id select cartProduct).Any();
         }
     }
 }

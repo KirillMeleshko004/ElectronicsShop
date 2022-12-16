@@ -103,11 +103,15 @@ namespace ElectronicsShop.Services
                 .Child(data.GetType().Name)
                 .OrderBy(identityName)
                 .EqualTo(identityValue)
-                .OnceAsync<T>()).First();
-
+                .OnceAsync<T>());
+            if(FBObj.Count is 0)
+            {
+                await SaveDataAsync(data);
+                return;
+            }
             await _firebaseClient
                 .Child(data.GetType().Name)
-                .Child(FBObj.Key)
+                .Child(FBObj.First().Key)
                 .PatchAsync(data);
         }
         public static async Task<string> SaveFileAndGetURIAsync(FileResult file)

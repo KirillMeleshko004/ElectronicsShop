@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using System.ComponentModel;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ElectronicsShop.ViewModels.UserViewModels
 {
@@ -32,7 +33,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             if (e.PropertyName != nameof(CurrentProduct)) return;
             InCart = await _cartService.IsProductInCartOfUser(App.UserName, CurrentProduct);
-            IsFavouriteForUser = await _favouritesService.IsProductFavouriteForUserAsync(App.UserName, CurrentProduct.Id);
+            IsFavouriteForUser = await _favouritesService.IsProductFavouriteForUserAsync(App.UserName, CurrentProduct);
         }
 
         [RelayCommand]
@@ -68,9 +69,15 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             IsBusy = true;
             if (IsFavouriteForUser)
-                await _favouritesService.DeleteFromFavouritesAsync(App.UserName, CurrentProduct.Id);
-            else await _favouritesService.SetFavouriteAsync(App.UserName, CurrentProduct.Id);
+                await _favouritesService.DeleteFromFavouritesAsync(App.UserName, CurrentProduct);
+            else await _favouritesService.SetFavouriteAsync(App.UserName, CurrentProduct);
             IsFavouriteForUser = !IsFavouriteForUser;
+
+            string message;
+            if (IsFavouriteForUser)
+                message = "Added to favourites";
+            else message = "Removed from favourites";
+            await Toast.Make(message, ToastDuration.Short).Show();
             IsBusy = false;
         }
     }
