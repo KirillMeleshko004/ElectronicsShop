@@ -34,9 +34,6 @@ public partial class AppShell : Shell
             case $"//{nameof(FavouritesView)}":
                 ((FavouritesView)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
                 break;
-            case $"//{nameof(FeedbackView)}":
-                ((FeedbackView)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
-                break;
             default: break;
         }
 

@@ -16,7 +16,7 @@
             </Border>
             <Button Text="Change image" TextColor="White" Command="{Binding PickImageCommand}"
                     IsEnabled="{Binding IsNotBusy}"/>
-            <ScrollView HeightRequest="300">
+            <ScrollView HeightRequest="350">
                 <VerticalStackLayout>
                     <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
                     <Entry Placeholder="Product name" Text="{Binding ProductName}" MaxLength="45"/>

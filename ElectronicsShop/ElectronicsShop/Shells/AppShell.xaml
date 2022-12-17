@@ -20,8 +20,6 @@
                       ContentTemplate="{DataTemplate views:AccountView}"/>
         <ShellContent Route="FavouritesView" Title="Favourites" Icon="{x:Static globalconst:Icons.FavouritesIcon}" 
                       ContentTemplate="{DataTemplate views:FavouritesView}"/>
-        <ShellContent Route="FeedbackView" Title="Contact us" Icon="{x:Static globalconst:Icons.ContactUsIcon}"
-                      ContentTemplate="{DataTemplate views:FeedbackView}"/>
     </FlyoutItem>
     <Shell.FlyoutHeader>
         <Grid>
