@@ -4,6 +4,30 @@
         <name>ElectronicsShop</name>
     </assembly>
     <members>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminOrderDetailsViewModel.CurrentOrder">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.AdminOrderDetailsViewModel._currentOrder"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminOrderDetailsViewModel.IsChanged">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.AdminOrderDetailsViewModel._isChanged"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminOrderDetailsViewModel.Status">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.AdminOrderDetailsViewModel._status"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.AdminOrderDetailsViewModel.changeStatusCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.AdminOrderDetailsViewModel.ChangeStatusCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminOrderDetailsViewModel.ChangeStatusCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.AdminOrderDetailsViewModel.ChangeStatusAsync"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminOrdersViewModel.Orders">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.AdminOrdersViewModel._orders"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.AdminOrdersViewModel.goToOrderCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.AdminOrdersViewModel.GoToOrderCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminOrdersViewModel.GoToOrderCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.AdminOrdersViewModel.GoToOrder(ElectronicsShop.Models.Order)"/>.</summary>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminProductsViewModel.Products">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.AdminProductsViewModel._products"/>
         </member>

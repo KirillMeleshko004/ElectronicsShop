@@ -41,10 +41,19 @@
                                 <ColumnDefinition Width="0.6*"/>
                                 <ColumnDefinition Width="0.6*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Source="{Binding ImageString}"
-                                   VerticalOptions="Fill"
-                                   HorizontalOptions="Start"
-                                   Margin="20,0,0,0"/>
+                            <Border StrokeShape="RoundRectangle 20"
+                                    Stroke="Transparent"
+                                    HorizontalOptions="Start"
+                                    BackgroundColor="Transparent"
+                                    Margin="20,0,0,0">
+                                <Border.Shadow>
+                                    <Shadow Brush="{StaticResource Primary}"
+                                            Offset="20,20"
+                                            Radius="40"
+                                            Opacity="0.8"/>
+                                </Border.Shadow>
+                                <Image Source="{Binding ImageString}" Aspect="Fill"/>
+                            </Border>
                             <Label Text="{Binding ProductName}"
                                    Grid.Row="1"
                                    Grid.ColumnSpan="2"

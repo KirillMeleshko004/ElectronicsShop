@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace ElectronicsShop.ViewModels.AdminViewModels
 {
-    public partial class AdminProductsViewModel : BaseViewModel
+    public partial class AdminProductsViewModel : BaseViewModel, IRefreshableAsync
     {
         readonly ProductsService _productsService;
         readonly CategoryService _categoryService;
@@ -21,10 +21,10 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             _categoryService = categoryService;
             _productsService.ProductChanged += ProductChanged;
 
-            GetProducts();
+            RefreshAsync();
         }
 
-        async void GetProducts()
+        public async void RefreshAsync()
         {
             Products = (await _productsService.GetProductsAsync()).ToObservableCollection<Product>();
             if (Products.Count != 0) IsEmpty = false;

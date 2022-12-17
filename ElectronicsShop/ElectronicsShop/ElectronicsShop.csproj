@@ -67,12 +67,6 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <MauiImage Include="Resources\CategoriesIcons\dishwasher_icon.png" />
-	  <MauiImage Include="Resources\CategoriesIcons\headphones_icon.png" />
-	  <MauiImage Include="Resources\CategoriesIcons\laptop_icon.png" />
-		<MauiImage Include="Resources\CategoriesIcons\smartphone_icon.png" />
-	  <MauiImage Include="Resources\CategoriesIcons\tv_icon.png" />
-	  <MauiImage Include="Resources\CategoriesIcons\washing_machine_icon.png" />
 	  <MauiImage Include="Resources\TestImages\dishwasher.png" />
 	  <MauiImage Include="Resources\TestImages\fridge.png" />
 	  <MauiImage Include="Resources\TestImages\headphones.png" />
@@ -104,6 +98,15 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Shells\AuthShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AdminViews\AdminOrderDetailsView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AdminViews\AdminOrdersView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AdminViews\AdminUsersView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AdminViews\CategoryCreationView.xaml">

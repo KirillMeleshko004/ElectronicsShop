@@ -36,5 +36,11 @@
 
             return order;
         }
+        public async Task<List<Order>> GetAllOrdersAsync()
+        {
+            var orders = await DataSourceService<Order>.GetDataAsync();
+
+            return orders.Any() ? orders.ToList<Order>() : new List<Order>();
+        }
     }
 }

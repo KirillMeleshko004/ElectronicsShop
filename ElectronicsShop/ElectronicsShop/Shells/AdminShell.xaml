@@ -12,6 +12,10 @@
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Route="AdminProductsView" Title="Products" Icon="{x:Static globalconst:Icons.ShopIcon}" 
                       ContentTemplate="{DataTemplate views:AdminProductsView}" />
+        <ShellContent Route="AdminUsersView" Title="Users" Icon="{x:Static globalconst:Icons.ShopIcon}" 
+                      ContentTemplate="{DataTemplate views:AdminUsersView}" />
+        <ShellContent Route="AdminOrdersView" Title="Orders" Icon="{x:Static globalconst:Icons.ShopIcon}" 
+                      ContentTemplate="{DataTemplate views:AdminOrdersView}" />
     </FlyoutItem>
     <Shell.FlyoutHeader>
         <Grid>

@@ -45,11 +45,29 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Shells.Aut
 build_metadata.AdditionalFiles.TargetPath = Shells\AuthShell.xaml
 build_metadata.AdditionalFiles.RelativePath = Shells\AuthShell.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/AdminOrderDetailsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.AdminOrderDetailsView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AdminOrderDetailsView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AdminOrderDetailsView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/AdminOrdersView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.AdminOrdersView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AdminOrdersView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AdminOrdersView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/AdminProductsView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.AdminProductsView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AdminProductsView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AdminProductsView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/AdminUsersView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.AdminUsersView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AdminUsersView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AdminUsersView.xaml
 
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/CategoryCreationView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
