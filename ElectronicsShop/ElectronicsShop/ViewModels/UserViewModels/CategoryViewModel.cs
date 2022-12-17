@@ -6,33 +6,36 @@ namespace ElectronicsShop.ViewModels.UserViewModels
     public partial class CategoryViewModel : BaseViewModel, IRefreshableAsync
     {
         readonly ProductsService _productsService;
-        public List<CategoryInfo> CatalogList { get; set; }
+        readonly CategoryService _categoryService;
+
+        [ObservableProperty]
+        ObservableCollection<Category> _categories;
         [ObservableProperty]
         ObservableCollection<Product> products;
-        public CategoryViewModel(ProductsService productsService)
+        public CategoryViewModel(ProductsService productsService, CategoryService categoryService)
         {
-            CatalogList = CategoryInfo.CatalogList;
             _productsService = productsService;
+            _categoryService = categoryService;
 
             RefreshAsync();
         }
 
         [RelayCommand]
-        async Task GoToCategory(CategoryInfo categoryInfo)
+        async Task GoToCategory(Category category)
         {
             ObservableCollection<Product> categoryProducts = (from product in Products
-                                                              where product.ProductCategory == categoryInfo.CategoryName
+                                                              where product.ProductCategory == category.CategoryName
                                                               select product).ToObservableCollection<Product>();
             await Shell.Current.GoToAsync($"{nameof(ProductsListView)}",
                 new Dictionary<string, object>
                 {
-                    ["Title"] = categoryInfo.CategoryName,
+                    ["Title"] = category.CategoryName,
                     ["Products"] = categoryProducts
                 });
         }
         public async void RefreshAsync()
         {
-            CatalogList = CategoryInfo.CatalogList;
+            Categories = (await _categoryService.GetCategories()).ToObservableCollection();
 
             Products = (await _productsService.GetProductsAsync()).ToObservableCollection();
         }

@@ -22,39 +22,43 @@
                                              QueryIcon="{Static globalconst:Icons.SearchIcon}">
             <searchhandlers:ProductSearchHandler.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
-                    <Grid Padding="10"
+                    <Border StrokeThickness="20">
+                        <Grid Padding="10"
                           ColumnDefinitions="0.4*,0.6*"
                           HeightRequest="120"
                           BackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, 
                                             Light={StaticResource Gray100}}">
-                        <Image Source="{Binding ImageString}"
+                            <Image Source="{Binding ImageString}"
                                VerticalOptions="Fill"
                                HorizontalOptions="Fill"/>
-                        <Label Grid.Column="1"
+                            <Label Grid.Column="1"
                                Text="{Binding ProductName}"
                                FontAttributes="Bold"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
                                LineBreakMode="TailTruncation"/>
-                    </Grid>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </searchhandlers:ProductSearchHandler.ItemTemplate>
         </searchhandlers:ProductSearchHandler>
     </Shell.SearchHandler>
     <Grid>
-        <CollectionView ItemsSource="{Binding CatalogList}" VerticalScrollBarVisibility="Always" Grid.Row="1">
+        <CollectionView ItemsSource="{Binding Categories}" VerticalScrollBarVisibility="Always" Grid.Row="1"
+                        EmptyView="There are no categories">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:CategoryInfo">
-                    <Frame Margin="10"
-                           HeightRequest="200"
-                           BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
-                           BorderColor="{StaticResource Primary}">
-                        <Frame.GestureRecognizers>
+                <DataTemplate x:DataType="model:Category">
+                    <Border StrokeShape="RoundRectangle 20"
+                            HeightRequest="200"
+                            StrokeThickness="2"
+                            BackgroundColor="Transparent"
+                            Stroke="{StaticResource Primary}"
+                            Padding="5">
+                        <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CategoryViewModel}},
                             Path=GoToCategoryCommand}" CommandParameter="{Binding .}">
-
                             </TapGestureRecognizer>
-                        </Frame.GestureRecognizers>
+                        </Border.GestureRecognizers>
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
@@ -63,8 +67,18 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Image  Source="{Binding Icon}"
-                                    Aspect="AspectFit"/>
+                            <Border StrokeShape="RoundRectangle 20"
+                                    Stroke="Transparent"
+                                    HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="Transparent">
+                                <Border.Shadow>
+                                    <Shadow Brush="{StaticResource Primary}"
+                                            Offset="20,20"
+                                            Radius="40"
+                                            Opacity="0.8"/>
+                                </Border.Shadow>
+                                <Image Source="{Binding ImageUri}" Aspect="AspectFit"/>
+                            </Border>
                             <Label Text="{Binding CategoryName}"
                                    Grid.Column="1"
                                    VerticalOptions="Center"
@@ -73,7 +87,7 @@
                                    HorizontalTextAlignment="Center"
                                    LineBreakMode="WordWrap"/>
                         </Grid>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

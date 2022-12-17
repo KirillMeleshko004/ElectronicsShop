@@ -47,6 +47,8 @@ public static class MauiProgram
         builder.Services.AddTransient<ProductChangingViewModel>();
         builder.Services.AddTransient<AddressView>();
         builder.Services.AddTransient<AddressViewModel>();
+        builder.Services.AddTransient<CategoryCreationView>();
+        builder.Services.AddTransient<CategoryCreationViewModel>();
 
         builder.Services.AddSingleton<AuthorizationService>();
         builder.Services.AddSingleton<AccountCreationService>();
@@ -56,6 +58,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<OrderService>();
         builder.Services.AddSingleton<FavouritesService>();
         builder.Services.AddSingleton<AddressService>();
+        builder.Services.AddSingleton<CategoryService>();
 
         return builder.Build();
     }

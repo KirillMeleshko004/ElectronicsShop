@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AdminViewModels"
+             xmlns:model="clr-namespace:ElectronicsShop.Models"
+             x:Class="ElectronicsShop.Views.AdminViews.CategoryCreationView"
+             Title="Category Creation"
+             x:DataType="viewmodel:CategoryCreationViewModel">
+    <VerticalStackLayout Padding="10">
+        <Border BackgroundColor="Transparent" Stroke="{StaticResource Primary}"
+                    Padding="20">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20"/>
+            </Border.StrokeShape>
+            <Image Source="{Binding ImageUrl}" HeightRequest="270"/>
+        </Border>
+        <Button Text="Change image" TextColor="White" Command="{Binding PickImageCommand}"
+                    IsEnabled="{Binding IsNotBusy}"/>
+        <Entry Placeholder="Enter new category name"
+               Text="{Binding CategoryName}"/>
+        <Button Text="Create category" TextColor="White" Command="{Binding ConfirmCommand}"
+                    IsVisible="{Binding IsNotEmpty}"
+                    IsEnabled="{Binding IsNotBusy}"/>
+    </VerticalStackLayout>
+</ContentPage>

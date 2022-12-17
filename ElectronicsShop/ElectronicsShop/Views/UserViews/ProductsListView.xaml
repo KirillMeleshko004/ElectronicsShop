@@ -48,7 +48,7 @@
                                 <Image Source="{Binding ImageString}" Aspect="Fill"/>
                             </Border>
 
-                            <Label Text="{Binding Price, StringFormat='{0:C2}'}"
+                            <Label Text="{Binding Price, StringFormat='{0:f2}$'}"
                                    Grid.Row="1"
                                    VerticalOptions="End"
                                    FontSize="Medium"

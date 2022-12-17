@@ -1,18 +1,13 @@
-﻿using System.ComponentModel;
+﻿using CommunityToolkit.Maui.Core.Extensions;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.AdminViewModels
 {
     public partial class ProductCreationViewModel : BaseViewModel
     {
-        public static readonly List<string> Categories = new List<string>()
-        {
-            CategoriesConst.KITCHEN_CATEGORY,
-            CategoriesConst.SMARTPHONES_CATEGORY,
-            CategoriesConst.AUDIO_CATEGORY,
-            CategoriesConst.LAPTOPS_CATEGORY,
-            CategoriesConst.TV_CATEGORY,
-            CategoriesConst.HOME_CATEGORY,
-        };
+        [ObservableProperty]
+        ObservableCollection<string> _categories;
 
         [ObservableProperty]
         string productName;
@@ -34,30 +29,45 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         private FileResult _image;
         private readonly ProductsService _productsService;
-        public ProductCreationViewModel(ProductsService productsService)
+        readonly CategoryService _categoryService;
+        public ProductCreationViewModel(ProductsService productsService, CategoryService categoryService)
         {
             _productsService = productsService;
+            _categoryService = categoryService;
+
+            GetCategories();
 
             PropertyChanged += CheckEmpty;
+            _categoryService.CategoryChanged += CategoryChanged;
         }
+
+        public async void GetCategories()
+        {
+            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName).ToObservableCollection();
+        }
+
         private void CheckEmpty(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(IsNotEmpty)) return;
-            if (String.IsNullOrEmpty(ProductName) ||
-                String.IsNullOrEmpty(ProductCategory) ||
-                String.IsNullOrEmpty(Manufacturer) ||
-                String.IsNullOrEmpty(Description) ||
-                String.IsNullOrEmpty(Price) ||
-                String.IsNullOrEmpty(ImageUrl))
+            if (string.IsNullOrEmpty(ProductName) ||
+                string.IsNullOrEmpty(ProductCategory) ||
+                string.IsNullOrEmpty(Manufacturer) ||
+                string.IsNullOrEmpty(Description) ||
+                string.IsNullOrEmpty(Price) ||
+                string.IsNullOrEmpty(ImageUrl))
                 IsNotEmpty = false;
             else IsNotEmpty = true;
+        }
+        private void CategoryChanged(object sender, EventArgs e)
+        {
+            GetCategories();
         }
 
         [RelayCommand]
         public async Task AddProduct()
         {
             IsBusy = true;
-            Product productToAdd = new Product
+            Product productToAdd = new()
             {
                 ProductName = productName,
                 ProductCategory = productCategory,
@@ -77,6 +87,14 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             _image = await MediaPicker.PickPhotoAsync();
             if (_image is null) return;
             ImageUrl = _image.FullPath;
+        }
+
+        [RelayCommand]
+        public async Task CreateCategory()
+        {
+            IsBusy = true;
+            await Shell.Current.GoToAsync($"{nameof(CategoryCreationView)}");
+            IsBusy = false;
         }
     }
 }

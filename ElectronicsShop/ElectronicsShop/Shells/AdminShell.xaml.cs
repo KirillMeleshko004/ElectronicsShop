@@ -10,5 +10,6 @@ public partial class AdminShell : Shell
 
 		Routing.RegisterRoute(nameof(ProductCreationView), typeof(ProductCreationView));
 		Routing.RegisterRoute(nameof(ProductChangingView), typeof(ProductChangingView));
-	}
+        Routing.RegisterRoute(nameof(CategoryCreationView), typeof(CategoryCreationView));
+    }
 }

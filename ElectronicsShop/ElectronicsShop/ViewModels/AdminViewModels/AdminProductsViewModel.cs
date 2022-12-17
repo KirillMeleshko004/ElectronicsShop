@@ -6,6 +6,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
     public partial class AdminProductsViewModel : BaseViewModel
     {
         readonly ProductsService _productsService;
+        readonly CategoryService _categoryService;
 
         [ObservableProperty]
         ObservableCollection<Product> _products;
@@ -14,9 +15,10 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
         bool isEmpty = true;
         public bool IsNotEmpty => !isEmpty;
-        public AdminProductsViewModel(ProductsService productsService)
+        public AdminProductsViewModel(ProductsService productsService, CategoryService categoryService)
         {
             _productsService = productsService;
+            _categoryService = categoryService;
             _productsService.ProductChanged += ProductChanged;
 
             GetProducts();
@@ -70,12 +72,19 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
                     break;
                 case ProductEventArgs.Actions.removed:
                     Products.Remove(e.Product);
+                    DeleteUnusedCategories(e.Product.ProductCategory);
                     if (Products.Count == 0) IsEmpty = true;
                     break;
                 case ProductEventArgs.Actions.changed:
                     Products[Products.IndexOf(e.Product)] = e.Product;
+                    DeleteUnusedCategories(e.Product.ProductCategory);
                     break;
             }
+        }
+        async void DeleteUnusedCategories(string name)
+        {
+            if (!(from product in Products where product.ProductCategory == name select product).Any())
+                await _categoryService.RemoveCategory(name);
         }
     }
 }

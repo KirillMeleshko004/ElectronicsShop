@@ -37,6 +37,30 @@
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminShellViewModel.SignOutCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.AdminShellViewModel.SignOut"/>.</summary>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.CategoryName">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.categoryName"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.ImageUrl">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.imageUrl"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.IsNotEmpty">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.isNotEmpty"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.confirmCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.ConfirmCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.ConfirmCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.Confirm"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.pickImageCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.PickImageCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.PickImageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.PickImage"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.Categories">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel._categories"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.ProductName">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.productName"/>
         </member>
@@ -70,6 +94,15 @@
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.PickImageCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.PickImage"/>.</summary>
         </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.createCategoryCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.CreateCategoryCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.CreateCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.CreateCategory"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.Categories">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel._categories"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.ProductName">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.productName"/>
         </member>
@@ -102,6 +135,12 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.PickImageCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.PickImage"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.createCategoryCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CreateCategoryCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CreateCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CreateCategory"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.Login">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.login"/>
@@ -268,6 +307,9 @@
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.CheckoutCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CartViewModel.Checkout"/>.</summary>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel.Categories">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel._categories"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel.Products">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel.products"/>
         </member>
@@ -275,7 +317,7 @@
             <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel.GoToCategoryCommand"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel.GoToCategoryCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel.GoToCategory(ElectronicsShop.Models.CategoryInfo)"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.UserViewModels.CategoryViewModel.GoToCategory(ElectronicsShop.Models.Category)"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel.Products">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.UserViewModels.CheckoutViewModel._products"/>

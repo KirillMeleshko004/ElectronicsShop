@@ -119,16 +119,20 @@ namespace ElectronicsShop.Services
             Stream imageToUpload = await file.OpenReadAsync();
 
             await _firebaseStorage
+                .Child(typeof(T).Name)
                 .Child($"{file.FileName}")
                 .PutAsync(imageToUpload);
 
             return await _firebaseStorage
+                .Child(typeof(T).Name)
                 .Child($"{file.FileName}")
                 .GetDownloadUrlAsync();
         }
         public static async Task DeleteFileAsync(string fileURI)
         {
-            await _firebaseStorage.Child(System.IO.Path.GetFileName(new Uri(fileURI).LocalPath))
+            await _firebaseStorage
+                .Child(typeof(T).Name)
+                .Child(System.IO.Path.GetFileName(new Uri(fileURI).LocalPath))
                 .DeleteAsync();
         }
         public static async Task<int> GetNewIdAsync()

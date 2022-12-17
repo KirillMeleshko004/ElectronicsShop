@@ -1,4 +1,5 @@
-﻿using ElectronicsShop.Models;
+﻿using CommunityToolkit.Maui.Core.Extensions;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.AdminViewModels
@@ -6,15 +7,8 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
     [QueryProperty(nameof(Product), nameof(Product))]
     public partial class ProductChangingViewModel : BaseViewModel
     {
-        public static readonly List<string> Categories = new List<string>()
-        {
-            CategoriesConst.KITCHEN_CATEGORY,
-            CategoriesConst.SMARTPHONES_CATEGORY,
-            CategoriesConst.AUDIO_CATEGORY,
-            CategoriesConst.LAPTOPS_CATEGORY,
-            CategoriesConst.TV_CATEGORY,
-            CategoriesConst.HOME_CATEGORY,
-        };
+        [ObservableProperty]
+        ObservableCollection<string> _categories;
 
         [ObservableProperty]
         string productName;
@@ -34,14 +28,27 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         private FileResult _image = null;
         private readonly ProductsService _productsService;
+        private readonly CategoryService _categoryService;
 
-        public ProductChangingViewModel(ProductsService productsService)
+        public ProductChangingViewModel(ProductsService productsService, CategoryService categoryService)
         {
             _productsService = productsService;
+            _categoryService = categoryService;
+
+
+            GetCategories();
 
             PropertyChanged += ProductChanged;
         }
 
+        public async void GetCategories()
+        {
+            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName).ToObservableCollection();
+        }
+        private void CategoryChanged(object sender, EventArgs e)
+        {
+            GetCategories();
+        }
 
         void ProductChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -77,6 +84,15 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             _image = await MediaPicker.PickPhotoAsync();
             if (_image is null) return;
             ImageUrl = _image.FullPath;
+        }
+
+
+        [RelayCommand]
+        public async Task CreateCategory()
+        {
+            IsBusy = true;
+            await Shell.Current.GoToAsync($"{nameof(CategoryCreationView)}");
+            IsBusy = false;
         }
     }
 }
