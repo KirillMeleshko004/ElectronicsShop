@@ -61,6 +61,15 @@
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminShellViewModel.SignOutCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.AdminShellViewModel.SignOut"/>.</summary>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminUsersViewModel.Users">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.AdminUsersViewModel._users"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.AdminUsersViewModel.goToUserCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.AdminUsersViewModel.GoToUserCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.AdminUsersViewModel.GoToUserCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.AdminUsersViewModel.GoToUserAsync(ElectronicsShop.Models.User)"/>.</summary>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.CategoryName">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.CategoryCreationViewModel.categoryName"/>
         </member>
@@ -165,6 +174,27 @@
         </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CreateCategoryCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CreateCategory"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.User">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel._user"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.Role">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel._role"/>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.IsChangable">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel._isChangable"/>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.deleteUserCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.DeleteUserCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.DeleteUserCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.DeleteUserAsync"/>.</summary>
+        </member>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.switchRoleCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.SwitchRoleCommand"/>.</summary>
+        </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.SwitchRoleCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.SwitchRoleAsync"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.Login">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AuthViewModels.AuthorizationViewModel.login"/>

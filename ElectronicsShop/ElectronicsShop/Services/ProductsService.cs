@@ -9,7 +9,9 @@
         public async Task AddProductAsync(Product product, FileResult productImage)
         {
             product.ImageString = await DataSourceService<Product>.SaveFileAndGetURIAsync(productImage);
-            product.Id = await DataSourceService<Product>.GetNewIdAsync();
+            var products = await GetProductsAsync();
+            int newId = (from prod in products select prod.Id)?.Max() + 1 ?? 1;
+            product.Id = newId;
 
             await DataSourceService<Product>.SaveDataAsync(product);
 

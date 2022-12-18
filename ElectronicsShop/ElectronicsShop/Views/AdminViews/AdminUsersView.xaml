@@ -3,13 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:ElectronicsShop.Models"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AdminViewModels"
+             xmlns:searchhandlers="clr-namespace:ElectronicsShop.SearchHandlers"
+             xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
              x:Class="ElectronicsShop.Views.AdminViews.AdminUsersView"
              Title="AdminUsersView"
              x:DataType="viewmodel:AdminUsersViewModel">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Shell.SearchHandler>
+        <searchhandlers:UserSearchHandler x:Name="searh"
+                                             Placeholder="Search"
+                                             FontSize="Medium"
+                                             TextColor="White"
+                                             ShowsResults="True"
+                                             DisplayMemberName="ProductName"
+                                             Users="{Binding Users}"
+                                             BackgroundColor="{StaticResource Primary}"
+                                             SearchBoxVisibility="Collapsible"
+                                             ClearIcon="{Static globalconst:Icons.DeleteTextIcon}"
+                                             QueryIcon="{Static globalconst:Icons.SearchIcon}">
+            <searchhandlers:UserSearchHandler.ItemTemplate>
+                <DataTemplate x:DataType="model:User">
+                    <Grid HeightRequest="60" Padding="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding UID, StringFormat='Id: {0}'}"
+                               FontSize="Medium"
+                               VerticalOptions="Center"/>
+                        <Label Text="{Binding UserName, StringFormat='User: {0}'}"
+                               Grid.Column="1"
+                               FontSize="Medium"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </searchhandlers:UserSearchHandler.ItemTemplate>
+        </searchhandlers:UserSearchHandler>
+    </Shell.SearchHandler>
+    <CollectionView ItemsSource="{Binding Users}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:User">
+                <Border StrokeShape="RoundRectangle 20"
+                        Stroke="{StaticResource Primary}"
+                        Background="Transparent"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="75"
+                        Padding="10"
+                        Margin="0,0,0,10">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource 
+                                        AncestorType={x:Type viewmodel:AdminUsersViewModel}},
+                                        Path=GoToUserCommand}" CommandParameter="{Binding .}"/>
+                    </Border.GestureRecognizers>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding UID, StringFormat='UID: {0}'}"
+                               FontSize="Medium"/>
+                        <Label Text="{Binding Role, StringFormat='Role: {0}'}"
+                               FontSize="Medium"
+                               Grid.Column="1"/>
+                        <Label Text="{Binding UserName, StringFormat='Username: {0}'}"
+                               FontSize="Medium"
+                               Grid.Row="1"
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Start"/>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

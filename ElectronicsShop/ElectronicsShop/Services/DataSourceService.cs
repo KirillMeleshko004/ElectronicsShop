@@ -135,11 +135,5 @@ namespace ElectronicsShop.Services
                 .Child(System.IO.Path.GetFileName(new Uri(fileURI).LocalPath))
                 .DeleteAsync();
         }
-        public static async Task<int> GetNewIdAsync()
-        {
-            return (await _firebaseClient
-               .Child(typeof(T).Name)
-               .OnceAsync<T>())?.Count + 1 ?? 1;
-        }
     }
 }

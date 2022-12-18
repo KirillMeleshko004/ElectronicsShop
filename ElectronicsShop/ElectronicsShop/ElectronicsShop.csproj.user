@@ -35,6 +35,9 @@
     <MauiXaml Update="Views\AdminViews\ProductCreationView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\AdminViews\UserDetailsView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\UserViews\AccountView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

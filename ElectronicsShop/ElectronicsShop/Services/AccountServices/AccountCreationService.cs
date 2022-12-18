@@ -12,10 +12,11 @@
                 return new AccountInfo(null, null, AccountErrorMessages.SAME_LOGIN_EXIST);
 
             string role = accounts.Any() ? Roles.User : Roles.Admin;
+            int newId = (from account in accounts select account.UID)?.Max() + 1 ?? 1;
 
             UserData newUser = new()
             {
-                UID = accounts.Count() + 1,
+                UID = newId,
                 UserName = login,
                 Password = SHA256HashComputer.ComputeSha256Hash(password),
                 Role = role,
