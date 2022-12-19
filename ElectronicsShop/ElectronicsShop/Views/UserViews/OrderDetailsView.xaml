@@ -59,7 +59,7 @@
                                    FontSize="Medium"
                                    HorizontalOptions="Center"
                                    Grid.RowSpan="2"/>
-                            <Image Grid.Row="1" Source="{Binding ImageString}"
+                            <Image Grid.Row="1" Source="{Binding ImageURI}"
                                    VerticalOptions="Fill"
                                    Grid.Column="1"
                                    Margin="0,10"/>

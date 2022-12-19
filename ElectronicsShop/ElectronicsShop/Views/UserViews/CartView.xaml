@@ -55,7 +55,7 @@
                                             Opacity="0.8"/>
                                 </Border.Shadow>
                                 <Image  x:Name="productImage"
-                                        Source="{Binding ImageString}"
+                                        Source="{Binding ImageURI}"
                                         Aspect="Fill"/>
 
                             </Border>

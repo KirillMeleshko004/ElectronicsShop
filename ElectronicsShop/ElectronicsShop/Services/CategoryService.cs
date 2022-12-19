@@ -13,7 +13,7 @@
 
             Category category = new()
             {
-                ImageUri = await DataSourceService<Category>.SaveFileAndGetURIAsync(categoryImage),
+                ImageURI = await ImageSourceService<Category>.SaveImageAndGetURIAsync(categoryImage),
                 CategoryName = name
             };
 

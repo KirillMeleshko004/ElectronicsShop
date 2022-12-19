@@ -39,6 +39,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             GetCategories();
 
             PropertyChanged += ProductChanged;
+            _categoryService.CategoryChanged += CategoryChanged;
         }
 
         public async void GetCategories()
@@ -58,7 +59,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             Manufacturer = Product.Manufacturer;
             Price = Product.Price;
             Description = Product.Description;
-            ImageUrl = Product.ImageString;
+            ImageUrl = Product.ImageURI;
         }
 
         [RelayCommand]
@@ -70,7 +71,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             Product.Manufacturer = Manufacturer;
             Product.Price = Price;
             Product.Description = Description;
-            Product.ImageString = ImageUrl;
+            Product.ImageURI = ImageUrl;
 
             await _productsService.ChangeProductAsync(Product, _image);
             await Shell.Current.DisplayAlert("Success", "Product changed", "Ok");

@@ -15,7 +15,7 @@
             Manufacturer = product.Manufacturer;
             Price = product.Price;
             Description = product.Description;
-            ImageString = product.ImageString;
+            ImageURI = product.ImageURI;
             Quantity = 0;
         }
 
@@ -29,7 +29,7 @@
                 Manufacturer = Manufacturer,
                 Price = Price,
                 Description = Description,
-                ImageString = ImageString,
+                ImageURI = ImageURI,
             };
         }
     }

@@ -1,5 +1,4 @@
 ﻿using Firebase.Database;
-using Firebase.Storage;
 using Firebase.Database.Query;
 
 namespace ElectronicsShop.Services
@@ -7,9 +6,7 @@ namespace ElectronicsShop.Services
     public static class DataSourceService <T>
     {
         private const string _dbURI = "https://electronicsshop-8c6b3-default-rtdb.europe-west1.firebasedatabase.app/";
-        private const string _storageURI = "electronicsshop-8c6b3.appspot.com";
         private static readonly FirebaseClient _firebaseClient = new FirebaseClient(_dbURI);
-        private static readonly FirebaseStorage _firebaseStorage = new FirebaseStorage(_storageURI);
 
         public static async Task<IEnumerable<T>> GetDataAsync()
         {
@@ -113,27 +110,6 @@ namespace ElectronicsShop.Services
                 .Child(data.GetType().Name)
                 .Child(FBObj.First().Key)
                 .PatchAsync(data);
-        }
-        public static async Task<string> SaveFileAndGetURIAsync(FileResult file)
-        {
-            Stream imageToUpload = await file.OpenReadAsync();
-
-            await _firebaseStorage
-                .Child(typeof(T).Name)
-                .Child($"{file.FileName}")
-                .PutAsync(imageToUpload);
-
-            return await _firebaseStorage
-                .Child(typeof(T).Name)
-                .Child($"{file.FileName}")
-                .GetDownloadUrlAsync();
-        }
-        public static async Task DeleteFileAsync(string fileURI)
-        {
-            await _firebaseStorage
-                .Child(typeof(T).Name)
-                .Child(System.IO.Path.GetFileName(new Uri(fileURI).LocalPath))
-                .DeleteAsync();
         }
     }
 }

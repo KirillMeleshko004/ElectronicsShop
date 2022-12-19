@@ -1,8 +1,8 @@
 ﻿namespace ElectronicsShop.Models
 {
-    public class Category
+    public class Category : IImageURIContainer
     {
         public string CategoryName { get; set; }
-        public string ImageUri { get; set; }
+        public string ImageURI { get; set; }
     }
 }

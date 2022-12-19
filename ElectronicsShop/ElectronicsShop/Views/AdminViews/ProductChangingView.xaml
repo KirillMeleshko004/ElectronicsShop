@@ -26,11 +26,11 @@
                             <ColumnDefinition Width="1.5*"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Picker ItemsSource="{Binding Categories}" 
-                                TextColor="White" TitleColor="{StaticResource Gray500}" Title="Choose category..."
+                        <Picker ItemsSource="{Binding Categories}"
                                 SelectedItem="{Binding ProductCategory}" WidthRequest="200"
                                 HorizontalOptions="Start"
-                                VerticalOptions="Center">
+                                VerticalOptions="Center"
+                                Title="Choose category...">
                         </Picker>
                         <Button x:Name="addCategoryBtn"
                                 Text="Add category"

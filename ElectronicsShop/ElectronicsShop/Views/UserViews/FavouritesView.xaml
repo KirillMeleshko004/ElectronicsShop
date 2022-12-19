@@ -48,7 +48,7 @@
                                             Radius="40"
                                             Opacity="0.8"/>
                                 </Border.Shadow>
-                                <Image Source="{Binding ImageString}" Aspect="AspectFit"/>
+                                <Image Source="{Binding ImageURI}" Aspect="AspectFit"/>
                             </Border>
 
                             <Label Text="{Binding ProductName}"

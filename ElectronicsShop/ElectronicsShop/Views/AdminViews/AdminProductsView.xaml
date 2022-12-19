@@ -52,7 +52,7 @@
                                             Radius="40"
                                             Opacity="0.8"/>
                                 </Border.Shadow>
-                                <Image Source="{Binding ImageString}" Aspect="Fill"/>
+                                <Image Source="{Binding ImageURI}" Aspect="Fill"/>
                             </Border>
                             <Label Text="{Binding ProductName}"
                                    Grid.Row="1"

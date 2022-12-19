@@ -1,6 +1,6 @@
 ﻿namespace ElectronicsShop.Models
 {
-    public class Product
+    public class Product : IImageURIContainer
     {
         public int Id { get; set; }
         public string ProductName { get; set; }
@@ -8,7 +8,7 @@
         public string Manufacturer { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
-        public string ImageString { get; set; }
+        public string ImageURI { get; set; }
 
         public override bool Equals(object obj)
         {
