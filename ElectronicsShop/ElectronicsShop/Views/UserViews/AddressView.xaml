@@ -12,12 +12,12 @@
                            IsVisible="{Binding IsFailed}"
                            TextColor="{StaticResource ErrorMessageTextColor}"
                        Margin="0,5,0,0"/>
-                <Picker ItemsSource="{Binding Countries}" 
-                            SelectedItem="{Binding Country}"
-                            Title="Select country"
+                <Picker ItemsSource="{Binding Countries}"
+                        SelectedItem="{Binding Country}"
+                        Title="Select country"
                         FontSize="Medium"
-                            SelectedIndexChanged="Picker_SelectedIndexChanged"
-                            BackgroundColor="Transparent">
+                        SelectedIndexChanged="Picker_SelectedIndexChanged"
+                        BackgroundColor="Transparent">
                 </Picker>
                 <VerticalStackLayout x:Name="addressFields" 
                                      IsVisible="false"

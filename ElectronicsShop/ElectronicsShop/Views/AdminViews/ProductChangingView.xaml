@@ -12,7 +12,7 @@
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="20"/>
                 </Border.StrokeShape>
-                <Image Source="{Binding ImageUrl, Mode=TwoWay}" HeightRequest="270"/>
+                <Image Source="{Binding ImageURI}" HeightRequest="270"/>
             </Border>
             <Button Text="Change image" TextColor="White" Command="{Binding PickImageCommand}"
                     IsEnabled="{Binding IsNotBusy}"/>

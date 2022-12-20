@@ -43,12 +43,17 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         public async void GetCategories()
         {
-            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName).ToObservableCollection();
+            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
         }
 
         private void CheckEmpty(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(IsNotEmpty)) return;
+            if (e.PropertyName != nameof(ProductName)
+                && e.PropertyName != nameof(ProductCategory)
+                && e.PropertyName != nameof(Manufacturer)
+                && e.PropertyName != nameof(Description)
+                && e.PropertyName != nameof(Price)
+                && e.PropertyName != nameof(ImageUrl)) return;
             if (string.IsNullOrEmpty(ProductName) ||
                 string.IsNullOrEmpty(ProductCategory) ||
                 string.IsNullOrEmpty(Manufacturer) ||
@@ -93,7 +98,21 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         public async Task CreateCategory()
         {
             IsBusy = true;
-            await Shell.Current.GoToAsync($"{nameof(CategoryCreationView)}");
+            string action = await Shell.Current.DisplayActionSheet("What to do?", "Cancel", null, "Create", "Change", "Delete");
+            switch(action)
+            {
+                case "Create":
+                    await Shell.Current.GoToAsync($"{nameof(CategoryCreationView)}");
+                    break;
+
+                case "Change":
+                    await Shell.Current.GoToAsync($"{nameof(CategoryChangingView)}");
+                    break;
+
+                case "Delete":
+                    await Shell.Current.GoToAsync($"{nameof(DeleteCategoryView)}");
+                    break;
+            }
             IsBusy = false;
         }
     }

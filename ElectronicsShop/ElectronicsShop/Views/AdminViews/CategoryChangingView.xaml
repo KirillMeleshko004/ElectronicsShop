@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AdminViewModels"
+             xmlns:model="clr-namespace:ElectronicsShop.Models"
+             x:Class="ElectronicsShop.Views.AdminViews.CategoryChangingView"
+             Title="Category change"
+             x:DataType="viewmodel:CategoryChangingViewModel">
+    <VerticalStackLayout Padding="10" Spacing="5">
+        <Picker Title="Choose category"
+                ItemsSource="{Binding Categories}"
+                SelectedItem="{Binding PrevSelection}"
+                SelectedIndexChanged="Picker_SelectedIndexChanged"
+                Margin="10,0"/>
+        <VerticalStackLayout Spacing="5"
+                             x:Name="categoryFields"
+                             IsVisible="false">
+            <Border BackgroundColor="Transparent" Stroke="{StaticResource Primary}"
+                    StrokeThickness="2"
+                    Padding="25">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Image Source="{Binding ImageURI}"
+                       HeightRequest="270"/>
+            </Border>
+            <Button Text="Pick image" Command="{Binding PickImageCommand}"/>
+            <Entry Text="{Binding CategoryName}"
+                   Margin="10,0"/>
+        </VerticalStackLayout>
+        <Button Text="Confirm Changes" Command="{Binding ConfirmCommand}"
+                IsVisible="{Binding IsChanged}"/>
+    </VerticalStackLayout>
+</ContentPage>

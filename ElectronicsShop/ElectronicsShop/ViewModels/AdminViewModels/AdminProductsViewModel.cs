@@ -72,19 +72,12 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
                     break;
                 case ProductEventArgs.Actions.removed:
                     Products.Remove(e.Product);
-                    DeleteUnusedCategories(e.Product.ProductCategory);
                     if (Products.Count == 0) IsEmpty = true;
                     break;
                 case ProductEventArgs.Actions.changed:
                     Products[Products.IndexOf(e.Product)] = e.Product;
-                    DeleteUnusedCategories(e.Product.ProductCategory);
                     break;
             }
-        }
-        async void DeleteUnusedCategories(string name)
-        {
-            if (!(from product in Products where product.ProductCategory == name select product).Any())
-                await _categoryService.RemoveCategory(name);
         }
     }
 }

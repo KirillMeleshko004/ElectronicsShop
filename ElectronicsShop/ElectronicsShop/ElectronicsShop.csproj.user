@@ -26,7 +26,13 @@
     <MauiXaml Update="Views\AdminViews\AdminUsersView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\AdminViews\CategoryChangingView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\AdminViews\CategoryCreationView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\AdminViews\DeleteCategoryView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\AdminViews\ProductChangingView.xaml">

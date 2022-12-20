@@ -69,11 +69,23 @@ build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.Admi
 build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AdminUsersView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AdminUsersView.xaml
 
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/CategoryChangingView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.CategoryChangingView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\CategoryChangingView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\CategoryChangingView.xaml
+
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/CategoryCreationView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.CategoryCreationView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\CategoryCreationView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\CategoryCreationView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/DeleteCategoryView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.DeleteCategoryView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\DeleteCategoryView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\DeleteCategoryView.xaml
 
 [A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/ProductChangingView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

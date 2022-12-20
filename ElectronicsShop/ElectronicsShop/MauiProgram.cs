@@ -47,6 +47,10 @@ public static class MauiProgram
         builder.Services.AddTransient<AddressViewModel>();
         builder.Services.AddTransient<CategoryCreationView>();
         builder.Services.AddTransient<CategoryCreationViewModel>();
+        builder.Services.AddTransient<CategoryChangingView>();
+        builder.Services.AddTransient<CategoryChangingViewModel>();
+        builder.Services.AddTransient<DeleteCategoryView>();
+        builder.Services.AddTransient<DeleteCategoryViewModel>();
         builder.Services.AddTransient<AdminUsersView>();
         builder.Services.AddTransient<AdminUsersViewModel>();
         builder.Services.AddTransient<AdminOrdersView>();

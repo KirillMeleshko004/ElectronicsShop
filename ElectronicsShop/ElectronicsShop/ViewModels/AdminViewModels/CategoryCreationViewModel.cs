@@ -7,7 +7,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         [ObservableProperty]
         string categoryName;
         [ObservableProperty]
-        string imageUrl;
+        string imageURI;
 
 
         [ObservableProperty]
@@ -27,7 +27,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         {
             if (e.PropertyName == nameof(IsNotEmpty)) return;
             if (string.IsNullOrEmpty(CategoryName) ||
-                string.IsNullOrEmpty(ImageUrl))
+                string.IsNullOrEmpty(ImageURI))
                 IsNotEmpty = false;
             else IsNotEmpty = true;
         }
@@ -52,7 +52,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         {
             _image = await MediaPicker.PickPhotoAsync();
             if (_image is null) return;
-            ImageUrl = _image.FullPath;
+            ImageURI = _image.FullPath;
         }
     }
 }

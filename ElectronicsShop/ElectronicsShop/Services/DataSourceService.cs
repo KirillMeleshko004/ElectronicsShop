@@ -63,11 +63,12 @@ namespace ElectronicsShop.Services
                 .Child(typeof(T).Name)
                 .OrderBy(identityName)
                 .EqualTo(identityValue)
-                .OnceAsync<T>()).First();
-            await _firebaseClient
-                .Child(typeof(T).Name)
-                .Child(FBObj.Key)
-                .DeleteAsync();
+                .OnceAsync<T>());
+            foreach(var item in FBObj)
+                await _firebaseClient
+                    .Child(typeof(T).Name)
+                    .Child(item.Key)
+                    .DeleteAsync();
         }
         public static async Task DeleteElementAsync(string identityValue, string identityName)
         {

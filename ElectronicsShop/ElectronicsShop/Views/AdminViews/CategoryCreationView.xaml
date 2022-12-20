@@ -6,13 +6,13 @@
              x:Class="ElectronicsShop.Views.AdminViews.CategoryCreationView"
              Title="Category Creation"
              x:DataType="viewmodel:CategoryCreationViewModel">
-    <VerticalStackLayout Padding="10">
+    <VerticalStackLayout Padding="10" Spacing="5">
         <Border BackgroundColor="Transparent" Stroke="{StaticResource Primary}"
-                    Padding="20">
+                Padding="20">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="20"/>
             </Border.StrokeShape>
-            <Image Source="{Binding ImageUrl}" HeightRequest="270"/>
+            <Image Source="{Binding ImageURI}" HeightRequest="270"/>
         </Border>
         <Button Text="Change image" TextColor="White" Command="{Binding PickImageCommand}"
                     IsEnabled="{Binding IsNotBusy}"/>

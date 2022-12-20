@@ -1,0 +1,172 @@
+is_global = true
+build_property.TargetFramework = net6.0-maccatalyst
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ElectronicsShop
+build_property.ProjectDir = A:\Course work\MAUI project\ElectronicsShop\ElectronicsShop\
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Shells/AdminShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Shells.AdminShell.xaml
+build_metadata.AdditionalFiles.TargetPath = Shells\AdminShell.xaml
+build_metadata.AdditionalFiles.RelativePath = Shells\AdminShell.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Shells/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Shells.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = Shells\AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = Shells\AppShell.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Shells/AuthShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Shells.AuthShell.xaml
+build_metadata.AdditionalFiles.TargetPath = Shells\AuthShell.xaml
+build_metadata.AdditionalFiles.RelativePath = Shells\AuthShell.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/AdminOrderDetailsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.AdminOrderDetailsView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AdminOrderDetailsView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AdminOrderDetailsView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/AdminOrdersView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.AdminOrdersView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AdminOrdersView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AdminOrdersView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/AdminProductsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.AdminProductsView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AdminProductsView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AdminProductsView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/AdminUsersView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.AdminUsersView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AdminUsersView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AdminUsersView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/CategoryChangingView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.CategoryChangingView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\CategoryChangingView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\CategoryChangingView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/CategoryCreationView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.CategoryCreationView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\CategoryCreationView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\CategoryCreationView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/ProductChangingView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.ProductChangingView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\ProductChangingView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\ProductChangingView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/ProductCreationView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.ProductCreationView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\ProductCreationView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\ProductCreationView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AdminViews/UserDetailsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AdminViews.UserDetailsView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\UserDetailsView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\UserDetailsView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AuthViews/AuthorizationView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AuthViews.AuthorizationView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AuthViews\AuthorizationView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AuthViews\AuthorizationView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/AuthViews/RegistrationView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.AuthViews.RegistrationView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AuthViews\RegistrationView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AuthViews\RegistrationView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/AccountView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.AccountView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\AccountView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\AccountView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/AddressView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.AddressView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\AddressView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\AddressView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/CartView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.CartView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\CartView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\CartView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/CategoryView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.CategoryView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\CategoryView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\CategoryView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/CheckoutView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.CheckoutView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\CheckoutView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\CheckoutView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/FavouritesView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.FavouritesView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\FavouritesView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\FavouritesView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/OrderDetailsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.OrderDetailsView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\OrderDetailsView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\OrderDetailsView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/OrdersView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.OrdersView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\OrdersView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\OrdersView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/ProductDetailsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.ProductDetailsView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\ProductDetailsView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\ProductDetailsView.xaml
+
+[A:/Course work/MAUI project/ElectronicsShop/ElectronicsShop/Views/UserViews/ProductsListView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ElectronicsShop.Views.UserViews.ProductsListView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\ProductsListView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\ProductsListView.xaml

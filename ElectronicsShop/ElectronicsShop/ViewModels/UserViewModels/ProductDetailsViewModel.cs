@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using System.ComponentModel;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ElectronicsShop.ViewModels.UserViewModels
 {

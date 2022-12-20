@@ -13,6 +13,8 @@ public partial class AdminShell : Shell
         Routing.RegisterRoute(nameof(CategoryCreationView), typeof(CategoryCreationView));
         Routing.RegisterRoute(nameof(AdminOrderDetailsView), typeof(AdminOrderDetailsView));
         Routing.RegisterRoute(nameof(UserDetailsView), typeof(UserDetailsView));
+        Routing.RegisterRoute(nameof(CategoryChangingView), typeof(CategoryChangingView));
+        Routing.RegisterRoute(nameof(DeleteCategoryView), typeof(DeleteCategoryView));
     }
     protected override void OnNavigated(ShellNavigatedEventArgs args)
     {

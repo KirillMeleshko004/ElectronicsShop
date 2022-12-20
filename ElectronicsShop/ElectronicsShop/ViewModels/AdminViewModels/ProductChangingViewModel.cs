@@ -21,7 +21,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         [ObservableProperty]
         string description;
         [ObservableProperty]
-        string imageUrl;
+        string _imageURI;
 
         [ObservableProperty]
         Product _product;
@@ -32,14 +32,23 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         public ProductChangingViewModel(ProductsService productsService, CategoryService categoryService)
         {
-            _productsService = productsService;
-            _categoryService = categoryService;
+            try
+            {
+
+                _productsService = productsService;
+                _categoryService = categoryService;
 
 
-            GetCategories();
+                GetCategories();
 
-            PropertyChanged += ProductChanged;
-            _categoryService.CategoryChanged += CategoryChanged;
+                PropertyChanged += ProductChanged;
+                _categoryService.CategoryChanged += CategoryChanged;
+            }
+            catch(Exception e)
+            {
+                string m = e.Message;
+                Console.WriteLine(m);
+            }
         }
 
         public async void GetCategories()
@@ -59,7 +68,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             Manufacturer = Product.Manufacturer;
             Price = Product.Price;
             Description = Product.Description;
-            ImageUrl = Product.ImageURI;
+            ImageURI = Product.ImageURI;
         }
 
         [RelayCommand]
@@ -71,7 +80,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             Product.Manufacturer = Manufacturer;
             Product.Price = Price;
             Product.Description = Description;
-            Product.ImageURI = ImageUrl;
+            Product.ImageURI = ImageURI;
 
             await _productsService.ChangeProductAsync(Product, _image);
             await Shell.Current.DisplayAlert("Success", "Product changed", "Ok");
@@ -84,7 +93,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         {
             _image = await MediaPicker.PickPhotoAsync();
             if (_image is null) return;
-            ImageUrl = _image.FullPath;
+            ImageURI = _image.FullPath;
         }
 
 

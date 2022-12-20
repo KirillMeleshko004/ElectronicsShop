@@ -32,8 +32,7 @@
                                 HorizontalOptions="Start"
                                 VerticalOptions="Center">
                         </Picker>
-                        <Button x:Name="addCategoryBtn"
-                                Text="Add category"
+                        <Button Text="Category action"
                                 Grid.Column="1"
                                 Margin="0,5"
                                 Command="{Binding CreateCategoryCommand}"/>
