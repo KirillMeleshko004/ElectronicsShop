@@ -7,5 +7,5 @@ public partial class ProductChangingView : ContentPage
 		InitializeComponent();
 
 		BindingContext = viewModel;
-	}
+    }
 }

@@ -7,5 +7,10 @@ public partial class RegistrationView : ContentPage
 		InitializeComponent();
 
 		BindingContext = viewModel;
-	}
+    }
+    private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+    {
+        Frame frame = (Frame)sender;
+        Animations.FrameAnimation.AnimateFrame(frame);
+    }
 }

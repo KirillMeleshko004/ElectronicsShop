@@ -17,7 +17,8 @@
         <Button Text="Change image" TextColor="White" Command="{Binding PickImageCommand}"
                     IsEnabled="{Binding IsNotBusy}"/>
         <Entry Placeholder="Enter new category name"
-               Text="{Binding CategoryName}"/>
+               Text="{Binding CategoryName}"
+               MaxLength="30"/>
         <Button Text="Create category" TextColor="White" Command="{Binding ConfirmCommand}"
                     IsVisible="{Binding IsNotEmpty}"
                     IsEnabled="{Binding IsNotBusy}"/>

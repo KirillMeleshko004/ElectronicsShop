@@ -38,20 +38,27 @@
                 oldCategory.CategoryName = newName;
             if (newImageURI != null)
             {
-                if (await ImageSourceService<Category>.CountImageUsings(oldCategory.ImageURI) == 1)
+                if (await ImageSourceService<Category>.CountImageUsings(oldCategory.ImageURI) <= 1)
                     await ImageSourceService<Category>.DeleteImageAsync(oldCategory.ImageURI);
                 oldCategory.ImageURI = newImageURI;
             }
+
+            IEnumerable<Product> products = 
+                await DataSourceService<Product>.GetMultipleDataAsync(oldCategory.CategoryName, nameof(Product.ProductCategory));
+            foreach (Product product in products)
+                await DataSourceService<Product>.AlterSingleElementAsync(product.CloneProductWithCategory(newName), product.Id, nameof(Product.Id));
 
             await DataSourceService<Category>.AlterSingleElementAsync(oldCategory, oldName, nameof(Category.CategoryName));
             CategoryChanged?.Invoke(this, new EventArgs());
         }
         public async Task RemoveCategory(Category category)
         {
-            await DataSourceService<Product>.DeleteElementAsync(category.CategoryName, nameof(Product.ProductCategory));
-            if (await ImageSourceService<Category>.CountImageUsings(category.ImageURI) == 1)
+            await DataSourceService<Category>.DeleteElementsAsync(category.CategoryName, nameof(Category.CategoryName));
+            await DataSourceService<Product>.DeleteElementsAsync(category.CategoryName, nameof(Product.ProductCategory));
+
+            if (await ImageDeletionService.ShouldDelete(category))
                 await ImageSourceService<Category>.DeleteImageAsync(category.ImageURI);
-            await DataSourceService<Category>.DeleteElementAsync(category.CategoryName, nameof(Category.CategoryName));
+
             CategoryChanged?.Invoke(this, new EventArgs());
         }
 

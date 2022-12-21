@@ -7,5 +7,5 @@ public partial class ProductCreationView : ContentPage
 		InitializeComponent();
 
 		BindingContext = viewModel;
-	}
+    }
 }

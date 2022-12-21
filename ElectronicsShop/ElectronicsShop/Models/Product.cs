@@ -10,6 +10,20 @@
         public string Description { get; set; }
         public string ImageURI { get; set; }
 
+        public Product CloneProductWithCategory(string newCategory)
+        {
+            return new Product
+            {
+                Id = Id,
+                ProductName = ProductName,
+                ProductCategory = newCategory,
+                Manufacturer = Manufacturer,
+                Price = Price,
+                Description = Description,
+                ImageURI = ImageURI
+            };
+        }
+
         public override bool Equals(object obj)
         {
             if ((obj == null) || !this.GetType().Equals(obj.GetType()))

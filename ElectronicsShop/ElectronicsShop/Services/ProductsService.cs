@@ -1,4 +1,6 @@
-﻿namespace ElectronicsShop.Services
+﻿using ElectronicsShop.Models;
+
+namespace ElectronicsShop.Services
 {
     public class ProductsService
     {
@@ -19,10 +21,12 @@
         }
         public async Task DeleteProductAsync(Product product)
         {
-            if(await ImageSourceService<Product>.CountImageUsings(product.ImageURI) == 1)
+            await DataSourceService<Product>.DeleteElementsAsync(product.Id, nameof(Product.Id));
+
+            if (await ImageDeletionService.ShouldDelete(product))
                 await ImageSourceService<Product>.DeleteImageAsync(product.ImageURI);
 
-            await DataSourceService<Product>.DeleteElementAsync(product.Id, nameof(Product.Id));
+            await DataSourceService<Product>.DeleteElementsAsync(product.Id, nameof(Product.Id));
 
             ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.Actions.removed));
         }

@@ -95,7 +95,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         }
 
         [RelayCommand]
-        public async Task CreateCategory()
+        public async Task CategoryAction()
         {
             IsBusy = true;
             string action = await Shell.Current.DisplayActionSheet("What to do?", "Cancel", null, "Create", "Change", "Delete");

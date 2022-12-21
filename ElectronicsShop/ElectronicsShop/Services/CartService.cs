@@ -42,7 +42,11 @@
             if (cart is not null)
             {
                 cart.Products.Remove(new CartProduct(product));
+
                 await DataSourceService<Cart>.AlterSingleElementAsync(cart, userName, nameof(Cart.UserName));
+
+                if (await ImageDeletionService.ShouldDelete(product))
+                    await ImageSourceService<Product>.DeleteImageAsync(product.ImageURI);
             }
         }
         public async Task<CartProduct> RemoveProductFromCartAsync(string userName, CartProduct product)
@@ -58,11 +62,19 @@
 
             await DataSourceService<Cart>.AlterSingleElementAsync(cart, userName, nameof(Cart.UserName));
 
+            if (await ImageDeletionService.ShouldDelete(product))
+                await ImageSourceService<Product>.DeleteImageAsync(product.ImageURI);
+
             return product;
         }
         public async Task ClearCartAsync(string userName)
         {
-            await DataSourceService<Cart>.DeleteElementAsync(userName, nameof(Cart.UserName));
+            Cart cart = await DataSourceService<Cart>.GetDataAsync(userName, nameof(Cart.UserName));
+            await DataSourceService<Cart>.DeleteElementsAsync(userName, nameof(Cart.UserName));
+
+            foreach (Product product in cart.Products)
+                if (await ImageDeletionService.ShouldDelete(product))
+                    await ImageSourceService<Product>.DeleteImageAsync(product.ImageURI);
         }
         
         public async Task<bool> IsProductInCartOfUser(string userName, Product product)

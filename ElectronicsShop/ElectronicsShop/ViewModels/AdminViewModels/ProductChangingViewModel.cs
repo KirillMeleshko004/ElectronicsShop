@@ -97,11 +97,26 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         }
 
 
+
         [RelayCommand]
-        public async Task CreateCategory()
+        public async Task CategoryAction()
         {
             IsBusy = true;
-            await Shell.Current.GoToAsync($"{nameof(CategoryCreationView)}");
+            string action = await Shell.Current.DisplayActionSheet("What to do?", "Cancel", null, "Create", "Change", "Delete");
+            switch (action)
+            {
+                case "Create":
+                    await Shell.Current.GoToAsync($"{nameof(CategoryCreationView)}");
+                    break;
+
+                case "Change":
+                    await Shell.Current.GoToAsync($"{nameof(CategoryChangingView)}");
+                    break;
+
+                case "Delete":
+                    await Shell.Current.GoToAsync($"{nameof(DeleteCategoryView)}");
+                    break;
+            }
             IsBusy = false;
         }
     }

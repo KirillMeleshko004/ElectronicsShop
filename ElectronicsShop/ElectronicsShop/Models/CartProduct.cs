@@ -32,5 +32,19 @@
                 ImageURI = ImageURI,
             };
         }
+        public override bool Equals(object obj)
+        {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+
+            CartProduct pr = (CartProduct)obj;
+            return pr.Id == this.Id;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

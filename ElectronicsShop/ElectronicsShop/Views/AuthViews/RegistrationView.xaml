@@ -27,7 +27,8 @@
                            Text="{Binding Login, Mode=OneWayToSource}"
                            TextColor="{StaticResource PrimaryTextColor}"
                            Margin="0,-20"
-                           IsEnabled="{Binding IsNotSuccessful}"/>
+                           IsEnabled="{Binding IsNotSuccessful}"
+                           Completed="EntryCompleted"/>
                 </Frame>
                 <Frame BorderColor="Transparent"
                        HeightRequest="55">
@@ -41,7 +42,8 @@
                            Margin="0,-20"
                            IsPassword="True"
                            MaxLength="20"
-                           IsEnabled="{Binding IsNotSuccessful}"/>
+                           IsEnabled="{Binding IsNotSuccessful}"
+                           Completed="EntryCompleted"/>
                 </Frame>
                 <Frame BorderColor="Transparent"
                        HeightRequest="55">
@@ -55,7 +57,8 @@
                            Margin="0,-20"
                            IsPassword="True"
                            MaxLength="20"
-                           IsEnabled="{Binding IsNotSuccessful}"/>
+                           IsEnabled="{Binding IsNotSuccessful}"
+                           Completed="EntryCompleted"/>
                 </Frame>
 
                 <Frame HeightRequest="50"
@@ -65,7 +68,8 @@
                        IsVisible="{Binding IsNotSuccessful}"
                        Padding="-5">
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding CreateAccountCommand}"/>
+                        <TapGestureRecognizer Command="{Binding CreateAccountCommand}"
+                                              Tapped="TapGestureRecognizer_Tapped"/>
                     </Frame.GestureRecognizers>
                     <Grid BackgroundColor="Transparent">
                         <ActivityIndicator IsVisible="{Binding IsBusy}"

@@ -172,11 +172,11 @@
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.PickImageCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.PickImage"/>.</summary>
         </member>
-        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.createCategoryCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.CreateCategoryCommand"/>.</summary>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.categoryActionCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.CategoryActionCommand"/>.</summary>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.CreateCategoryCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.CreateCategory"/>.</summary>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.CategoryActionCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.CategoryAction"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.Categories">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel._categories"/>
@@ -214,11 +214,11 @@
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.PickImageCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.PickImage"/>.</summary>
         </member>
-        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.createCategoryCommand">
-            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CreateCategoryCommand"/>.</summary>
+        <member name="F:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.categoryActionCommand">
+            <summary>The backing field for <see cref="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CategoryActionCommand"/>.</summary>
         </member>
-        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CreateCategoryCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CreateCategory"/>.</summary>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CategoryActionCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ElectronicsShop.ViewModels.AdminViewModels.ProductCreationViewModel.CategoryAction"/>.</summary>
         </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel.User">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.UserDetailsViewModel._user"/>

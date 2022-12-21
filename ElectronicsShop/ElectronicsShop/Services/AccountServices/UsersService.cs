@@ -20,7 +20,7 @@
         }
         public async Task DeleteAccount(string userName)
         {
-            await DataSourceService<UserData>.DeleteElementAsync(userName, nameof(UserData.UserName));
+            await DataSourceService<UserData>.DeleteElementsAsync(userName, nameof(UserData.UserName));
         }
     }
 }

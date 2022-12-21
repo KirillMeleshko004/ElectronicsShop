@@ -57,7 +57,7 @@ namespace ElectronicsShop.Services
                 .Child(data.GetType().Name)
                 .PostAsync(data);
         }
-        public static async Task DeleteElementAsync(int identityValue, string identityName)
+        public static async Task DeleteElementsAsync(int identityValue, string identityName)
         {
             var FBObj = (await _firebaseClient
                 .Child(typeof(T).Name)
@@ -70,17 +70,18 @@ namespace ElectronicsShop.Services
                     .Child(item.Key)
                     .DeleteAsync();
         }
-        public static async Task DeleteElementAsync(string identityValue, string identityName)
+        public static async Task DeleteElementsAsync(string identityValue, string identityName)
         {
             var FBObj = (await _firebaseClient
                 .Child(typeof(T).Name)
                 .OrderBy(identityName)
                 .EqualTo(identityValue)
-                .OnceAsync<T>()).First();
-            await _firebaseClient
-                .Child(typeof(T).Name)
-                .Child(FBObj.Key)
-                .DeleteAsync();
+                .OnceAsync<T>());
+            foreach (var item in FBObj)
+                await _firebaseClient
+                    .Child(typeof(T).Name)
+                    .Child(item.Key)
+                    .DeleteAsync();
         }
         public static async Task AlterSingleElementAsync(T data, int identityValue, string identityName)
         {

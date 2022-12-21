@@ -19,7 +19,8 @@
             <ScrollView HeightRequest="300">
                 <VerticalStackLayout>
                     <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
-                    <Entry Placeholder="Product name" Text="{Binding ProductName}" MaxLength="45"/>
+                    <Entry Placeholder="Product name" Text="{Binding ProductName}" MaxLength="45"
+                           Completed="EntryCompleted"/>
                     <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -35,10 +36,11 @@
                         <Button Text="Category action"
                                 Grid.Column="1"
                                 Margin="0,5"
-                                Command="{Binding CreateCategoryCommand}"/>
+                                Command="{Binding CategoryActionCommand}"/>
                     </Grid>
                     <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
-                    <Entry Placeholder="Product manufacturer" Text="{Binding Manufacturer}" MaxLength="45"/>
+                    <Entry Placeholder="Product manufacturer" Text="{Binding Manufacturer}" MaxLength="45"
+                           Completed="EntryCompleted"/>
                     <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -51,7 +53,8 @@
                     </Grid>
                     <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
                     <Editor Placeholder="Description" Text="{Binding Description}"
-                        AutoSize="TextChanges"/>
+                            AutoSize="TextChanges"
+                            Completed="EntryCompleted"/>
                     <BoxView Color="{StaticResource Primary}" HeightRequest="3"/>
                 </VerticalStackLayout>
             </ScrollView>

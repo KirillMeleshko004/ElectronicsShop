@@ -50,7 +50,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         {
             IsBusy = true;
             await _categoryService.RemoveCategory(await _categoryService.GetCategoryInfo(CategoryName));
-            await Shell.Current.DisplayAlert("Success", "Category changed", "Ok");
+            await Shell.Current.DisplayAlert("Success", "Category deleted", "Ok");
             await Shell.Current.GoToAsync("..");
             IsBusy = false;
         }
