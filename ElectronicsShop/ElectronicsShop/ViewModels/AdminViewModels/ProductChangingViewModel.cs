@@ -32,7 +32,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         private FileResult _image = null;
         private readonly ProductsService _productsService;
         private readonly CategoryService _categoryService;
-        private Product _oldProduct = null;
+        private string _oldImage = null;
 
         public ProductChangingViewModel(ProductsService productsService, CategoryService categoryService)
         {
@@ -75,7 +75,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             Description = Product.Description;
             ImageURI = Product.ImageURI;
             
-            _oldProduct ??= Product.CloneProduct();
+            _oldImage ??= Product.ImageURI;
         }
         private void CheckEmpty(object sender, PropertyChangedEventArgs e)
         {
@@ -104,7 +104,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             Product.Description = Description;
             Product.ImageURI = ImageURI;
 
-            await _productsService.ChangeProductAsync(Product, _image, _oldProduct);
+            await _productsService.ChangeProductAsync(Product, _image, _oldImage);
             await Shell.Current.DisplayAlert("Success", "Product changed", "Ok");
             await Shell.Current.GoToAsync("..");
             IsBusy = false;

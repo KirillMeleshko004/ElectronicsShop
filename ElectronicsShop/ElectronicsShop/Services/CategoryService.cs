@@ -56,7 +56,7 @@
             await DataSourceService<Category>.DeleteElementsAsync(category.CategoryName, nameof(Category.CategoryName));
             await DataSourceService<Product>.DeleteElementsAsync(category.CategoryName, nameof(Product.ProductCategory));
 
-            if (await ImageDeletionService.ShouldDelete(category))
+            if (await ImageDeletionService.ShouldDelete<Category>(category.ImageURI))
                 await ImageSourceService<Category>.DeleteImageAsync(category.ImageURI);
 
             CategoryChanged?.Invoke(this, new EventArgs());

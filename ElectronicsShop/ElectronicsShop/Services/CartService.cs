@@ -45,7 +45,7 @@
 
                 await DataSourceService<Cart>.AlterSingleElementAsync(cart, userName, nameof(Cart.UserName));
 
-                if (await ImageDeletionService.ShouldDelete(product))
+                if (await ImageDeletionService.ShouldDelete<Product>(product.ImageURI))
                     await ImageSourceService<Product>.DeleteImageAsync(product.ImageURI);
             }
         }
@@ -62,7 +62,7 @@
 
             await DataSourceService<Cart>.AlterSingleElementAsync(cart, userName, nameof(Cart.UserName));
 
-            if (await ImageDeletionService.ShouldDelete(product))
+            if (await ImageDeletionService.ShouldDelete<Product>(product.ImageURI))
                 await ImageSourceService<Product>.DeleteImageAsync(product.ImageURI);
 
             return product;
@@ -73,7 +73,7 @@
             await DataSourceService<Cart>.DeleteElementsAsync(userName, nameof(Cart.UserName));
 
             foreach (Product product in cart.Products)
-                if (await ImageDeletionService.ShouldDelete(product))
+                if (await ImageDeletionService.ShouldDelete<Product>(product.ImageURI))
                     await ImageSourceService<Product>.DeleteImageAsync(product.ImageURI);
         }
         
