@@ -20,6 +20,8 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         public CartViewModel(CartService cartService)
         {
             _cartService = cartService;
+            PropertyChanged += CollectionChanged;
+
             RefreshAsync();
         }
         async void GetCart()
@@ -86,12 +88,10 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             if (e.PropertyName != nameof(Products)) return;
 
-            IsEmpty = Products.Count == 0;
+            IsEmpty = Products is null ? true : Products.Count == 0;
         }
         public void RefreshAsync()
         {
-            PropertyChanged += CollectionChanged;
-
             GetCart();
         }
     }

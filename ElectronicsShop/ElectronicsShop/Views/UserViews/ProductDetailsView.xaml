@@ -22,12 +22,15 @@
                         HeightRequest="380">
                     <Border.Shadow>
                         <Shadow Brush="{StaticResource Primary}"
-                                            Offset="20,20"
-                                            Radius="40"
-                                            Opacity="0.8"/>
+                                Offset="20,20"
+                                Radius="40"
+                                Opacity="0.8"/>
                     </Border.Shadow>
                     <Image Source="{Binding CurrentProduct.ImageURI}"
-                           Aspect="Fill"/>
+                           HeightRequest="250"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"
+                           Aspect="AspectFit"/>
                 </Border>
                 <Label Text="{Binding CurrentProduct.ProductName}"
                        VerticalOptions="Center" 

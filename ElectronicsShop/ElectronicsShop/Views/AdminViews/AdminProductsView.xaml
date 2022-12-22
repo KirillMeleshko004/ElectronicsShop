@@ -45,14 +45,15 @@
                                     Stroke="Transparent"
                                     HorizontalOptions="Start"
                                     BackgroundColor="Transparent"
-                                    Margin="20,0,0,0">
+                                    Margin="20,0,0,0"
+                                    Padding="5">
                                 <Border.Shadow>
                                     <Shadow Brush="{StaticResource Primary}"
                                             Offset="20,20"
                                             Radius="40"
                                             Opacity="0.8"/>
                                 </Border.Shadow>
-                                <Image Source="{Binding ImageURI}" Aspect="Fill"/>
+                                <Image Source="{Binding ImageURI}" Aspect="AspectFit"/>
                             </Border>
                             <Label Text="{Binding ProductName}"
                                    Grid.Row="1"

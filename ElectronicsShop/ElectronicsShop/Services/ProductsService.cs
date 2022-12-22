@@ -26,16 +26,17 @@ namespace ElectronicsShop.Services
             if (await ImageDeletionService.ShouldDelete(product))
                 await ImageSourceService<Product>.DeleteImageAsync(product.ImageURI);
 
-            await DataSourceService<Product>.DeleteElementsAsync(product.Id, nameof(Product.Id));
-
             ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.Actions.removed));
         }
-        public async Task ChangeProductAsync(Product product, FileResult productImage)
+        public async Task ChangeProductAsync(Product product, FileResult productImage, Product oldProduct)
         {
             if (productImage != null)
                 product.ImageURI = await ImageSourceService<Product>.SaveImageAndGetURIAsync(productImage);
 
             await DataSourceService<Product>.AlterSingleElementAsync(product, product.Id, nameof(Product.Id));
+
+            if (productImage != null && await ImageDeletionService.ShouldDelete(oldProduct))
+                await ImageSourceService<Product>.DeleteImageAsync(oldProduct.ImageURI);
 
             ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.Actions.changed));
         }

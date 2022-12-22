@@ -7,7 +7,7 @@ namespace ElectronicsShop.Services
         public static async Task<bool> ShouldDelete(Category category)
         {
             var favTask = IsImageInFavourites(category.ImageURI);
-            var cartTask = IsImageInFavourites(category.ImageURI);
+            var cartTask = IsImageInCart(category.ImageURI);
             var prodTask = ImageSourceService<Category>.CountImageUsings(category.ImageURI);
 
             var Tasks = new List<Task> { favTask, cartTask, prodTask };

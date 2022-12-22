@@ -27,8 +27,7 @@
                            Text="{Binding Login, Mode=OneWayToSource}"
                            TextColor="{StaticResource PrimaryTextColor}"
                            Margin="0,-20"
-                           IsEnabled="{Binding IsNotSuccessful}"
-                           Completed="EntryCompleted"/>
+                           IsEnabled="{Binding IsNotSuccessful}"/>
                 </Frame>
                 <Frame BorderColor="Transparent"
                        HeightRequest="55">
@@ -42,8 +41,7 @@
                            Margin="0,-20"
                            IsPassword="True"
                            MaxLength="20"
-                           IsEnabled="{Binding IsNotSuccessful}"
-                           Completed="EntryCompleted"/>
+                           IsEnabled="{Binding IsNotSuccessful}"/>
                 </Frame>
                 <Frame BorderColor="Transparent"
                        HeightRequest="55">
@@ -57,8 +55,7 @@
                            Margin="0,-20"
                            IsPassword="True"
                            MaxLength="20"
-                           IsEnabled="{Binding IsNotSuccessful}"
-                           Completed="EntryCompleted"/>
+                           IsEnabled="{Binding IsNotSuccessful}"/>
                 </Frame>
 
                 <Frame HeightRequest="50"

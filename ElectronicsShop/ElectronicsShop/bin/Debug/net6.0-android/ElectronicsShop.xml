@@ -157,6 +157,9 @@
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.ImageURI">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel._imageURI"/>
         </member>
+        <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.IsNotEmpty">
+            <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.isNotEmpty"/>
+        </member>
         <member name="P:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel.Product">
             <inheritdoc cref="F:ElectronicsShop.ViewModels.AdminViewModels.ProductChangingViewModel._product"/>
         </member>

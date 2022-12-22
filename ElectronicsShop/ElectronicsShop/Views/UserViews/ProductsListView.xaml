@@ -45,7 +45,7 @@
                                             Radius="40"
                                             Opacity="0.8"/>
                                 </Border.Shadow>
-                                <Image Source="{Binding ImageURI}" Aspect="Fill"/>
+                                <Image Source="{Binding ImageURI}" Aspect="AspectFit"/>
                             </Border>
 
                             <Label Text="{Binding Price, StringFormat='{0:f2}$'}"

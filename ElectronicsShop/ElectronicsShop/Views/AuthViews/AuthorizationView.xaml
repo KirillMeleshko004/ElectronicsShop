@@ -32,8 +32,7 @@
                    VerticalOptions="Center"
                    Text="{Binding Login, Mode=TwoWay}"
                    TextColor="{StaticResource PrimaryTextColor}"
-                   Margin="0,-20"
-                   Completed="EntryCompleted"/>
+                   Margin="0,-20"/>
         </Frame>
         <Frame BorderColor="Transparent"
                Padding="20,10"
@@ -47,8 +46,7 @@
                    IsPassword="True"
                    Text="{Binding Password, Mode=TwoWay}"
                    TextColor="{StaticResource PrimaryTextColor}"
-                   Margin="0,-20"
-                   Completed="EntryCompleted"/>
+                   Margin="0,-20"/>
         </Frame>
         <HorizontalStackLayout HorizontalOptions="Start" Spacing="45"
                                IsEnabled="{Binding IsNotBusy}">

@@ -23,6 +23,19 @@
                 ImageURI = ImageURI
             };
         }
+        public Product CloneProduct()
+        {
+            return new Product
+            {
+                Id = Id,
+                ProductName = ProductName,
+                ProductCategory = ProductCategory,
+                Manufacturer = Manufacturer,
+                Price = Price,
+                Description = Description,
+                ImageURI = ImageURI
+            };
+        }
 
         public override bool Equals(object obj)
         {

@@ -17,11 +17,14 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         [ObservableProperty]
         string manufacturer;
         [ObservableProperty]
-        double price;
+        string price;
         [ObservableProperty]
         string description;
         [ObservableProperty]
         string _imageURI;
+
+        [ObservableProperty]
+        bool isNotEmpty = false;
 
         [ObservableProperty]
         Product _product;
@@ -29,6 +32,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         private FileResult _image = null;
         private readonly ProductsService _productsService;
         private readonly CategoryService _categoryService;
+        private Product _oldProduct = null;
 
         public ProductChangingViewModel(ProductsService productsService, CategoryService categoryService)
         {
@@ -42,6 +46,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
                 GetCategories();
 
                 PropertyChanged += ProductChanged;
+                PropertyChanged += CheckEmpty;
                 _categoryService.CategoryChanged += CategoryChanged;
             }
             catch(Exception e)
@@ -66,9 +71,26 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             ProductName = Product.ProductName;
             ProductCategory = Product.ProductCategory;
             Manufacturer = Product.Manufacturer;
-            Price = Product.Price;
+            Price = Product.Price.ToString();
             Description = Product.Description;
             ImageURI = Product.ImageURI;
+            
+            _oldProduct ??= Product.CloneProduct();
+        }
+        private void CheckEmpty(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName != nameof(ProductName)
+                && e.PropertyName != nameof(ProductCategory)
+                && e.PropertyName != nameof(Manufacturer)
+                && e.PropertyName != nameof(Description)
+                && e.PropertyName != nameof(Price)) return;
+            if (string.IsNullOrEmpty(ProductName) ||
+                string.IsNullOrEmpty(ProductCategory) ||
+                string.IsNullOrEmpty(Manufacturer) ||
+                string.IsNullOrEmpty(Description) ||
+                string.IsNullOrEmpty(Price))
+                IsNotEmpty = false;
+            else IsNotEmpty = true;
         }
 
         [RelayCommand]
@@ -78,11 +100,11 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             Product.ProductName = ProductName;
             Product.ProductCategory = ProductCategory;
             Product.Manufacturer = Manufacturer;
-            Product.Price = Price;
+            Product.Price = Double.Parse(Price);
             Product.Description = Description;
             Product.ImageURI = ImageURI;
 
-            await _productsService.ChangeProductAsync(Product, _image);
+            await _productsService.ChangeProductAsync(Product, _image, _oldProduct);
             await Shell.Current.DisplayAlert("Success", "Product changed", "Ok");
             await Shell.Current.GoToAsync("..");
             IsBusy = false;
