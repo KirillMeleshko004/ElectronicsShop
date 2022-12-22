@@ -17,7 +17,19 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         }
         public async void RefreshAsync()
         {
-            Orders = (await _orderService.GetAllOrdersAsync()).ToObservableCollection();
+            IsBusy = true;
+            try
+            {
+                Orders = (await _orderService.GetAllOrdersAsync()).ToObservableCollection();
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]

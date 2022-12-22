@@ -29,8 +29,20 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         }
         public async void RefreshAsync()
         {
-            if (string.IsNullOrEmpty(UserName)) return;
-            Orders = new ObservableCollection<Order>(await _orderService.GetOrdersAsync(UserName));
+            IsBusy = true;
+            try
+            {
+                if (string.IsNullOrEmpty(UserName)) return;
+                Orders = new ObservableCollection<Order>(await _orderService.GetOrdersAsync(UserName));
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         void OrdersChanged(object sender, PropertyChangedEventArgs e)

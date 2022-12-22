@@ -48,12 +48,22 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         async Task ChangeStatusAsync()
         {
             IsBusy = true;
-            await _orderService.ChangeStatusAsync(CurrentOrder.OrderId, Status);
-            _oldStatus = Status;
-            string text = "Status changed";
-            await Toast.Make(text, ToastDuration.Short).Show();
-            IsChanged = false;
-            IsBusy = false;
+            try
+            {
+                await _orderService.ChangeStatusAsync(CurrentOrder.OrderId, Status);
+                _oldStatus = Status;
+                string text = "Status changed";
+                await Toast.Make(text, ToastDuration.Short).Show();
+                IsChanged = false;
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

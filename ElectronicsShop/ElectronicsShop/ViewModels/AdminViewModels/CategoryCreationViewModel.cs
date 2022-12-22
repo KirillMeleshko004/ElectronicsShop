@@ -35,16 +35,27 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         [RelayCommand]
         public async Task Confirm()
         {
-            bool isSuccessful = await _categoryService.AddCategory(CategoryName, _image);
-            if(!isSuccessful)
+            IsBusy = true;
+            try
             {
-                await Shell.Current.DisplayAlert("Error!", "Same category may exist", "Ok");
-                IsBusy = false;
-                return;
+                bool isSuccessful = await _categoryService.AddCategory(CategoryName, _image);
+                if (!isSuccessful)
+                {
+                    await Shell.Current.DisplayAlert("Error!", "Same category may exist", "Ok");
+                    IsBusy = false;
+                    return;
+                }
+                await Shell.Current.DisplayAlert("Success", "Category created", "Ok");
+                await Shell.Current.GoToAsync("..");
             }
-            await Shell.Current.DisplayAlert("Success", "Category created", "Ok");
-            await Shell.Current.GoToAsync("..");
-            IsBusy = false;
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]

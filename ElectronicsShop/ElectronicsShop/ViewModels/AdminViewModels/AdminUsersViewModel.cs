@@ -17,7 +17,19 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         }
         public async void RefreshAsync()
         {
-            Users = (await _userService.GetUsersAsync()).ToObservableCollection();
+            IsBusy = true;
+            try
+            {
+                Users = (await _userService.GetUsersAsync()).ToObservableCollection();
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]

@@ -1,4 +1,7 @@
-﻿namespace ElectronicsShop.ViewModels.UserViewModels
+﻿using ElectronicsShop.Services.AccountServices;
+using System.Diagnostics;
+
+namespace ElectronicsShop.ViewModels.UserViewModels
 {
     public partial class AddressViewModel : BaseViewModel
     {
@@ -32,22 +35,46 @@
         async Task ValidateAddress()
         {
             IsBusy = true;
-            ErrorMessage = await _addressService.ValidateAddressAsync(Country, City, Street, BuildingNumber, Postalcode);
-            if(ErrorMessage != AddressErrorMessages.SUCCESS)
+
+            try
             {
-                IsFailed = true;
-                IsBusy = false;
-                return;
+                ErrorMessage = await _addressService.ValidateAddressAsync(Country, City, Street, BuildingNumber, Postalcode);
+                if (ErrorMessage != AddressErrorMessages.SUCCESS)
+                {
+                    IsFailed = true;
+                    IsBusy = false;
+                    return;
+                }
+                IsFailed = false;
+                await GoBack(_addressService.GetFormattedAddress(Country, City, Street,
+                    BuildingNumber, ApartmentNumber, Postalcode));
             }
-            IsFailed = false;
-            await GoBack(_addressService.GetFormattedAddress(Country, City, Street,
-                BuildingNumber, ApartmentNumber, Postalcode));
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]
         async Task SuggestPostalCode()
         {
-            Postalcode = await _addressService.GetPostcode(Country, City, Street, BuildingNumber);
+            IsBusy = true;
+            try
+            {
+                Postalcode = await _addressService.GetPostcode(Country, City, Street, BuildingNumber);
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
         
         [ObservableProperty]

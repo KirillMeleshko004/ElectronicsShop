@@ -1,4 +1,9 @@
-﻿namespace ElectronicsShop.ViewModels.AuthViewModels
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using ElectronicsShop.Views.ErrorViews;
+using System.Diagnostics;
+
+namespace ElectronicsShop.ViewModels.AuthViewModels
 {
     public partial class AuthorizationViewModel : BaseViewModel
     {
@@ -23,25 +28,37 @@
         public async Task SignIn()
         {
             IsBusy = true;
-            AccountInfo accountInfo = await authorizationService.AuthUserAsync(Login, Password);
-            if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
+            try
             {
-                IsSuccessful = true;
-                IsFailed = false;
-                App.UserName = accountInfo.Login;
-                if (accountInfo.Role == Roles.Admin)
-                    App.Current.MainPage = new AdminShell();
+                AccountInfo accountInfo = await authorizationService.AuthUserAsync(Login, Password);
+                if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
+                {
+                    IsSuccessful = true;
+                    IsFailed = false;
+                    App.UserName = accountInfo.Login;
+                    if (accountInfo.Role == Roles.Admin)
+                        App.Current.MainPage = new AdminShell();
+                    else
+                        App.Current.MainPage = new AppShell();
+                }
                 else
-                    App.Current.MainPage = new AppShell();
+                {
+                    IsSuccessful = false;
+                    ErrorMessage = accountInfo.ErrorMessage;
+                    IsFailed = true;
+                    Password = string.Empty;
+                }
             }
-            else
+
+            catch
             {
-                IsSuccessful = false;
-                ErrorMessage = accountInfo.ErrorMessage;
-                IsFailed = true;
-                Password = string.Empty;
+                ConnectionErrorView.ShowErrorMessage();
+                ErrorMessage = null;
             }
-            IsBusy = false;
+            finally
+            {
+                IsBusy = false;
+            }
         }
         [RelayCommand]
         async Task SignUp()

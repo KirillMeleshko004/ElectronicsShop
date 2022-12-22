@@ -38,7 +38,8 @@
                             <Border StrokeShape="RoundRectangle 20"
                                     Stroke="Transparent"
                                     HorizontalOptions="FillAndExpand"
-                                    BackgroundColor="Transparent">
+                                    BackgroundColor="Transparent"
+                                    Padding="10">
                                 <Border.Shadow>
                                     <Shadow Brush="{StaticResource Primary}"
                                             Offset="20,20"

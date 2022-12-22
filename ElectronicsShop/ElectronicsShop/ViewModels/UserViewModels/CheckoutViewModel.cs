@@ -40,34 +40,42 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         async Task ConfirmAsync()
         {
             IsBusy = true;
-
-            if (string.IsNullOrEmpty(Address))
+            try
             {
-                await ShowErrorToast("Incorrect address");
-                IsBusy = false;
-                return;
+                if (string.IsNullOrEmpty(Address))
+                {
+                    await ShowErrorToast("Incorrect address");
+                    IsBusy = false;
+                    return;
+                }
+                if (string.IsNullOrEmpty(Email) || !Order.IsEmail(Email))
+                {
+                    await ShowErrorToast("Incorrect email");
+                    IsBusy = false;
+                    return;
+                }
+
+
+                await _orderService.CheckoutAsync(App.UserName,
+                    Products.ToList(),
+                    Address,
+                    Email,
+                    TotalPrice);
+                await _cartService.ClearCartAsync(App.UserName);
+
+                await Shell.Current.DisplayAlert("Success!",
+                    $"You order now awaiting confirmation. You can follow the status update in your account page",
+                    "Ok");
+                await Shell.Current.GoToAsync($"..");
             }
-            if (string.IsNullOrEmpty(Email) || !Order.IsEmail(Email))
+            catch
             {
-                await ShowErrorToast("Incorrect email");
-                IsBusy = false;
-                return;
+                ConnectionErrorView.ShowErrorMessage();
             }
-
-
-            await _orderService.CheckoutAsync(App.UserName,
-                Products.ToList(),
-                Address,
-                Email,
-                TotalPrice);
-            await _cartService.ClearCartAsync(App.UserName);
-
-            await Shell.Current.DisplayAlert("Success!",
-                $"You order now awaiting confirmation. You can follow the status update in your account page",
-                "Ok");
-            await Shell.Current.GoToAsync($"..");
-
-            IsBusy = false;
+            finally
+            {
+                IsBusy = false;
+            }
         }
         private async Task ShowErrorToast(string message)
         {

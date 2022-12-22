@@ -22,10 +22,22 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         }
         public async void RefreshAsync()
         {
-            Title = $"{App.UserName}'s favourites";
-            Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserName))?.ToObservableCollection<Product>();
-            
-            IsEmpty = Favourites is null ? true : Favourites.Count == 0;
+            IsBusy = true;
+            try
+            {
+                Title = $"{App.UserName}'s favourites";
+                Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserName))?.ToObservableCollection<Product>();
+
+                IsEmpty = Favourites is null ? true : Favourites.Count == 0;
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]
@@ -43,10 +55,20 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             if (IsBusy) return;
             IsBusy = true;
-            await _favouritesService.DeleteFromFavouritesAsync(App.UserName, product);
-            Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserName))?.ToObservableCollection<Product>();
-            IsEmpty = Favourites is null ? true : Favourites.Count == 0;
-            IsBusy = false;
+            try
+            {
+                await _favouritesService.DeleteFromFavouritesAsync(App.UserName, product);
+                Favourites = (await _favouritesService.GetFavouritesForUserAsync(App.UserName))?.ToObservableCollection<Product>();
+                IsEmpty = Favourites is null ? true : Favourites.Count == 0;
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

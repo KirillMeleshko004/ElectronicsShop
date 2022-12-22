@@ -34,29 +34,59 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         async Task RemoveProduct(CartProduct product)
         {
             IsBusy = true;
-            CartProduct remProd = await _cartService.RemoveProductFromCartAsync(App.UserName, product);
-            if (remProd.Quantity == 0) Products.Remove(product);
-            else Products[Products.IndexOf(product)] = remProd;
-            IsEmpty = !Products.Any();
-            IsBusy = false;
+            try
+            {
+                CartProduct remProd = await _cartService.RemoveProductFromCartAsync(App.UserName, product);
+                if (remProd.Quantity == 0) Products.Remove(product);
+                else Products[Products.IndexOf(product)] = remProd;
+                IsEmpty = !Products.Any();
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
         [RelayCommand]
         async Task FullyRemoveProduct(CartProduct product)
         {
             IsBusy = true;
-            await _cartService.FullRemoveProductAsync(App.UserName, product);
-            Products.Remove(product);
-            IsEmpty = !Products.Any();
-            IsBusy = false;
+            try
+            {
+                await _cartService.FullRemoveProductAsync(App.UserName, product);
+                Products.Remove(product);
+                IsEmpty = !Products.Any();
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]
         async Task AddProduct(CartProduct product)
         {
             IsBusy = true;
-            CartProduct newProd = await _cartService.AddProductToCartAsync(App.UserName, product);
-            Products[Products.IndexOf(product)] = newProd;
-            IsBusy = false;
+            try
+            {
+                CartProduct newProd = await _cartService.AddProductToCartAsync(App.UserName, product);
+                Products[Products.IndexOf(product)] = newProd;
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]
@@ -88,7 +118,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             if (e.PropertyName != nameof(Products)) return;
 
-            IsEmpty = Products is null ? true : Products.Count == 0;
+            IsEmpty = Products is null || Products.Count == 0;
         }
         public void RefreshAsync()
         {

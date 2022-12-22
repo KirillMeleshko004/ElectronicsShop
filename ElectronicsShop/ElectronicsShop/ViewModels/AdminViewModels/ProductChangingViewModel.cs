@@ -36,29 +36,32 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         public ProductChangingViewModel(ProductsService productsService, CategoryService categoryService)
         {
-            try
-            {
-
-                _productsService = productsService;
-                _categoryService = categoryService;
+            _productsService = productsService;
+            _categoryService = categoryService;
 
 
-                GetCategories();
+            GetCategories();
 
-                PropertyChanged += ProductChanged;
-                PropertyChanged += CheckEmpty;
-                _categoryService.CategoryChanged += CategoryChanged;
-            }
-            catch(Exception e)
-            {
-                string m = e.Message;
-                Console.WriteLine(m);
-            }
+            PropertyChanged += ProductChanged;
+            PropertyChanged += CheckEmpty;
+            _categoryService.CategoryChanged += CategoryChanged;
         }
 
         public async void GetCategories()
         {
-            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName).ToObservableCollection();
+            IsBusy = true;
+            try
+            {
+                Categories = (from category in await _categoryService.GetCategories() select category.CategoryName).ToObservableCollection();
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
         private void CategoryChanged(object sender, EventArgs e)
         {
@@ -74,7 +77,7 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
             Price = Product.Price.ToString();
             Description = Product.Description;
             ImageURI = Product.ImageURI;
-            
+
             _oldImage ??= Product.ImageURI;
         }
         private void CheckEmpty(object sender, PropertyChangedEventArgs e)
@@ -97,17 +100,27 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         public async Task ChangeProduct()
         {
             IsBusy = true;
-            Product.ProductName = ProductName;
-            Product.ProductCategory = ProductCategory;
-            Product.Manufacturer = Manufacturer;
-            Product.Price = Double.Parse(Price);
-            Product.Description = Description;
-            Product.ImageURI = ImageURI;
+            try
+            {
+                Product.ProductName = ProductName;
+                Product.ProductCategory = ProductCategory;
+                Product.Manufacturer = Manufacturer;
+                Product.Price = Double.Parse(Price);
+                Product.Description = Description;
+                Product.ImageURI = ImageURI;
 
-            await _productsService.ChangeProductAsync(Product, _image, _oldImage);
-            await Shell.Current.DisplayAlert("Success", "Product changed", "Ok");
-            await Shell.Current.GoToAsync("..");
-            IsBusy = false;
+                await _productsService.ChangeProductAsync(Product, _image, _oldImage);
+                await Shell.Current.DisplayAlert("Success", "Product changed", "Ok");
+                await Shell.Current.GoToAsync("..");
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]

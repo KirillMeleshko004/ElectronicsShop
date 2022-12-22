@@ -43,7 +43,19 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         public async void GetCategories()
         {
-            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
+            IsBusy = true;
+            try
+            {
+                Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         private void CheckEmpty(object sender, PropertyChangedEventArgs e)
@@ -72,18 +84,28 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         public async Task AddProduct()
         {
             IsBusy = true;
-            Product productToAdd = new()
+            try
             {
-                ProductName = productName,
-                ProductCategory = productCategory,
-                Manufacturer = manufacturer,
-                Price = Double.Parse(price),
-                Description = description
-            };
-            await _productsService.AddProductAsync(productToAdd, _image);
-            await Shell.Current.DisplayAlert("Success", "Product added", "Ok");
-            await Shell.Current.GoToAsync("..");
-            IsBusy = false;
+                Product productToAdd = new()
+                {
+                    ProductName = productName,
+                    ProductCategory = productCategory,
+                    Manufacturer = manufacturer,
+                    Price = Double.Parse(price),
+                    Description = description
+                };
+                await _productsService.AddProductAsync(productToAdd, _image);
+                await Shell.Current.DisplayAlert("Success", "Product added", "Ok");
+                await Shell.Current.GoToAsync("..");
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]

@@ -35,25 +35,45 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         async Task DeleteUserAsync()
         {
             IsBusy = true;
-            bool choice = await Shell.Current.DisplayAlert("Are you sure?!",
-                $"User {User.UserName} will be deleted",
-                "Confirm",
-                "Cancel");
-            if (choice)
+            try
             {
-                await _userService.DeleteAccount(_user.UserName);
-                await Shell.Current.GoToAsync("..");
+                bool choice = await Shell.Current.DisplayAlert("Are you sure?!",
+                    $"User {User.UserName} will be deleted",
+                    "Confirm",
+                    "Cancel");
+                if (choice)
+                {
+                    await _userService.DeleteAccount(_user.UserName);
+                    await Shell.Current.GoToAsync("..");
+                }
             }
-            IsBusy = false;
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]
         async Task SwitchRoleAsync()
         {
             IsBusy = true;
-            Role = Roles.ChangeRole(Role);
-            await _userService.ChangeRole(_user.UserName, Role);
-            IsBusy = false;
+            try
+            {
+                Role = Roles.ChangeRole(Role);
+                await _userService.ChangeRole(_user.UserName, Role);
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

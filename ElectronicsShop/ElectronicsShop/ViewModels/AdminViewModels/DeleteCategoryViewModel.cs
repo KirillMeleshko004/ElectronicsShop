@@ -34,14 +34,38 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         public async void GetCategories()
         {
-            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
+            IsBusy = true;
+            try
+            {
+                Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         async void SelectionChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName != nameof(CategoryName)) return;
-            ImageURI = (await _categoryService.GetCategoryInfo(CategoryName)).ImageURI;
-            IsSelected = true;
+            IsBusy = true;
+            try
+            {
+                if (e.PropertyName != nameof(CategoryName)) return;
+                ImageURI = (await _categoryService.GetCategoryInfo(CategoryName)).ImageURI;
+                IsSelected = true;
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
 
@@ -49,10 +73,20 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         public async Task Delete()
         {
             IsBusy = true;
-            await _categoryService.RemoveCategory(await _categoryService.GetCategoryInfo(CategoryName));
-            await Shell.Current.DisplayAlert("Success", "Category deleted", "Ok");
-            await Shell.Current.GoToAsync("..");
-            IsBusy = false;
+            try
+            {
+                await _categoryService.RemoveCategory(await _categoryService.GetCategoryInfo(CategoryName));
+                await Shell.Current.DisplayAlert("Success", "Category deleted", "Ok");
+                await Shell.Current.GoToAsync("..");
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

@@ -19,8 +19,18 @@
         async Task RequestCancellationAsync()
         {
             IsBusy = true;
-            CurrentOrder = await _orderService.ChangeStatusAsync(CurrentOrder.OrderId, OrderStatus.CANCELLATION_REQUESTED);
-            IsBusy = false;
+            try
+            {
+                CurrentOrder = await _orderService.ChangeStatusAsync(CurrentOrder.OrderId, OrderStatus.CANCELLATION_REQUESTED);
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

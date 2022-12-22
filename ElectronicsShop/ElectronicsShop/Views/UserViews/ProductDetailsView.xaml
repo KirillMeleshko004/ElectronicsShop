@@ -27,7 +27,7 @@
                                 Opacity="0.8"/>
                     </Border.Shadow>
                     <Image Source="{Binding CurrentProduct.ImageURI}"
-                           HeightRequest="250"
+                           HeightRequest="300"
                            VerticalOptions="FillAndExpand"
                            HorizontalOptions="FillAndExpand"
                            Aspect="AspectFit"/>

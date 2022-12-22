@@ -35,9 +35,21 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         }
         public async void RefreshAsync()
         {
-            Categories = (await _categoryService.GetCategories()).ToObservableCollection();
+            IsBusy = true;
+            try
+            {
+                Categories = (await _categoryService.GetCategories()).ToObservableCollection();
 
-            Products = (await _productsService.GetProductsAsync()).ToObservableCollection();
+                Products = (await _productsService.GetProductsAsync()).ToObservableCollection();
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

@@ -40,7 +40,19 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         public async void GetCategories()
         {
-            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
+            IsBusy = true;
+            try
+            {
+                Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         async void SelectionChanged(object sender, PropertyChangedEventArgs e)
@@ -72,10 +84,20 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         public async Task Confirm()
         {
             IsBusy = true;
-            await _categoryService.ChangeCategory(PrevSelection, CategoryName, _image);
-            await Shell.Current.DisplayAlert("Success", "Category deleted", "Ok");
-            await Shell.Current.GoToAsync("..");
-            IsBusy = false;
+            try
+            {
+                await _categoryService.ChangeCategory(PrevSelection, CategoryName, _image);
+                await Shell.Current.DisplayAlert("Success", "Category changed", "Ok");
+                await Shell.Current.GoToAsync("..");
+            }
+            catch
+            {
+                ConnectionErrorView.ShowErrorMessage();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }
