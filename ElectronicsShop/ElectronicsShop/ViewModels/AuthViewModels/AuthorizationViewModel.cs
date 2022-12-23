@@ -1,9 +1,4 @@
-﻿using CommunityToolkit.Maui.Alerts;
-using CommunityToolkit.Maui.Core;
-using ElectronicsShop.Views.ErrorViews;
-using System.Diagnostics;
-
-namespace ElectronicsShop.ViewModels.AuthViewModels
+﻿namespace ElectronicsShop.ViewModels.AuthViewModels
 {
     public partial class AuthorizationViewModel : BaseViewModel
     {
@@ -28,37 +23,24 @@ namespace ElectronicsShop.ViewModels.AuthViewModels
         public async Task SignIn()
         {
             IsBusy = true;
-            try
+            if(!NetworkCheckerService.CheckConnection())
             {
-                AccountInfo accountInfo = await authorizationService.AuthUserAsync(Login, Password);
-                if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
-                {
-                    IsSuccessful = true;
-                    IsFailed = false;
-                    App.UserName = accountInfo.Login;
-                    if (accountInfo.Role == Roles.Admin)
-                        App.Current.MainPage = new AdminShell();
-                    else
-                        App.Current.MainPage = new AppShell();
-                }
-                else
-                {
-                    IsSuccessful = false;
-                    ErrorMessage = accountInfo.ErrorMessage;
-                    IsFailed = true;
-                    Password = string.Empty;
-                }
-            }
-
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-                ErrorMessage = null;
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+            AccountInfo accountInfo = await authorizationService.AuthUserAsync(Login, Password);
+            if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
+            {
+                IsSuccessful = true;
+                IsFailed = false;
+                App.UserName = accountInfo.Login;
+                if (accountInfo.Role == Roles.Admin)
+                    App.Current.MainPage = new AdminShell();
+                else
+                    App.Current.MainPage = new AppShell();
+            }
+            IsBusy = false;
         }
         [RelayCommand]
         async Task SignUp()

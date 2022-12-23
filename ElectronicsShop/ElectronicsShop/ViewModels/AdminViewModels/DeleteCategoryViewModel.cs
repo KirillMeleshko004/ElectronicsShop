@@ -34,59 +34,38 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         public async void GetCategories()
         {
-            IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                return;
             }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
         }
 
         async void SelectionChanged(object sender, PropertyChangedEventArgs e)
         {
-            IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                if (e.PropertyName != nameof(CategoryName)) return;
-                ImageURI = (await _categoryService.GetCategoryInfo(CategoryName)).ImageURI;
-                IsSelected = true;
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                return;
             }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            ImageURI = (await _categoryService.GetCategoryInfo(CategoryName)).ImageURI;
+            IsSelected = true;
         }
 
 
         [RelayCommand]
         public async Task Delete()
         {
-            IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                await _categoryService.RemoveCategory(await _categoryService.GetCategoryInfo(CategoryName));
-                await Shell.Current.DisplayAlert("Success", "Category deleted", "Ok");
-                await Shell.Current.GoToAsync("..");
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                return;
             }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+
+            await _categoryService.RemoveCategory(await _categoryService.GetCategoryInfo(CategoryName));
+            await Shell.Current.DisplayAlert("Success", "Category deleted", "Ok");
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

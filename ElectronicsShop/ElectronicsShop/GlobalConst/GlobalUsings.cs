@@ -12,4 +12,3 @@ global using ElectronicsShop.ViewModels.UserViewModels;
 global using ElectronicsShop.Views.AdminViews;
 global using ElectronicsShop.Views.AuthViews;
 global using ElectronicsShop.Views.UserViews;
-global using ElectronicsShop.Views.ErrorViews;

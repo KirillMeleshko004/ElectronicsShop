@@ -41,7 +41,8 @@
                                     Stroke="Transparent"
                                     HorizontalOptions="Start"
                                     Margin="20,0"
-                                    BackgroundColor="Transparent">
+                                    BackgroundColor="Transparent"
+                                    Padding="5">
                                 <Border.Shadow>
                                     <Shadow Brush="{StaticResource Primary}"
                                             Offset="20,20"

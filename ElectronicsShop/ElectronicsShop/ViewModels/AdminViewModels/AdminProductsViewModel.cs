@@ -26,20 +26,16 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         public async void RefreshAsync()
         {
-            IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                Products = (await _productsService.GetProductsAsync()).ToObservableCollection<Product>();
-                if (Products.Count != 0) IsEmpty = false;
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                return;
             }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+
+            Products = (from product in await _productsService.GetProductsAsync()
+                        orderby product.ProductName
+                        select product).ToObservableCollection<Product>();
+            if (Products.Count != 0) IsEmpty = false;
         }
 
         [RelayCommand]
@@ -54,44 +50,32 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         async Task DeleteProduct(Product product)
         {
             IsBusy = true;
-            try
+
+            if (!NetworkCheckerService.CheckConnection())
             {
-                bool choice = await Shell.Current.DisplayAlert("Are you sure?!",
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                IsBusy = false;
+                return;
+            }
+
+            bool choice = await Shell.Current.DisplayAlert("Are you sure?!",
                     $"Product {product.ProductName} will be deleted",
                     "Confirm",
                     "Cancel");
-                if (choice) await _productsService.DeleteProductAsync(product);
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            if (choice) await _productsService.DeleteProductAsync(product);
+            IsBusy = false;
         }
 
         [RelayCommand]
         async Task ChangeProduct(Product product)
         {
             IsBusy = true;
-            try
-            {
-                await Shell.Current.GoToAsync($"{nameof(ProductChangingView)}",
-                    new Dictionary<string, object>
-                    {
-                        ["Product"] = product
-                    });
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            await Shell.Current.GoToAsync($"{nameof(ProductChangingView)}",
+                new Dictionary<string, object>
+                {
+                    ["Product"] = product
+                });
+            IsBusy = false;
         }
 
         void ProductChanged(object sender, ProductEventArgs e)

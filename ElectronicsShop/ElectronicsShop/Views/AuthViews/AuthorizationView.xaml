@@ -13,19 +13,20 @@
         <mct:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
                                StatusBarStyle="DarkContent"/>
     </Page.Behaviors>
-    <VerticalStackLayout Padding="10,0" Spacing="10">
-        <Image Source="{Static globalconst:Icons.Logo}"
+    <ScrollView>
+        <VerticalStackLayout Padding="10,0" Spacing="10">
+            <Image Source="{Static globalconst:Icons.Logo}"
                WidthRequest="403"
                Margin="0,-68"/>
-        <Label Text="{Binding ErrorMessage}"
+            <Label Text="{Binding ErrorMessage}"
                TextColor="{StaticResource ErrorMessageTextColor}"
                HorizontalTextAlignment="Start"
                Margin="10,0,0,-5"
                IsVisible="{Binding IsFailed}"
                FontSize="Small"/>
-        <Frame BorderColor="Transparent"
+            <Frame BorderColor="Transparent"
                HeightRequest="55">
-            <Entry Placeholder="Login"
+                <Entry Placeholder="Login"
                    PlaceholderColor="{StaticResource PrimaryTextColor}"
                    FontSize="Medium"
                    HorizontalOptions="Fill"
@@ -33,12 +34,12 @@
                    Text="{Binding Login, Mode=TwoWay}"
                    TextColor="{StaticResource PrimaryTextColor}"
                    Margin="0,-20"/>
-        </Frame>
-        <Frame BorderColor="Transparent"
+            </Frame>
+            <Frame BorderColor="Transparent"
                Padding="20,10"
                HeightRequest="55"
                VerticalOptions="Start">
-            <Entry Placeholder="Password"
+                <Entry Placeholder="Password"
                    PlaceholderColor="{StaticResource PrimaryTextColor}"
                    FontSize="Medium"
                    HorizontalOptions="Fill"
@@ -47,41 +48,42 @@
                    Text="{Binding Password, Mode=TwoWay}"
                    TextColor="{StaticResource PrimaryTextColor}"
                    Margin="0,-20"/>
-        </Frame>
-        <HorizontalStackLayout HorizontalOptions="Start" Spacing="45"
+            </Frame>
+            <HorizontalStackLayout HorizontalOptions="Start" Spacing="45"
                                IsEnabled="{Binding IsNotBusy}">
-            <Label Text="New user? Sign Up"
+                <Label Text="New user? Sign Up"
                    TextDecorations="Underline"
                    FontSize="Small"
                    Margin="10,2,0,8">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
-                </Label.GestureRecognizers>
-            </Label>
-        </HorizontalStackLayout>
-        <Frame HeightRequest="50"
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+            <Frame HeightRequest="50"
                WidthRequest="250"
                BorderColor="Transparent"
                IsEnabled="{Binding IsNotBusy}"
                Padding="-5">
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding SignInCommand}"
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignInCommand}"
                                       Tapped="TapGestureRecognizer_Tapped"/>
-            </Frame.GestureRecognizers>
-            <Grid BackgroundColor="Transparent">
-                <ActivityIndicator IsVisible="{Binding IsBusy}"
+                </Frame.GestureRecognizers>
+                <Grid BackgroundColor="Transparent">
+                    <ActivityIndicator IsVisible="{Binding IsBusy}"
                                    IsRunning="{Binding IsBusy}"
                                    Color="{StaticResource Secondary}"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center"
                                    HeightRequest="35"/>
-                <Label Text="Sign In"
+                    <Label Text="Sign In"
                        FontSize="Medium"
                        TextColor="{StaticResource PrimaryTextColor}"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
                        IsVisible="{Binding IsNotBusy}"/>
-            </Grid>
-        </Frame>
-    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

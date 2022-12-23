@@ -31,96 +31,78 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         }
         public async void ProductPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            IsBusy = true;
-            try
+            if (e.PropertyName != nameof(CurrentProduct)) return;
+
+            if (!NetworkCheckerService.CheckConnection())
             {
-                if (e.PropertyName != nameof(CurrentProduct)) return;
-                InCart = await _cartService.IsProductInCartOfUser(App.UserName, CurrentProduct);
-                IsFavouriteForUser = await _favouritesService.IsProductFavouriteForUserAsync(App.UserName, CurrentProduct);
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                return;
             }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            InCart = await _cartService.IsProductInCartOfUser(App.UserName, CurrentProduct);
+            IsFavouriteForUser = await _favouritesService.IsProductFavouriteForUserAsync(App.UserName, CurrentProduct);
         }
 
         [RelayCommand]
         async Task AddToCart(Product product)
         {
             IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                await _cartService.AddProductToCartAsync(App.UserName, new CartProduct(product) { Quantity = 0 });
-
-
-                string text = "Added to cart";
-                await Toast.Make(text, ToastDuration.Short).Show();
-
-                InCart = true;
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+            await _cartService.AddProductToCartAsync(App.UserName, new CartProduct(product) { Quantity = 0 });
+
+
+            string text = "Added to cart";
+            await Toast.Make(text, ToastDuration.Short).Show();
+
+            InCart = true;
+            IsBusy = false;
         }
 
         [RelayCommand]
         async Task RemoveFromCart(Product product)
         {
             IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                await _cartService.FullRemoveProductAsync(App.UserName, (product));
-
-
-                string text = "Removed from cart";
-                await Toast.Make(text, ToastDuration.Short).Show();
-
-                InCart = false;
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+            await _cartService.FullRemoveProductAsync(App.UserName, (product));
+
+
+            string text = "Removed from cart";
+            await Toast.Make(text, ToastDuration.Short).Show();
+
+            InCart = false;
+            IsBusy = false;
         }
 
         [RelayCommand]
         async Task AddToFavourites()
         {
             IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                if (IsFavouriteForUser)
-                    await _favouritesService.DeleteFromFavouritesAsync(App.UserName, CurrentProduct);
-                else await _favouritesService.SetFavouriteAsync(App.UserName, CurrentProduct);
-                IsFavouriteForUser = !IsFavouriteForUser;
-
-                string message;
-                if (IsFavouriteForUser)
-                    message = "Added to favourites";
-                else message = "Removed from favourites";
-                await Toast.Make(message, ToastDuration.Short).Show();
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+            if (IsFavouriteForUser)
+                await _favouritesService.DeleteFromFavouritesAsync(App.UserName, CurrentProduct);
+            else await _favouritesService.SetFavouriteAsync(App.UserName, CurrentProduct);
+            IsFavouriteForUser = !IsFavouriteForUser;
+
+            string message;
+            if (IsFavouriteForUser)
+                message = "Added to favourites";
+            else message = "Removed from favourites";
+            await Toast.Make(message, ToastDuration.Short).Show();
+            IsBusy = false;
         }
     }
 }

@@ -19,18 +19,14 @@
         async Task RequestCancellationAsync()
         {
             IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                CurrentOrder = await _orderService.ChangeStatusAsync(CurrentOrder.OrderId, OrderStatus.CANCELLATION_REQUESTED);
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+            CurrentOrder = await _orderService.ChangeStatusAsync(CurrentOrder.OrderId, OrderStatus.CANCELLATION_REQUESTED);
+            IsBusy = false;
         }
     }
 }

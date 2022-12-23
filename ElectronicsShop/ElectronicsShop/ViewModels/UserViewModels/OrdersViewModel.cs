@@ -29,20 +29,13 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         }
         public async void RefreshAsync()
         {
-            IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                if (string.IsNullOrEmpty(UserName)) return;
-                Orders = new ObservableCollection<Order>(await _orderService.GetOrdersAsync(UserName));
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                return;
             }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            if (string.IsNullOrEmpty(UserName)) return;
+            Orders = new ObservableCollection<Order>(await _orderService.GetOrdersAsync(UserName));
         }
 
         void OrdersChanged(object sender, PropertyChangedEventArgs e)

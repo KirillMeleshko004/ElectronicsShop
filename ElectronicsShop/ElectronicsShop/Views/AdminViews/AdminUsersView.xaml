@@ -3,43 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:ElectronicsShop.Models"
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AdminViewModels"
-             xmlns:searchhandlers="clr-namespace:ElectronicsShop.SearchHandlers"
              xmlns:globalconst="clr-namespace:ElectronicsShop.GlobalConst"
              x:Class="ElectronicsShop.Views.AdminViews.AdminUsersView"
-             Title="AdminUsersView"
+             Title="Users"
              x:DataType="viewmodel:AdminUsersViewModel">
-    <Shell.SearchHandler>
-        <searchhandlers:UserSearchHandler x:Name="searh"
-                                             Placeholder="Search"
-                                             FontSize="Medium"
-                                             TextColor="White"
-                                             ShowsResults="True"
-                                             DisplayMemberName="ProductName"
-                                             Users="{Binding Users}"
-                                             BackgroundColor="{StaticResource Primary}"
-                                             SearchBoxVisibility="Collapsible"
-                                             ClearIcon="{Static globalconst:Icons.DeleteTextIcon}"
-                                             QueryIcon="{Static globalconst:Icons.SearchIcon}">
-            <searchhandlers:UserSearchHandler.ItemTemplate>
-                <DataTemplate x:DataType="model:User">
-                    <Grid HeightRequest="60" Padding="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="2.5*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{Binding UID, StringFormat='Id: {0}'}"
-                               FontSize="Medium"
-                               VerticalOptions="Center"/>
-                        <Label Text="{Binding UserName, StringFormat='User: {0}'}"
-                               Grid.Column="1"
-                               FontSize="Medium"
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"/>
-                    </Grid>
-                </DataTemplate>
-            </searchhandlers:UserSearchHandler.ItemTemplate>
-        </searchhandlers:UserSearchHandler>
-    </Shell.SearchHandler>
     <CollectionView ItemsSource="{Binding Users}">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:User">

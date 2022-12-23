@@ -5,8 +5,9 @@
         public async Task CheckoutAsync(string userName, List<CartProduct> products, string address, string email, double totalPrice)
         {
             var orders = await DataSourceService<Order>.GetDataAsync();
-            int newId = (from order in orders select order.OrderId)?.Max() ?? 1;
-            Order newOrder = new Order
+            
+            int newId = orders.Count() == 0 ? 1 : (from order in orders select order.OrderId).Max() + 1;
+            Order newOrder = new()
             {
                 Products = products, 
                 OrderTime = DateTime.Now,

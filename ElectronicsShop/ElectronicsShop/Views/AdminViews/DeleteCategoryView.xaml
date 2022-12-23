@@ -4,7 +4,7 @@
              xmlns:viewmodel="clr-namespace:ElectronicsShop.ViewModels.AdminViewModels"
              xmlns:model="clr-namespace:ElectronicsShop.Models"
              x:Class="ElectronicsShop.Views.AdminViews.DeleteCategoryView"
-             Title="DeleteCategoryViewCategory deletion"
+             Title="Category deletion"
              x:DataType="viewmodel:DeleteCategoryViewModel">
     <VerticalStackLayout Padding="10" Spacing="5">
         <Picker Title="Choose category"

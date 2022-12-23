@@ -25,6 +25,7 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             ObservableCollection<Product> categoryProducts = (from product in Products
                                                               where product.ProductCategory == category.CategoryName
+                                                              orderby product.ProductName
                                                               select product).ToObservableCollection<Product>();
             await Shell.Current.GoToAsync($"{nameof(ProductsListView)}",
                 new Dictionary<string, object>
@@ -35,21 +36,15 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         }
         public async void RefreshAsync()
         {
-            IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                Categories = (await _categoryService.GetCategories()).ToObservableCollection();
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                return;
+            }
 
-                Products = (await _productsService.GetProductsAsync()).ToObservableCollection();
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            Categories = (await _categoryService.GetCategories()).ToObservableCollection();
+
+            Products = (await _productsService.GetProductsAsync()).ToObservableCollection();
         }
     }
 }

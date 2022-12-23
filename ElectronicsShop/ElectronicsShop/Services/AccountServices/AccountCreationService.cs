@@ -8,11 +8,11 @@
             if (state != AccountErrorMessages.SUCCESS) return new AccountInfo(null, null, state);
 
             IEnumerable<UserData> accounts = await DataSourceService<UserData>.GetDataAsync();
-            if ((from acc in accounts where acc.UserName == login select acc).Any())
+            if (accounts.Count() != 0 && (from acc in accounts where acc.UserName == login select acc).Any())
                 return new AccountInfo(null, null, AccountErrorMessages.SAME_LOGIN_EXIST);
 
             string role = accounts.Any() ? Roles.User : Roles.Admin;
-            int newId = (from account in accounts select account.UID)?.Max() + 1 ?? 1;
+            int newId = accounts.Count() == 0 ? 1 : (from account in accounts select account.UID).Max() + 1;
 
             UserData newUser = new()
             {

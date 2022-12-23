@@ -34,59 +34,49 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         async Task RemoveProduct(CartProduct product)
         {
             IsBusy = true;
-            try
+
+            if (!NetworkCheckerService.CheckConnection())
             {
-                CartProduct remProd = await _cartService.RemoveProductFromCartAsync(App.UserName, product);
-                if (remProd.Quantity == 0) Products.Remove(product);
-                else Products[Products.IndexOf(product)] = remProd;
-                IsEmpty = !Products.Any();
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+
+            CartProduct remProd = await _cartService.RemoveProductFromCartAsync(App.UserName, product);
+            if (remProd.Quantity == 0) Products.Remove(product);
+            else Products[Products.IndexOf(product)] = remProd;
+            IsEmpty = !Products.Any();
+            IsBusy = false;
         }
         [RelayCommand]
         async Task FullyRemoveProduct(CartProduct product)
         {
             IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                await _cartService.FullRemoveProductAsync(App.UserName, product);
-                Products.Remove(product);
-                IsEmpty = !Products.Any();
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+            await _cartService.FullRemoveProductAsync(App.UserName, product);
+            Products.Remove(product);
+            IsEmpty = !Products.Any();
+            IsBusy = false;
         }
 
         [RelayCommand]
         async Task AddProduct(CartProduct product)
         {
             IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                CartProduct newProd = await _cartService.AddProductToCartAsync(App.UserName, product);
-                Products[Products.IndexOf(product)] = newProd;
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+            CartProduct newProd = await _cartService.AddProductToCartAsync(App.UserName, product);
+            Products[Products.IndexOf(product)] = newProd;
+            IsBusy = false;
         }
 
         [RelayCommand]

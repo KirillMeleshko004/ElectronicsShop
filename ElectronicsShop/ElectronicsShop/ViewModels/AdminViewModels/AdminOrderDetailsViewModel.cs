@@ -48,22 +48,19 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         async Task ChangeStatusAsync()
         {
             IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                await _orderService.ChangeStatusAsync(CurrentOrder.OrderId, Status);
-                _oldStatus = Status;
-                string text = "Status changed";
-                await Toast.Make(text, ToastDuration.Short).Show();
-                IsChanged = false;
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+
+            await _orderService.ChangeStatusAsync(CurrentOrder.OrderId, Status);
+            _oldStatus = Status;
+            string text = "Status changed";
+            await Toast.Make(text, ToastDuration.Short).Show();
+            IsChanged = false;
+            IsBusy = false;
         }
     }
 }

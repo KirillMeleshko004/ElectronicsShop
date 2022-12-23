@@ -49,26 +49,20 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         public async void GetCategories()
         {
-            IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                Categories = (from category in await _categoryService.GetCategories() select category.CategoryName).ToObservableCollection();
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                return;
             }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+
+            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName).ToObservableCollection();
         }
         private void CategoryChanged(object sender, EventArgs e)
         {
             GetCategories();
         }
 
-        void ProductChanged(object sender, PropertyChangedEventArgs e)
+        private void ProductChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(Product)) return;
             ProductName = Product.ProductName;
@@ -100,27 +94,26 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         public async Task ChangeProduct()
         {
             IsBusy = true;
-            try
-            {
-                Product.ProductName = ProductName;
-                Product.ProductCategory = ProductCategory;
-                Product.Manufacturer = Manufacturer;
-                Product.Price = Double.Parse(Price);
-                Product.Description = Description;
-                Product.ImageURI = ImageURI;
 
-                await _productsService.ChangeProductAsync(Product, _image, _oldImage);
-                await Shell.Current.DisplayAlert("Success", "Product changed", "Ok");
-                await Shell.Current.GoToAsync("..");
-            }
-            catch
+            if (!NetworkCheckerService.CheckConnection())
             {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+
+            Product.ProductName = ProductName;
+            Product.ProductCategory = ProductCategory;
+            Product.Manufacturer = Manufacturer;
+            Product.Price = Double.Parse(Price);
+            Product.Description = Description;
+            Product.ImageURI = ImageURI;
+
+            await _productsService.ChangeProductAsync(Product, _image, _oldImage);
+            await Shell.Current.DisplayAlert("Success", "Product changed", "Ok");
+            await Shell.Current.GoToAsync("..");
+
+            IsBusy = false;
         }
 
         [RelayCommand]

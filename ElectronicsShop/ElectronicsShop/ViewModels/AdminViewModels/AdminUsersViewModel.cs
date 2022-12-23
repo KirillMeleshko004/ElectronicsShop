@@ -17,19 +17,13 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         }
         public async void RefreshAsync()
         {
-            IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                Users = (await _userService.GetUsersAsync()).ToObservableCollection();
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                return;
             }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+
+            Users = (await _userService.GetUsersAsync()).ToObservableCollection();
         }
 
         [RelayCommand]

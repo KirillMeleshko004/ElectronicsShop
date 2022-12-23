@@ -40,34 +40,30 @@
         public async Task CahngePassword()
         {
             IsBusy = true;
-
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                AccountInfo accountInfo = await _passwordChangingService.ChangePasswordAsync(App.UserName, OldPassword, NewPassword, RepeatPassword);
-                if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
-                {
-                    IsSuccessful = true;
-                    IsFailed = false;
-                }
-                else
-                {
-                    IsSuccessful = false;
-                    ErrorMessage = accountInfo.ErrorMessage;
-                    IsFailed = true;
-                }
-                OldPassword = string.Empty;
-                NewPassword = string.Empty;
-                RepeatPassword = string.Empty;
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-                ErrorMessage = null;
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+
+            AccountInfo accountInfo = await _passwordChangingService.ChangePasswordAsync(App.UserName, OldPassword, NewPassword, RepeatPassword);
+            if (accountInfo.ErrorMessage == AccountErrorMessages.SUCCESS)
+            {
+                IsSuccessful = true;
+                IsFailed = false;
+            }
+            else
+            {
+                IsSuccessful = false;
+                ErrorMessage = accountInfo.ErrorMessage;
+                IsFailed = true;
+            }
+            OldPassword = string.Empty;
+            NewPassword = string.Empty;
+            RepeatPassword = string.Empty;
+
+            IsBusy = false;
         }
         public void RefreshAsync()
         {

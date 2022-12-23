@@ -21,9 +21,16 @@
             <Label Text="Status: "
                    FontSize="Medium"
                    VerticalOptions="Center"/>
-            <Picker ItemsSource="{Static globalconst:OrderStatus.STATUSES}"
-                    SelectedItem="{Binding Status, Mode=TwoWay}"
-                    FontSize="Medium"/>
+
+            <Border StrokeShape="RoundRectangle 15"
+                    BackgroundColor="Transparent"
+                    Padding="5,0"
+                    Margin="0,-5"
+                    Stroke="{StaticResource Primary}">
+                <Picker ItemsSource="{Static globalconst:OrderStatus.STATUSES}"
+                        SelectedItem="{Binding Status, Mode=TwoWay}"
+                        FontSize="Medium"/>
+            </Border>
         </HorizontalStackLayout>
         <Label Text = "{Binding CurrentOrder.Address, StringFormat='Shipping address: {0}'}"
                FontSize="Medium"

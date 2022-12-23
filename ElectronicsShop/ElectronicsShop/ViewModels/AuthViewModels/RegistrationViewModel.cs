@@ -1,8 +1,4 @@
-﻿using ElectronicsShop.Models;
-using ElectronicsShop.Services.AccountServices;
-using ElectronicsShop.Views.ErrorViews;
-
-namespace ElectronicsShop.ViewModels.AuthViewModels
+﻿namespace ElectronicsShop.ViewModels.AuthViewModels
 {
     public partial class RegistrationViewModel : BaseViewModel
     {
@@ -29,26 +25,22 @@ namespace ElectronicsShop.ViewModels.AuthViewModels
         async Task CreateAccount()
         {
             IsBusy = true;
-
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                AccountInfo accountInfo = await _accountCreationService.RegisterUserAsync(Login, Password, RepeatPassword);
-                if (accountInfo.ErrorMessage != AccountErrorMessages.SUCCESS)
-                {
-                    IsSuccessful = false;
-                    ErrorMessage = accountInfo.ErrorMessage;
-                }
-                else IsSuccessful = true;
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-                ErrorMessage = null;
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+
+            AccountInfo accountInfo = await _accountCreationService.RegisterUserAsync(Login, Password, RepeatPassword);
+            if (accountInfo.ErrorMessage != AccountErrorMessages.SUCCESS)
+            {
+                IsSuccessful = false;
+                ErrorMessage = accountInfo.ErrorMessage;
+            }
+            else IsSuccessful = true;
+
+            IsBusy = false;
         }
 
         [RelayCommand]

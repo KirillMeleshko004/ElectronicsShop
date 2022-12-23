@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace ElectronicsShop.ViewModels.AdminViewModels
 {
-    [QueryProperty(nameof(User),nameof(User))]
+    [QueryProperty(nameof(User), nameof(User))]
     public partial class UserDetailsViewModel : BaseViewModel
     {
         [ObservableProperty]
@@ -35,45 +35,40 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         async Task DeleteUserAsync()
         {
             IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                bool choice = await Shell.Current.DisplayAlert("Are you sure?!",
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                IsBusy = false;
+                return;
+            }
+
+            bool choice = await Shell.Current.DisplayAlert("Are you sure?!",
                     $"User {User.UserName} will be deleted",
                     "Confirm",
                     "Cancel");
-                if (choice)
-                {
-                    await _userService.DeleteAccount(_user.UserName);
-                    await Shell.Current.GoToAsync("..");
-                }
-            }
-            catch
+            if (choice)
             {
-                ConnectionErrorView.ShowErrorMessage();
+                await _userService.DeleteAccount(_user.UserName);
+                await Shell.Current.GoToAsync("..");
             }
-            finally
-            {
-                IsBusy = false;
-            }
+
+            IsBusy = false;
         }
 
         [RelayCommand]
         async Task SwitchRoleAsync()
         {
             IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                Role = Roles.ChangeRole(Role);
-                await _userService.ChangeRole(_user.UserName, Role);
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+
+            Role = Roles.ChangeRole(Role);
+            await _userService.ChangeRole(_user.UserName, Role);
+            IsBusy = false;
         }
     }
 }

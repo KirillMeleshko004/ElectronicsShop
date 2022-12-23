@@ -36,47 +36,41 @@ namespace ElectronicsShop.ViewModels.UserViewModels
         {
             IsBusy = true;
 
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                ErrorMessage = await _addressService.ValidateAddressAsync(Country, City, Street, BuildingNumber, Postalcode);
-                if (ErrorMessage != AddressErrorMessages.SUCCESS)
-                {
-                    IsFailed = true;
-                    IsBusy = false;
-                    return;
-                }
-                IsFailed = false;
-                await GoBack(_addressService.GetFormattedAddress(Country, City, Street,
-                    BuildingNumber, ApartmentNumber, Postalcode));
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+            ErrorMessage = await _addressService.ValidateAddressAsync(Country, City, Street, BuildingNumber, Postalcode);
+            if (ErrorMessage != AddressErrorMessages.SUCCESS)
+            {
+                IsFailed = true;
+                IsBusy = false;
+                return;
+            }
+            IsFailed = false;
+            await GoBack(_addressService.GetFormattedAddress(Country, City, Street,
+                BuildingNumber, ApartmentNumber, Postalcode));
+            IsBusy = false;
         }
 
         [RelayCommand]
         async Task SuggestPostalCode()
         {
             IsBusy = true;
-            try
+
+            if (!NetworkCheckerService.CheckConnection())
             {
-                Postalcode = await _addressService.GetPostcode(Country, City, Street, BuildingNumber);
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+
+            Postalcode = await _addressService.GetPostcode(Country, City, Street, BuildingNumber);
+            IsBusy = false;
         }
-        
+
         [ObservableProperty]
         bool isNotEmpty = false;
 

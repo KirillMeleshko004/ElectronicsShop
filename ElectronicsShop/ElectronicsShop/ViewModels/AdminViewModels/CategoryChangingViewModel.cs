@@ -40,24 +40,25 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
 
         public async void GetCategories()
         {
-            IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                return;
             }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+
+            Categories = (from category in await _categoryService.GetCategories() select category.CategoryName)?.ToObservableCollection();
         }
 
         async void SelectionChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(PrevSelection)) return;
+
+            if (!NetworkCheckerService.CheckConnection())
+            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
+                IsBusy = false;
+                return;
+            }
 
             CategoryName = PrevSelection;
             _selection = await _categoryService.GetCategoryInfo(CategoryName);
@@ -84,20 +85,17 @@ namespace ElectronicsShop.ViewModels.AdminViewModels
         public async Task Confirm()
         {
             IsBusy = true;
-            try
+            if (!NetworkCheckerService.CheckConnection())
             {
-                await _categoryService.ChangeCategory(PrevSelection, CategoryName, _image);
-                await Shell.Current.DisplayAlert("Success", "Category changed", "Ok");
-                await Shell.Current.GoToAsync("..");
-            }
-            catch
-            {
-                ConnectionErrorView.ShowErrorMessage();
-            }
-            finally
-            {
+                NetworkCheckerService.ShowNewtworkErrorMessage();
                 IsBusy = false;
+                return;
             }
+
+            await _categoryService.ChangeCategory(PrevSelection, CategoryName, _image);
+            await Shell.Current.DisplayAlert("Success", "Category changed", "Ok");
+            await Shell.Current.GoToAsync("..");
+            IsBusy = false;
         }
     }
 }
