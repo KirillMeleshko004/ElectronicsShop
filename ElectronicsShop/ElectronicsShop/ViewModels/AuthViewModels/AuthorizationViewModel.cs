@@ -40,6 +40,13 @@
                 else
                     App.Current.MainPage = new AppShell();
             }
+            else
+            {
+                IsSuccessful = false;
+                ErrorMessage = accountInfo.ErrorMessage;
+                IsFailed = true;
+                Password = string.Empty;
+            }
             IsBusy = false;
         }
         [RelayCommand]
